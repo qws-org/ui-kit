@@ -32,13 +32,13 @@ export default defineConfig({
       entry: "src/index.ts",
       name: "MyUIKit",
       fileName: (format) => `my-ui-kit.${format}.js`,
-      formats: ["es", "cjs", "umd"],
+      formats: ["es", "cjs"],
     },
     rollupOptions: {
       plugins: [
         ignore(["*.stories.*"]), // ← не встраивать модули, чьи пути содержат ".stories."
       ],
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "decode-named-character-reference"],
       output: {
         globals: {
           react: "React",

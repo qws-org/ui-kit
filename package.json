@@ -4,7 +4,6 @@
   "description": "",
   "main": "dist/my-ui-kit.cjs.js",
   "module": "dist/my-ui-kit.es.js",
-  "browser": "dist/my-ui-kit.umd.js",
   "exports": {
     ".": {
       "import": "./dist/my-ui-kit.es.js",
