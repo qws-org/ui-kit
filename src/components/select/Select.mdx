@@ -1,0 +1,50 @@
+import { Meta, Controls, Canvas } from "@storybook/blocks";
+import * as stories from "./Select.stories";
+
+<Meta of={stories} />
+
+# Select
+
+Select — это компонент для отображения выпадающего списка с выбором опции, позволяющий пользователю выбрать один из предложенных вариантов.
+
+<Controls />
+
+## Default code example
+
+```tsx
+import { useState } from "react";
+import { Item, Key } from "react-stately";
+import { Select } from "./Select";
+
+export const Page = () => {
+  const options = [
+    { id: 1, name: "Aerospace" },
+    { id: 2, name: "Mechanical" },
+    { id: 3, name: "Civil" },
+    { id: 4, name: "Biomedical" },
+    { id: 5, name: "Nuclear" },
+    { id: 6, name: "Industrial" },
+    { id: 7, name: "Chemical" },
+    { id: 8, name: "Agricultural" },
+    { id: 9, name: "Electrical" },
+  ];
+
+  const [state, setState] = useState<Key>(options[0].id);
+
+  return (
+    <Select
+      selectedKey={state}
+      onSelectionChange={(selected) => setState(selected)}
+      items={options}
+    >
+      {(item) => (
+        <Item key={item.id}>
+          <div>{item.name}</div>
+        </Item>
+      )}
+    </Select>
+  );
+};
+```
+
+<Canvas of={stories.Default} />

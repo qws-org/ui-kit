@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks";
+import * as stories from "./Skeleton.stories";
+
+<Meta of={stories} />
+
+# Skeleton Component
+
+Компонент Skeleton используется для отображения состояния загрузки с различными конфигурациями. Он может быть настроен с помощью параметров ширины, высоты, радиуса скругления.
+
+<Controls />
+
+## Default code example
+
+```tsx
+import Skeleton from "./Skeleton";
+
+export const Page = () => {
+  return <Skeleton width="100px" height="20px" radius={4} />;
+};
+```
+
+<Canvas of={stories.Default} />
+
+## Circle skeleton code example
+
+```tsx
+import Skeleton from "./Skeleton";
+
+export const Page = () => {
+  return <Skeleton width="40px" height="40px" radius={20} />;
+};
+```
+
+<Canvas of={stories.Circle} />
+
+## Card skeleton code example
+
+```tsx
+import Skeleton from "./Skeleton";
+import { Card } from "./Card";
+
+export const Page = () => {
+  return (
+    <Card className="p-4 space-y-4 max-w-sm">
+      <Skeleton width="100%" height="180px" radius={8} />
+
+      <Skeleton width="60%" height="20px" radius={4} />
+
+      <Skeleton width="80%" height="16px" radius={4} />
+
+      <Skeleton width="70%" height="16px" radius={4} />
+
+      <Skeleton width="50%" height="36px" radius={4} />
+    </Card>
+  );
+};
+```
+
+<Canvas of={stories.CardSkeleton} />

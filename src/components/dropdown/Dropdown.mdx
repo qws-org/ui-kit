@@ -1,0 +1,239 @@
+import { Meta, Controls, Canvas } from "@storybook/blocks";
+import * as stories from "./Dropdown.stories";
+
+<Meta of={stories} />
+
+# Dropdown
+
+Компонент для группировки элементов в выпадающем меню
+
+<Controls />
+
+## Default code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+
+<Dropdown.Trigger
+  strategy="click"
+  onAction={(key) => alert(key)}
+  triggerElement={<button>Click to Open</button>}
+>
+  <Dropdown.Item key="adobe">Adobe</Dropdown.Item>
+  <Dropdown.Item key="apple">Apple</Dropdown.Item>
+  <Dropdown.Item key="google">Google</Dropdown.Item>
+  <Dropdown.Item key="microsoft">Microsoft</Dropdown.Item>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.Default} />
+
+## Section code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+
+<Dropdown.Trigger
+  strategy="click"
+  onAction={(key) => alert(key)}
+  triggerElement={<button>Click to Open</button>}
+  cols={2}
+>
+  <Dropdown.Section title="Styles">
+    <Dropdown.Item key="bold">Bold</Dropdown.Item>
+    <Dropdown.Item key="underline">Underline</Dropdown.Item>
+  </Dropdown.Section>
+  <Dropdown.Section title="Align">
+    <Dropdown.Item key="left">Left</Dropdown.Item>
+    <Dropdown.Item key="middle">Middle</Dropdown.Item>
+    <Dropdown.Item key="right">Right</Dropdown.Item>
+  </Dropdown.Section>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.Sections} />
+
+## Hover strategy code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+import { Grid } from "./Grid";
+
+<Dropdown.Trigger
+  strategy="hover"
+  onAction={(key) => alert(key)}
+  triggerElement={<div>Hover to open</div>}
+  dropdownWrapper={(wrapperProps) => (
+    <Grid gap={8} cols={2}>
+      {wrapperProps.children}
+    </Grid>
+  )}
+>
+  <Dropdown.Section title="Styles">
+    <Dropdown.Item key="italic">Italic</Dropdown.Item>
+    <Dropdown.Item key="strike">Strikethrough</Dropdown.Item>
+  </Dropdown.Section>
+  <Dropdown.Section title="Alignment">
+    <Dropdown.Item key="justify">Justify</Dropdown.Item>
+    <Dropdown.Item key="left">Left</Dropdown.Item>
+    <Dropdown.Item key="right">Right</Dropdown.Item>
+  </Dropdown.Section>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.HoverStrategy} />
+
+## Dynamic items code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+import { Grid } from "./Grid";
+
+const openWindows = [
+  {
+    name: "Left Panel",
+    id: "left",
+    children: [{ id: 1, name: "Final Copy (1)" }],
+  },
+  {
+    name: "Right Panel",
+    id: "right",
+    children: [
+      { id: 2, name: "index.tsx" },
+      { id: 3, name: "package.json" },
+      { id: 4, name: "license.txt" },
+    ],
+  },
+];
+
+return (
+  <Dropdown.Trigger
+    strategy="click"
+    onAction={(key) => alert(key)}
+    triggerElement={<div>Click me</div>}
+    dropdownWrapper={(wrapperProps) => (
+      <Grid gap={8} cols={2}>
+        {wrapperProps.children}
+      </Grid>
+    )}
+    items={openWindows}
+  >
+    {(item) => (
+      <Dropdown.Section items={item.children} title={item.name}>
+        {(sectionItem) => <Dropdown.Item>{sectionItem.name}</Dropdown.Item>}
+      </Dropdown.Section>
+    )}
+  </Dropdown.Trigger>
+);
+```
+
+<Canvas of={stories.DynamicItems} />
+
+## Items with icon code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+import { Flex } from "./Flex";
+import { UserCircle } from "~/icons";
+
+<Dropdown.Trigger
+  triggerElement={<div>Click to open</div>}
+  onAction={alert}
+  disabledKeys={["paste"]}
+>
+  <Dropdown.Item key="copy">
+    <Flex align="center" gap={16}>
+      <UserCircle viewBox="0 0 32 32" className="w-6 h-6" />
+      <div>Cope</div>
+    </Flex>
+  </Dropdown.Item>
+  <Dropdown.Item key="cut">
+    <Flex align="center" gap={16}>
+      <UserCircle viewBox="0 0 32 32" className="w-6 h-6" />
+      <div>Cut</div>
+    </Flex>
+  </Dropdown.Item>
+  <Dropdown.Item key="paste">
+    <Flex align="center" gap={16}>
+      <UserCircle viewBox="0 0 32 32" className="w-6 h-6" />
+      <div>Paste</div>
+    </Flex>
+  </Dropdown.Item>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.WithIcon} />
+
+## Link items code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+
+<Dropdown.Trigger triggerElement={<button>Click to open</button>}>
+  <Dropdown.Item href="https://adobe.com/" target="_blank">
+    Adobe
+  </Dropdown.Item>
+  <Dropdown.Item href="https://apple.com/" target="_blank">
+    Apple
+  </Dropdown.Item>
+  <Dropdown.Item href="https://google.com/" target="_blank">
+    Google
+  </Dropdown.Item>
+  <Dropdown.Item href="https://microsoft.com/" target="_blank">
+    Microsoft
+  </Dropdown.Item>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.LinkItems} />
+
+## Custom wrapper code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+import { Grid } from "./Grid";
+
+<Dropdown.Trigger
+  strategy="hover"
+  onAction={(key) => alert(key)}
+  triggerElement={<div>Hover to see</div>}
+  dropdownWrapper={(wrapperProps) => (
+    <Grid gap={8} cols={2}>
+      {wrapperProps.children}
+    </Grid>
+  )}
+>
+  <Dropdown.Section title="Styles">
+    <Dropdown.Item key="italic">Italic</Dropdown.Item>
+    <Dropdown.Item key="strike">Strikethrough</Dropdown.Item>
+  </Dropdown.Section>
+  <Dropdown.Section title="Alignment">
+    <Dropdown.Item key="justify">Justify</Dropdown.Item>
+    <Dropdown.Item key="left">Left</Dropdown.Item>
+    <Dropdown.Item key="right">Right</Dropdown.Item>
+  </Dropdown.Section>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.CustomWrapper} />
+
+## Custom offset code example
+
+```tsx
+import { Dropdown } from "./Dropdown";
+
+<Dropdown.Trigger
+  strategy="hover"
+  offset={30}
+  onAction={(key) => alert(key)}
+  triggerElement={<div>Hover to see</div>}
+>
+  <Dropdown.Section title="Alignment">
+    <Dropdown.Item key="justify">Justify</Dropdown.Item>
+    <Dropdown.Item key="left">Left</Dropdown.Item>
+    <Dropdown.Item key="right">Right</Dropdown.Item>
+  </Dropdown.Section>
+</Dropdown.Trigger>;
+```
+
+<Canvas of={stories.CustomOffset} />

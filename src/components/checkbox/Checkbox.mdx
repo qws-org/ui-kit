@@ -1,0 +1,79 @@
+import { Meta, Controls, Canvas } from "@storybook/blocks";
+import * as stories from "./Checkbox.stories";
+
+<Meta of={stories} />
+
+# Checkbox
+
+Чекбокс для контроля состояния
+
+<Controls />
+
+## Default code example
+
+```tsx
+import { Checkbox } from "~/components/checkbox/Checkbox";
+
+
+export const Page = () => {
+  const { handleSubmit, control } = useForm<FormValues>({
+  defaultValues: { isRemember: false },
+});
+
+const onSubmit = (data: FormValues): void => {
+  alert(JSON.stringify(data));
+};
+
+return (
+  <form onSubmit={handleSubmit(onSubmit)}>
+    <Controller
+      control={control}
+      name="isRemember"
+      rules={{ required: false }}
+      render={({ field, fieldState: { error } }) => (
+        <Checkbox aria-label="label" errorMessage={error?.message} {...field}>
+          Remember me
+        </Checkbox>
+      )}
+    ></Controller>
+  </form>
+);
+```
+
+<Canvas of={stories.Default} />
+
+## WithErrorMessage code example
+
+```tsx
+import { Checkbox } from "~/components/checkbox/Checkbox";
+
+
+export const Page = () => {
+const { handleSubmit, control } = useForm<FormValues>({
+  defaultValues: { isRemember: false },
+});
+
+const onSubmit = (data: FormValues): void => {
+  alert(JSON.stringify(data));
+};
+
+return (
+  <form onSubmit={handleSubmit(onSubmit)}>
+     <Controller
+      control={control}
+      name="isRemember"
+      rules={{
+        required: "Вы должны согласиться с условиями!",
+      }}
+      render={({ field, fieldState: { error } }) => (
+        <Checkbox aria-label="label" errorMessage={error?.message} {...field}>
+          Remember me
+        </Checkbox>
+      )}
+    ></Controller>
+  </form>
+)
+);
+```
+
+<Canvas of={stories.WithErrorMessage} />

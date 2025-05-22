@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks";
+import * as stories from "./Pagination.stories";
+
+<Meta of={stories} />
+
+# Pagination Component
+
+Компонент для отображения пагинации. Он позволяет пользователям переключаться между страницами и отображать количество элементов на каждой странице.
+
+<Controls />
+
+### Default code example
+
+```tsx
+import { useState } from "react";
+import { Pagination } from "./Pagination";
+import { Container } from "./Container";
+
+const Page = () => {
+  const [page, setPage] = useState(0);
+  const content = `Контент для страницы ${page + 1}`;
+
+  return (
+    <>
+      <Pagination
+        totalPages={5}
+        currentPage={page}
+        onPageChange={setPage}
+        itemsPerPage={10}
+      />
+      <Container justify="center" className="mt-20">
+        {content}
+      </Container>
+    </>
+  );
+};
+```
+
+<Canvas of={stories.Default} />
