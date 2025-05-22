@@ -18,6 +18,7 @@ export default defineConfig({
       // корень src по алиасу "~"
       "~": path.resolve(__dirname, "src"),
     },
+    mainFields: ["module", "main"],
   },
   css: {
     postcss: {
