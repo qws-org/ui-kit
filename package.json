@@ -7,7 +7,8 @@
   "exports": {
     ".": {
       "import": "./dist/my-ui-kit.es.js",
-      "require": "./dist/my-ui-kit.cjs.js"
+      "require": "./dist/my-ui-kit.cjs.js",
+      "types": "./dist/index.d.ts"
     },
     "./styles.css": "./dist/styles.css"
   },

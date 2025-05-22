@@ -77,6 +77,7 @@ export {
   Typography,
   type TypographyProps,
 } from "./components/typography/Typography";
+export { createCssVars } from "./components/ui-kit-provider/createCssVars";
 export { UIKitProvider } from "./components/ui-kit-provider/provider";
 export type * from "./components/ui-kit-provider/types";
 export { useUiKitComponents } from "./components/ui-kit-provider/useUiKitComponents";
