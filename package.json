@@ -4,6 +4,12 @@
   "description": "",
   "main": "dist/my-ui-kit.cjs.js",
   "module": "dist/my-ui-kit.es.js",
+  "browser": "dist/my-ui-kit.umd.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/my-ui-kit.es.js",
@@ -12,10 +18,6 @@
     },
     "./styles.css": "./dist/styles.css"
   },
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "type": "module",
   "sideEffects": false,
   "scripts": {
