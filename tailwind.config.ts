@@ -530,8 +530,9 @@ const generateEffectClasses = (): Array<string> => {
 };
 
 export default {
-  content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   safelist: [
+    { pattern: /.*/ },
     ...generateIndentations(),
     ...generatePosition(),
     ...generateFlex(),

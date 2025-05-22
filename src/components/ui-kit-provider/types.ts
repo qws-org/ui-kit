@@ -154,6 +154,17 @@ export type Spacing = {
 };
 
 export type ColorKeys =
+  | "text-accent-grad"
+  | "surface-primary-grad-default"
+  | "surface-primary-grad-hovered"
+  | "surface-primary-grad-pressed"
+  | "surface-primary-grad-subtle"
+  | "surface-accent1-default"
+  | "surface-accent2-default"
+  | "surface-accent1-hovered"
+  | "surface-accent2-hovered"
+  | "background-accent1"
+  | "background-accent2"
   | "background-primary"
   | "background-secondary"
   | "background-transparent"
