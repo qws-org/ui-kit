@@ -1,4 +1,9 @@
-import type { ColorKeys } from "~/components";
+import type {
+  ColorKeys,
+  FontSizeKeys,
+  FontWeightKeys,
+  LineHeightKeys,
+} from "~/components";
 
 import type { UiKitTypographyProps } from "../types";
 import { useUiKitTheme } from "../ui-kit-provider/useUiKitTheme";
@@ -19,7 +24,7 @@ type Output = {
 export const useTypography = (props: Entry): Output => {
   let classNames = "";
   const styles: Output["styles"] = {};
-  const { colors } = useUiKitTheme();
+  const { colors, fontSize, fontWeight, lineHeight } = useUiKitTheme();
   // color
   if (props.m?.color) {
     styles["--color"] = colors[props.m.color as ColorKeys] ?? props.m.color;
@@ -63,48 +68,60 @@ export const useTypography = (props: Entry): Output => {
   // ----------------------------------------------------------------------------
 
   // font-size
-  if (typeof props.m?.fontSize === "number") {
-    styles["--fs"] = props.m.fontSize;
+  if (typeof props.m?.fontSize !== "undefined") {
+    styles["--fs"] =
+      fontSize[props.m.fontSize as FontSizeKeys] ?? props.m?.fontSize;
     classNames += `[font-size:var(--fs)] `;
   }
 
   if (
-    typeof props.md?.fontSize === "number" &&
+    typeof props.md?.fontSize !== "undefined" &&
     props.md.fontSize !== props.m?.fontSize
   ) {
-    styles["--md-fs"] = props.md.fontSize;
+    styles["--md-fs"] =
+      fontSize[props.md.fontSize as FontSizeKeys] ?? props.md.fontSize;
     classNames += `md:[font-size:var(--md-fs)] `;
   }
 
   const mdFontSize = props.md?.fontSize ?? props.m?.fontSize;
 
   if (
-    typeof props.d?.fontSize === "number" &&
+    typeof props.d?.fontSize !== "undefined" &&
     props.d.fontSize !== mdFontSize
   ) {
-    styles["--d-fs"] = props.d.fontSize;
+    styles["--d-fs"] =
+      fontSize[props.d.fontSize as FontSizeKeys] ?? props.d.fontSize;
     classNames += `[font-size:var(--d-fs)] `;
   }
   // ----------------------------------------------------------------------------
 
   // hover font-size
-  if (typeof props.hover.m?.fontSize === "number") {
-    styles["--hover-fs"] = props.hover.m.fontSize;
+  if (typeof props.hover.m?.fontSize !== "undefined") {
+    styles["--hover-fs"] =
+      fontSize[props.hover.m.fontSize as FontSizeKeys] ??
+      props.hover.m?.fontSize;
     classNames += `hover:[font-size:var(--hover-fs)] `;
   }
 
   if (
-    typeof props.hover.md?.fontSize === "number" &&
+    typeof props.hover.md?.fontSize !== "undefined" &&
     props.hover.md.fontSize !== props.hover.m?.fontSize
   ) {
-    styles["--hover-md-fs"] = props.hover.md.fontSize;
+    styles["--hover-md-fs"] =
+      fontSize[props.hover.md.fontSize as FontSizeKeys] ??
+      props.hover.md.fontSize;
     classNames += `md:hover:[font-size:var(--hover-md-fs)] `;
   }
 
   const hoverMdFontSize = props.hover.md?.fontSize ?? props.hover.m?.fontSize;
 
-  if (props.hover.d?.fontSize && props.hover.d.fontSize !== hoverMdFontSize) {
-    styles["--hover-d-fs"] = props.hover.d.fontSize;
+  if (
+    typeof props.hover.d?.fontSize !== "undefined" &&
+    props.hover.d.fontSize !== hoverMdFontSize
+  ) {
+    styles["--hover-d-fs"] =
+      fontSize[props.hover.d.fontSize as FontSizeKeys] ??
+      props.hover.d.fontSize;
     classNames += `lg:hover:[font-size:var(--hover-d-fs)] `;
   }
 
@@ -112,26 +129,29 @@ export const useTypography = (props: Entry): Output => {
 
   // font-weight
 
-  if (typeof props.m?.fontWeight === "number") {
-    styles["--fw"] = props.m.fontWeight;
+  if (typeof props.m?.fontWeight !== "undefined") {
+    styles["--fw"] =
+      fontWeight[props.m?.fontWeight as FontWeightKeys] ?? props.m?.fontWeight;
     classNames += `[font-weight:var(--fw)] `;
   }
 
   if (
-    typeof props.md?.fontWeight === "number" &&
+    typeof props.md?.fontWeight !== "undefined" &&
     props.md.fontWeight !== props.m?.fontWeight
   ) {
-    styles["--md-fw"] = props.md.fontWeight;
+    styles["--md-fw"] =
+      fontWeight[props.md.fontWeight as FontWeightKeys] ?? props.md.fontWeight;
     classNames += `md:[font-weight:var(--md-fw)] `;
   }
 
   const mdFontWeight = props.md?.fontWeight ?? props.m?.fontWeight;
 
   if (
-    typeof props.d?.fontWeight === "number" &&
+    typeof props.d?.fontWeight !== "undefined" &&
     props.d.fontWeight !== mdFontWeight
   ) {
-    styles["--d-fw"] = props.d.fontWeight;
+    styles["--d-fw"] =
+      fontWeight[props.d.fontWeight as FontWeightKeys] ?? props.d.fontWeight;
     classNames += `[font-weight:var(--d-fw)] `;
   }
 
@@ -139,16 +159,20 @@ export const useTypography = (props: Entry): Output => {
 
   // hover font-weight
 
-  if (typeof props.hover.m?.fontWeight === "number") {
-    styles["--hover-fw"] = props.hover.m.fontWeight;
+  if (typeof props.hover.m?.fontWeight !== "undefined") {
+    styles["--hover-fw"] =
+      fontWeight[props.hover.m.fontWeight as FontWeightKeys] ??
+      props.hover.m.fontWeight;
     classNames += `hover:[font-weight:var(--hover-fw)] `;
   }
 
   if (
-    typeof props.hover.md?.fontWeight === "number" &&
+    typeof props.hover.md?.fontWeight !== "undefined" &&
     props.hover.md.fontWeight !== props.hover.m?.fontWeight
   ) {
-    styles["--hover-md-fw"] = props.hover.md.fontWeight;
+    styles["--hover-md-fw"] =
+      fontWeight[props.hover.md.fontWeight as FontWeightKeys] ??
+      props.hover.md.fontWeight;
     classNames += `md:hover:[font-weight:var(--hover-md-fw)] `;
   }
 
@@ -156,10 +180,12 @@ export const useTypography = (props: Entry): Output => {
     props.hover.md?.fontWeight ?? props.hover.m?.fontWeight;
 
   if (
-    props.hover.d?.fontWeight &&
+    typeof props.hover.d?.fontWeight !== "undefined" &&
     props.hover.d.fontWeight !== hoverMdFontWeight
   ) {
-    styles["--hover-d-fw"] = props.hover.d.fontWeight;
+    styles["--hover-d-fw"] =
+      fontWeight[props.hover.d.fontWeight as FontWeightKeys] ??
+      props.hover.d.fontWeight;
     classNames += `lg:hover:[font-weight:var(--hover-d-fw)] `;
   }
 
@@ -167,41 +193,48 @@ export const useTypography = (props: Entry): Output => {
 
   // line-height
 
-  if (typeof props.m?.lineHeight === "number") {
-    styles["--lh"] = props.m.lineHeight;
+  if (typeof props.m?.lineHeight !== "undefined") {
+    styles["--lh"] =
+      lineHeight[props.m.lineHeight as LineHeightKeys] ?? props.m.lineHeight;
     classNames += `[line-height:var(--lh)] `;
   }
 
   if (
-    typeof props.md?.lineHeight === "number" &&
+    typeof props.md?.lineHeight !== "undefined" &&
     props.md.lineHeight !== props.m?.lineHeight
   ) {
-    styles["--md-lh"] = props.md.lineHeight;
+    styles["--md-lh"] =
+      lineHeight[props.md.lineHeight as LineHeightKeys] ?? props.md.lineHeight;
     classNames += `md:[line-height:var(--md-lh)] `;
   }
 
   const mdLineHeight = props.md?.lineHeight ?? props.m?.lineHeight;
 
   if (
-    typeof props.d?.lineHeight === "number" &&
+    typeof props.d?.lineHeight !== "undefined" &&
     props.d.lineHeight !== mdLineHeight
   ) {
-    styles["--d-lh"] = props.d.lineHeight;
+    styles["--d-lh"] =
+      lineHeight[props.d.lineHeight as LineHeightKeys] ?? props.d.lineHeight;
     classNames += `[line-height:var(--d-lh)] `;
   }
   // ----------------------------------------------------------------------------
 
   // line-height hover
-  if (typeof props.hover.m?.lineHeight === "number") {
-    styles["--hover-lh"] = props.hover.m.lineHeight;
+  if (typeof props.hover.m?.lineHeight !== "undefined") {
+    styles["--hover-lh"] =
+      lineHeight[props.hover.m.lineHeight as LineHeightKeys] ??
+      props.hover.m.lineHeight;
     classNames += `hover:[line-height:var(--hover-lh)] `;
   }
 
   if (
-    typeof props.hover.md?.lineHeight === "number" &&
+    typeof props.hover.md?.lineHeight !== "undefined" &&
     props.hover.md.lineHeight !== props.hover.m?.lineHeight
   ) {
-    styles["--hover-md-lh"] = props.hover.md.lineHeight;
+    styles["--hover-md-lh"] =
+      lineHeight[props.hover.md.lineHeight as LineHeightKeys] ??
+      props.hover.md.lineHeight;
     classNames += `md:hover:[line-height:var(--hover-md-lh)] `;
   }
 
@@ -209,10 +242,12 @@ export const useTypography = (props: Entry): Output => {
     props.hover.md?.lineHeight ?? props.hover.m?.lineHeight;
 
   if (
-    typeof props.hover.d?.lineHeight === "number" &&
+    typeof props.hover.d?.lineHeight !== "undefined" &&
     props.hover.d?.lineHeight !== hoverMdLineHeight
   ) {
-    styles["--hover-d-lh"] = props.hover.d.lineHeight;
+    styles["--hover-d-lh"] =
+      lineHeight[props.hover.d.lineHeight as LineHeightKeys] ??
+      props.hover.d.lineHeight;
     classNames += `lg:hover:[line-height:var(--hover-d-lh)] `;
   }
   // ----------------------------------------------------------------------------

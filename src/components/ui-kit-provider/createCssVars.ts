@@ -11,154 +11,168 @@ export const createCssVars = (
 
     // fontSize desktop headline
     "--fontSize-desktop-large-headline":
-      theme.fontSize.headline.desktop.large + "px",
+      theme.fontSize["headline.desktop.large"] + "px",
     "--fontSize-desktop-medium-headline":
-      theme.fontSize.headline.desktop.medium + "px",
+      theme.fontSize["headline.desktop.medium"] + "px",
     // ------------------------------
 
     // fontSize desktop headline
     "--fontSize-mobile-large-headline":
-      theme.fontSize.headline.mobile.large + "px",
+      theme.fontSize["headline.mobile.large"] + "px",
     "--fontSize-mobile-medium-headline":
-      theme.fontSize.headline.mobile.medium + "px",
+      theme.fontSize["headline.mobile.medium"] + "px",
     // ------------------------------
 
     // fontSize desktop title
-    "--fontSize-desktop-large-title": theme.fontSize.title.desktop.large + "px",
+    "--fontSize-desktop-large-title":
+      theme.fontSize["title.desktop.large"] + "px",
     "--fontSize-desktop-medium-title":
-      theme.fontSize.title.desktop.medium + "px",
-    "--fontSize-desktop-small-title": theme.fontSize.title.desktop.small + "px",
+      theme.fontSize["title.desktop.medium"] + "px",
+    "--fontSize-desktop-small-title":
+      theme.fontSize["title.desktop.small"] + "px",
     "--fontSize-desktop-xsmall-title":
-      theme.fontSize.title.desktop.xsmall + "px",
+      theme.fontSize["title.desktop.xsmall"] + "px",
     // ------------------------------
 
     // fontSize mobile title
-    "--fontSize-mobile-large-title": theme.fontSize.title.mobile.large + "px",
-    "--fontSize-mobile-medium-title": theme.fontSize.title.mobile.medium + "px",
-    "--fontSize-mobile-small-title": theme.fontSize.title.mobile.small + "px",
-    "--fontSize-mobile-xsmall-title": theme.fontSize.title.mobile.xsmall + "px",
+    "--fontSize-mobile-large-title":
+      theme.fontSize["title.mobile.large"] + "px",
+    "--fontSize-mobile-medium-title":
+      theme.fontSize["title.mobile.medium"] + "px",
+    "--fontSize-mobile-small-title":
+      theme.fontSize["title.mobile.small"] + "px",
+    "--fontSize-mobile-xsmall-title":
+      theme.fontSize["title.mobile.xsmall"] + "px",
     // ------------------------------
 
     // fontSize desktop body
-    "--fontSize-desktop-large-body": theme.fontSize.body.desktop.large + "px",
-    "--fontSize-desktop-medium-body": theme.fontSize.body.desktop.medium + "px",
-    "--fontSize-desktop-small-body": theme.fontSize.body.desktop.small + "px",
+    "--fontSize-desktop-large-body":
+      theme.fontSize["body.desktop.large"] + "px",
+    "--fontSize-desktop-medium-body":
+      theme.fontSize["body.desktop.medium"] + "px",
+    "--fontSize-desktop-small-body":
+      theme.fontSize["body.desktop.small"] + "px",
     // ------------------------------
 
     // fontSize mobile title
-    "--fontSize-mobile-large-body": theme.fontSize.body.mobile.large + "px",
-    "--fontSize-mobile-medium-body": theme.fontSize.body.mobile.medium + "px",
-    "--fontSize-mobile-small-body": theme.fontSize.body.mobile.small + "px",
+    "--fontSize-mobile-large-body": theme.fontSize["body.mobile.large"] + "px",
+    "--fontSize-mobile-medium-body":
+      theme.fontSize["body.mobile.medium"] + "px",
+    "--fontSize-mobile-small-body": theme.fontSize["body.mobile.small"] + "px",
     // ------------------------------
 
     // fontSize desktop button
     "--fontSize-desktop-large-button":
-      theme.fontSize.button.desktop.large + "px",
+      theme.fontSize["button.desktop.large"] + "px",
     "--fontSize-desktop-medium-button":
-      theme.fontSize.button.desktop.medium + "px",
+      theme.fontSize["button.desktop.medium"] + "px",
     "--fontSize-desktop-small-button":
-      theme.fontSize.button.desktop.small + "px",
+      theme.fontSize["button.desktop.small"] + "px",
     "--fontSize-desktop-xsmall-button":
-      theme.fontSize.button.desktop.xsmall + "px",
+      theme.fontSize["button.desktop.xsmall"] + "px",
     // ------------------------------
 
     // fontSize mobile button
-    "--fontSize-mobile-large-button": theme.fontSize.button.mobile.large + "px",
+    "--fontSize-mobile-large-button":
+      theme.fontSize["button.mobile.large"] + "px",
     "--fontSize-mobile-medium-button":
-      theme.fontSize.button.mobile.medium + "px",
-    "--fontSize-mobile-small-button": theme.fontSize.button.mobile.small + "px",
+      theme.fontSize["button.mobile.medium"] + "px",
+    "--fontSize-mobile-small-button":
+      theme.fontSize["button.mobile.small"] + "px",
     "--fontSize-mobile-xsmall-button":
-      theme.fontSize.button.mobile.xsmall + "px",
+      theme.fontSize["button.mobile.xsmall"] + "px",
     // ------------------------------
 
     // lineHeight desktop headline
     "--lineHeight-desktop-large-headline":
-      theme.lineHeight.headline.desktop.large + "px",
+      theme.lineHeight["headline.desktop.large"] + "px",
     "--lineHeight-desktop-medium-headline":
-      theme.lineHeight.headline.desktop.medium + "px",
+      theme.lineHeight["headline.desktop.medium"] + "px",
     // ------------------------------
 
     // lineHeight desktop headline
     "--lineHeight-mobile-large-headline":
-      theme.lineHeight.headline.mobile.large + "px",
+      theme.lineHeight["headline.mobile.large"] + "px",
     "--lineHeight-mobile-medium-headline":
-      theme.lineHeight.headline.mobile.medium + "px",
+      theme.lineHeight["headline.mobile.medium"] + "px",
     // ------------------------------
 
     // lineHeight desktop title
     "--lineHeight-desktop-large-title":
-      theme.lineHeight.title.desktop.large + "px",
+      theme.lineHeight["title.desktop.large"] + "px",
     "--lineHeight-desktop-medium-title":
-      theme.lineHeight.title.desktop.medium + "px",
+      theme.lineHeight["title.desktop.medium"] + "px",
     "--lineHeight-desktop-small-title":
-      theme.lineHeight.title.desktop.small + "px",
+      theme.lineHeight["title.desktop.small"] + "px",
     "--lineHeight-desktop-xsmall-title":
-      theme.lineHeight.title.desktop.xsmall + "px",
+      theme.lineHeight["title.desktop.xsmall"] + "px",
     // ------------------------------
 
     // lineHeight mobile title
     "--lineHeight-mobile-large-title":
-      theme.lineHeight.title.mobile.large + "px",
+      theme.lineHeight["title.mobile.large"] + "px",
     "--lineHeight-mobile-medium-title":
-      theme.lineHeight.title.mobile.medium + "px",
+      theme.lineHeight["title.mobile.medium"] + "px",
     "--lineHeight-mobile-small-title":
-      theme.lineHeight.title.mobile.small + "px",
+      theme.lineHeight["title.mobile.small"] + "px",
     "--lineHeight-mobile-xsmall-title":
-      theme.lineHeight.title.mobile.xsmall + "px",
+      theme.lineHeight["title.mobile.xsmall"] + "px",
     // ------------------------------
 
     // lineHeight desktop body
     "--lineHeight-desktop-large-body":
-      theme.lineHeight.body.desktop.large + "px",
+      theme.lineHeight["body.desktop.large"] + "px",
     "--lineHeight-desktop-medium-body":
-      theme.lineHeight.body.desktop.medium + "px",
+      theme.lineHeight["body.desktop.medium"] + "px",
     "--lineHeight-desktop-small-body":
-      theme.lineHeight.body.desktop.small + "px",
+      theme.lineHeight["body.desktop.small"] + "px",
     // ------------------------------
 
     // lineHeight mobile title
-    "--lineHeight-mobile-large-body": theme.lineHeight.body.mobile.large + "px",
+    "--lineHeight-mobile-large-body":
+      theme.lineHeight["body.mobile.large"] + "px",
     "--lineHeight-mobile-medium-body":
-      theme.lineHeight.body.mobile.medium + "px",
-    "--lineHeight-mobile-small-body": theme.lineHeight.body.mobile.small + "px",
+      theme.lineHeight["body.mobile.medium"] + "px",
+    "--lineHeight-mobile-small-body":
+      theme.lineHeight["body.mobile.small"] + "px",
     // ------------------------------
 
     // lineHeight desktop button
     "--lineHeight-desktop-large-button":
-      theme.lineHeight.button.desktop.large + "px",
+      theme.lineHeight["button.desktop.large"] + "px",
     "--lineHeight-desktop-medium-button":
-      theme.lineHeight.button.desktop.medium + "px",
+      theme.lineHeight["button.desktop.medium"] + "px",
     "--lineHeight-desktop-small-button":
-      theme.lineHeight.button.desktop.small + "px",
+      theme.lineHeight["button.desktop.small"] + "px",
     "--lineHeight-desktop-xsmall-button":
-      theme.lineHeight.button.desktop.xsmall + "px",
+      theme.lineHeight["button.desktop.xsmall"] + "px",
     // ------------------------------
 
     // lineHeight mobile button
     "--lineHeight-mobile-large-button":
-      theme.lineHeight.button.mobile.large + "px",
+      theme.lineHeight["button.mobile.large"] + "px",
     "--lineHeight-mobile-medium-button":
-      theme.lineHeight.button.mobile.medium + "px",
+      theme.lineHeight["button.mobile.medium"] + "px",
     "--lineHeight-mobile-small-button":
-      theme.lineHeight.button.mobile.small + "px",
+      theme.lineHeight["button.mobile.small"] + "px",
     "--lineHeight-mobile-xsmall-button":
-      theme.lineHeight.button.mobile.xsmall + "px",
+      theme.lineHeight["button.mobile.xsmall"] + "px",
     // ------------------------------
 
     // fontWeight mobile
-    "--fontWeight-mobile-light": theme.fontWeight.mobile.light,
-    "--fontWeight-mobile-normal": theme.fontWeight.mobile.normal,
-    "--fontWeight-mobile-semibold": theme.fontWeight.mobile.semibold,
-    "--fontWeight-mobile-bold": theme.fontWeight.mobile.bold,
-    "--fontWeight-mobile-superbold": theme.fontWeight.mobile.superbold,
+    "--fontWeight-mobile-light": theme.fontWeight["mobile.light"],
+    "--fontWeight-mobile-normal": theme.fontWeight["mobile.normal"],
+    "--fontWeight-mobile-semibold": theme.fontWeight["mobile.semibold"],
+    "--fontWeight-mobile-bold": theme.fontWeight["mobile.bold"],
+    "--fontWeight-mobile-superbold": theme.fontWeight["mobile.superbold"],
     // ------------------------------
 
     // fontWeight desktop
-    "--fontWeight-desktop-light": theme.fontWeight.desktop.light,
-    "--fontWeight-desktop-normal": theme.fontWeight.desktop.normal,
-    "--fontWeight-desktop-semibold": theme.fontWeight.desktop.semibold,
-    "--fontWeight-desktop-bold": theme.fontWeight.desktop.bold,
-    "--fontWeight-desktop-superbold": theme.fontWeight.desktop.superbold,
+    "--fontWeight-desktop-light": theme.fontWeight["desktop.light"],
+    "--fontWeight-desktop-normal": theme.fontWeight["desktop.normal"],
+    "--fontWeight-desktop-semibold": theme.fontWeight["desktop.semibold"],
+    "--fontWeight-desktop-bold": theme.fontWeight["desktop.bold"],
+    "--fontWeight-desktop-superbold": theme.fontWeight["desktop.superbold"],
     // ------------------------------
 
     // fontFamily mobile
@@ -173,7 +187,7 @@ export const createCssVars = (
     "--colors-border-accent": theme.colors["border-accent"],
     "--colors-border-destructive": theme.colors["border-destructive"],
     "--colors-border-primary": theme.colors["border-primary"],
-    "--colors-border-selection": theme.colors["border-selection"],
+    "--colors-border-selected": theme.colors["border-selected"],
     "--colors-border-subtle": theme.colors["border-subtle"],
 
     "--colors-text-destructive": theme.colors["text-destructive"],

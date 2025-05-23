@@ -1,6 +1,11 @@
 import type { LinkHTMLAttributes, PropsWithChildren } from "react";
 
-import type { ColorKeys } from "./ui-kit-provider/types";
+import type {
+  ColorKeys,
+  FontSizeKeys,
+  FontWeightKeys,
+  LineHeightKeys,
+} from "./ui-kit-provider/types";
 
 export type UIKitLinkProps = PropsWithChildren<LinkHTMLAttributes<HTMLElement>>;
 
@@ -243,9 +248,9 @@ export type UiKitDisplayProps = {
 };
 
 export type UiKitTypographyProps = {
-  fontSize?: number;
-  fontWeight?: number;
-  lineHeight?: number;
+  fontSize?: FontSizeKeys | number;
+  fontWeight?: FontWeightKeys | number;
+  lineHeight?: LineHeightKeys | number;
   verticalAlign?: "top" | "middle" | "bottom";
   horizontalAlign?: "left" | "center" | "right";
   textTransform?: "uppercase" | "lowercase" | "capitalize" | "normal-case";

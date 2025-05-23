@@ -70,7 +70,7 @@ const buttonStyles = tv({
     {
       variant: "secondary",
       isActive: true,
-      class: "border-[var(--colors-border-selection)] border",
+      class: "border-[var(--colors-border-selected)] border",
     },
   ],
   defaultVariants: {

@@ -11,129 +11,102 @@ export type UiKitLinkComponent = ForwardRefExoticComponent<
 >;
 
 export type FontSize = {
-  headline: {
-    desktop: {
-      large: number;
-      medium: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-    };
-  };
-  title: {
-    desktop: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-  };
-  body: {
-    desktop: {
-      large: number;
-      medium: number;
-      small: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-      small: number;
-    };
-  };
-  button: {
-    desktop: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-  };
+  "headline.desktop.large": number;
+  "headline.desktop.medium": number;
+  "headline.mobile.medium": number;
+  "headline.mobile.large": number;
+
+  "title.desktop.large": number;
+  "title.desktop.medium": number;
+  "title.desktop.small": number;
+  "title.desktop.xsmall": number;
+
+  "title.mobile.large": number;
+  "title.mobile.medium": number;
+  "title.mobile.small": number;
+  "title.mobile.xsmall": number;
+
+  "body.desktop.large": number;
+  "body.desktop.medium": number;
+  "body.desktop.small": number;
+
+  "body.mobile.large": number;
+  "body.mobile.medium": number;
+  "body.mobile.small": number;
+
+  "button.desktop.large": number;
+  "button.desktop.medium": number;
+  "button.desktop.small": number;
+  "button.desktop.xsmall": number;
+
+  "button.mobile.large": number;
+  "button.mobile.medium": number;
+  "button.mobile.small": number;
+  "button.mobile.xsmall": number;
 };
+
+export type FontSizeKeys = keyof FontSize;
+
 export type LineHeight = {
-  headline: {
-    desktop: {
-      large: number;
-      medium: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-    };
-  };
-  title: {
-    desktop: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-  };
-  body: {
-    desktop: {
-      large: number;
-      medium: number;
-      small: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-      small: number;
-    };
-  };
-  button: {
-    desktop: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-    mobile: {
-      large: number;
-      medium: number;
-      small: number;
-      xsmall: number;
-    };
-  };
+  "headline.desktop.large": number;
+  "headline.desktop.medium": number;
+  "headline.mobile.large": number;
+  "headline.mobile.medium": number;
+
+  "title.desktop.large": number;
+  "title.desktop.medium": number;
+  "title.desktop.small": number;
+  "title.desktop.xsmall": number;
+
+  "title.mobile.large": number;
+  "title.mobile.medium": number;
+  "title.mobile.small": number;
+  "title.mobile.xsmall": number;
+
+  "body.desktop.large": number;
+  "body.desktop.medium": number;
+  "body.desktop.small": number;
+  "body.desktop.xsmall": number;
+
+  "body.mobile.large": number;
+  "body.mobile.medium": number;
+  "body.mobile.small": number;
+  "body.mobile.xsmall": number;
+
+  "button.desktop.large": number;
+  "button.desktop.medium": number;
+  "button.desktop.small": number;
+  "button.desktop.xsmall": number;
+
+  "button.mobile.large": number;
+  "button.mobile.medium": number;
+  "button.mobile.small": number;
+  "button.mobile.xsmall": number;
 };
+
+export type LineHeightKeys = keyof LineHeight;
+
 export type FontFamily = {
   main: string;
   additional: string;
 };
+
 export type FontWeight = {
-  desktop: {
-    superbold: number;
-    bold: number;
-    semibold: number;
-    normal: number;
-    light: number;
-  };
-  mobile: {
-    superbold: number;
-    bold: number;
-    semibold: number;
-    normal: number;
-    light: number;
-  };
+  "desktop.superbold": number;
+  "desktop.bold": number;
+  "desktop.semibold": number;
+  "desktop.normal": number;
+  "desktop.light": number;
+
+  "mobile.superbold": number;
+  "mobile.bold": number;
+  "mobile.semibold": number;
+  "mobile.normal": number;
+  "mobile.light": number;
 };
+
+export type FontWeightKeys = keyof FontWeight;
+
 export type Spacing = {
   0: string;
   2: string;
@@ -171,7 +144,7 @@ export type ColorKeys =
   | "border-accent"
   | "border-destructive"
   | "border-primary"
-  | "border-selection"
+  | "border-selected"
   | "border-subtle"
   | "text-accent-default"
   | "text-accent-hovered"

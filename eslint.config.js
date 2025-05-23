@@ -14,7 +14,7 @@ export default createConfig({
     "storybook-static",
     "vite.config.ts",
     "test.config.ts",
-    "./src/icons/*",
+    "src/icons/*.tsx",
   ],
   globs: {
     languageOptions: {
