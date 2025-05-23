@@ -148,6 +148,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       d,
       md,
       isActive = false,
+      height,
+      minHeight,
+      width,
+      minWidth,
+      maxWidth,
+      m,
+      p,
       ...props
     },
     ref,
@@ -163,12 +170,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       DEFAULT_SPACINGS.padding[size ?? "medium"];
 
     const spacing = useSpacing({
-      m: props,
+      m: { p, m },
       d,
       md,
       defaultPadding: DEFAULT_SPACING_PADDING,
     });
-    const dimension = useDimensions({ m: props, md, d });
+    const dimension = useDimensions({
+      m: {
+        height,
+        minHeight,
+        maxWidth,
+        width,
+        minWidth,
+      },
+      md,
+      d,
+    });
     if (!href) {
       return (
         <>
@@ -211,7 +228,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             weight,
             mdWeight: md?.weight ?? weight,
             dWeight: d?.weight ?? md?.weight ?? weight,
-            className: `  ${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
+            className: `${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
           })}
           href={href}
           target={"_blank"}
@@ -235,7 +252,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           weight,
           mdWeight: md?.weight ?? weight,
           dWeight: d?.weight ?? md?.weight ?? weight,
-          className: `  ${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
+          className: `${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
         })}
         {...props}
         style={{ ...props.style, ...spacing.styles, ...dimension.styles }}

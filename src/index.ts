@@ -1,3 +1,5 @@
+import "./index.css";
+
 export type { AccordionProps } from "./components/accordion/Accordion";
 export { Accordion, AccordionContext } from "./components/accordion/Accordion";
 export type { BoxProps } from "./components/box/Box";
