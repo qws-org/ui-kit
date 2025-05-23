@@ -8,15 +8,19 @@ import { createTheme } from "~/components/ui-kit-provider/createTheme";
 
 export const UiKitDecorator: DecoratorFunction<ReactRenderer> = (Story) => {
   return (
-    <div style={createCssVars(createTheme(`en`))}>
+    <div style={createCssVars(createTheme())}>
       <UIKitProvider
         value={{
           components: {
-            Link: forwardRef((props) => {
-              return <a {...props}>{props.children}</a>;
+            Link: forwardRef((props, ref) => {
+              return (
+                <a {...props} ref={ref}>
+                  {props.children}
+                </a>
+              );
             }),
           },
-          theme: createTheme(`en`),
+          theme: createTheme(),
         }}
       >
         <Story />

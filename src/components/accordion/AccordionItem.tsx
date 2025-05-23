@@ -1,5 +1,3 @@
-import { useButton } from "@react-aria/button";
-import { useDisclosure } from "@react-aria/disclosure";
 import { useFocusRing } from "@react-aria/focus";
 import { mergeProps, useId } from "@react-aria/utils";
 import type { FC, PropsWithChildren, ReactNode } from "react";
@@ -106,7 +104,6 @@ export const AccordionItem: FC<Props> = (props) => {
   } = props;
   const defaultId = useId();
   const id: ID = propId ?? defaultId;
-
   const groupState = React.useContext(AccordionContext);
 
   const expanded = groupState
@@ -124,20 +121,9 @@ export const AccordionItem: FC<Props> = (props) => {
   });
 
   const panelRef = React.useRef<HTMLDivElement | null>(null);
-  const triggerRef = React.useRef<HTMLDivElement | null>(null);
 
   const isDisabled = propIsDisabled ?? groupState?.isDisabled ?? false;
 
-  const { buttonProps: triggerProps, panelProps } = useDisclosure(
-    {
-      isExpanded: expanded,
-      isDisabled,
-    },
-    state,
-    panelRef,
-  );
-
-  const { buttonProps: divProps } = useButton(triggerProps, triggerRef);
   const { focusProps } = useFocusRing();
   const HeadingWrapper = headingWrapper ?? DefaultHeadingWrapper;
 
@@ -149,14 +135,13 @@ export const AccordionItem: FC<Props> = (props) => {
           className: `${className ?? ""}`,
           isDisabled,
         })}
-        ref={triggerRef}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
         style={{
           transitionDuration: `${duration}ms`,
         }}
-        {...props}
-        {...mergeProps(divProps, focusProps)}
+        {...mergeProps(props, focusProps)}
+        onClick={() => {
+          state.toggle();
+        }}
         p={props.p ?? DEFAULT_SPACING_PADDING}
       >
         <HeadingWrapper>
@@ -174,7 +159,6 @@ export const AccordionItem: FC<Props> = (props) => {
 
       <div
         ref={panelRef}
-        {...panelProps}
         className={panelStyles({ isExpanded: expanded })}
         style={{ transitionDuration: `${duration}ms` }}
       >

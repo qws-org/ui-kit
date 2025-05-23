@@ -180,7 +180,9 @@ export const Box = forwardRef(
           `${spacing.className} ${positionStyles.className} ${background.className} ` +
           `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${className ?? ""}`
         }
-        onClick={onClick as never}
+        onClick={(e) => {
+          onClick?.(e);
+        }}
         style={{
           ...outline.style,
           ...border.style,
