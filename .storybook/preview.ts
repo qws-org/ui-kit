@@ -1,6 +1,5 @@
 import type { Preview } from "@storybook/react";
 import "../src/index.css";
-import "../dist/styles.css";
 import "./dark-bg.css";
 import { UiKitDecorator } from "./decorators/RootDecorator";
 import { themes } from "@storybook/theming";

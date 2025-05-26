@@ -532,7 +532,6 @@ const generateEffectClasses = (): Array<string> => {
 export default {
   content: ["./src/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   safelist: [
-    { pattern: /.*/ },
     ...generateIndentations(),
     ...generatePosition(),
     ...generateFlex(),
