@@ -13,19 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm CLI
-        run: npm install -g pnpm@9.14.2
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20.18.1
           cache: 'pnpm'       # кэширует pnpm-store, но не сам CLI
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8          # или любая другая версия pnpm
+          version: 9.14.2          # или любая другая версия pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
