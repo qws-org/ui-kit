@@ -254,9 +254,9 @@ export type UiKitDisplayProps = {
 };
 
 export type UiKitTypographyProps = {
-  fontSize?: FontSizeKeys | number;
+  fontSize?: FontSizeKeys | number | string;
   fontWeight?: FontWeightKeys | number;
-  lineHeight?: LineHeightKeys | number;
+  lineHeight?: LineHeightKeys | number | string;
   verticalAlign?: "top" | "middle" | "bottom";
   horizontalAlign?: "left" | "center" | "right";
   textTransform?: "uppercase" | "lowercase" | "capitalize" | "normal-case";

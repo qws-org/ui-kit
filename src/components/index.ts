@@ -25,5 +25,8 @@ export * from "./title/Title";
 export type * from "./types";
 export * from "./typography/Typography";
 export * from "./ui-kit-provider";
+export * from "./use-background";
 export * from "./use-dimensions";
+export * from "./use-display";
+export * from "./use-position";
 export * from "./use-spacing";

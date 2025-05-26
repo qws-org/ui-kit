@@ -19,6 +19,24 @@ const meta = {
       control: "radio",
       options: ["superbold", "bold", "semibold", "normal", "light"],
     },
+    fontWeight: {
+      control: "radio",
+      options: [
+        "desktop.superbold",
+        "desktop.bold",
+        "desktop.semibold",
+        "desktop.normal",
+        "desktop.light",
+        "mobile.superbold",
+        "mobile.bold",
+        "mobile.semibold",
+        "mobile.normal",
+        "mobile.light",
+      ],
+    },
+    lineHeight: {
+      control: "text",
+    },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onPress: fn() },
@@ -63,6 +81,12 @@ export const Secondary: Story = {
   args: {
     variant: "secondary",
     children: "Secondary Button",
+  },
+};
+export const Tertiary: Story = {
+  args: {
+    variant: "tertiary",
+    children: "Tertiary Button",
   },
 };
 

@@ -30,7 +30,11 @@ export const Pagination: FC<PaginationProps> = ({
           variant="secondary"
           size="xsmall"
           p={{ px: 24, py: 8 }}
-          md={{ size: "small", p: { px: 24, py: 8 } }}
+          md={{
+            p: { px: 24, py: 8 },
+            fontSize: "button.desktop.small",
+            lineHeight: "button.desktop.small",
+          }}
           className={`rounded ${
             currentPage === i
               ? "outline outline-1 outline-[var(--colors-text-selection)] text-[var(--colors-text-selection)]"

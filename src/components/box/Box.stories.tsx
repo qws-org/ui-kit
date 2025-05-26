@@ -140,11 +140,18 @@ export const Dimension: Story = {
 
 export const Background: Story = {
   args: {
-    bg: "/main-page-bg-mobile.jpg",
+    bg: "surface-accent2-default",
+    hover: { bg: "surface-accent2-hovered" },
     className: "h-[200px]",
     bgRepeat: "no-repeat",
-    md: { bg: "linear-gradient(to right, #ff7e5f, #feb47b)" },
-    d: { bg: "/main-page-bg-desktop.jpg" },
+    md: {
+      bg: "linear-gradient(to right, #ff7e5f, #feb47b)",
+      hover: { bg: "surface-accent1-hovered" },
+    },
+    d: {
+      bg: "surface-accent1-default",
+      hover: { bg: "surface-accent2-hovered" },
+    },
   },
 };
 
