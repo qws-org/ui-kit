@@ -34,7 +34,8 @@
     "publish-package": "pnpm publish",
     "update:minor": "pnpm version minor",
     "update:major": "pnpm version major",
-    "update:patch": "pnpm version patch"
+    "update:patch": "pnpm version patch",
+    "prepare": "husky"
   },
   "homepage": "https://github.com/qws-org/ui-kit",
   "repository": {
