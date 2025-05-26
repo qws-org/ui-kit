@@ -1,0 +1,7 @@
+always-auth=true
+
+# Scope вашей организации — qws-org
+@qws-org:registry=https://npm.pkg.github.com
+
+# Токен для GitHub Packages
+//npm.pkg.github.com/:_authToken=you_classic_github_token

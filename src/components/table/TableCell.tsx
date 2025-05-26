@@ -20,7 +20,6 @@ export const TableCell = function <T>(props: TableCellProps<T>): ReactNode {
   const { cell, state, ...indentationProps } = props;
   const { gridCellProps } = useTableCell({ node: cell }, state, ref);
   const { isFocusVisible, focusProps } = useFocusRing();
-
   return (
     <Box
       {...mergeProps(gridCellProps, focusProps)}
