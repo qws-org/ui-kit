@@ -1,5 +1,10 @@
 name: Deploy Storybook to GitHub Pages
 
+permissions:
+  pages: write       # чтобы peaceiris/actions-gh-pages мог пушить в gh-pages
+  contents: read     # для checkout кода
+  id-token: write    # если потребуется для OIDC (необязательно для simple deploy)
+
 on:
   push:
     branches:
@@ -40,5 +45,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: storybook-static
-          # cname: storybook.ui-kit.example.com
-
