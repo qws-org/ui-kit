@@ -22,7 +22,7 @@
   "sideEffects": false,
   "scripts": {
     "storybook": "storybook dev -p 6006 --ci ",
-    "build-storybook": "storybook build --disable-telemetry",
+    "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
     "build": "pnpm prepare:icons && vite build",
     "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons ",
     "lint": "eslint --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",

@@ -1,5 +1,10 @@
 name: Deploy Storybook to GitHub Pages
 
+permissions:
+  pages: write       # чтобы peaceiris/actions-gh-pages мог пушить в gh-pages
+  contents: read     # для checkout кода
+  id-token: write    # если потребуется для OIDC (необязательно для simple deploy)
+
 on:
   push:
     branches:
@@ -24,6 +29,11 @@ jobs:
           node-version: 20.18.1
           cache: 'pnpm'       # кэширует pnpm-store, но не сам CLI
 
+      - name: Create .npmrc for auth
+        run: |
+          echo "@qws-org:registry=https://npm.pkg.github.com" >> $GITHUB_WORKSPACE/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.REPOSITORY_TOKEN }}" >> $GITHUB_WORKSPACE/.npmrc
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -33,7 +43,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.REPOSITORY_TOKEN }}
           publish_dir: storybook-static
-          # cname: storybook.ui-kit.example.com
-
