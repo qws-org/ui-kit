@@ -70,6 +70,8 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "husky": "9.1.7",
+    "lint-staged": "15.5.1",
     "@chromatic-com/storybook": "3.2.6",
     "@qws-org/eslint-config-react-typescript-jtym": "6.1.2",
     "@storybook/addon-essentials": "8.6.12",
@@ -105,6 +107,14 @@
     "vite": "6.3.3",
     "vite-plugin-dts": "4.5.4",
     "vite-tsconfig-paths": "5.1.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,json,css,scss,md}": [
+      "pnpm eslint --fix"
+    ],
+    "*.{ts,tsx}": [
+      "pnpm typecheck"
+    ]
   },
   "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387"
 }
