@@ -1,1 +1,0 @@
-const t=o=>{var n;return(n=o==null?void 0:o.ownerDocument)!==null&&n!==void 0?n:document},d=o=>o&&"window"in o&&o.window===o?o:t(o).defaultView||window;function c(o){return o!==null&&typeof o=="object"&&"nodeType"in o&&typeof o.nodeType=="number"}function f(o){return c(o)&&o.nodeType===Node.DOCUMENT_FRAGMENT_NODE&&"host"in o}export{d as $,f as a,t as b};
