@@ -1,7 +1,6 @@
 import type { DecoratorFunction } from "@storybook/types";
 import type { ReactRenderer } from "@storybook/react";
 import { forwardRef } from "react";
-import "../../dist/styles.css";
 import { createCssVars } from "~/components/ui-kit-provider/createCssVars";
 import { UIKitProvider } from "~/components";
 import { createTheme } from "~/components/ui-kit-provider/createTheme";
