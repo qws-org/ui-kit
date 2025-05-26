@@ -82,44 +82,66 @@
   --spacing-80: 80px;
   --spacing-96: 96px;
   /*  Цвета*/
-  --colors-background-primary: #000000;
-  --colors-background-secondary: #171717;
-  --colors-background-transparent: #00000080;
+  --colors-background-primary:   #000000;
+  --colors-background-secondary:  #171717 ;
+  --colors-background-transparent : #00000080;
+  --colors-background-accent1 :   linear-gradient(270deg, #F4AD23 0%, #FF3D00 50%, #6A2DC0 100%);
+  --colors-background-accent2 :   linear-gradient(90deg, #FFC169 0%, #FFFAEA 25%, #FBA2C6 42%, #F057A2 55%, #985BE7 70%, #60ABED 85%, #50E6C1 100%);
 
-  --colors-border-accent: #f9d48c;
-  --colors-border-destructive: #dd4952;
-  --colors-border-primary: #ffffff;
-  --colors-border-selected: #c49bfc;
-  --colors-border-subtle: #ffffff33;
 
-  --colors-text-destructive: #dd4952;
-  --colors-text-selection: #c49bfc;
-  --colors-text-success: #66c95b;
-  --colors-text-accent-default: #f6ba46;
-  --colors-text-accent-hovered: #f9d48c;
-  --colors-text-primary-default: #ffffff;
-  --colors-text-primary-hovered: #a66bfa;
-  --colors-text-disabled: #ffffff33;
-  --colors-text-primary-inverted: #000000;
-  --colors-text-primary-muted: #ffffffb3;
-  --colors-text-secondary-default: #ffffff80;
-  --colors-text-secondary-hovered: #ffffff;
 
-  --colors-surface-delete: #ff3d00;
-  --colors-surface-primary-dark: #401a75;
-  --colors-surface-primary-default: #ffffff;
-  --colors-surface-primary-hovered: #9854f8;
-  --colors-surface-primary-subtle: #893bf733;
-  --colors-surface-destructive-default: #d92933;
-  --colors-surface-destructive-subtle: #d9293333;
-  --colors-surface-disabled: #ffffff1a;
-  --colors-surface-neutral-dark-default: #00000066;
-  --colors-surface-neutral-dark-hovered: #000000b3;
-  --colors-surface-neutral-default: #ffffff1a;
-  --colors-surface-neutral-hovered: #ffffff33;
-  --colors-surface-neutral-light: #ffffff33;
-  --colors-surface-neutral-subtle: #ffffff08;
-  --colors-surface-tetriary-hovered: #ffffff;
-  --colors-surface-secondary-default: #ffffff;
-  --colors-surface-secondary-hovered: #d4d4d4;
+  --colors-border-accent :  #F9D48C ;
+  --colors-border-destructive:  #DD4952 ;
+  --colors-border-primary:  #FFFFFF ;
+  --colors-border-selection: #C49BFC;
+  --colors-border-subtle :  #FFFFFF33;
+
+  --colors-text-destructive: #DD4952;
+  --colors-text-selection:#C49BFC;
+  --colors-text-success: #66C95B;
+  --colors-text-accent-default: #F6BA46;
+  --colors-text-accent-hovered: #F9D48C;
+  --colors-text-accent-grad : linear-gradient(180deg, #FBE1B0 0%, #F6BA46 100%);
+  --colors-text-primary-default: #FFFFFF;
+  --colors-text-primary-hovered: #A66BFA;
+  --colors-text-disabled: #FFFFFF33;
+  --colors-text-primary-inverted : #000000;
+  --colors-text-primary-muted:  #FFFFFFB3;
+  --colors-text-secondary-default: #FFFFFF80;
+  --colors-text-secondary-hovered: #FFFFFF;
+
+
+
+  --colors-surface-primary-dark: #401A75;
+  --colors-surface-primary-default : #FFFFFF;
+  --colors-surface-primary-hovered: #9854F8;
+  --colors-surface-primary-subtle: #893BF733;
+  --colors-surface-primary-grad-default: linear-gradient(90deg, #6A2DC0 0%, #FF3D00 100%);
+  --colors-surface-primary-grad-hovered: linear-gradient(90deg, #FF3D00 0%, #893BF7 100%);
+  --colors-surface-primary-grad-pressed: linear-gradient(90deg, #A1210B 0%, #55239A 100%);
+  --colors-surface-primary-grad-subtle: linear-gradient(360deg, #2B1050 0%, rgba(43, 16, 80, 0.5) 100%);
+  --colors-surface-destructive-default: #D92933;
+  --colors-surface-destructive-subtle: #D9293333;
+
+  --colors-surface-neutral-dark-default:#00000066;
+  --colors-surface-neutral-dark-hovered: #000000B3;
+  --colors-surface-neutral-default : #FFFFFF1A;
+  --colors-surface-neutral-hovered:#FFFFFF33;
+  --colors-surface-neutral-light: #FFFFFF33;
+  --colors-surface-neutral-subtle: #FFFFFF08;
+  --colors-surface-tetriary-hovered: #FFFFFF;
+  --colors-surface-secondary-default: #FFFFFF;
+  --colors-surface-secondary-hovered: #D4D4D4;
+
+  --colors-surface-accent1-default: linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%);
+  --colors-surface-accent2-default:
+          linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  --colors-surface-accent1-hovered:
+          linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  --colors-surface-accent2-hovered:
+          linear-gradient(90deg, #DCC3FE 0%, #FFCEA5 33%, #E3FAD6 66%, #CEFDFE 100%),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
 }

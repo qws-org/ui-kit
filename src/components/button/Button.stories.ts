@@ -65,6 +65,12 @@ export const Secondary: Story = {
     children: "Secondary Button",
   },
 };
+export const Tertiary: Story = {
+  args: {
+    variant: "tertiary",
+    children: "Tertiary Button",
+  },
+};
 
 export const SizeLarge: Story = {
   args: {

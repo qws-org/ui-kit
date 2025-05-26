@@ -127,16 +127,16 @@ export const createTheme = (
       entry?.colors?.["background-transparent"] ?? "rgba(0, 0, 0, 0.5)",
     "background-accent1":
       entry?.colors?.["background-accent1"] ??
-      "linear-gradient(270deg, #F4AD23 0%, #FF3D00 50%, #6A2DC0 100%);",
+      "linear-gradient(270deg, #F4AD23 0%, #FF3D00 50%, #6A2DC0 100%)",
     "background-accent2":
       entry?.colors?.["background-accent2"] ??
-      "linear-gradient(90deg, #FFC169 0%, #FFFAEA 25%, #FBA2C6 42%, #F057A2 55%, #985BE7 70%, #60ABED 85%, #50E6C1 100%);",
+      "linear-gradient(90deg, #FFC169 0%, #FFFAEA 25%, #FBA2C6 42%, #F057A2 55%, #985BE7 70%, #60ABED 85%, #50E6C1 100%)",
 
     // border
     "border-accent": entry?.colors?.["border-accent"] ?? "#F9D48C",
     "border-destructive": entry?.colors?.["border-destructive"] ?? "#DD4952",
     "border-primary": entry?.colors?.["background-primary"] ?? "#FFFFFF",
-    "border-selected": entry?.colors?.["border-selected"] ?? "#C49BFC",
+    "border-selection": entry?.colors?.["border-selection"] ?? "#C49BFC",
     "border-subtle":
       entry?.colors?.["border-subtle"] ?? "rgba(255, 255, 255, 0.2)",
 
@@ -145,7 +145,7 @@ export const createTheme = (
     "text-accent-hovered": entry?.colors?.["text-accent-hovered"] ?? "#F9D48C",
     "text-accent-grad":
       entry?.colors?.["text-accent-grad"] ??
-      "linear-gradient(180deg, #FBE1B0 0%, #F6BA46 100%);",
+      "linear-gradient(180deg, #FBE1B0 0%, #F6BA46 100%)",
     "text-destructive": entry?.colors?.["text-destructive"] ?? "#DD4952",
     "text-disabled":
       entry?.colors?.["text-disabled"] ?? "rgba(255, 255, 255, .2)",
@@ -164,10 +164,6 @@ export const createTheme = (
     "text-secondary-hovered":
       entry?.colors?.["text-secondary-hovered"] ?? "#FFFFFF",
 
-    // surface
-    "surface-delete": entry?.colors?.["surface-delete"] ?? "#FF3D00",
-    "surface-disabled":
-      entry?.colors?.["surface-disabled"] ?? "rgba(255, 255, 255, .1)",
     "surface-destructive-default":
       entry?.colors?.["surface-destructive-default"] ?? "#D92933",
     "surface-destructive-subtle":
@@ -196,16 +192,16 @@ export const createTheme = (
       entry?.colors?.["surface-primary-subtle"] ?? "#893BF733",
     "surface-primary-grad-default":
       entry?.colors?.["surface-primary-grad-default"] ??
-      "linear-gradient(90deg, #6A2DC0 0%, #FF3D00 100%);",
+      "linear-gradient(90deg, #6A2DC0 0%, #FF3D00 100%)",
     "surface-primary-grad-hovered":
       entry?.colors?.["surface-primary-grad-hovered"] ??
-      "linear-gradient(90deg, #FF3D00 0%, #893BF7 100%);",
+      "linear-gradient(90deg, #FF3D00 0%, #893BF7 100%)",
     "surface-primary-grad-pressed":
       entry?.colors?.["surface-primary-grad-pressed"] ??
-      "linear-gradient(90deg, #A1210B 0%, #55239A 100%);",
+      "linear-gradient(90deg, #A1210B 0%, #55239A 100%)",
     "surface-primary-grad-subtle":
       entry?.colors?.["surface-primary-grad-subtle"] ??
-      "linear-gradient(360deg, #2B1050 0%, rgba(43, 16, 80, 0.5) 100%);",
+      "linear-gradient(360deg, #2B1050 0%, rgba(43, 16, 80, 0.5) 100%)",
 
     "surface-tetriary-hovered":
       entry?.colors?.["surface-tetriary-hovered"] ?? "#FFFFFF",
@@ -217,19 +213,18 @@ export const createTheme = (
 
     "surface-accent1-default":
       entry?.colors?.["surface-accent1-default"] ??
-      "linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%);",
+      "linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%)",
     "surface-accent2-default":
       entry?.colors?.["surface-accent2-default"] ??
-      "linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%),\n" +
-        "linear-gradient(0deg,  rgba(0, 0, 0, 0.2),  rgba(0, 0, 0, 0.2);",
+      "linear-gradient(90deg, #DCC3FE 0%, #FFCEA5 33%, #E3FAD6 66%, #CEFDFE 100%)",
     "surface-accent1-hovered":
       entry?.colors?.["surface-accent1-hovered"] ??
       "linear-gradient(270deg, #55239A 0%, #9854F8 50%, #55239A 100%),\n" +
-        "linear-gradient(0deg,  rgba(0, 0, 0, 0.2),  rgba(0, 0, 0, 0.2);",
+        "linear-gradient(0deg,  rgba(0, 0, 0, 0.2),  rgba(0, 0, 0, 0.2)",
     "surface-accent2-hovered":
       entry?.colors?.["surface-accent2-hovered"] ??
       "linear-gradient(90deg, #DCC3FE 0%, #FFCEA5 33%, #E3FAD6 66%, #CEFDFE 100%),\n" +
-        "linear-gradient(0deg, (0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));\n",
+        "linear-gradient(0deg, (0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))\n",
   };
 
   return {

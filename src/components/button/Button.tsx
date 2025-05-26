@@ -6,6 +6,7 @@ import { tv } from "tailwind-variants";
 
 import type { BoxProps, UIKitArrayIndentation } from "~/components";
 import { useDimensions, useSpacing, useUiKitComponents } from "~/components";
+import { useBackground } from "~/components/use-background";
 
 const buttonStyles = tv({
   base: "rounded-[4px] outline-none box-border border-0 flex justify-center items-center cursor-pointer transition-all duration-200 text-[var(--colors-text-primary-default)] font-noto-sans-sc",
@@ -51,15 +52,22 @@ const buttonStyles = tv({
     },
     variant: {
       default:
-        "bg-[linear-gradient(-90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)] shadow-[0px_0px_13px_transparent,0px_4px_8px_var(--colors-surface-disabled),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)] hover:bg-left hover:shadow-[0px_0px_13px_var(--colors-surface-delete),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-disabled),inset_0px_1px_1px_var(--colors-surface-neutral-light)] active:bg-left active:shadow-[0px_0px_13px_var(--colors-surface-delete),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)] active:bg-[linear-gradient(0deg,var(--colors-surface-neutral-dark-default),var(--colors-surface-neutral-dark-default)),linear-gradient(90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)]  hover:bg-[linear-gradient(90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)]  ",
+        " bg-[image:var(--colors-surface-primary-grad-default)]" +
+        "shadow-[0px_1px_1px_0px_var(--colors-surface-neutral-light)_inset,0px_-1px_1px_0px_var(--colors-surface-neutral-subtle)_inset,0px_4px_8px_0px_var(--colors-surface-neutral-dark-default)]" +
+        "hover:shadow-[0px_0px_13px_var(--colors-surface-destructive-default),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-destructive-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)]" +
+        " active:shadow-[0px_0px_13px_var(--colors-surface-destructive-default),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)]" +
+        " active:bg-[image:var(--colors-surface-primary-grad-pressed)] " +
+        " hover:bg-[image:var(--colors-surface-primary-grad-hovered)]  ",
 
       transparent:
-        "border border-[var(--colors-surface-secondary-default)] hover:bg-[var(--colors-surface-secondary-default)] hover:text-[var(--colors-text-primary-inverted)]",
+        "border border-[var(--colors-surface-secondary-default)] hover:bg-[var(--colors-surface-secondary-hovered)] hover:text-[var(--colors-text-primary-inverted)]",
 
       accent:
         "border-1 bg-[var(--colors-surface-secondary-default)] text-[var(--colors-text-primary-inverted)] ",
 
       secondary: "bg-[var(--colors-surface-neutral-light)]",
+
+      tertiary: "",
     },
     isActive: {
       true: "",
@@ -70,7 +78,7 @@ const buttonStyles = tv({
     {
       variant: "secondary",
       isActive: true,
-      class: "border-[var(--colors-border-selected)] border",
+      class: "border-[var(--colors-border-selection)] border",
     },
   ],
   defaultVariants: {
@@ -93,13 +101,19 @@ type DisplayButtonProps = {
   display: "block" | "hidden";
 };
 type ButtonSize = "large" | "medium" | "small" | "xsmall";
+export type ButtonVariants =
+  | "default"
+  | "transparent"
+  | "accent"
+  | "secondary"
+  | "tertiary";
 export type ButtonProps<Element extends ElementType> = PropsWithChildren<
   Omit<
     AriaButtonOptions<Element> &
       UiKitFC<
         {
           className?: string;
-          variant?: "default" | "transparent" | "accent" | "secondary";
+          variant?: ButtonVariants;
           href?: string;
           size?: ButtonSize;
           weight?: "superbold" | "bold" | "semibold" | "normal" | "light";
@@ -147,14 +161,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       weight = "normal",
       d,
       md,
+      hover,
       isActive = false,
-      height,
-      minHeight,
-      width,
-      minWidth,
-      maxWidth,
-      m,
-      p,
       ...props
     },
     ref,
@@ -170,22 +178,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       DEFAULT_SPACINGS.padding[size ?? "medium"];
 
     const spacing = useSpacing({
-      m: { p, m },
+      m: props,
       d,
       md,
       defaultPadding: DEFAULT_SPACING_PADDING,
     });
-    const dimension = useDimensions({
-      m: {
-        height,
-        minHeight,
-        maxWidth,
-        width,
-        minWidth,
-      },
-      md,
-      d,
-    });
+    const dimension = useDimensions({ m: props, md, d });
     if (!href) {
       return (
         <>
@@ -202,7 +200,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               weight,
               mdWeight: md?.weight ?? weight,
               dWeight: d?.weight ?? md?.weight ?? weight,
-              className: `${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
+              className: `   ${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
             })}
             style={{
               ...props.style,
@@ -216,6 +214,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       );
     }
 
+    const background = useBackground({
+      m: {
+        ...props,
+        bgSize: props.bgSize ?? "cover",
+        bgRepeat: props.bgRepeat ?? "no-repeat",
+        bgPosition: props.bgPosition ?? "center",
+      },
+      md: { ...md },
+      d: { ...d },
+      hover: {
+        m: {
+          ...hover,
+        },
+        md: { ...md?.hover },
+        d: { ...d?.hover },
+      },
+    });
     if (href.includes("http")) {
       return (
         <a
@@ -228,12 +243,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             weight,
             mdWeight: md?.weight ?? weight,
             dWeight: d?.weight ?? md?.weight ?? weight,
-            className: `${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
+            className: `  ${displayStyle(display)}
+             ${displayStyle(md?.display ?? display, "md")}
+              ${displayStyle(d?.display ?? md?.display ?? display, "lg")}
+               ${spacing.className ?? ""} 
+               ${dimension.className} 
+               ${background.className}
+                ${className}`,
           })}
           href={href}
           target={"_blank"}
           {...props}
-          style={{ ...props.style, ...spacing.styles, ...dimension.styles }}
+          style={{
+            ...props.style,
+            ...spacing.styles,
+            ...dimension.styles,
+            ...background.style,
+          }}
         >
           {children}
         </a>
@@ -252,10 +278,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           weight,
           mdWeight: md?.weight ?? weight,
           dWeight: d?.weight ?? md?.weight ?? weight,
-          className: `${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
+          className: `  ${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className}  ${background.className} ${className}`,
         })}
         {...props}
-        style={{ ...props.style, ...spacing.styles, ...dimension.styles }}
+        style={{
+          ...props.style,
+          ...spacing.styles,
+          ...dimension.styles,
+          ...background.style,
+        }}
       >
         {children}
       </Link>

@@ -183,11 +183,13 @@ export const createCssVars = (
     "--colors-background-primary": theme.colors["background-primary"],
     "--colors-background-secondary": theme.colors["background-secondary"],
     "--colors-background-transparent": theme.colors["background-transparent"],
+    "--colors-background-accent1": theme.colors["background-accent1"],
+    "--colors-background-accent2": theme.colors["background-accent2"],
 
     "--colors-border-accent": theme.colors["border-accent"],
     "--colors-border-destructive": theme.colors["border-destructive"],
     "--colors-border-primary": theme.colors["border-primary"],
-    "--colors-border-selected": theme.colors["border-selected"],
+    "--colors-border-selection": theme.colors["border-selection"],
     "--colors-border-subtle": theme.colors["border-subtle"],
 
     "--colors-text-destructive": theme.colors["text-destructive"],
@@ -202,21 +204,30 @@ export const createCssVars = (
     "--colors-text-primary-muted": theme.colors["text-primary-muted"],
     "--colors-text-secondary-default": theme.colors["text-secondary-default"],
     "--colors-text-secondary-hovered": theme.colors["text-secondary-hovered"],
+    "--colors-text-accent-grad": theme.colors["text-accent-grad"],
 
-    "--colors-surface-delete": theme.colors["surface-delete"],
     "--colors-surface-primary-dark": theme.colors["surface-primary-dark"],
     "--colors-surface-primary-default": theme.colors["surface-primary-default"],
     "--colors-surface-primary-hovered": theme.colors["surface-primary-hovered"],
     "--colors-surface-primary-subtle": theme.colors["surface-primary-subtle"],
+    "--colors-surface-primary-grad-default":
+      theme.colors["surface-primary-grad-default"],
+    "--colors-surface-primary-grad-hovered":
+      theme.colors["surface-primary-grad-hovered"],
+    "--colors-surface-primary-grad-pressed":
+      theme.colors["surface-primary-grad-pressed"],
+    "--colors-surface-primary-grad-subtle":
+      theme.colors["surface-primary-grad-subtle"],
+
     "--colors-surface-destructive-default":
       theme.colors["surface-destructive-default"],
     "--colors-surface-destructive-subtle":
       theme.colors["surface-destructive-subtle"],
-    "--colors-surface-disabled": theme.colors["surface-disabled"],
+
     "--colors-surface-neutral-dark-default":
       theme.colors["surface-neutral-dark-default"],
     "--colors-surface-neutral-dark-hovered":
-      theme.colors["surface-neutral-hovered"], // matches original mapping
+      theme.colors["surface-neutral-hovered"],
     "--colors-surface-neutral-default": theme.colors["surface-neutral-default"],
     "--colors-surface-neutral-hovered": theme.colors["surface-neutral-hovered"],
     "--colors-surface-neutral-light": theme.colors["surface-neutral-light"],
@@ -227,5 +238,10 @@ export const createCssVars = (
       theme.colors["surface-secondary-default"],
     "--colors-surface-secondary-hovered":
       theme.colors["surface-secondary-hovered"],
+
+    "--colors-surface-accent1-default": theme.colors["surface-accent1-default"],
+    "--colors-surface-accent2-default": theme.colors["surface-accent2-default"],
+    "--colors-surface-accent1-hovered": theme.colors["surface-accent1-hovered"],
+    "--colors-surface-accent2-hovered": theme.colors["surface-accent2-hovered"],
   };
 };
