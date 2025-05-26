@@ -9,31 +9,31 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    # …
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: 'pnpm'       # кэширует pnpm-store, но не сам CLI
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8          # или любая другая версия pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build Storybook
-        run: pnpm run build-storybook
+        run: pnpm run build-storybook --output-dir storybook-static
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: storybook-static
-          # если хотите кастомный домен:
           # cname: storybook.ui-kit.example.com
+
