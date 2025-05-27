@@ -13,7 +13,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
     # …
     steps:
       - uses: actions/checkout@v4
