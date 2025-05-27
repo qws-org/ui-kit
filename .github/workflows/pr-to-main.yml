@@ -1,0 +1,48 @@
+# .github/workflows/pr-to-main.yml
+name: CI on PR to main
+
+on:
+  pull_request:
+    # События, при которых срабатывает Action
+    types:
+      - opened       # когда PR открыт
+      - synchronize  # когда в него пушат новые коммиты
+      - reopened     # когда PR снова открыт после закрытия
+    # Фильтрация по базе PR — только ветка main
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9.14.2          # или любая другая версия pnpm
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18.1
+          cache: 'pnpm'       # кэширует pnpm-store, но не сам CLI
+
+      - name: Create .npmrc for auth
+        run: |
+          echo "@qws-org:registry=https://npm.pkg.github.com" >> $GITHUB_WORKSPACE/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.REPOSITORY_TOKEN }}" >> $GITHUB_WORKSPACE/.npmrc
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: build
+        run: pnpm build
+
+      - name: eslint
+        run: pnpm lint
+
+      - name: type-check
+        run: pnpm typecheck
