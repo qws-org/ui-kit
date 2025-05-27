@@ -30,11 +30,7 @@
     "lint:fix": "eslint --fix --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:clear-cache": "rm -rf ./node_modules/.cache/eslint",
     "typecheck": "tsc",
-    "format": "prettier --ignore-path .gitignore --ignore-unknown --cache --cache-location node_modules/.cache/prettiercache --write .",
-    "publish-package": "pnpm publish",
-    "update:minor": "pnpm version minor",
-    "update:major": "pnpm version major",
-    "update:patch": "pnpm version patch"
+    "format": "prettier --ignore-path .gitignore --ignore-unknown --cache --cache-location node_modules/.cache/prettiercache --write ."
   },
   "homepage": "https://github.com/qws-org/ui-kit",
   "repository": {

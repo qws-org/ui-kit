@@ -33,7 +33,7 @@ import { useSpacing } from "../use-spacing";
 import { useTypography } from "../use-typography";
 
 export type DefaultProps = Partial<
-  UIKitIndentationsProps &
+  { fun: boolean } & UIKitIndentationsProps &
     UiKitPositionProps &
     UIKitDimensionProps &
     UiKitDisplayProps &
