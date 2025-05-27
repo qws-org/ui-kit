@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 20.18.1
           cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npm.pkg.github.com'
           scope: '@qws-org'
           always-auth: true
 
