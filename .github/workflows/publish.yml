@@ -5,12 +5,13 @@ on:
     types: [created]
 
 jobs:
-  env:
-    NODE_AUTH_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
-
   publish:
     name: Publish npm package
+
     runs-on: ubuntu-latest
+
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
 
     steps:
       - name: Checkout repository
