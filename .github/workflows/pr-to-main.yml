@@ -29,12 +29,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.18.1
-          cache: 'pnpm'       # кэширует pnpm-store, но не сам CLI
-
-      - name: Create .npmrc for auth
-        run: |
-          echo "@qws-org:registry=https://npm.pkg.github.com" >> $GITHUB_WORKSPACE/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.REPOSITORY_TOKEN }}" >> $GITHUB_WORKSPACE/.npmrc
+          cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@qws-org'
+          always-auth: true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
