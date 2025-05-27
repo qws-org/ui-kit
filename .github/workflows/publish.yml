@@ -5,6 +5,9 @@ on:
     types: [created]
 
 jobs:
+  env:
+    NODE_AUTH_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
+
   publish:
     name: Publish npm package
     runs-on: ubuntu-latest
@@ -23,11 +26,9 @@ jobs:
         with:
           node-version: 20.18.1
           cache: 'pnpm'
-
-      - name: Authenticate to npm
-        run: |
-          echo "@qws-org:registry=https://npm.pkg.github.com" > ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.REPOSITORY_TOKEN }}" > ~/.npmrc
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@qws-org'
+          always-auth: true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
