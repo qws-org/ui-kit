@@ -12,7 +12,11 @@ export {
   Breadcrumbs,
   type BreadcrumbsProps,
 } from "./components/breadcrumbs/Breadcrumbs";
-export { Button, type ButtonProps } from "./components/button/Button";
+export {
+  Button,
+  type ButtonProps,
+  type ButtonVariants,
+} from "./components/button/Button";
 export { Card, type CardProps } from "./components/card/Card";
 export { Checkbox, type CheckboxProps } from "./components/checkbox/Checkbox";
 export {

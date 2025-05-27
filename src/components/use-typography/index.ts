@@ -4,9 +4,9 @@ import type {
   FontWeightKeys,
   LineHeightKeys,
 } from "~/components";
+import { useUiKitTheme } from "~/components";
 
 import type { UiKitTypographyProps } from "../types";
-import { useUiKitTheme } from "../ui-kit-provider/useUiKitTheme";
 
 type BaseEntry = {
   m?: UiKitTypographyProps;
@@ -104,9 +104,11 @@ export const useTypography = (props: Entry): Output => {
 
   // hover font-size
   if (typeof props.hover.m?.fontSize !== "undefined") {
-    styles["--hover-fs"] =
+    const fontSizeValue =
       fontSize[props.hover.m.fontSize as FontSizeKeys] ??
       props.hover.m?.fontSize;
+    styles["--hover-fs"] = styleTransformer(fontSizeValue);
+
     classNames += `hover:[font-size:var(--hover-fs)] `;
   }
 
@@ -114,9 +116,11 @@ export const useTypography = (props: Entry): Output => {
     typeof props.hover.md?.fontSize !== "undefined" &&
     props.hover.md.fontSize !== props.hover.m?.fontSize
   ) {
-    styles["--hover-md-fs"] =
+    const mdFontSizeValue =
       fontSize[props.hover.md.fontSize as FontSizeKeys] ??
       props.hover.md.fontSize;
+    styles["--hover-md-fs"] = styleTransformer(mdFontSizeValue);
+
     classNames += `md:hover:[font-size:var(--hover-md-fs)] `;
   }
 
@@ -126,16 +130,15 @@ export const useTypography = (props: Entry): Output => {
     typeof props.hover.d?.fontSize !== "undefined" &&
     props.hover.d.fontSize !== hoverMdFontSize
   ) {
-    styles["--hover-d-fs"] =
+    const dFontSizeValue =
       fontSize[props.hover.d.fontSize as FontSizeKeys] ??
       props.hover.d.fontSize;
+    styles["--hover-d-fs"] = styleTransformer(dFontSizeValue);
     classNames += `lg:hover:[font-size:var(--hover-d-fs)] `;
   }
-
   // ----------------------------------------------------------------------------
 
   // font-weight
-
   if (typeof props.m?.fontWeight !== "undefined") {
     styles["--fw"] =
       fontWeight[props.m?.fontWeight as FontWeightKeys] ?? props.m?.fontWeight;
@@ -161,11 +164,9 @@ export const useTypography = (props: Entry): Output => {
       fontWeight[props.d.fontWeight as FontWeightKeys] ?? props.d.fontWeight;
     classNames += `lg:[font-weight:var(--d-fw)] `;
   }
-
   // ----------------------------------------------------------------------------
 
   // hover font-weight
-
   if (typeof props.hover.m?.fontWeight !== "undefined") {
     styles["--hover-fw"] =
       fontWeight[props.hover.m.fontWeight as FontWeightKeys] ??
@@ -195,11 +196,9 @@ export const useTypography = (props: Entry): Output => {
       props.hover.d.fontWeight;
     classNames += `lg:hover:[font-weight:var(--hover-d-fw)] `;
   }
-
   // ----------------------------------------------------------------------------
 
   // line-height
-
   if (typeof props.m?.lineHeight !== "undefined") {
     styles["--lh"] =
       lineHeight[props.m.lineHeight as LineHeightKeys] ?? props.m.lineHeight;
@@ -262,8 +261,44 @@ export const useTypography = (props: Entry): Output => {
   }
   // ----------------------------------------------------------------------------
 
-  // vertical align
+  // italic
+  if (props.m?.italic === true) {
+    classNames += `italic `;
+  }
 
+  if (props.md?.italic === true && props.md?.italic !== props.m?.italic) {
+    classNames += `md:italic `;
+  }
+
+  if (
+    props.d?.italic === true &&
+    props.d?.italic !== (props.md?.italic ?? props.m?.italic)
+  ) {
+    classNames += `lg:italic `;
+  }
+  // ----------------------------------------------------------------------------
+
+  // hover italic
+  if (props.hover.m?.italic === true) {
+    classNames += `hover:italic `;
+  }
+
+  if (
+    props.hover.md?.italic === true &&
+    props.hover.md?.italic !== props.hover.m?.italic
+  ) {
+    classNames += `md:hover:italic `;
+  }
+
+  if (
+    props.hover.d?.italic === true &&
+    props.hover.d?.italic !== (props.hover.md?.italic ?? props.hover.m?.italic)
+  ) {
+    classNames += `lg:hover:italic `;
+  }
+  // ----------------------------------------------------------------------------
+
+  // vertical align
   if (props.m?.verticalAlign) {
     classNames += `align-${props.m.verticalAlign} `;
   }
@@ -306,7 +341,6 @@ export const useTypography = (props: Entry): Output => {
   // ----------------------------------------------------------------------------
 
   // horizontal align
-
   if (props.m?.horizontalAlign) {
     classNames += `text-${props.m.horizontalAlign} `;
   }
@@ -353,7 +387,6 @@ export const useTypography = (props: Entry): Output => {
   // ----------------------------------------------------------------------------
 
   // text transform
-
   if (props.m?.textTransform) {
     classNames += `${props.m.textTransform} `;
   }
@@ -396,7 +429,6 @@ export const useTypography = (props: Entry): Output => {
   // ----------------------------------------------------------------------------
 
   // text decoration
-
   if (props.m?.textDecoration) {
     classNames += `${props.m.textDecoration} `;
   }
@@ -439,7 +471,6 @@ export const useTypography = (props: Entry): Output => {
   // ----------------------------------------------------------------------------
 
   // text overflow
-
   if (props.m?.textOverflow) {
     classNames += `text-${props.m.textOverflow} `;
   }
@@ -459,7 +490,6 @@ export const useTypography = (props: Entry): Output => {
   // ----------------------------------------------------------------------------
 
   // text overflow hover
-
   if (props.hover.m?.textOverflow) {
     classNames += `hover:text-${props.hover.m.textOverflow} `;
   }

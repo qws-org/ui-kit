@@ -14,13 +14,13 @@ const meta = {
       options: ["large", "medium", "small", "xsmall"],
       description: "Size of the Title",
     },
-    weight: {
-      control: "radio",
-      options: ["superbold", "bold", "semibold", "normal", "light"],
-    },
     as: {
       control: "radio",
       options: ["h1", "h2", "h3", "h4"],
+    },
+    weight: {
+      control: "radio",
+      options: ["superbold", "bold", "semibold", "normal", "light"],
     },
     className: {
       control: "text",
@@ -33,17 +33,32 @@ const meta = {
       control: "object",
       description: "Responsive settings for d screens",
     },
-    alignment: {
+    lineHeight: {
       control: "radio",
-      options: ["center", "left", "right", "justify"],
+      description:
+        "Overrides default line-height from size. Accepts one of the design tokens (e.g., body.desktop.large).",
+    },
+    fontSize: {
+      control: "radio",
+      description:
+        "Overrides default font-size from size. Accepts one of the design tokens (e.g., body.desktop.large).",
+    },
+    italic: {
+      control: "boolean",
     },
   },
   args: {
-    size: "large",
     as: "h1",
     p: 32,
-    md: { size: "medium", weight: "normal", p: { py: 64 } },
-    d: { size: "large", weight: "light" },
+    italic: true,
+    horizontalAlign: "center",
+    size: "small",
+    fontSize: "button.desktop.xsmall",
+    md: {
+      p: { py: 64 },
+      fontSize: "body.mobile.small",
+    },
+    d: { lineHeight: "body.desktop.large", fontSize: "headline.desktop.large" },
   },
 } satisfies Meta<typeof Title>;
 
@@ -53,7 +68,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     as: "h4",
-    size: "xsmall",
   },
 
   render(args) {
