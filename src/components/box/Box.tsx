@@ -1,12 +1,10 @@
 import type {
-  ComponentPropsWithRef,
   CSSProperties,
   ElementType,
   ForwardedRef,
   MouseEvent,
   PropsWithChildren,
   ReactNode,
-  Ref,
 } from "react";
 import { forwardRef } from "react";
 
@@ -15,6 +13,7 @@ import { useCssEffects } from "~/components/use-css-effects";
 import { useOutline } from "~/components/use-outline";
 
 import type {
+  ElementRef,
   UiKitBackgroundProps,
   UiKitBorderProps,
   UIKitDimensionProps,
@@ -49,9 +48,6 @@ export type DefaultProps = Partial<
         UiKitTypographyProps & { border?: UiKitBorderProps };
     }
 >;
-
-type ElementRef<E extends ElementType> =
-  ComponentPropsWithRef<E> extends { ref?: Ref<infer R> } ? R : never;
 
 // eslint-disable-next-line
 export type BoxProps<RootElement extends ElementType = "div"> =
@@ -170,10 +166,16 @@ export const Box = forwardRef(
       hover: { m: hover ?? {}, md: md?.hover ?? {}, d: d?.hover ?? {} },
     });
 
+    const resolvedProps: Record<string, unknown> = {};
+    Object.entries(rest).forEach(([key, value]) => {
+      if (key.includes("aria-")) {
+        resolvedProps[key] = value;
+      }
+    });
     const Root = as ?? "div";
-
     return (
       <Root
+        {...resolvedProps}
         ref={ref as never}
         className={
           `${display.classNames} ${effects.className} ${outline.className} ${border.className} ` +

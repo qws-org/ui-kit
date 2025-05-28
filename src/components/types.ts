@@ -1,4 +1,10 @@
-import type { LinkHTMLAttributes, PropsWithChildren } from "react";
+import type {
+  ComponentPropsWithRef,
+  ElementType,
+  LinkHTMLAttributes,
+  PropsWithChildren,
+  Ref,
+} from "react";
 
 import type {
   ColorKeys,
@@ -302,5 +308,8 @@ export type UiKitEffectProps = {
   textShadow?: ColorKeys | string;
   opacity?: number;
 };
+
+export type ElementRef<E extends ElementType> =
+  ComponentPropsWithRef<E> extends { ref?: Ref<infer R> } ? R : never;
 
 // сгенерируй для свойства `textDecoration` класс формируется `${value}`
