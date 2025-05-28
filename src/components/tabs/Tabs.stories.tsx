@@ -71,7 +71,15 @@ export const WithControlledState: Story = {
     const [state, setState] = useState<string>("MaR");
 
     return (
-      <Tabs aria-label="History of Ancient Rome" selectedKey={state}>
+      <Tabs
+        aria-label="History of Ancient Rome"
+        selectedKey={state}
+        tabPanelProps={{ p: 8 }}
+        tabListProps={{
+          m: { mb: 8 },
+          p: 4,
+        }}
+      >
         <Tabs.Item
           key="FoR"
           title={
@@ -89,14 +97,12 @@ export const WithControlledState: Story = {
             </Button>
           }
         >
-          <Box p={10}>
-            Senatus Populusque Romanus. asdasd 12132131231231231231 Arma
-            virumque cano, Troiae qui primus ab oris. | Arma virumque cano,
-            Troiae qui primus ab oris. | Arma virumque cano, Troiae qui primus
-            ab oris. | Arma virumque cano, Troiae qui primus ab oris. | Arma
-            virumque cano, Troiae qui primus ab oris. | Arma virumque cano,
-            Troiae qui primus ab oris. |
-          </Box>
+          Senatus Populusque Romanus. asdasd 12132131231231231231 Arma virumque
+          cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui
+          primus ab oris. | Arma virumque cano, Troiae qui primus ab oris. |
+          Arma virumque cano, Troiae qui primus ab oris. | Arma virumque cano,
+          Troiae qui primus ab oris. | Arma virumque cano, Troiae qui primus ab
+          oris. |
         </Tabs.Item>
         <Tabs.Item
           key="MaR"
@@ -115,15 +121,12 @@ export const WithControlledState: Story = {
             </Button>
           }
         >
-          <Box p={10}>
-            Senatus Populusque Romanus. Troiae qui primus ab oris. | Arma
-            virumque cano, Troiae qui primus ab oris. | Arma virumque cano,
-            Troiae qui primus ab oris. | asdasdas asdasd 2121211
-            alskdmlaskdmlasknd asd | Arma virumque cano, Troiae qui primus ab
-            oris. | asdasdas asdasd 2121211 alskdmlaskdmlasknd asd a
-            sdasdasdasdasds ss 2121211 alskdmlaskdmlasknd asd a sdasdasdasdasds
-            ss
-          </Box>
+          Senatus Populusque Romanus. Troiae qui primus ab oris. | Arma virumque
+          cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui
+          primus ab oris. | asdasdas asdasd 2121211 alskdmlaskdmlasknd asd |
+          Arma virumque cano, Troiae qui primus ab oris. | asdasdas asdasd
+          2121211 alskdmlaskdmlasknd asd a sdasdasdasdasds ss 2121211
+          alskdmlaskdmlasknd asd a sdasdasdasdasds ss
         </Tabs.Item>
         <Tabs.Item
           key="Rak"
@@ -139,7 +142,7 @@ export const WithControlledState: Story = {
             </Button>
           }
         >
-          <Box p={10}>Senatus Populusque Romanus. </Box>
+          Senatus Populusque Romanus.
         </Tabs.Item>
       </Tabs>
     );

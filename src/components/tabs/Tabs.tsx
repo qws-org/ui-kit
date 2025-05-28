@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { useRef } from "react";
 import { Item } from "react-stately";
 
-import type { BoxProps } from "~/components";
+import type { BoxProps, FlexProps } from "~/components";
 import { Box, Flex } from "~/components";
 
 import { Panel } from "./components/Pannel";
@@ -17,6 +17,8 @@ export type TabProps<T extends string | number> = Omit<
 > & {
   selectedKey?: T;
   onSelectionChange?: (selectedItem: T) => void;
+  tabListProps?: FlexProps;
+  tabPanelProps?: FlexProps;
 };
 export const Tabs = function <T extends string | number>(
   props: TabProps<T>,
@@ -32,20 +34,25 @@ export const Tabs = function <T extends string | number>(
     <Box {...props} width={props?.width ?? "100%"}>
       <Flex
         {...tabListProps}
+        {...props.tabListProps}
         style={{
           ...tabListProps.style,
         }}
-        justify={"center"}
-        className={"overflow-x-auto"}
+        justify={props.tabListProps?.justify ?? "center"}
+        className={props?.tabListProps?.className ?? "overflow-x-auto"}
         ref={ref}
-        p={4}
-        gap={6}
+        p={props?.tabListProps?.p ?? 4}
+        gap={props?.tabListProps?.gap ?? 6}
       >
         {[...state.collection].map((item) => (
           <Tab key={item.key} item={item} state={state} />
         ))}
       </Flex>
-      <Panel key={state.selectedItem?.key} state={state} />
+      <Panel
+        key={state.selectedItem?.key}
+        state={state}
+        {...props.tabPanelProps}
+      />
     </Box>
   );
 };

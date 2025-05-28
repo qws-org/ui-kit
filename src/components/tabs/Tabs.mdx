@@ -14,7 +14,7 @@ Tabs — это компонент для Табов
 <Canvas of={stories.Default} />
 
 ```tsx
-import { Tabs } from "./Tabs";
+import { Tabs } from "@qws-org/ui-kit";
 
 export const Page = () => {
   return (
@@ -38,14 +38,22 @@ export const Page = () => {
 <Canvas of={stories.WithControlledState} />
 
 ```tsx
-import { Tabs } from "./Tabs";
+import { Tabs, Button } from "@qws-org/ui-kit";
 import { useState } from "react";
 
 export const Page = () => {
   const [state, setState] = useState<string>("MaR");
 
   return (
-    <Tabs aria-label="History of Ancient Rome" selectedKey={state}>
+    <Tabs
+      aria-label="History of Ancient Rome"
+      selectedKey={state}
+      tabPanelProps={{ p: 8 }}
+      tabListProps={{
+        m: { mb: 8 },
+        p: 4,
+      }}
+    >
       <Tabs.Item
         key="FoR"
         title={
@@ -63,14 +71,11 @@ export const Page = () => {
           </Button>
         }
       >
-        <Box p={10}>
-          Senatus Populusque Romanus. asdasd 12132131231231231231 Arma virumque
-          cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui
-          primus ab oris. | Arma virumque cano, Troiae qui primus ab oris. |
-          Arma virumque cano, Troiae qui primus ab oris. | Arma virumque cano,
-          Troiae qui primus ab oris. | Arma virumque cano, Troiae qui primus ab
-          oris. |
-        </Box>
+        Senatus Populusque Romanus. asdasd 12132131231231231231 Arma virumque
+        cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui primus
+        ab oris. | Arma virumque cano, Troiae qui primus ab oris. | Arma
+        virumque cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae
+        qui primus ab oris. | Arma virumque cano, Troiae qui primus ab oris. |
       </Tabs.Item>
       <Tabs.Item
         key="MaR"
@@ -89,14 +94,12 @@ export const Page = () => {
           </Button>
         }
       >
-        <Box p={10}>
-          Senatus Populusque Romanus. Troiae qui primus ab oris. | Arma virumque
-          cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui
-          primus ab oris. | asdasdas asdasd 2121211 alskdmlaskdmlasknd asd |
-          Arma virumque cano, Troiae qui primus ab oris. | asdasdas asdasd
-          2121211 alskdmlaskdmlasknd asd a sdasdasdasdasds ss 2121211
-          alskdmlaskdmlasknd asd a sdasdasdasdasds ss
-        </Box>
+        Senatus Populusque Romanus. Troiae qui primus ab oris. | Arma virumque
+        cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui primus
+        ab oris. | asdasdas asdasd 2121211 alskdmlaskdmlasknd asd | Arma
+        virumque cano, Troiae qui primus ab oris. | asdasdas asdasd 2121211
+        alskdmlaskdmlasknd asd a sdasdasdasdasds ss 2121211 alskdmlaskdmlasknd
+        asd a sdasdasdasdasds ss
       </Tabs.Item>
       <Tabs.Item
         key="Rak"
@@ -105,13 +108,14 @@ export const Page = () => {
             variant="secondary"
             isDisabled={true}
             size="xsmall"
+            md={{ size: "small", p: { px: 24, py: 8 } }}
             className={`rounded`}
           >
             Tab disabled
           </Button>
         }
       >
-        <Box p={10}>Senatus Populusque Romanus. </Box>
+        Senatus Populusque Romanus.
       </Tabs.Item>
     </Tabs>
   );
