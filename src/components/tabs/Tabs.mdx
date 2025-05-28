@@ -1,0 +1,119 @@
+import { Meta, Controls, Canvas } from "@storybook/blocks";
+import * as stories from "./Tabs.stories";
+
+<Meta of={stories} />
+
+# Tabs
+
+Tabs — это компонент для Табов
+
+<Controls />
+
+## Default code example
+
+<Canvas of={stories.Default} />
+
+```tsx
+import { Tabs } from "./Tabs";
+
+export const Page = () => {
+  return (
+    <Tabs aria-label="History of Ancient Rome">
+      <Tabs.Item key="FoR" title="Founding of Rome">
+        Arma virumque cano, Troiae qui primus ab oris.
+      </Tabs.Item>
+      <Tabs.Item key="MaR" title="Monarchy and Republic">
+        <Box p={10}>Senatus Populusque Romanus.</Box>
+      </Tabs.Item>
+      <Tabs.Item key="Emp" title="Empire">
+        Alea jacta est.
+      </Tabs.Item>
+    </Tabs>
+  );
+};
+```
+
+## Controlled state example
+
+<Canvas of={stories.WithControlledState} />
+
+```tsx
+import { Tabs } from "./Tabs";
+import { useState } from "react";
+
+export const Page = () => {
+  const [state, setState] = useState<string>("MaR");
+
+  return (
+    <Tabs aria-label="History of Ancient Rome" selectedKey={state}>
+      <Tabs.Item
+        key="FoR"
+        title={
+          <Button
+            variant="secondary"
+            size="xsmall"
+            md={{ size: "small", p: { px: 24, py: 8 } }}
+            className={`rounded`}
+            isActive={state === "FoR"}
+            onPress={() => {
+              setState("FoR");
+            }}
+          >
+            Tab 1 state
+          </Button>
+        }
+      >
+        <Box p={10}>
+          Senatus Populusque Romanus. asdasd 12132131231231231231 Arma virumque
+          cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui
+          primus ab oris. | Arma virumque cano, Troiae qui primus ab oris. |
+          Arma virumque cano, Troiae qui primus ab oris. | Arma virumque cano,
+          Troiae qui primus ab oris. | Arma virumque cano, Troiae qui primus ab
+          oris. |
+        </Box>
+      </Tabs.Item>
+      <Tabs.Item
+        key="MaR"
+        title={
+          <Button
+            variant="secondary"
+            size="xsmall"
+            className={`rounded`}
+            isActive={state === "MaR"}
+            md={{ size: "small", p: { px: 24, py: 8 } }}
+            onPress={() => {
+              setState("MaR");
+            }}
+          >
+            Tab 2 state
+          </Button>
+        }
+      >
+        <Box p={10}>
+          Senatus Populusque Romanus. Troiae qui primus ab oris. | Arma virumque
+          cano, Troiae qui primus ab oris. | Arma virumque cano, Troiae qui
+          primus ab oris. | asdasdas asdasd 2121211 alskdmlaskdmlasknd asd |
+          Arma virumque cano, Troiae qui primus ab oris. | asdasdas asdasd
+          2121211 alskdmlaskdmlasknd asd a sdasdasdasdasds ss 2121211
+          alskdmlaskdmlasknd asd a sdasdasdasdasds ss
+        </Box>
+      </Tabs.Item>
+      <Tabs.Item
+        key="Rak"
+        title={
+          <Button
+            variant="secondary"
+            isDisabled={true}
+            size="xsmall"
+            className={`rounded`}
+          >
+            Tab disabled
+          </Button>
+        }
+      >
+        <Box p={10}>Senatus Populusque Romanus. </Box>
+      </Tabs.Item>
+    </Tabs>
+  );
+};
+```

@@ -68,6 +68,7 @@ export {
 } from "./components/stripe-wrapper/StripeWrapper";
 export { Table, type TableProps } from "./components/table/Table";
 export type { TableCellProps } from "./components/table/TableCell";
+export { type TabProps, Tabs } from "./components/tabs/Tabs";
 export { Text, type TextProps } from "./components/text/Text";
 export {
   TextField,

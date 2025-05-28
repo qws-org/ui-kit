@@ -51,7 +51,7 @@ const buttonStyles = tv({
     },
     variant: {
       default:
-        "bg-[linear-gradient(-90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)] shadow-[0px_0px_13px_transparent,0px_4px_8px_var(--colors-surface-disabled),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)] hover:bg-left hover:shadow-[0px_0px_13px_var(--colors-surface-delete),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-disabled),inset_0px_1px_1px_var(--colors-surface-neutral-light)] active:bg-left active:shadow-[0px_0px_13px_var(--colors-surface-delete),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)] active:bg-[linear-gradient(0deg,var(--colors-surface-neutral-dark-default),var(--colors-surface-neutral-dark-default)),linear-gradient(90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)]  hover:bg-[linear-gradient(90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)]  ",
+        "border bg-[linear-gradient(-90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)] shadow-[0px_0px_13px_transparent,0px_4px_8px_var(--colors-surface-disabled),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)] hover:bg-left hover:shadow-[0px_0px_13px_var(--colors-surface-delete),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-disabled),inset_0px_1px_1px_var(--colors-surface-neutral-light)] active:bg-left active:shadow-[0px_0px_13px_var(--colors-surface-delete),0px_4px_8px_var(--colors-surface-neutral-subtle),inset_0px_-1px_1px_var(--colors-surface-neutral-subtle),inset_0px_1px_1px_var(--colors-surface-neutral-light)] active:bg-[linear-gradient(0deg,var(--colors-surface-neutral-dark-default),var(--colors-surface-neutral-dark-default)),linear-gradient(90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)]  hover:bg-[linear-gradient(90deg,var(--colors-surface-delete)_0%,var(--colors-surface-primary-dark)_100%,var(--colors-surface-delete)_100%)]  ",
 
       transparent:
         "border border-[var(--colors-surface-secondary-default)] hover:bg-[var(--colors-surface-secondary-default)] hover:text-[var(--colors-text-primary-inverted)]",
@@ -60,6 +60,8 @@ const buttonStyles = tv({
         "border-1 bg-[var(--colors-surface-secondary-default)] text-[var(--colors-text-primary-inverted)] ",
 
       secondary: "bg-[var(--colors-surface-neutral-light)]",
+      disabled:
+        "bg-[var(--colors-background-transparent)] text-[var(--colors-text-disabled)] cursor-not-allowed",
     },
     isActive: {
       true: "",
@@ -155,6 +157,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       maxWidth,
       m,
       p,
+      isDisabled,
+      onPress,
       ...props
     },
     ref,
@@ -193,8 +197,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             {...props}
             {...buttonProps}
             ref={mergedRef}
+            disabled={isDisabled}
             className={buttonStyles({
-              variant,
+              variant: isDisabled ? "disabled" : variant,
               size,
               isActive,
               mdSize: md?.size ?? size,
@@ -204,6 +209,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               dWeight: d?.weight ?? md?.weight ?? weight,
               className: `${displayStyle(display)} ${displayStyle(md?.display ?? display, "md")} ${displayStyle(d?.display ?? md?.display ?? display, "lg")} ${spacing.className ?? ""} ${dimension.className} ${className}`,
             })}
+            onClick={(e) => onPress?.(e as never)}
             style={{
               ...props.style,
               ...spacing.styles,
