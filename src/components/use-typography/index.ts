@@ -20,6 +20,9 @@ type Output = {
   classNames: string;
   styles: Record<string, string | number>;
 };
+const styleTransformer = (value: string | number): string => {
+  return typeof value === "string" ? value : `${value}px`;
+};
 
 export const useTypography = (props: Entry): Output => {
   let classNames = "";
@@ -69,8 +72,10 @@ export const useTypography = (props: Entry): Output => {
 
   // font-size
   if (typeof props.m?.fontSize !== "undefined") {
-    styles["--fs"] =
-      fontSize[props.m.fontSize as FontSizeKeys] ?? props.m?.fontSize;
+    const fontSizeValue =
+      fontSize[props.m.fontSize as FontSizeKeys] ?? props.m.fontSize;
+    styles["--fs"] = styleTransformer(fontSizeValue);
+
     classNames += `[font-size:var(--fs)] `;
   }
 
@@ -78,8 +83,9 @@ export const useTypography = (props: Entry): Output => {
     typeof props.md?.fontSize !== "undefined" &&
     props.md.fontSize !== props.m?.fontSize
   ) {
-    styles["--md-fs"] =
+    const mdFontSizeValue =
       fontSize[props.md.fontSize as FontSizeKeys] ?? props.md.fontSize;
+    styles["--md-fs"] = styleTransformer(mdFontSizeValue);
     classNames += `md:[font-size:var(--md-fs)] `;
   }
 
@@ -89,9 +95,10 @@ export const useTypography = (props: Entry): Output => {
     typeof props.d?.fontSize !== "undefined" &&
     props.d.fontSize !== mdFontSize
   ) {
-    styles["--d-fs"] =
+    const dFontSizeValue =
       fontSize[props.d.fontSize as FontSizeKeys] ?? props.d.fontSize;
-    classNames += `[font-size:var(--d-fs)] `;
+    styles["--d-fs"] = styleTransformer(dFontSizeValue);
+    classNames += `lg:[font-size:var(--d-fs)] `;
   }
   // ----------------------------------------------------------------------------
 
@@ -152,7 +159,7 @@ export const useTypography = (props: Entry): Output => {
   ) {
     styles["--d-fw"] =
       fontWeight[props.d.fontWeight as FontWeightKeys] ?? props.d.fontWeight;
-    classNames += `[font-weight:var(--d-fw)] `;
+    classNames += `lg:[font-weight:var(--d-fw)] `;
   }
 
   // ----------------------------------------------------------------------------
@@ -196,6 +203,7 @@ export const useTypography = (props: Entry): Output => {
   if (typeof props.m?.lineHeight !== "undefined") {
     styles["--lh"] =
       lineHeight[props.m.lineHeight as LineHeightKeys] ?? props.m.lineHeight;
+
     classNames += `[line-height:var(--lh)] `;
   }
 
@@ -205,6 +213,7 @@ export const useTypography = (props: Entry): Output => {
   ) {
     styles["--md-lh"] =
       lineHeight[props.md.lineHeight as LineHeightKeys] ?? props.md.lineHeight;
+
     classNames += `md:[line-height:var(--md-lh)] `;
   }
 
@@ -216,7 +225,8 @@ export const useTypography = (props: Entry): Output => {
   ) {
     styles["--d-lh"] =
       lineHeight[props.d.lineHeight as LineHeightKeys] ?? props.d.lineHeight;
-    classNames += `[line-height:var(--d-lh)] `;
+
+    classNames += `lg:[line-height:var(--d-lh)] `;
   }
   // ----------------------------------------------------------------------------
 

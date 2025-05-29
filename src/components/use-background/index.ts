@@ -74,7 +74,8 @@ export const useBackground = (
   if (props.hover.m.bg) {
     const value = colors[props.hover.m.bg as ColorKeys] ?? props.hover.m.bg;
 
-    style["--h-bg"] = formatBackgroundValue(props.hover.m.bg);
+    style["--h-bg"] = formatBackgroundValue(value);
+
     className +=
       isImage(value) || isGradient(value)
         ? "hover:bg-[image:var(--h-bg)] "
@@ -83,7 +84,7 @@ export const useBackground = (
 
   if (props.hover.md.bg && props.hover.md.bg !== props.hover.m.bg) {
     const value = colors[props.hover.md.bg as ColorKeys] ?? props.hover.md.bg;
-    style["--md-h-bg"] = formatBackgroundValue(props.hover.md.bg);
+    style["--md-h-bg"] = formatBackgroundValue(value);
     className +=
       isImage(value) || isGradient(value)
         ? "md:hover:bg-[image:var(--md-h-bg)] "

@@ -11,77 +11,77 @@ export type UiKitLinkComponent = ForwardRefExoticComponent<
 >;
 
 export type FontSize = {
-  "headline.desktop.large": number;
-  "headline.desktop.medium": number;
-  "headline.mobile.medium": number;
-  "headline.mobile.large": number;
+  "headline.desktop.large": number | string;
+  "headline.desktop.medium": number | string;
+  "headline.mobile.medium": number | string;
+  "headline.mobile.large": number | string;
 
-  "title.desktop.large": number;
-  "title.desktop.medium": number;
-  "title.desktop.small": number;
-  "title.desktop.xsmall": number;
+  "title.desktop.large": number | string;
+  "title.desktop.medium": number | string;
+  "title.desktop.small": number | string;
+  "title.desktop.xsmall": number | string;
 
-  "title.mobile.large": number;
-  "title.mobile.medium": number;
-  "title.mobile.small": number;
-  "title.mobile.xsmall": number;
+  "title.mobile.large": number | string;
+  "title.mobile.medium": number | string;
+  "title.mobile.small": number | string;
+  "title.mobile.xsmall": number | string;
 
-  "body.desktop.large": number;
-  "body.desktop.medium": number;
-  "body.desktop.small": number;
+  "body.desktop.large": number | string;
+  "body.desktop.medium": number | string;
+  "body.desktop.small": number | string;
 
-  "body.mobile.large": number;
-  "body.mobile.medium": number;
-  "body.mobile.small": number;
+  "body.mobile.large": number | string;
+  "body.mobile.medium": number | string;
+  "body.mobile.small": number | string;
 
-  "button.desktop.large": number;
-  "button.desktop.medium": number;
-  "button.desktop.small": number;
-  "button.desktop.xsmall": number;
+  "button.desktop.large": number | string;
+  "button.desktop.medium": number | string;
+  "button.desktop.small": number | string;
+  "button.desktop.xsmall": number | string;
 
-  "button.mobile.large": number;
-  "button.mobile.medium": number;
-  "button.mobile.small": number;
-  "button.mobile.xsmall": number;
+  "button.mobile.large": number | string;
+  "button.mobile.medium": number | string;
+  "button.mobile.small": number | string;
+  "button.mobile.xsmall": number | string;
 };
 
 export type FontSizeKeys = keyof FontSize;
 
 export type LineHeight = {
-  "headline.desktop.large": number;
-  "headline.desktop.medium": number;
-  "headline.mobile.large": number;
-  "headline.mobile.medium": number;
+  "headline.desktop.large": number | string;
+  "headline.desktop.medium": number | string;
+  "headline.mobile.large": number | string;
+  "headline.mobile.medium": number | string;
 
-  "title.desktop.large": number;
-  "title.desktop.medium": number;
-  "title.desktop.small": number;
-  "title.desktop.xsmall": number;
+  "title.desktop.large": number | string;
+  "title.desktop.medium": number | string;
+  "title.desktop.small": number | string;
+  "title.desktop.xsmall": number | string;
 
-  "title.mobile.large": number;
-  "title.mobile.medium": number;
-  "title.mobile.small": number;
-  "title.mobile.xsmall": number;
+  "title.mobile.large": number | string;
+  "title.mobile.medium": number | string;
+  "title.mobile.small": number | string;
+  "title.mobile.xsmall": number | string;
 
-  "body.desktop.large": number;
-  "body.desktop.medium": number;
-  "body.desktop.small": number;
-  "body.desktop.xsmall": number;
+  "body.desktop.large": number | string;
+  "body.desktop.medium": number | string;
+  "body.desktop.small": number | string;
+  "body.desktop.xsmall": number | string;
 
-  "body.mobile.large": number;
-  "body.mobile.medium": number;
-  "body.mobile.small": number;
-  "body.mobile.xsmall": number;
+  "body.mobile.large": number | string;
+  "body.mobile.medium": number | string;
+  "body.mobile.small": number | string;
+  "body.mobile.xsmall": number | string;
 
-  "button.desktop.large": number;
-  "button.desktop.medium": number;
-  "button.desktop.small": number;
-  "button.desktop.xsmall": number;
+  "button.desktop.large": number | string;
+  "button.desktop.medium": number | string;
+  "button.desktop.small": number | string;
+  "button.desktop.xsmall": number | string;
 
-  "button.mobile.large": number;
-  "button.mobile.medium": number;
-  "button.mobile.small": number;
-  "button.mobile.xsmall": number;
+  "button.mobile.large": number | string;
+  "button.mobile.medium": number | string;
+  "button.mobile.small": number | string;
+  "button.mobile.xsmall": number | string;
 };
 
 export type LineHeightKeys = keyof LineHeight;
@@ -127,20 +127,11 @@ export type Spacing = {
 };
 
 export type ColorKeys =
-  | "text-accent-grad"
-  | "surface-primary-grad-default"
-  | "surface-primary-grad-hovered"
-  | "surface-primary-grad-pressed"
-  | "surface-primary-grad-subtle"
-  | "surface-accent1-default"
-  | "surface-accent2-default"
-  | "surface-accent1-hovered"
-  | "surface-accent2-hovered"
-  | "background-accent1"
-  | "background-accent2"
   | "background-primary"
   | "background-secondary"
   | "background-transparent"
+  | "background-accent1"
+  | "background-accent2"
   | "border-accent"
   | "border-destructive"
   | "border-primary"
@@ -148,6 +139,7 @@ export type ColorKeys =
   | "border-subtle"
   | "text-accent-default"
   | "text-accent-hovered"
+  | "text-accent-grad"
   | "text-destructive"
   | "text-disabled"
   | "text-selection"
@@ -158,8 +150,6 @@ export type ColorKeys =
   | "text-primary-muted"
   | "text-secondary-default"
   | "text-secondary-hovered"
-  | "surface-delete"
-  | "surface-disabled"
   | "surface-destructive-default"
   | "surface-destructive-subtle"
   | "surface-neutral-dark-default"
@@ -172,9 +162,17 @@ export type ColorKeys =
   | "surface-primary-dark"
   | "surface-primary-hovered"
   | "surface-primary-subtle"
+  | "surface-primary-grad-default"
+  | "surface-primary-grad-pressed"
+  | "surface-primary-grad-hovered"
+  | "surface-primary-grad-subtle"
   | "surface-tetriary-hovered"
   | "surface-secondary-default"
-  | "surface-secondary-hovered";
+  | "surface-secondary-hovered"
+  | "surface-accent1-default"
+  | "surface-accent1-hovered"
+  | "surface-accent2-default"
+  | "surface-accent2-hovered";
 
 export interface Colors extends Record<ColorKeys, string> {}
 

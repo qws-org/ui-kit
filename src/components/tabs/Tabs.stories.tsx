@@ -86,7 +86,11 @@ export const WithControlledState: Story = {
             <Button
               variant="secondary"
               size="xsmall"
-              md={{ size: "small", p: { px: 24, py: 8 } }}
+              md={{
+                fontSize: "button.desktop.small",
+                lineHeight: "button.desktop.small",
+                p: { px: 24, py: 8 },
+              }}
               className={`rounded`}
               isActive={state === "FoR"}
               onPress={() => {
@@ -112,7 +116,11 @@ export const WithControlledState: Story = {
               size="xsmall"
               className={`rounded`}
               isActive={state === "MaR"}
-              md={{ size: "small", p: { px: 24, py: 8 } }}
+              md={{
+                fontSize: "button.desktop.small",
+                lineHeight: "button.desktop.small",
+                p: { px: 24, py: 8 },
+              }}
               onPress={() => {
                 setState("MaR");
               }}
@@ -135,7 +143,11 @@ export const WithControlledState: Story = {
               variant="secondary"
               isDisabled={true}
               size="xsmall"
-              md={{ size: "small", p: { px: 24, py: 8 } }}
+              md={{
+                fontSize: "button.desktop.small",
+                lineHeight: "button.desktop.small",
+                p: { px: 24, py: 8 },
+              }}
               className={`rounded`}
             >
               Tab disabled
