@@ -75,7 +75,7 @@ export const useDimensions = ({
       if (m?.minWidth !== md.minWidth) {
         styles["--mdMinWidth"] =
           typeof md.minWidth !== "string" ? md.minWidth + "px" : md.minWidth;
-        className += `md:w-[var(--mdMinWidth)] `;
+        className += `md:min-w-[var(--mdMinWidth)] `;
       }
       mdCalculatedValues.minWidth = md.minWidth;
     }
@@ -92,7 +92,7 @@ export const useDimensions = ({
       if (m?.height !== md.height) {
         styles["--mdHeight"] =
           typeof md.height !== "string" ? md.height + "px" : md.height;
-        className += `md:w-[var(--mdHeight)] `;
+        className += `md:h-[var(--mdHeight)] `;
       }
       mdCalculatedValues.height = md.height;
     }
@@ -100,7 +100,7 @@ export const useDimensions = ({
       if (m?.minHeight !== md.minHeight) {
         styles["--mdMinHeight"] =
           typeof md.minHeight !== "string" ? md.minHeight + "px" : md.minHeight;
-        className += `md:w-[var(--mdMinHeight)] `;
+        className += `md:h-[var(--mdMinHeight)] `;
       }
       mdCalculatedValues.minHeight = md.minHeight;
     }
@@ -108,7 +108,7 @@ export const useDimensions = ({
       if (m?.maxHeight !== md.maxHeight) {
         styles["--mdMaxHeight"] =
           typeof md.maxHeight !== "string" ? md.maxHeight + "px" : md.maxHeight;
-        className += `md:w-[var(--mdMaxHeight)] `;
+        className += `md:h-[var(--mdMaxHeight)] `;
       }
       mdCalculatedValues.maxHeight = md.maxHeight;
     }
@@ -126,15 +126,15 @@ export const useDimensions = ({
       if (md?.minWidth !== d.minWidth) {
         styles["--dMinWidth"] =
           typeof d.minWidth !== "string" ? d.minWidth + "px" : d.minWidth;
-        className += `lg:w-[var(--dMinWidth)] `;
+        className += `lg:min-w-[var(--dMinWidth)] `;
       }
       mdCalculatedValues.minWidth = d.minWidth;
     }
     if (typeof d.maxWidth !== "undefined") {
       if (md?.maxWidth !== d.maxWidth) {
-        styles["--mdMaxWidth"] =
+        styles["--dMaxWidth"] =
           typeof d.maxWidth !== "string" ? d.maxWidth + "px" : d.maxWidth;
-        className += `lg:w-[var(--dMaxWidth)] `;
+        className += `lg:max-w-[var(--dMaxWidth)] `;
       }
       mdCalculatedValues.maxWidth = d.maxWidth;
     }

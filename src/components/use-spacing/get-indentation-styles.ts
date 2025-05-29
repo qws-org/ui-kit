@@ -313,7 +313,7 @@ export const getIndentationsStyles = (
       }
 
       if (params.m.mb) {
-        margin[0] = params.m.mb === "auto" ? params.m.mb : params.m.mb + "px";
+        margin[2] = params.m.mb === "auto" ? params.m.mb : params.m.mb + "px";
       }
     }
 

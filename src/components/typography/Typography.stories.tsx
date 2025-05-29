@@ -34,12 +34,32 @@ const meta = {
       control: "object",
       description: "Responsive settings for d screens",
     },
+    lineHeight: {
+      control: "radio",
+      description:
+        "Overrides default line-height from size. Accepts one of the design tokens (e.g., body.desktop.large).",
+    },
+    fontSize: {
+      control: "radio",
+      description:
+        "Overrides default font-size from size. Accepts one of the design tokens (e.g., body.desktop.large).",
+    },
+    italic: {
+      control: "boolean",
+    },
   },
   args: {
-    size: "large",
     as: "p",
-    md: { size: "medium", weight: "normal" },
-    d: { size: "large", weight: "light" },
+    size: "small",
+    fontSize: "button.desktop.xsmall",
+    md: {
+      p: { py: 64 },
+      fontSize: "body.mobile.small",
+    },
+    d: { lineHeight: "body.desktop.large", fontSize: "headline.desktop.large" },
+    hover: {
+      fontSize: 48,
+    },
   },
 } satisfies Meta<typeof Typography>;
 

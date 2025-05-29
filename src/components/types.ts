@@ -264,6 +264,7 @@ export type UiKitTypographyProps = {
   textOverflow?: "ellipsis" | "clip";
   whiteSpace?: "nowrap" | "pre" | "pre-line" | "pre-wrap";
   color?: ColorKeys | string;
+  italic?: boolean;
 };
 
 export type BorderColorItem = ColorKeys | string;
