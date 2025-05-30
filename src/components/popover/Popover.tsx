@@ -4,7 +4,12 @@ import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 import type { OverlayTriggerState } from "react-stately";
 
-export interface PopoverProps extends Omit<AriaPopoverProps, "popoverRef"> {
+import type { UiKitBackgroundProps } from "~/components";
+import { Box } from "~/components";
+
+export interface PopoverProps
+  extends Omit<AriaPopoverProps, "popoverRef">,
+    Omit<UiKitBackgroundProps, "groupParent" | "bgGroup"> {
   children: ReactNode;
   state: OverlayTriggerState;
   offset?: number;
@@ -27,34 +32,40 @@ export const Popover: FC<PopoverProps> = ({
   if (variant === "static") {
     return (
       <div {...underlayProps}>
-        <div
+        <Box
+          {...props}
           ref={popoverRef}
-          className={`bg-dark-overlay rounded-lg transition-all duration-300 ease-in-out ${
-            state.isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          bg={props.bg ?? "background-transparent"}
+          border={{ radius: "8px" }}
+          className={`transition-all duration-300 ease-in-out ${
+            state.isOpen ? " visible" : "invisible"
           }`}
+          opacity={state.isOpen ? 100 : 0}
         >
           <DismissButton onDismiss={() => state.close()} />
           {children}
           <DismissButton onDismiss={() => state.close()} />
-        </div>
+        </Box>
       </div>
     );
   } else {
     return (
       <Overlay>
         <div {...underlayProps} />
-        <div
+        <Box
           {...popoverProps}
+          {...props}
           ref={popoverRef}
           style={{
             ...popoverProps.style,
           }}
-          className="bg-dark-overlay rounded-lg"
+          bg={props.bg ?? "background-transparent"}
+          border={{ radius: "8px" }}
         >
           <DismissButton onDismiss={() => state.close()} />
           {children}
           <DismissButton onDismiss={() => state.close()} />
-        </div>
+        </Box>
       </Overlay>
     );
   }
