@@ -7,7 +7,7 @@ export type ContainerProps = FlexProps;
 
 export const Container: FC<ContainerProps> = (props) => {
   return (
-    <Flex {...props} className={`w-full max-w-full ${props.className}`}>
+    <Flex width="100%" {...props} className={`${props.className}`}>
       {props.children}
     </Flex>
   );

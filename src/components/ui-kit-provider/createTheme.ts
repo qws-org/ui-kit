@@ -61,41 +61,41 @@ export const createTheme = (
     "headline.mobile.medium":
       entry?.lineHeight?.["headline.mobile.medium"] ?? "22px",
 
-    "title.desktop.large": entry?.lineHeight?.["title.desktop.large"] ?? "48px",
+    "title.desktop.large": entry?.lineHeight?.["title.desktop.large"] ?? "64px",
     "title.desktop.medium":
-      entry?.lineHeight?.["title.desktop.medium"] ?? "36px",
-    "title.desktop.small": entry?.lineHeight?.["title.desktop.small"] ?? "22px",
+      entry?.lineHeight?.["title.desktop.medium"] ?? "48px",
+    "title.desktop.small": entry?.lineHeight?.["title.desktop.small"] ?? "32px",
     "title.desktop.xsmall":
-      entry?.lineHeight?.["title.desktop.xsmall"] ?? "16px",
+      entry?.lineHeight?.["title.desktop.xsmall"] ?? "20px",
 
-    "title.mobile.large": entry?.lineHeight?.["title.mobile.large"] ?? "48px",
-    "title.mobile.medium": entry?.lineHeight?.["title.mobile.medium"] ?? "36px",
-    "title.mobile.small": entry?.lineHeight?.["title.mobile.small"] ?? "22px",
-    "title.mobile.xsmall": entry?.lineHeight?.["title.mobile.xsmall"] ?? "16px",
+    "title.mobile.large": entry?.lineHeight?.["title.mobile.large"] ?? "36px",
+    "title.mobile.medium": entry?.lineHeight?.["title.mobile.medium"] ?? "30px",
+    "title.mobile.small": entry?.lineHeight?.["title.mobile.small"] ?? "28px",
+    "title.mobile.xsmall": entry?.lineHeight?.["title.mobile.xsmall"] ?? "18px",
 
-    "body.desktop.large": entry?.lineHeight?.["body.desktop.large"] ?? "22px",
-    "body.desktop.medium": entry?.lineHeight?.["body.desktop.medium"] ?? "18px",
-    "body.desktop.small": entry?.lineHeight?.["body.desktop.small"] ?? "14px",
-    "body.desktop.xsmall": entry?.lineHeight?.["body.desktop.xsmall"] ?? "12px",
+    "body.desktop.large": entry?.lineHeight?.["body.desktop.large"] ?? "24px",
+    "body.desktop.medium": entry?.lineHeight?.["body.desktop.medium"] ?? "20px",
+    "body.desktop.small": entry?.lineHeight?.["body.desktop.small"] ?? "18px",
+    "body.desktop.xsmall": entry?.lineHeight?.["body.desktop.xsmall"] ?? "16px",
 
-    "body.mobile.large": entry?.lineHeight?.["body.mobile.large"] ?? "16px",
-    "body.mobile.medium": entry?.lineHeight?.["body.mobile.medium"] ?? "14px",
-    "body.mobile.small": entry?.lineHeight?.["body.mobile.small"] ?? "14px",
-    "body.mobile.xsmall": entry?.lineHeight?.["body.mobile.xsmall"] ?? "12px",
+    "body.mobile.large": entry?.lineHeight?.["body.mobile.large"] ?? "20px",
+    "body.mobile.medium": entry?.lineHeight?.["body.mobile.medium"] ?? "18px",
+    "body.mobile.small": entry?.lineHeight?.["body.mobile.small"] ?? "16px",
+    "body.mobile.xsmall": entry?.lineHeight?.["body.mobile.xsmall"] ?? "14px",
 
     "button.desktop.large":
-      entry?.lineHeight?.["button.desktop.large"] ?? "22px",
+      entry?.lineHeight?.["button.desktop.large"] ?? "34px",
     "button.desktop.medium":
-      entry?.lineHeight?.["button.desktop.medium"] ?? "20px",
+      entry?.lineHeight?.["button.desktop.medium"] ?? "28px",
     "button.desktop.small":
-      entry?.lineHeight?.["button.desktop.small"] ?? "16px",
+      entry?.lineHeight?.["button.desktop.small"] ?? "24px",
     "button.desktop.xsmall":
       entry?.lineHeight?.["button.desktop.xsmall"] ?? "16px",
 
-    "button.mobile.large": entry?.lineHeight?.["button.mobile.large"] ?? "22px",
+    "button.mobile.large": entry?.lineHeight?.["button.mobile.large"] ?? "34px",
     "button.mobile.medium":
-      entry?.lineHeight?.["button.mobile.medium"] ?? "20px",
-    "button.mobile.small": entry?.lineHeight?.["button.mobile.small"] ?? "16px",
+      entry?.lineHeight?.["button.mobile.medium"] ?? "28px",
+    "button.mobile.small": entry?.lineHeight?.["button.mobile.small"] ?? "24px",
     "button.mobile.xsmall":
       entry?.lineHeight?.["button.mobile.xsmall"] ?? "16px",
   };

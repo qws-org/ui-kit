@@ -171,27 +171,27 @@ export const getIndentationsStyles = (
   // Padding
   if (params.p) {
     if (isAnyDirectionPadding(params.p)) {
-      if (params.p.pt) {
+      if (params.p.pt !== undefined) {
         padding[0] = params.p.pt + "px";
       }
-      if (params.p.pr) {
+      if (params.p.pr !== undefined) {
         padding[1] = params.p.pr + "px";
       }
-      if (params.p.pb) {
+      if (params.p.pb !== undefined) {
         padding[2] = params.p.pb + "px";
       }
-      if (params.p.pl) {
+      if (params.p.pl !== undefined) {
         padding[3] = params.p.pl + "px";
       }
     }
 
     if (isAxisDirectionPadding(params.p)) {
-      if (params.p.py) {
+      if (params.p.py !== undefined) {
         const value = params.p.py + "px";
         padding[0] = value;
         padding[2] = value;
       }
-      if (params.p.px) {
+      if (params.p.px !== undefined) {
         const value = params.p.px + "px";
         padding[1] = value;
         padding[3] = value;
@@ -218,11 +218,11 @@ export const getIndentationsStyles = (
       padding[1] = value;
       padding[3] = value;
 
-      if (params.p.pt) {
+      if (params.p.pt !== undefined) {
         padding[0] = params.p.pt + "px";
       }
 
-      if (params.p.pb) {
+      if (params.p.pb !== undefined) {
         padding[2] = params.p.pb + "px";
       }
     }
@@ -232,11 +232,11 @@ export const getIndentationsStyles = (
       padding[0] = value;
       padding[2] = value;
 
-      if (params.p.pr) {
+      if (params.p.pr !== undefined) {
         padding[1] = params.p.pr + "px";
       }
 
-      if (params.p.pl) {
+      if (params.p.pl !== undefined) {
         padding[3] = params.p.pl + "px";
       }
     }
@@ -276,27 +276,27 @@ export const getIndentationsStyles = (
 
   if (params.m) {
     if (isAnyDirectionMargin(params.m)) {
-      if (params.m.mt) {
+      if (params.m.mt !== undefined) {
         margin[0] = params.m.mt === "auto" ? params.m.mt : params.m.mt + "px";
       }
-      if (params.m.mr) {
+      if (params.m.mr !== undefined) {
         margin[1] = params.m.mr === "auto" ? params.m.mr : params.m.mr + "px";
       }
-      if (params.m.mb) {
+      if (params.m.mb !== undefined) {
         margin[2] = params.m.mb === "auto" ? params.m.mb : params.m.mb + "px";
       }
-      if (params.m.ml) {
+      if (params.m.ml !== undefined) {
         margin[3] = params.m.ml === "auto" ? params.m.ml : params.m.ml + "px";
       }
     }
 
     if (isAxisDirectionMargin(params.m)) {
-      if (params.m.my) {
+      if (params.m.my !== undefined) {
         const value = params.m.my === "auto" ? params.m.my : params.m.my + "px";
         margin[0] = value;
         margin[2] = value;
       }
-      if (params.m.mx) {
+      if (params.m.mx !== undefined) {
         const value = params.m.mx === "auto" ? params.m.mx : params.m.mx + "px";
         margin[1] = value;
         margin[3] = value;
@@ -308,11 +308,11 @@ export const getIndentationsStyles = (
       margin[1] = value;
       margin[3] = value;
 
-      if (params.m.mt) {
+      if (params.m.mt !== undefined) {
         margin[0] = params.m.mt === "auto" ? params.m.mt : params.m.mt + "px";
       }
 
-      if (params.m.mb) {
+      if (params.m.mb !== undefined) {
         margin[2] = params.m.mb === "auto" ? params.m.mb : params.m.mb + "px";
       }
     }
@@ -322,11 +322,11 @@ export const getIndentationsStyles = (
       margin[0] = value;
       margin[2] = value;
 
-      if (params.m.mr) {
+      if (params.m.mr !== undefined) {
         margin[1] = params.m.mr === "auto" ? params.m.mr : params.m.mr + "px";
       }
 
-      if (params.m.ml) {
+      if (params.m.ml !== undefined) {
         margin[3] = params.m.ml === "auto" ? params.m.ml : params.m.ml + "px";
       }
     }

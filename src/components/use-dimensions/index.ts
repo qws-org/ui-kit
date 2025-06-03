@@ -70,7 +70,6 @@ export const useDimensions = ({
       }
       mdCalculatedValues.width = md.width;
     }
-
     if (typeof md.minWidth !== "undefined") {
       if (m?.minWidth !== md.minWidth) {
         styles["--mdMinWidth"] =
@@ -100,7 +99,7 @@ export const useDimensions = ({
       if (m?.minHeight !== md.minHeight) {
         styles["--mdMinHeight"] =
           typeof md.minHeight !== "string" ? md.minHeight + "px" : md.minHeight;
-        className += `md:h-[var(--mdMinHeight)] `;
+        className += `md:min-h-[var(--mdMinHeight)] `;
       }
       mdCalculatedValues.minHeight = md.minHeight;
     }
@@ -108,7 +107,7 @@ export const useDimensions = ({
       if (m?.maxHeight !== md.maxHeight) {
         styles["--mdMaxHeight"] =
           typeof md.maxHeight !== "string" ? md.maxHeight + "px" : md.maxHeight;
-        className += `md:h-[var(--mdMaxHeight)] `;
+        className += `md:max-h-[var(--mdMaxHeight)] `;
       }
       mdCalculatedValues.maxHeight = md.maxHeight;
     }
