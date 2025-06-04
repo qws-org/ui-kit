@@ -32,7 +32,7 @@ type Props = AccordionItemProps &
   Partial<Omit<BoxProps, "children" | "as" | "display">>;
 
 const accordionStyles = tv({
-  base: "w-full transition-transform cursor-pointer ",
+  base: "transition-transform cursor-pointer ",
   variants: {
     variant: {
       primary: "bg-[var(--colors-surface-neutral-default)]",
@@ -50,7 +50,7 @@ const accordionStyles = tv({
 });
 
 const accordionArrowStyles = tv({
-  base: "transition-transform",
+  base: "transition-transform  ",
   variants: {
     variant: {
       primary: "",
@@ -72,15 +72,7 @@ const accordionArrowStyles = tv({
     isExpanded: false,
   },
 });
-const panelStyles = tv({
-  base: "overflow-hidden transition-all ease-in-out ",
-  variants: {
-    isExpanded: {
-      true: "max-h-screen opacity-100",
-      false: "max-h-0 opacity-0",
-    },
-  },
-});
+
 const DefaultHeadingWrapper: HeadingWrapper = (wrapperProps) => (
   <Flex justify="space-between" align="center" p={0} m={0}>
     {wrapperProps.children}
@@ -130,6 +122,7 @@ export const AccordionItem: FC<Props> = (props) => {
   return (
     <>
       <Box
+        width="100%"
         className={accordionStyles({
           variant,
           className: `${className ?? ""}`,
@@ -152,18 +145,20 @@ export const AccordionItem: FC<Props> = (props) => {
               isExpanded: expanded,
               variant,
             })}
-            style={{ transitionDuration: `${duration}ms` }}
+            style={{ transitionDuration: `${duration}ms`, minWidth: "24px" }}
           />
         </HeadingWrapper>
       </Box>
 
-      <div
+      <Box
+        maxHeight={expanded ? "max-content" : 0}
         ref={panelRef}
-        className={panelStyles({ isExpanded: expanded })}
+        opacity={expanded ? 100 : 0}
+        className="overflow-hidden transition-all ease-in-out "
         style={{ transitionDuration: `${duration}ms` }}
       >
         {children}
-      </div>
+      </Box>
     </>
   );
 };
