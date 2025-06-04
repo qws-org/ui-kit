@@ -200,8 +200,9 @@ export const useTypography = (props: Entry): Output => {
 
   // line-height
   if (typeof props.m?.lineHeight !== "undefined") {
-    styles["--lh"] =
+    const lineHeightValue =
       lineHeight[props.m.lineHeight as LineHeightKeys] ?? props.m.lineHeight;
+    styles["--lh"] = styleTransformer(lineHeightValue);
 
     classNames += `[line-height:var(--lh)] `;
   }
@@ -210,8 +211,9 @@ export const useTypography = (props: Entry): Output => {
     typeof props.md?.lineHeight !== "undefined" &&
     props.md.lineHeight !== props.m?.lineHeight
   ) {
-    styles["--md-lh"] =
+    const mdLineHeightValue =
       lineHeight[props.md.lineHeight as LineHeightKeys] ?? props.md.lineHeight;
+    styles["--md-lh"] = styleTransformer(mdLineHeightValue);
 
     classNames += `md:[line-height:var(--md-lh)] `;
   }
@@ -222,8 +224,9 @@ export const useTypography = (props: Entry): Output => {
     typeof props.d?.lineHeight !== "undefined" &&
     props.d.lineHeight !== mdLineHeight
   ) {
-    styles["--d-lh"] =
+    const dLineHeightValue =
       lineHeight[props.d.lineHeight as LineHeightKeys] ?? props.d.lineHeight;
+    styles["--d-lh"] = styleTransformer(dLineHeightValue);
 
     classNames += `lg:[line-height:var(--d-lh)] `;
   }
@@ -231,9 +234,11 @@ export const useTypography = (props: Entry): Output => {
 
   // line-height hover
   if (typeof props.hover.m?.lineHeight !== "undefined") {
-    styles["--hover-lh"] =
+    const lineHeightValue =
       lineHeight[props.hover.m.lineHeight as LineHeightKeys] ??
       props.hover.m.lineHeight;
+    styles["--hover-lh"] = styleTransformer(lineHeightValue);
+
     classNames += `hover:[line-height:var(--hover-lh)] `;
   }
 
@@ -241,9 +246,11 @@ export const useTypography = (props: Entry): Output => {
     typeof props.hover.md?.lineHeight !== "undefined" &&
     props.hover.md.lineHeight !== props.hover.m?.lineHeight
   ) {
-    styles["--hover-md-lh"] =
+    const mdLineHeightValue =
       lineHeight[props.hover.md.lineHeight as LineHeightKeys] ??
       props.hover.md.lineHeight;
+    styles["--hover-md-lh"] = styleTransformer(mdLineHeightValue);
+
     classNames += `md:hover:[line-height:var(--hover-md-lh)] `;
   }
 
@@ -254,9 +261,11 @@ export const useTypography = (props: Entry): Output => {
     typeof props.hover.d?.lineHeight !== "undefined" &&
     props.hover.d?.lineHeight !== hoverMdLineHeight
   ) {
-    styles["--hover-d-lh"] =
+    const dLineHeightValue =
       lineHeight[props.hover.d.lineHeight as LineHeightKeys] ??
       props.hover.d.lineHeight;
+    styles["--hover-d-lh"] = styleTransformer(dLineHeightValue);
+
     classNames += `lg:hover:[line-height:var(--hover-d-lh)] `;
   }
   // ----------------------------------------------------------------------------

@@ -52,11 +52,16 @@ const meta = {
     as: "p",
     size: "small",
     fontSize: "button.desktop.xsmall",
+    lineHeight: "body.desktop.small",
     md: {
       p: { py: 64 },
       fontSize: "body.mobile.small",
+      lineHeight: "body.desktop.large",
     },
-    d: { lineHeight: "body.desktop.large", fontSize: "headline.desktop.large" },
+    d: {
+      lineHeight: "title.mobile.xsmall",
+      fontSize: "headline.desktop.large",
+    },
     hover: {
       fontSize: 48,
     },
