@@ -5,6 +5,7 @@ import type {
   LineHeightKeys,
 } from "~/components";
 import { useUiKitTheme } from "~/components";
+import { propertyTransformer } from "~/helpers/property-transformer";
 
 import type { UiKitTypographyProps } from "../types";
 
@@ -19,9 +20,6 @@ type Entry = BaseEntry & { hover: BaseEntry };
 type Output = {
   classNames: string;
   styles: Record<string, string | number>;
-};
-const styleTransformer = (value: string | number): string => {
-  return typeof value === "string" ? value : `${value}px`;
 };
 
 export const useTypography = (props: Entry): Output => {
@@ -74,7 +72,7 @@ export const useTypography = (props: Entry): Output => {
   if (typeof props.m?.fontSize !== "undefined") {
     const fontSizeValue =
       fontSize[props.m.fontSize as FontSizeKeys] ?? props.m.fontSize;
-    styles["--fs"] = styleTransformer(fontSizeValue);
+    styles["--fs"] = propertyTransformer(fontSizeValue);
 
     classNames += `[font-size:var(--fs)] `;
   }
@@ -85,7 +83,7 @@ export const useTypography = (props: Entry): Output => {
   ) {
     const mdFontSizeValue =
       fontSize[props.md.fontSize as FontSizeKeys] ?? props.md.fontSize;
-    styles["--md-fs"] = styleTransformer(mdFontSizeValue);
+    styles["--md-fs"] = propertyTransformer(mdFontSizeValue);
     classNames += `md:[font-size:var(--md-fs)] `;
   }
 
@@ -97,7 +95,7 @@ export const useTypography = (props: Entry): Output => {
   ) {
     const dFontSizeValue =
       fontSize[props.d.fontSize as FontSizeKeys] ?? props.d.fontSize;
-    styles["--d-fs"] = styleTransformer(dFontSizeValue);
+    styles["--d-fs"] = propertyTransformer(dFontSizeValue);
     classNames += `lg:[font-size:var(--d-fs)] `;
   }
   // ----------------------------------------------------------------------------
@@ -107,7 +105,7 @@ export const useTypography = (props: Entry): Output => {
     const fontSizeValue =
       fontSize[props.hover.m.fontSize as FontSizeKeys] ??
       props.hover.m?.fontSize;
-    styles["--hover-fs"] = styleTransformer(fontSizeValue);
+    styles["--hover-fs"] = propertyTransformer(fontSizeValue);
 
     classNames += `hover:[font-size:var(--hover-fs)] `;
   }
@@ -119,7 +117,7 @@ export const useTypography = (props: Entry): Output => {
     const mdFontSizeValue =
       fontSize[props.hover.md.fontSize as FontSizeKeys] ??
       props.hover.md.fontSize;
-    styles["--hover-md-fs"] = styleTransformer(mdFontSizeValue);
+    styles["--hover-md-fs"] = propertyTransformer(mdFontSizeValue);
 
     classNames += `md:hover:[font-size:var(--hover-md-fs)] `;
   }
@@ -133,7 +131,7 @@ export const useTypography = (props: Entry): Output => {
     const dFontSizeValue =
       fontSize[props.hover.d.fontSize as FontSizeKeys] ??
       props.hover.d.fontSize;
-    styles["--hover-d-fs"] = styleTransformer(dFontSizeValue);
+    styles["--hover-d-fs"] = propertyTransformer(dFontSizeValue);
     classNames += `lg:hover:[font-size:var(--hover-d-fs)] `;
   }
   // ----------------------------------------------------------------------------
@@ -202,7 +200,7 @@ export const useTypography = (props: Entry): Output => {
   if (typeof props.m?.lineHeight !== "undefined") {
     const lineHeightValue =
       lineHeight[props.m.lineHeight as LineHeightKeys] ?? props.m.lineHeight;
-    styles["--lh"] = styleTransformer(lineHeightValue);
+    styles["--lh"] = propertyTransformer(lineHeightValue);
 
     classNames += `[line-height:var(--lh)] `;
   }
@@ -213,7 +211,7 @@ export const useTypography = (props: Entry): Output => {
   ) {
     const mdLineHeightValue =
       lineHeight[props.md.lineHeight as LineHeightKeys] ?? props.md.lineHeight;
-    styles["--md-lh"] = styleTransformer(mdLineHeightValue);
+    styles["--md-lh"] = propertyTransformer(mdLineHeightValue);
 
     classNames += `md:[line-height:var(--md-lh)] `;
   }
@@ -226,7 +224,7 @@ export const useTypography = (props: Entry): Output => {
   ) {
     const dLineHeightValue =
       lineHeight[props.d.lineHeight as LineHeightKeys] ?? props.d.lineHeight;
-    styles["--d-lh"] = styleTransformer(dLineHeightValue);
+    styles["--d-lh"] = propertyTransformer(dLineHeightValue);
 
     classNames += `lg:[line-height:var(--d-lh)] `;
   }
@@ -237,7 +235,7 @@ export const useTypography = (props: Entry): Output => {
     const lineHeightValue =
       lineHeight[props.hover.m.lineHeight as LineHeightKeys] ??
       props.hover.m.lineHeight;
-    styles["--hover-lh"] = styleTransformer(lineHeightValue);
+    styles["--hover-lh"] = propertyTransformer(lineHeightValue);
 
     classNames += `hover:[line-height:var(--hover-lh)] `;
   }
@@ -249,7 +247,7 @@ export const useTypography = (props: Entry): Output => {
     const mdLineHeightValue =
       lineHeight[props.hover.md.lineHeight as LineHeightKeys] ??
       props.hover.md.lineHeight;
-    styles["--hover-md-lh"] = styleTransformer(mdLineHeightValue);
+    styles["--hover-md-lh"] = propertyTransformer(mdLineHeightValue);
 
     classNames += `md:hover:[line-height:var(--hover-md-lh)] `;
   }
@@ -264,7 +262,7 @@ export const useTypography = (props: Entry): Output => {
     const dLineHeightValue =
       lineHeight[props.hover.d.lineHeight as LineHeightKeys] ??
       props.hover.d.lineHeight;
-    styles["--hover-d-lh"] = styleTransformer(dLineHeightValue);
+    styles["--hover-d-lh"] = propertyTransformer(dLineHeightValue);
 
     classNames += `lg:hover:[line-height:var(--hover-d-lh)] `;
   }
