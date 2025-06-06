@@ -165,16 +165,31 @@ export const useBackground = (
 
   // size
   if (props.m.bgSize) {
-    className += `bg-${props.m.bgSize} `;
+    if (typeof props.m.bgSize === "number") {
+      style["--bs"] = props.m.bgSize + "px";
+      className += `bg-[length:var(--bs)] `;
+    } else {
+      className += `bg-${props.m.bgSize} `;
+    }
   }
 
-  if (props.md.bgSize && props.m.bgSize !== props.md.bgSize) {
-    className += `md:bg-${props.md.bgSize} `;
+  if (props.md.bgSize && props.md.bgSize !== props.m.bgSize) {
+    if (typeof props.md.bgSize === "number") {
+      style["--md-bs"] = props.md.bgSize + "px";
+      className += `md:bg-[length:var(--md-bs)] `;
+    } else {
+      className += `md:bg-${props.md.bgSize} `;
+    }
   }
+
   const mdSize = props.md.bgSize ?? props.m.bgSize;
-
   if (props.d.bgSize && props.d.bgSize !== mdSize) {
-    className += `lg:bg-${props.d.bgSize} `;
+    if (typeof props.d.bgSize === "number") {
+      style["--d-bs"] = props.d.bgSize + "px";
+      className += `lg:bg-[length:var(--d-bs)] `;
+    } else {
+      className += `lg:bg-${props.d.bgSize} `;
+    }
   }
 
   // position
@@ -193,16 +208,36 @@ export const useBackground = (
   }
 
   // bg hover size
-  if (props.hover.m.bgSize) {
-    className += `hover:bg-${props.hover.m.bgSize} `;
-  }
-  if (props.hover.md.bgSize && props.hover.md.bgSize !== props.hover.m.bgSize) {
-    className += `md:hover:bg-${props.hover.md.bgSize} `;
+  if (props.hover?.m?.bgSize) {
+    if (typeof props.hover.m.bgSize === "number") {
+      style["--hover-m-bs"] = props.hover.m.bgSize + "px";
+      className += `hover:bg-[length:var(--hover-m-bs)] `;
+    } else {
+      className += `hover:bg-${props.hover.m.bgSize} `;
+    }
   }
 
-  const mdHoverSize = props.hover.md.bgSize ?? props.hover.m.bgSize;
-  if (props.hover.d.bgSize && props.hover.d.bgSize !== mdHoverSize) {
-    className += `lg:hover:bg-${props.hover.d.bgSize} `;
+  if (
+    props.hover?.md?.bgSize &&
+    props.hover.md.bgSize !== props.hover.m.bgSize
+  ) {
+    if (typeof props.hover.md.bgSize === "number") {
+      style["--hover-md-bs"] = props.hover.md.bgSize + "px";
+      className += `md:hover:bg-[length:var(--hover-md-bs)] `;
+    } else {
+      className += `md:hover:bg-${props.hover.md.bgSize} `;
+    }
+  }
+
+  const mdHoverSize = props.hover.md?.bgSize ?? props.hover.m?.bgSize;
+
+  if (props.hover?.d?.bgSize && props.hover.d.bgSize !== mdHoverSize) {
+    if (typeof props.hover.d.bgSize === "number") {
+      style["--hover-d-bs"] = props.hover.d.bgSize + "px";
+      className += `lg:hover:bg-[length:var(--hover-d-bs)] `;
+    } else {
+      className += `lg:hover:bg-${props.hover.d.bgSize} `;
+    }
   }
 
   // hover bg position
