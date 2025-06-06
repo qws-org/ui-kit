@@ -1,0 +1,29 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as stories from "./StripeWrapper.stories";
+
+<Meta of={stories} />
+
+# StripeWrapper
+
+Компонент `StripeWrapper` используется для обёртки разделов с декоративным градиентным фоном.
+В зависимости от значения `variant` меняется внешний вид фона и возможны накладываемые текстуры.
+
+## Пример использования
+
+```tsx
+import { StripeWrapper } from "./StripeWrapper";
+
+export const Page = () => {
+  return (
+    <StripeWrapper variant="default">
+      <div style={{ padding: "40px", color: "#fff", fontSize: "18px" }}>
+        Это пример содержимого внутри StripeWrapper с вариантом `default`.
+      </div>
+    </StripeWrapper>
+  );
+};
+```
+
+<Canvas of={stories.Default} />
+
+<Controls />

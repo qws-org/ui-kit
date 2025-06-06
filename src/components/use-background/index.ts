@@ -1,5 +1,6 @@
 import type { ColorKeys, UiKitBackgroundProps } from "~/components";
 import { useUiKitTheme } from "~/components";
+import { propertyTransformer } from "~/helpers/property-transformer";
 
 export type UseBackgroundOutput = {
   className: string;
@@ -164,17 +165,45 @@ export const useBackground = (
   }
 
   // size
-  if (props.m.bgSize) {
-    className += `bg-${props.m.bgSize} `;
+  if (props.m.bgSize !== undefined) {
+    if (
+      props.m.bgSize === "auto" ||
+      props.m.bgSize === "cover" ||
+      props.m.bgSize === "contain"
+    ) {
+      className += `bg-${props.m.bgSize} `;
+    } else {
+      style["--bs"] = propertyTransformer(props.m.bgSize);
+      className += `bg-[length:var(--bs)] `;
+    }
   }
 
-  if (props.md.bgSize && props.m.bgSize !== props.md.bgSize) {
-    className += `md:bg-${props.md.bgSize} `;
+  if (props.md.bgSize !== undefined && props.md.bgSize !== props.m.bgSize) {
+    if (
+      props.md.bgSize === "auto" ||
+      props.md.bgSize === "cover" ||
+      props.md.bgSize === "contain"
+    ) {
+      className += `md:bg-${props.md.bgSize} `;
+    } else {
+      style["--md-bs"] = propertyTransformer(props.md.bgSize);
+      className += `md:bg-[length:var(--md-bs)] `;
+    }
   }
+
   const mdSize = props.md.bgSize ?? props.m.bgSize;
 
-  if (props.d.bgSize && props.d.bgSize !== mdSize) {
-    className += `lg:bg-${props.d.bgSize} `;
+  if (props.d.bgSize !== undefined && props.d.bgSize !== mdSize) {
+    if (
+      props.d.bgSize === "auto" ||
+      props.d.bgSize === "cover" ||
+      props.d.bgSize === "contain"
+    ) {
+      className += `lg:bg-${props.d.bgSize} `;
+    } else {
+      style["--d-bs"] = propertyTransformer(props.d.bgSize);
+      className += `lg:bg-[length:var(--d-bs)] `;
+    }
   }
 
   // position
@@ -193,16 +222,51 @@ export const useBackground = (
   }
 
   // bg hover size
-  if (props.hover.m.bgSize) {
-    className += `hover:bg-${props.hover.m.bgSize} `;
-  }
-  if (props.hover.md.bgSize && props.hover.md.bgSize !== props.hover.m.bgSize) {
-    className += `md:hover:bg-${props.hover.md.bgSize} `;
+  if (props.hover?.m?.bgSize !== undefined) {
+    if (
+      props.hover.m.bgSize === "auto" ||
+      props.hover.m.bgSize === "cover" ||
+      props.hover.m.bgSize === "contain"
+    ) {
+      className += `hover:bg-${props.hover.m.bgSize} `;
+    } else {
+      style["--hover-m-bs"] = propertyTransformer(props.hover.m.bgSize);
+      className += `hover:bg-[length:var(--hover-m-bs)] `;
+    }
   }
 
-  const mdHoverSize = props.hover.md.bgSize ?? props.hover.m.bgSize;
-  if (props.hover.d.bgSize && props.hover.d.bgSize !== mdHoverSize) {
-    className += `lg:hover:bg-${props.hover.d.bgSize} `;
+  if (
+    props.hover?.md?.bgSize !== undefined &&
+    props.hover.md.bgSize !== props.hover.m.bgSize
+  ) {
+    if (
+      props.hover.md.bgSize === "auto" ||
+      props.hover.md.bgSize === "cover" ||
+      props.hover.md.bgSize === "contain"
+    ) {
+      className += `md:hover:bg-${props.hover.md.bgSize} `;
+    } else {
+      style["--hover-md-bs"] = propertyTransformer(props.hover.md.bgSize);
+      className += `md:hover:bg-[length:var(--hover-md-bs)] `;
+    }
+  }
+
+  const mdHoverSize = props.hover.md?.bgSize ?? props.hover.m?.bgSize;
+
+  if (
+    props.hover?.d?.bgSize !== undefined &&
+    props.hover.d.bgSize !== mdHoverSize
+  ) {
+    if (
+      props.hover.d.bgSize === "auto" ||
+      props.hover.d.bgSize === "cover" ||
+      props.hover.d.bgSize === "contain"
+    ) {
+      className += `lg:hover:bg-${props.hover.d.bgSize} `;
+    } else {
+      style["--hover-d-bs"] = propertyTransformer(props.hover.d.bgSize);
+      className += `lg:hover:bg-[length:var(--hover-d-bs)] `;
+    }
   }
 
   // hover bg position

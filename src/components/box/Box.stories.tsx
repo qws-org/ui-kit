@@ -144,13 +144,16 @@ export const Background: Story = {
     hover: { bg: "surface-accent2-hovered" },
     className: "h-[200px]",
     bgRepeat: "no-repeat",
+    bgSize: "cover",
     md: {
       bg: "linear-gradient(to right, #ff7e5f, #feb47b)",
       hover: { bg: "surface-accent1-hovered" },
+      bgSize: "600",
     },
     d: {
       bg: "surface-accent1-default",
       hover: { bg: "surface-accent2-hovered" },
+      bgSize: "40rem",
     },
   },
 };

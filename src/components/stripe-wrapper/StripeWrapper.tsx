@@ -1,5 +1,4 @@
 import type { FC, ReactNode } from "react";
-import { tv } from "tailwind-variants";
 
 import type { BoxProps } from "~/components";
 import { Box } from "~/components";
@@ -8,40 +7,12 @@ export type StripeWrapperProps = {
   children: ReactNode;
   variant: "default" | "secondary" | "tertiary" | "quaternary";
   className?: string;
-} & Partial<Omit<BoxProps, "as" | "children" | "onClick" | "display">>;
-
-const wrapperStyles = tv({
-  base: "relative",
-});
-
-const textureStyles = tv({
-  base: "absolute inset-0 bg-cover bg-repeat pointer-events-none opacity-70 mix-blend-soft-light bg-[url('/noise.png')]",
-  variants: {
-    variant: {
-      secondary: "",
-      tertiary: "",
-      quaternary: "opacity-20",
-    },
-  },
-});
-
-const overlayStyles = tv({
-  base: "absolute inset-0 bg-cover bg-repeat pointer-events-none opacity-10 mix-blend-soft-light bg-[url('/texture.png')] bg-[length:750px]",
-  variants: {
-    variant: {
-      secondary: "",
-      tertiary: "",
-      quaternary: "bg-[length:700px]",
-    },
-  },
-});
+} & BoxProps;
 
 const gradientImages = {
   default: {
-    image:
-      "linear-gradient(68.17deg, #590FD1 8.74%, #FF3D00 64.57%, #FFAE10 102.86%)",
-    mdImage:
-      "linear-gradient(89.95deg, #590FD1 0.03%, #FF3D00 58.39%, #FFAE10 114.93%)",
+    image: "background-accent1",
+    mdImage: "",
   },
   secondary: {
     image:
@@ -55,11 +26,13 @@ const gradientImages = {
     mdImage: "linear-gradient(269.83deg, #F9766E 0.29%, #4A1290 100%)",
   },
   quaternary: {
-    image: "linear-gradient(227.31deg, #FF4438 3.43%, #5B00CD 92.79%)",
-    mdImage: "linear-gradient(268.91deg, #FF4438 -3.87%, #5B00CD 97.26%)",
+    image: "surface-primary-grad-default",
+    mdImage: "",
   },
 };
-
+/**
+ * @deprecated
+ */
 export const StripeWrapper: FC<StripeWrapperProps> = (props) => {
   const { children, variant, className, ...rest } = props;
   const selectedGradient = gradientImages[variant];
@@ -70,19 +43,47 @@ export const StripeWrapper: FC<StripeWrapperProps> = (props) => {
       bg={selectedGradient.image}
       md={{
         bg: selectedGradient.mdImage,
+        ...rest.md,
       }}
-      className={`${wrapperStyles()} ${className ?? ""}`}
+      position={{ type: "relative" }}
+      className={className}
       style={rest.style}
     >
       {(variant === "secondary" ||
         variant === "tertiary" ||
         variant === "quaternary") && (
         <>
-          <div className={textureStyles({ variant })}></div>
-          <div className={overlayStyles({ variant })}></div>
+          <Box
+            position={{
+              type: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              right: 0,
+            }}
+            opacity={variant === "quaternary" ? 0.2 : 0.7}
+            bg="/noise.png"
+            bgSize="contain"
+            bgRepeat="repeat"
+            className="pointer-events-none mix-blend-soft-light"
+          />
+          <Box
+            position={{
+              type: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              right: 0,
+            }}
+            opacity={0.1}
+            bg="/texture.png"
+            bgSize={variant === "quaternary" ? 700 : 750}
+            bgRepeat="repeat"
+            className="pointer-events-none mix-blend-soft-light"
+          />
         </>
       )}
-      <div className="relative z-10">{children}</div>
+      <Box position={{ type: "relative", zIndex: 10 }}>{children}</Box>
     </Box>
   );
 };
