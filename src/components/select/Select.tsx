@@ -70,7 +70,7 @@ export const Select = function <T extends Elem>(
   const { triggerProps, menuProps } = useSelect(opts, state, ref);
 
   return (
-    <div>
+    <>
       <HiddenSelect
         isDisabled={props.disabled}
         state={state}
@@ -79,7 +79,7 @@ export const Select = function <T extends Elem>(
         name={props.name}
       />
       <Button
-        className={` ${props.className}`}
+        className={`${props.className}`}
         size="small"
         variant="secondary"
         {...triggerProps}
@@ -87,6 +87,11 @@ export const Select = function <T extends Elem>(
         p={{ px: 12, py: 10 }}
         minWidth={props.minWidth}
         maxWidth={props.maxWidth}
+        onPress={() => {
+          if (!state.isOpen) {
+            state.toggle();
+          }
+        }}
       >
         <Flex width="100%" gap={10} align="center" justify="space-between">
           {state.selectedItem
@@ -96,10 +101,15 @@ export const Select = function <T extends Elem>(
         </Flex>
       </Button>
       {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement="bottom start">
+        <Popover
+          state={state}
+          triggerRef={ref}
+          placement="bottom start"
+          variant="static"
+        >
           <SelectOptionList minWidth={162} {...menuProps} state={state} />
         </Popover>
       )}
-    </div>
+    </>
   );
 };
