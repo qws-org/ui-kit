@@ -218,7 +218,7 @@ export type UiKitFlexParams = {
 
 export type UiKitBackgroundProps = {
   bg?: ColorKeys | string;
-  bgSize?: "cover" | "contain" | "auto";
+  bgSize?: "cover" | "contain" | "auto" | number | string;
   bgRepeat?:
     | "no-repeat"
     | "repeat"
