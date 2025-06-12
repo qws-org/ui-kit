@@ -6,7 +6,7 @@ import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 import type { TableState } from "react-stately";
 
-import { useUiKitComponents } from "~/components";
+import { Box } from "~/components";
 
 export type TableRowProps = {
   item: GridRowProps<unknown>["node"];
@@ -25,20 +25,27 @@ export const TableRow: FC<TableRowProps> = ({ item, children, state }) => {
     ref,
   );
   const { focusProps } = useFocusRing();
-  const { Link } = useUiKitComponents();
-  const Wrapper = item.props.href ? Link : "tr";
 
   return (
-    <Wrapper
-      className={`table-row [font-size:var(--fontSize-mobile-small-body)] [line-height:var(--lineHeight-mobile-small-body)] md:[font-size:var(--fontSize-desktop-small-body)] md:[line-height:var(--lineHeight-desktop-small-body)] text-white outline-none !select-all ${isSelected ? "bg-purple-700 text-white" : item.index % 2 ? "bg-[#171717]" : "bg-[#0F0F0F]"}`}
+    <Box
+      width="100%"
+      display="table-row"
+      as="tr"
+      fontSize="body.mobile.small"
+      lineHeight="body.mobile.small"
+      md={{ fontSize: "body.desktop.small", lineHeight: "body.desktop.small" }}
       {...mergeProps(rowProps, focusProps)}
-      href={item.props.href}
-      onClick={() => (item.props.href ? undefined : rowProps.onClick)}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
+      bg={
+        isSelected
+          ? "surface-primary-subtle"
+          : item.index % 2
+            ? "surface-neutral-default"
+            : "surface-neutral-dark-default"
+      }
+      style={{ userSelect: "all", ...{ important: "user-select" } }}
       ref={ref}
     >
       {children}
-    </Wrapper>
+    </Box>
   );
 };

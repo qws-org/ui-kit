@@ -250,7 +250,8 @@ export type UiKitDisplayProps = {
     | "inline-flex"
     | "table"
     | "table-cell"
-    | "grid";
+    | "grid"
+    | "table-row";
 };
 
 export type UiKitTypographyProps = {

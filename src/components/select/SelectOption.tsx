@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { useRef } from "react";
 import type { ListState, Node } from "react-stately";
 
-import { Typography } from "~/components";
+import { Box, Typography } from "~/components";
 
 export type SelectOptionProps<T> = {
   item: Node<T>;
@@ -18,13 +18,15 @@ export const SelectOption = function <T>({
   const { optionProps, isDisabled } = useOption({ key: item.key }, state, ref);
 
   return (
-    <li
+    <Box
+      as={"li"}
       {...optionProps}
       ref={ref}
       style={{ padding: 10 }}
-      className={`cursor-pointer  outline-none   ${isDisabled ? "bg-[var(--colors-surface-neutral-subtle)]" : "bg-[var(--colors-background-transparent)]"}`}
+      bg={isDisabled ? "surface-neutral-subtle" : "background-transparent"}
+      className={`cursor-pointer outline-none`}
     >
       <Typography color="text-primary-default">{item.rendered}</Typography>
-    </li>
+    </Box>
   );
 };
