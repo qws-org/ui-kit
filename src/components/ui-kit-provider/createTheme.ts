@@ -11,93 +11,79 @@ export const createTheme = (
   entry?: Partial<UIKitProviderTheme>,
 ): UIKitProviderTheme => {
   const fontSize: FontSize = {
-    "headline.desktop.large":
-      entry?.fontSize?.["headline.desktop.large"] ?? "48px",
+    "headline.desktop.large": entry?.fontSize?.["headline.desktop.large"] ?? 48,
     "headline.desktop.medium":
-      entry?.fontSize?.["headline.desktop.medium"] ?? "42px",
-    "headline.mobile.large":
-      entry?.fontSize?.["headline.mobile.large"] ?? "24px",
-    "headline.mobile.medium":
-      entry?.fontSize?.["headline.mobile.medium"] ?? "22px",
+      entry?.fontSize?.["headline.desktop.medium"] ?? 42,
+    "headline.mobile.large": entry?.fontSize?.["headline.mobile.large"] ?? 24,
+    "headline.mobile.medium": entry?.fontSize?.["headline.mobile.medium"] ?? 22,
 
-    "title.desktop.large": entry?.fontSize?.["title.desktop.large"] ?? "48px",
-    "title.desktop.medium": entry?.fontSize?.["title.desktop.medium"] ?? "36px",
-    "title.desktop.small": entry?.fontSize?.["title.desktop.small"] ?? "22px",
-    "title.desktop.xsmall": entry?.fontSize?.["title.desktop.xsmall"] ?? "16px",
+    "title.desktop.large": entry?.fontSize?.["title.desktop.large"] ?? 48,
+    "title.desktop.medium": entry?.fontSize?.["title.desktop.medium"] ?? 36,
+    "title.desktop.small": entry?.fontSize?.["title.desktop.small"] ?? 22,
+    "title.desktop.xsmall": entry?.fontSize?.["title.desktop.xsmall"] ?? 16,
 
-    "title.mobile.large": entry?.fontSize?.["title.mobile.large"] ?? "28px",
-    "title.mobile.medium": entry?.fontSize?.["title.mobile.medium"] ?? "22px",
-    "title.mobile.small": entry?.fontSize?.["title.mobile.small"] ?? "20px",
-    "title.mobile.xsmall": entry?.fontSize?.["title.mobile.xsmall"] ?? "14px",
+    "title.mobile.large": entry?.fontSize?.["title.mobile.large"] ?? 28,
+    "title.mobile.medium": entry?.fontSize?.["title.mobile.medium"] ?? 22,
+    "title.mobile.small": entry?.fontSize?.["title.mobile.small"] ?? 20,
+    "title.mobile.xsmall": entry?.fontSize?.["title.mobile.xsmall"] ?? 14,
 
-    "body.desktop.large": entry?.fontSize?.["body.desktop.large"] ?? "22px",
-    "body.desktop.medium": entry?.fontSize?.["body.desktop.medium"] ?? "18px",
-    "body.desktop.small": entry?.fontSize?.["body.desktop.small"] ?? "14px",
+    "body.desktop.large": entry?.fontSize?.["body.desktop.large"] ?? 22,
+    "body.desktop.medium": entry?.fontSize?.["body.desktop.medium"] ?? 18,
+    "body.desktop.small": entry?.fontSize?.["body.desktop.small"] ?? 14,
 
-    "body.mobile.large": entry?.fontSize?.["body.mobile.large"] ?? "16px",
-    "body.mobile.medium": entry?.fontSize?.["body.mobile.medium"] ?? "14px",
-    "body.mobile.small": entry?.fontSize?.["body.mobile.small"] ?? "12px",
+    "body.mobile.large": entry?.fontSize?.["body.mobile.large"] ?? 16,
+    "body.mobile.medium": entry?.fontSize?.["body.mobile.medium"] ?? 14,
+    "body.mobile.small": entry?.fontSize?.["body.mobile.small"] ?? 12,
 
-    "button.desktop.large": entry?.fontSize?.["button.desktop.large"] ?? "22px",
-    "button.desktop.medium":
-      entry?.fontSize?.["button.desktop.medium"] ?? "20px",
-    "button.desktop.small": entry?.fontSize?.["button.desktop.small"] ?? "16px",
-    "button.desktop.xsmall":
-      entry?.fontSize?.["button.desktop.xsmall"] ?? "14px",
+    "button.desktop.large": entry?.fontSize?.["button.desktop.large"] ?? 22,
+    "button.desktop.medium": entry?.fontSize?.["button.desktop.medium"] ?? 20,
+    "button.desktop.small": entry?.fontSize?.["button.desktop.small"] ?? 16,
+    "button.desktop.xsmall": entry?.fontSize?.["button.desktop.xsmall"] ?? 14,
 
-    "button.mobile.large": entry?.fontSize?.["button.mobile.large"] ?? "22px",
-    "button.mobile.medium": entry?.fontSize?.["button.mobile.medium"] ?? "20px",
-    "button.mobile.small": entry?.fontSize?.["button.mobile.small"] ?? "16px",
-    "button.mobile.xsmall": entry?.fontSize?.["button.mobile.xsmall"] ?? "14px",
+    "button.mobile.large": entry?.fontSize?.["button.mobile.large"] ?? 22,
+    "button.mobile.medium": entry?.fontSize?.["button.mobile.medium"] ?? 20,
+    "button.mobile.small": entry?.fontSize?.["button.mobile.small"] ?? 16,
+    "button.mobile.xsmall": entry?.fontSize?.["button.mobile.xsmall"] ?? 14,
   };
 
   const lineHeight: LineHeight = {
     "headline.desktop.large":
-      entry?.lineHeight?.["headline.desktop.large"] ?? "48px",
+      entry?.lineHeight?.["headline.desktop.large"] ?? 48,
     "headline.desktop.medium":
-      entry?.lineHeight?.["headline.desktop.medium"] ?? "42px",
-    "headline.mobile.large":
-      entry?.lineHeight?.["headline.mobile.large"] ?? "24px",
+      entry?.lineHeight?.["headline.desktop.medium"] ?? 42,
+    "headline.mobile.large": entry?.lineHeight?.["headline.mobile.large"] ?? 24,
     "headline.mobile.medium":
-      entry?.lineHeight?.["headline.mobile.medium"] ?? "22px",
+      entry?.lineHeight?.["headline.mobile.medium"] ?? 22,
 
-    "title.desktop.large": entry?.lineHeight?.["title.desktop.large"] ?? "64px",
-    "title.desktop.medium":
-      entry?.lineHeight?.["title.desktop.medium"] ?? "48px",
-    "title.desktop.small": entry?.lineHeight?.["title.desktop.small"] ?? "32px",
-    "title.desktop.xsmall":
-      entry?.lineHeight?.["title.desktop.xsmall"] ?? "20px",
+    "title.desktop.large": entry?.lineHeight?.["title.desktop.large"] ?? 64,
+    "title.desktop.medium": entry?.lineHeight?.["title.desktop.medium"] ?? 48,
+    "title.desktop.small": entry?.lineHeight?.["title.desktop.small"] ?? 32,
+    "title.desktop.xsmall": entry?.lineHeight?.["title.desktop.xsmall"] ?? 20,
 
-    "title.mobile.large": entry?.lineHeight?.["title.mobile.large"] ?? "36px",
-    "title.mobile.medium": entry?.lineHeight?.["title.mobile.medium"] ?? "30px",
-    "title.mobile.small": entry?.lineHeight?.["title.mobile.small"] ?? "28px",
-    "title.mobile.xsmall": entry?.lineHeight?.["title.mobile.xsmall"] ?? "18px",
+    "title.mobile.large": entry?.lineHeight?.["title.mobile.large"] ?? 36,
+    "title.mobile.medium": entry?.lineHeight?.["title.mobile.medium"] ?? 30,
+    "title.mobile.small": entry?.lineHeight?.["title.mobile.small"] ?? 28,
+    "title.mobile.xsmall": entry?.lineHeight?.["title.mobile.xsmall"] ?? 18,
 
-    "body.desktop.large": entry?.lineHeight?.["body.desktop.large"] ?? "24px",
-    "body.desktop.medium": entry?.lineHeight?.["body.desktop.medium"] ?? "20px",
-    "body.desktop.small": entry?.lineHeight?.["body.desktop.small"] ?? "18px",
-    "body.desktop.xsmall": entry?.lineHeight?.["body.desktop.xsmall"] ?? "16px",
+    "body.desktop.large": entry?.lineHeight?.["body.desktop.large"] ?? 24,
+    "body.desktop.medium": entry?.lineHeight?.["body.desktop.medium"] ?? 20,
+    "body.desktop.small": entry?.lineHeight?.["body.desktop.small"] ?? 18,
+    "body.desktop.xsmall": entry?.lineHeight?.["body.desktop.xsmall"] ?? 16,
 
-    "body.mobile.large": entry?.lineHeight?.["body.mobile.large"] ?? "20px",
-    "body.mobile.medium": entry?.lineHeight?.["body.mobile.medium"] ?? "18px",
-    "body.mobile.small": entry?.lineHeight?.["body.mobile.small"] ?? "16px",
-    "body.mobile.xsmall": entry?.lineHeight?.["body.mobile.xsmall"] ?? "14px",
+    "body.mobile.large": entry?.lineHeight?.["body.mobile.large"] ?? 20,
+    "body.mobile.medium": entry?.lineHeight?.["body.mobile.medium"] ?? 18,
+    "body.mobile.small": entry?.lineHeight?.["body.mobile.small"] ?? 16,
+    "body.mobile.xsmall": entry?.lineHeight?.["body.mobile.xsmall"] ?? 14,
 
-    "button.desktop.large":
-      entry?.lineHeight?.["button.desktop.large"] ?? "34px",
-    "button.desktop.medium":
-      entry?.lineHeight?.["button.desktop.medium"] ?? "28px",
-    "button.desktop.small":
-      entry?.lineHeight?.["button.desktop.small"] ?? "24px",
-    "button.desktop.xsmall":
-      entry?.lineHeight?.["button.desktop.xsmall"] ?? "16px",
+    "button.desktop.large": entry?.lineHeight?.["button.desktop.large"] ?? 34,
+    "button.desktop.medium": entry?.lineHeight?.["button.desktop.medium"] ?? 28,
+    "button.desktop.small": entry?.lineHeight?.["button.desktop.small"] ?? 24,
+    "button.desktop.xsmall": entry?.lineHeight?.["button.desktop.xsmall"] ?? 16,
 
-    "button.mobile.large": entry?.lineHeight?.["button.mobile.large"] ?? "34px",
-    "button.mobile.medium":
-      entry?.lineHeight?.["button.mobile.medium"] ?? "28px",
-    "button.mobile.small": entry?.lineHeight?.["button.mobile.small"] ?? "24px",
-    "button.mobile.xsmall":
-      entry?.lineHeight?.["button.mobile.xsmall"] ?? "16px",
+    "button.mobile.large": entry?.lineHeight?.["button.mobile.large"] ?? 34,
+    "button.mobile.medium": entry?.lineHeight?.["button.mobile.medium"] ?? 28,
+    "button.mobile.small": entry?.lineHeight?.["button.mobile.small"] ?? 24,
+    "button.mobile.xsmall": entry?.lineHeight?.["button.mobile.xsmall"] ?? 16,
   };
 
   const fontWeight: FontWeight = {

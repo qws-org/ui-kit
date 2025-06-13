@@ -51,6 +51,7 @@
   line-height: var(--lineHeight-desktop-small-title);
   font-weight: var(--fontWeight-desktop-bold);
   margin: 28px 0 14px;
+  padding-left: 50px;
 }
 
 @media screen and (max-width: 768px) {
@@ -59,6 +60,7 @@
     line-height: var(--lineHeight-mobile-small-title);
     font-weight: var(--fontWeight-mobile-bold);
     margin: 26px 0 12px;
+    padding-left: 0;
   }
 }
 
@@ -96,12 +98,20 @@
   padding-left: 20px;
 }
 
+.textReactMarkdown ol {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
 .textReactMarkdown h2 ~ ul,
-.textReactMarkdown h3 ~ h2 ~ ul {
+.textReactMarkdown h3 ~ h2 ~ ul,
+.textReactMarkdown h2 ~ ol,
+.textReactMarkdown h3 ~ h2 ~ ol{
   padding-left: 70px;
 }
 
-.textReactMarkdown h3 ~ ul {
+.textReactMarkdown h3 ~ ul,
+.textReactMarkdown h3 ~ ol {
   padding-left: 116px;
 }
 
@@ -140,7 +150,10 @@
 
   .textReactMarkdown h2 ~ ul,
   .textReactMarkdown h3 ~ h2 ~ ul,
-  .textReactMarkdown h3 ~ ul {
+  .textReactMarkdown h3 ~ ul,
+  .textReactMarkdown h2 ~ ol,
+  .textReactMarkdown h3 ~ h2 ~ ol,
+  .textReactMarkdown h3 ~ ol{
     padding-left: 20px;
   }
 
@@ -156,6 +169,7 @@
 @media screen and (max-width: 768px) {
   .textReactMarkdown img {
     margin: 16px auto;
+    width: 100%;
   }
 
   .textReactMarkdown img:first-of-type {
