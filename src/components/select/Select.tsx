@@ -40,7 +40,11 @@ export const Select = function <T extends Elem>(
 
   const onSelectionChange = (key: string | number): void => {
     const value: T = JSON.parse(String(key));
-    props.onChange(value);
+    props.onChange(
+      isElementary
+        ? ((value as unknown as { id: string | number }).id as T)
+        : value,
+    );
   };
   const opts = {
     ...props,

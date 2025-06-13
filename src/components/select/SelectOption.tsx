@@ -20,11 +20,12 @@ export const SelectOption = function <T>({
   return (
     <Box
       as={"li"}
-      {...optionProps}
       ref={ref}
-      style={{ padding: 10 }}
       bg={isDisabled ? "surface-neutral-subtle" : "background-transparent"}
       className={`cursor-pointer outline-none`}
+      {...optionProps}
+      style={{ padding: 10 }}
+      onClick={() => state.selectionManager.toggleSelection(item.key)}
     >
       <Typography color="text-primary-default">{item.rendered}</Typography>
     </Box>

@@ -83,6 +83,13 @@ export const Secondary: Story = {
     children: "Secondary Button",
   },
 };
+export const SecondaryActive: Story = {
+  args: {
+    variant: "secondary",
+    isActive: true,
+    children: "Secondary Button Active",
+  },
+};
 export const Tertiary: Story = {
   args: {
     variant: "tertiary",
