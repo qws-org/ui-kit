@@ -28,6 +28,7 @@ export const TableCell = function <T>(props: TableCellProps<T>): ReactNode {
       p={indentationProps.p ?? DEFAULT_SPACING_PADDING}
       className={`outline-none ${isFocusVisible ? "shadow-[inset_0_0_0_2px_orange]" : "shadow-none"}`}
       ref={ref}
+      as="td"
       style={{
         ...indentationProps.style,
       }}

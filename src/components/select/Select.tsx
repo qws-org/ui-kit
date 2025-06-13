@@ -101,12 +101,7 @@ export const Select = function <T extends Elem>(
         </Flex>
       </Button>
       {state.isOpen && (
-        <Popover
-          state={state}
-          triggerRef={ref}
-          placement="bottom start"
-          variant="static"
-        >
+        <Popover state={state} triggerRef={ref} placement="bottom start">
           <SelectOptionList minWidth={162} {...menuProps} state={state} />
         </Popover>
       )}

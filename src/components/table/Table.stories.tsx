@@ -162,19 +162,31 @@ export const Links: Story = {
         <Table.Column>Date added</Table.Column>
       </Table.Header>
       <Table.Body>
-        <Table.Row href="https://adobe.com/" target="_blank">
-          <Table.Cell>Adobe</Table.Cell>
-          <Table.Cell>https://adobe.com/</Table.Cell>
+        <Table.Row>
+          <Table.Cell> Adobe</Table.Cell>
+          <Table.Cell>
+            <a href="https://adobe.com/" target="_blank">
+              https://adobe.com/
+            </a>
+          </Table.Cell>
           <Table.Cell>January 28, 2023</Table.Cell>
         </Table.Row>
-        <Table.Row href="https://google.com/" target="_blank">
+        <Table.Row>
           <Table.Cell>Google</Table.Cell>
-          <Table.Cell>https://google.com/</Table.Cell>
+          <Table.Cell>
+            <a href="https://google.com/" target="_blank">
+              https://google.com/
+            </a>
+          </Table.Cell>
           <Table.Cell>April 5, 2023</Table.Cell>
         </Table.Row>
-        <Table.Row href="https://nytimes.com/" target="_blank">
+        <Table.Row>
           <Table.Cell>New York Times</Table.Cell>
-          <Table.Cell>https://nytimes.com/</Table.Cell>
+          <Table.Cell>
+            <a href="https://nytimes.com/" target="_blank">
+              https://nytimes.com/
+            </a>
+          </Table.Cell>
           <Table.Cell>July 12, 2023</Table.Cell>
         </Table.Row>
       </Table.Body>
