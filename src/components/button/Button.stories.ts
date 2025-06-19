@@ -128,3 +128,50 @@ export const SizeXsmall: Story = {
     children: "Default Button",
   },
 };
+export const Border: Story = {
+  args: {
+    size: "large",
+    variant: "default",
+    children: "Default Button",
+
+    border: {
+      width: "12px",
+      color: "border-primary",
+
+      radius: {
+        topLeft: "0",
+        topRight: "11rem",
+        bottomLeft: "10px",
+        bottomRight: "0",
+      },
+      style: "dashed",
+    },
+    md: {
+      border: {
+        style: "none",
+        radius: {
+          topLeft: "12px",
+
+          bottomLeft: "12rem",
+          bottomRight: "1rem",
+        },
+
+        color: "border-accent",
+        width: "22px",
+      },
+    },
+    d: {
+      border: {
+        style: "dashed",
+        radius: {
+          topLeft: "122px",
+
+          bottomLeft: "12rem",
+          bottomRight: "1rem",
+        },
+        color: "border-accent",
+        width: "34px",
+      },
+    },
+  },
+};

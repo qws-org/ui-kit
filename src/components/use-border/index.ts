@@ -152,35 +152,38 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   }
 
   const universalDRadiusValue =
-    props.d?.color && isSingleColor(props.d.color) ? props.d.color : undefined;
-
-  const mdRadiusValue = universalMdRadiusValue ?? universalDRadiusValue;
+    typeof props?.d?.radius !== "undefined" && isSingleRadius(props.d.radius)
+      ? props.d.radius
+      : undefined;
 
   if (
-    typeof universalDRadiusValue !== "undefined" &&
-    mdRadiusValue !== universalDRadiusValue
+    dRadius?.topLeft ??
+    dRadius?.topRight ??
+    dRadius?.bottomLeft ??
+    dRadius?.bottomRight
   ) {
-    style["--d-br"] = universalDRadiusValue;
-    classNames += `lg:rounded-[var(--d-br)] `;
-  } else if (typeof universalDRadiusValue === "undefined") {
-    if (typeof dRadius?.topLeft !== "undefined") {
-      style["--d-tl-br"] = dRadius?.topLeft;
-      classNames += `lg:rounded-tl-[var(--d-tl-br)] `;
-    }
-    if (typeof dRadius?.topRight !== "undefined") {
-      style["--d-tr-br"] = dRadius?.topRight;
-      classNames += `lg:rounded-tl-[var(--d-tr-br)] `;
-    }
-    if (typeof dRadius?.bottomLeft !== "undefined") {
-      style["--d-bl-br"] = dRadius?.bottomLeft;
-      classNames += `lg:rounded-bl-[var(--d-bl-br)] `;
-    }
-    if (typeof dRadius?.bottomRight !== "undefined") {
-      style["--d-br-br"] = dRadius?.bottomRight;
-      classNames += `lg:rounded-br-[var(--d-br-br)] `;
+    if (typeof universalDRadiusValue !== "undefined") {
+      style["--d-br"] = universalDRadiusValue;
+      classNames += `lg:rounded-[var(--d-br)] `;
+    } else {
+      if (typeof dRadius?.topLeft !== "undefined") {
+        style["--d-tl-br"] = dRadius?.topLeft;
+        classNames += `lg:rounded-tl-[var(--d-tl-br)] `;
+      }
+      if (typeof dRadius?.topRight !== "undefined") {
+        style["--d-tr-br"] = dRadius?.topRight;
+        classNames += `lg:rounded-tr-[var(--d-tr-br)] `;
+      }
+      if (typeof dRadius?.bottomLeft !== "undefined") {
+        style["--d-bl-br"] = dRadius?.bottomLeft;
+        classNames += `lg:rounded-bl-[var(--d-bl-br)] `;
+      }
+      if (typeof dRadius?.bottomRight !== "undefined") {
+        style["--d-br-br"] = dRadius?.bottomRight;
+        classNames += `lg:rounded-br-[var(--d-br-br)] `;
+      }
     }
   }
-
   const mHoverRadius = props?.hover?.m?.radius
     ? transformBorderRadius(props.hover.m.radius)
     : undefined;
