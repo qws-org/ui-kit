@@ -23,6 +23,7 @@ import {
   useSpacing,
   useUiKitComponents,
 } from "~/components";
+import { useBorder } from "~/components/use-border";
 import { useTypography } from "~/components/use-typography";
 
 const buttonStyles = tv({
@@ -136,7 +137,7 @@ export type ButtonProps<Element extends ElementType> = PropsWithChildren<
                 UiKitOutlineProps &
                 UiKitEffectProps &
                 UiKitTypographyProps & { border?: UiKitBorderProps };
-            }
+            } & { border?: UiKitBorderProps }
         >
       >,
     "onClick"
@@ -160,6 +161,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       isActive = false,
       isDisabled,
       onPress,
+
       ...props
     },
     ref,
@@ -237,6 +239,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       },
     });
 
+    // border
+    const border = useBorder({
+      m: props.border,
+      md: md?.border,
+      d: d?.border,
+      hover: { m: hover?.border, md: md?.hover?.border, d: d?.hover?.border },
+    });
+
     if (!href) {
       return (
         <>
@@ -250,7 +260,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               isActive,
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
-              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${typography.classNames}${className ?? ""}`,
+              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames}${className ?? ""}`,
             })}
             onClick={(e) => onPress?.(e as never)}
             style={{
@@ -258,6 +268,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               ...dimension.styles,
               ...background.style,
               ...typography.styles,
+              ...border.style,
             }}
           >
             {children}
@@ -275,13 +286,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
-            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${typography.classNames}${className ?? ""}`,
+            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames}${className ?? ""}`,
           })}
           style={{
             ...spacing.styles,
             ...dimension.styles,
             ...background.style,
             ...typography.styles,
+            ...border.style,
           }}
           href={href}
           target={"_blank"}
@@ -301,13 +313,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           isActive,
           sizeButtonFontSize: props.fontSize ? undefined : size,
           sizeButtonLineHeight: props.lineHeight ? undefined : size,
-          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${typography.classNames}${className ?? ""}`,
+          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames}${className ?? ""}`,
         })}
         style={{
           ...spacing.styles,
           ...dimension.styles,
           ...background.style,
           ...typography.styles,
+          ...border.style,
         }}
         onClick={(e) => onPress?.(e as never)}
       >
