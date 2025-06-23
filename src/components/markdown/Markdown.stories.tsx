@@ -29,6 +29,22 @@ const meta: Meta<typeof Markdown> = {
       description: "Выравнивание текста внутри Markdown-блока.",
       table: { category: "Стилизация" },
     },
+    display: {
+      control: "radio",
+      options: [
+        "block",
+        "hidden",
+        "inline",
+        "inline-block",
+        "flex",
+        "inline-flex",
+        "table",
+        "table-cell",
+        "grid",
+        "table-row",
+      ],
+      description: "Display of the Title",
+    },
   },
 };
 
@@ -68,7 +84,8 @@ export const CustomStyled: Story = {
   args: {
     p: 32,
     m: 32,
-    d: { p: { px: 40, pb: 16 }, m: { my: 96 } },
+    md: { display: "hidden" },
+    d: { p: { px: 40, pb: 16 }, m: { my: 96 }, display: "block" },
     children: `
 ### 🌟 Кастомные стили  
 - Это список  

@@ -63,7 +63,9 @@ const heading = tv({
     },
   },
 });
-
+/**
+ * @deprecated Используйте другие Typography-компоненты вместо `HeadingBlock`, например Title + Text.
+ */
 export const HeadingBlock: FC<HeadingBlockProps> = (props) => {
   const {
     title,

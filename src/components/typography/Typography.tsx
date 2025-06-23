@@ -15,7 +15,7 @@ export type TypographyProps = PropsWithChildren<
       weight?: "superbold" | "bold" | "semibold" | "normal" | "light";
       className?: string;
       onClick?: () => void;
-    } & Partial<Omit<BoxProps, "as" | "onClick" | "display" | "children">> & {
+    } & Partial<Omit<BoxProps, "as" | "onClick" | "children">> & {
         size?: TypographySize;
       }
   >

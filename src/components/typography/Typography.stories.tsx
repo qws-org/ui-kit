@@ -47,6 +47,22 @@ const meta = {
     italic: {
       control: "boolean",
     },
+    display: {
+      control: "radio",
+      options: [
+        "block",
+        "hidden",
+        "inline",
+        "inline-block",
+        "flex",
+        "inline-flex",
+        "table",
+        "table-cell",
+        "grid",
+        "table-row",
+      ],
+      description: "Display of the Title",
+    },
   },
   args: {
     as: "p",
