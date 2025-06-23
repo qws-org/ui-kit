@@ -53,3 +53,11 @@ export const Small: Story = {
       "## 1. Introduction\n1.1. By using, visiting and/or accessing any part of the jack-poker.com website and/or registering an account on the Website, you agree to be bound by these Terms and Conditions of Service.\n         \n1.2. You should read the Terms carefully. If you do not agree with them, please do not use, visit, or access the Website.\n\n## 2. Your Account\n### 2.1 Legal requirements\n2.1.1 Reference to the “Account” shall mean an account registered by you on the Website after accepting and agreeing to these Terms.\n\n2.1.2 You are not allowed to register on the Website and use our services if you are a resident of Austria, Aruba, Bonaire, Curacao, France\n\n![welcome-offer-bg](/welcome-offer-bg-desktop.jpg)\n## 3. Multi Accounts\n- Reference to the “Account” shall mean an account registered by you on the Website after accepting and agreeing to these Terms.\n- Reference to the “Account” shall mean an account registered by you on the Website after accepting and agreeing to these Terms.\n",
   },
 };
+export const DisplayHidden: Story = {
+  args: {
+    size: "large",
+    md: { display: "hidden" },
+    d: { display: "block" },
+    content: "Content is hidden in tablet screen",
+  },
+};

@@ -10,7 +10,7 @@ export type TextProps = {
   content: string;
   size?: "large" | "medium" | "small";
   alignment?: "left" | "center" | "right" | "justify";
-} & Partial<Omit<BoxProps, "as" | "onClick" | "display" | "children">>;
+} & Partial<Omit<BoxProps, "as" | "onClick" | "children">>;
 
 export const Text: FC<TextProps> = (props) => {
   const { className, content, size = "medium" } = props;

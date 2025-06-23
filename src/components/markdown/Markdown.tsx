@@ -28,7 +28,7 @@ export type MarkdownProps = {
   children: string;
   className?: string;
   alignment?: "left" | "center" | "right" | "justify";
-} & Partial<Omit<BoxProps, "as" | "onClick" | "display" | "children">>;
+} & Partial<Omit<BoxProps, "as" | "onClick" | "children">>;
 
 const markdownStyles = tv({
   variants: {

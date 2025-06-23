@@ -7,7 +7,7 @@ import { Box } from "~/components";
 type TitleSize = "large" | "medium" | "small" | "xsmall";
 
 export type TitleProps = UiKitFC<
-  Partial<Omit<BoxProps, "as" | "onClick" | "display">> & {
+  Partial<Omit<BoxProps, "as" | "onClick">> & {
     as?: "h1" | "h2" | "h3" | "h4";
     /**
      * @deprecated Используйте свойство `fontWeight` вместо `weight`.
