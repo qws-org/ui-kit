@@ -90,7 +90,7 @@ export const usePosition = ({
           typeof md.position.bottom !== "string"
             ? md.position.bottom + "px"
             : md.position.bottom;
-        className += `md:bottom-[var(--mPositionBottom)] `;
+        className += `md:bottom-[var(--mdPositionBottom)] `;
       }
       mdCalculatedValues.position.bottom = md.position.bottom;
     }
@@ -101,7 +101,7 @@ export const usePosition = ({
           typeof md.position.right !== "string"
             ? md.position.right + "px"
             : md.position.right;
-        className += `md:bottom-[var(--mdPositionRight)] `;
+        className += `md:right-[var(--mdPositionRight)] `;
       }
       mdCalculatedValues.position.right = md.position.right;
     }
