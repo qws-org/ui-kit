@@ -43,7 +43,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
       m={{ mb: 32 }}
     >
       <label
-        className={`absolute left-[30px] top-1/2 -translate-y-1/2 text-[var(--colors-text-secondary-default)] [font-size:var(--fontSize-mobile-large-body)] [line-height:var(--lineHeight-mobile-large-body)] transition-all ${
+        className={`pointer-events-none absolute left-[30px] top-1/2 -translate-y-1/2 text-[var(--colors-text-secondary-default)] [font-size:var(--fontSize-mobile-large-body)] [line-height:var(--lineHeight-mobile-large-body)] transition-all ${
           (isFocused || !!inputProps.value) &&
           "[font-size:var(--fontSize-mobile-small-body)] [line-height:var(--lineHeight-mobile-small-body)] text-[var(--colors-text-secondary-hovered)] opacity-50 top-2.5 translate-y-0"
         }`}
@@ -55,9 +55,10 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
         ref={ref}
         name={name}
         type={type}
-        className={`w-full [font-size:var(--fontSize-desktop-large-body)] [line-height:var(--lineHeight-desktop-large-body)] text-[var(--colors-text-secondary-hovered)] rounded px-[30px] pt-[26px] pb-[6px] border border-[var(--colors-background-secondary)] bg-[var(--colors-background-secondary)] focus:bg-[var(--colors-background-primary)] focus:border focus:border-[var(--colors-border-primary)] disabled:bg-[var(--colors-text-disabled)] disabled:text-opacity-40
+        className={`w-full [font-size:var(--fontSize-desktop-large-body)] [line-height:var(--lineHeight-desktop-large-body)] text-[var(--colors-text-secondary-hovered)] rounded px-[30px] pt-[26px] pb-[6px] border border-[var(--colors-background-secondary)] bg-[var(--colors-surface-neutral-dark-default)] focus:bg-[var(--colors-background-primary)] focus:border focus:border-[var(--colors-border-primary)] disabled:bg-[var(--colors-text-disabled)] disabled:text-opacity-40
             ${errorMessage && "bg-[var(--colors-background-primary)] border !border-[var(--colors-border-destructive)]"}`}
         onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
       {icon && (
         <div
