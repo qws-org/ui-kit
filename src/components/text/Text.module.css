@@ -2,6 +2,10 @@
   font-weight: var(--fontWeight-desktop-normal);
 }
 
+.textReactMarkdown > :first-child {
+  margin-top: 0;
+}
+
 .textReactMarkdownLarge {
   font-size: var(--fontSize-desktop-large-body);
   line-height: var(--lineHeight-desktop-large-body);
