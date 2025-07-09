@@ -24,6 +24,11 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
   const { navProps } = useBreadcrumbs(props);
   const childCount = React.Children.count(props.children);
 
+  const validChildren = React.Children.toArray(props.children).filter(
+    (child): child is React.ReactElement<BreadcrumbItemProps> =>
+      React.isValidElement(child),
+  );
+
   return (
     <Box
       {...navProps}
@@ -35,14 +40,11 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
       }}
     >
       <ol className={listStyles()}>
-        {React.Children.map(props.children, (child, i) => (
+        {validChildren.map((child, i) => (
           <React.Fragment key={i}>
-            {React.cloneElement(
-              child as React.ReactElement<BreadcrumbItemProps>,
-              {
-                variant: i === childCount - 1 ? "disabled" : "active",
-              },
-            )}
+            {React.cloneElement(child, {
+              variant: i === childCount - 1 ? "disabled" : "active",
+            })}
             {i < childCount - 1 && (
               <span aria-hidden="true" className="px-2 py-[6px]">
                 <BredcrumbsArrow />
