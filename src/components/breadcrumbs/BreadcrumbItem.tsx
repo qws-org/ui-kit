@@ -8,7 +8,7 @@ import { Flex, useUiKitComponents } from "~/components";
 
 export type BreadcrumbItemProps = AriaBreadcrumbItemProps & {
   href: string;
-  variant: "active" | "disabled";
+  variant?: "active" | "disabled";
   children: ReactNode;
 };
 const breadcrumbItemStyles = tv({
