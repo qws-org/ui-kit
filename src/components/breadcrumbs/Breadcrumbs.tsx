@@ -1,6 +1,6 @@
 import type { AriaBreadcrumbsProps } from "@react-aria/breadcrumbs";
 import { useBreadcrumbs } from "@react-aria/breadcrumbs";
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import React from "react";
 import { tv } from "tailwind-variants";
 
@@ -9,6 +9,7 @@ import { Box } from "~/components";
 import { BredcrumbsArrow } from "~/icons";
 
 import type { BreadcrumbItemProps } from "./BreadcrumbItem";
+import { BreadcrumbItem } from "./BreadcrumbItem";
 
 const listStyles = tv({
   base: "flex m-0 p-0 list-none items-center flex-wrap",
@@ -20,14 +21,24 @@ export type BreadcrumbsProps = AriaBreadcrumbsProps & {
   className?: string;
 } & Partial<Omit<BoxProps, "display" | "as" | "children" | "onClick">>;
 
+function isBreadcrumbItemElement(
+  child: unknown,
+): child is React.ReactElement<BreadcrumbItemProps> {
+  return React.isValidElement(child) && child.type === BreadcrumbItem;
+}
+
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
   const { navProps } = useBreadcrumbs(props);
-  const childCount = React.Children.count(props.children);
 
-  const validChildren = React.Children.toArray(props.children).filter(
-    (child): child is React.ReactElement<BreadcrumbItemProps> =>
-      React.isValidElement(child),
-  );
+  React.Children.forEach(props.children, (child) => {
+    if (!isBreadcrumbItemElement(child)) {
+      throw new Error("Breadcrumbs only accepts <BreadcrumbItem> as children.");
+    }
+  });
+
+  const validChildren = React.Children.toArray(props.children) as Array<
+    ReactElement<BreadcrumbItemProps>
+  >;
 
   return (
     <Box
@@ -40,18 +51,23 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
       }}
     >
       <ol className={listStyles()}>
-        {validChildren.map((child, i) => (
-          <React.Fragment key={i}>
-            {React.cloneElement(child, {
-              variant: i === childCount - 1 ? "disabled" : "active",
-            })}
-            {i < childCount - 1 && (
-              <span aria-hidden="true" className="px-2 py-[6px]">
-                <BredcrumbsArrow />
-              </span>
-            )}
-          </React.Fragment>
-        ))}
+        {validChildren.map((child, i) => {
+          const isLast = i === validChildren.length - 1;
+
+          return (
+            <React.Fragment key={i}>
+              {React.cloneElement(child, {
+                variant:
+                  child.props.variant ?? (isLast ? "disabled" : "active"),
+              })}
+              {!isLast && (
+                <span aria-hidden="true" className="px-2 py-[6px]">
+                  <BredcrumbsArrow />
+                </span>
+              )}
+            </React.Fragment>
+          );
+        })}
       </ol>
     </Box>
   );
