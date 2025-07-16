@@ -140,6 +140,87 @@
   margin-bottom: 0;
 }
 
+.textReactMarkdown table {
+  border-collapse: collapse;
+  margin: 64px 0;
+  max-width: 1240px;
+  min-width: 500px;
+}
+
+@media screen and (max-width: 1000px) {
+  .textReactMarkdown table {
+    margin: 32px 0 40px;
+  }
+}
+
+.textReactMarkdown table th {
+  background-color: var(--colors-surface-neutral-hovered);
+  color: var(--colors-text-secondary-default);;
+  font-weight: var(--fontWeight-desktop-semibold);
+  font-size: var(--fontSize-desktop-medium-body);
+  line-height: var(--lineHeight-desktop-medium-body);
+  text-align: left;
+  padding: 20px 24px;
+  min-width: 80px;
+  max-width: 500px;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1000px) {
+  .textReactMarkdown table th {
+    font-weight: var(--fontWeight-desktop-normal);
+    font-size: var(--fontSize-mobile-medium-body);
+    line-height: var(--lineHeight-mobile-medium-body);
+  }
+}
+
+.textReactMarkdown table td {
+  font-size: var(--fontSize-desktop-medium-body);
+  line-height: var(--lineHeight-desktop-medium-body);
+  padding: 12px;
+  min-width: 80px;
+  max-width: 500px;
+  min-height: 56px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.textReactMarkdown table td img {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.textReactMarkdown table td,
+.textReactMarkdown table th {
+  vertical-align: middle;
+}
+
+.textReactMarkdown table td:has(img){
+  padding: 0;
+}
+
+.textReactMarkdown table td img{
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .textReactMarkdown table td img {
+    width: auto;
+    height: auto;
+    margin-top: 0 !important;
+  }
+}
+
+.textReactMarkdown table tbody tr:nth-child(odd) {
+  background-color: var(--colors-background-primary);
+}
+
+.textReactMarkdown table tbody tr:nth-child(even) {
+  background-color: var(--colors-background-secondary);
+}
+
 @media screen and (max-width: 1000px) {
   .textReactMarkdown p {
     padding-left: 0;
@@ -211,5 +292,11 @@
   .textReactMarkdownSmall {
     font-size: var(--fontSize-mobile-small-body);
     line-height: var(--lineHeight-mobile-small-body);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :global .hide-on-mobile {
+    display: none !important;
   }
 }
