@@ -13,7 +13,7 @@ const customSchema = {
   tagNames: [...(defaultSchema.tagNames ?? []), "button", "style", "iframe"],
   attributes: {
     ...defaultSchema.attributes,
-    "*": ["class", "style", "id"],
+    "*": ["class", "className", "style", "id"],
     a: ["href", "target", "rel"],
     iframe: ["src", "width", "height", "allow", "frameborder"],
   },

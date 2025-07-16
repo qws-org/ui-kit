@@ -61,3 +61,46 @@ export const DisplayHidden: Story = {
     content: "Content is hidden in tablet screen",
   },
 };
+
+export const Table: Story = {
+  args: {
+    content:
+      '<h2 class="info-block-title">Understanding the Betting Actions in 5 Card Omaha</h2>\n' +
+      '<div class="info-block-description">\n' +
+      "<p>Getting to grips with betting actions is essential to playing poker games well. The main betting choices offered in most poker variations are summarised as follows:</p>\n" +
+      "<table>\n" +
+      "<thead>\n" +
+      "<tr>\n" +
+      "<th>Betting Option</th>\n" +
+      "<th>Usage</th>\n" +
+      "</tr>\n" +
+      "</thead>\n" +
+      "<tbody>\n" +
+      "<tr>\n" +
+      "<td>Check</td>\n" +
+      "<td>If there isn&rsquo;t a bet in the current betting round, we can use this option to move the action to our left without placing a wager.</td>\n" +
+      "</tr>\n" +
+      "<tr>\n" +
+      "<td>Bet</td>\n" +
+      "<td>We placed the first wager in this round of betting, compelling other players to either match it or fold.</td>\n" +
+      "</tr>\n" +
+      "<tr>\n" +
+      "<td>Fold</td>\n" +
+      "<td>We refuse to match the bet that is currently in play. Resigning from the pot and forfeiting any claim to it is known as folding.</td>\n" +
+      "</tr>\n" +
+      "<tr>\n" +
+      "<td>Call</td>\n" +
+      "<td>If there is an existing wager in the current betting round, &ldquo;calling&rdquo; means precisely matching that stake to remain in the hand.</td>\n" +
+      "</tr>\n" +
+      "<tr>\n" +
+      "<td>Raise</td>\n" +
+      "<td>We have the option of raising any wager that is already in place during the current betting round. The first bettor is then required to fold or match our raise.</td>\n" +
+      "</tr>\n" +
+      "<tr>\n" +
+      "<td>Re-raise</td>\n" +
+      "<td>We have the option of raising again if a player has already raised on the current street. &ldquo;Re-raises,&rdquo; with names like &ldquo;3-bets,&rdquo; &ldquo;4-bets,&rdquo; and so on, are raises that come after the initial one.</td>\n" +
+      "</tr>\n" +
+      "</tbody>\n" +
+      "</table>",
+  },
+};
