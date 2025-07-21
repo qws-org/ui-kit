@@ -316,15 +316,28 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
     ? transformBorderColor(props.hover.d?.color)
     : undefined;
 
-  if (
-    typeof m !== "undefined" ||
-    typeof d !== "undefined" ||
-    typeof md !== "undefined" ||
-    typeof mdHover !== "undefined" ||
-    typeof dHover !== "undefined" ||
-    typeof mHover !== "undefined"
-  ) {
+  if (typeof m !== "undefined") {
     classNames += "border ";
+  }
+
+  if (typeof md !== "undefined") {
+    classNames += "md:border ";
+  }
+
+  if (typeof d !== "undefined") {
+    classNames += "lg:border ";
+  }
+
+  if (typeof mHover !== "undefined") {
+    classNames += "hover:border ";
+  }
+
+  if (typeof mdHover !== "undefined") {
+    classNames += "md:hover:border ";
+  }
+
+  if (typeof dHover !== "undefined") {
+    classNames += "lg:hover:border ";
   }
 
   const universalMColorValue =
