@@ -53,13 +53,11 @@ export const Default: Story = {
     value: "/main-page-bg-mobile.jpg",
     mdValue: "/main-page-bg-desktop.jpg",
     dValue: "/main-page-bg-desktop.jpg",
-  },
-};
-
-export const CasinoPage: Story = {
-  args: {
-    value: "/casino/casino-page-bg-mobile.jpg",
-    mdValue: "/casino/casino-page-bg-desktop.jpg",
-    dValue: "/casino/casino-page-bg-desktop.jpg",
+    imageClassName: "object-cover object-center h-[320px]",
+    className: "overflow-hidden",
+    width: "100%",
+    maxWidth: 1920,
+    height: 320,
+    m: { mx: "auto" },
   },
 };
