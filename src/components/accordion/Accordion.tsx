@@ -9,6 +9,7 @@ export interface AccordionProps extends PropsWithChildren {
   expandedKeys?: Set<ID>;
   onExpandedChange?: (keys: Set<ID>) => void;
   isDisabled?: boolean;
+  allowsMultipleExpanded?: boolean;
 }
 
 export const AccordionContext =
