@@ -358,3 +358,20 @@ export const CustomHeadingWrapper: Story = {
     );
   },
 };
+export const MultipleExpanded: Story = {
+  render: () => {
+    return (
+      <Accordion allowsMultipleExpanded={true}>
+        <Accordion.Item id="item-1" title="1" variant="primary">
+          Content1
+        </Accordion.Item>
+        <Accordion.Item id="item-2" title="2" variant="primary">
+          Content2
+        </Accordion.Item>
+        <Accordion.Item id="item-3" title="3" variant="primary">
+          Content3
+        </Accordion.Item>
+      </Accordion>
+    );
+  },
+};
