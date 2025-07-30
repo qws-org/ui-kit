@@ -49,6 +49,7 @@ export const Typography: FC<TypographyProps> = ({
   md,
   d,
   children,
+  as = "p",
   ...props
 }) => {
   // Font-Weight
@@ -81,6 +82,7 @@ export const Typography: FC<TypographyProps> = ({
         sizeLineHeight: props.lineHeight ? undefined : size,
       })} ${className ?? ""}`}
       style={props.style}
+      as={as}
     >
       {children}
     </Box>

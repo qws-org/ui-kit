@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
+import { Typography } from "~/components";
 import { Grid } from "~/components/grid/Grid";
 import { UserCircle } from "~/icons";
 
@@ -264,6 +265,35 @@ export const CustomOffset: Story = {
         <Dropdown.Item key="justify">Justify</Dropdown.Item>
         <Dropdown.Item key="left">Left</Dropdown.Item>
         <Dropdown.Item key="right">Right</Dropdown.Item>
+      </Dropdown.Section>
+    </Dropdown.Trigger>
+  ),
+};
+export const alwaysRenderMenu: Story = {
+  render: () => (
+    <Dropdown.Trigger
+      alwaysRenderMenu={true}
+      strategy="hover"
+      offset={30}
+      onAction={(key) => alert(key)}
+      triggerElement={<div>Hover to see</div>}
+    >
+      <Dropdown.Section title="Alignment">
+        <Dropdown.Item key="season-quests">
+          <a href="https://site-jack.jack-flush.com/en/promotions/season-quests/">
+            <Typography color="text-selection">season-quests</Typography>
+          </a>
+        </Dropdown.Item>
+        <Dropdown.Item key="match-bonus">
+          <a href="https://site-jack.jack-flush.com/en/promotions/match-bonus/">
+            <Typography color="text-selection">match-bonus</Typography>
+          </a>
+        </Dropdown.Item>
+        <Dropdown.Item key="bad-beat-jackpot">
+          <a href="https://site-jack.jack-flush.com/en/promotions/bad-beat-jackpot/">
+            <Typography color="text-selection">bad-beat-jackpot</Typography>
+          </a>
+        </Dropdown.Item>
       </Dropdown.Section>
     </Dropdown.Trigger>
   ),
