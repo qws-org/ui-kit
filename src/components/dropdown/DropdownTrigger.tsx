@@ -7,6 +7,7 @@ import type { MenuTriggerProps } from "react-stately";
 import { useMenuTriggerState } from "react-stately";
 
 import type { UiKitBackgroundProps } from "~/components";
+import { Box } from "~/components";
 
 import { Popover } from "../popover/Popover";
 import { Dropdown } from "./Dropdown";
@@ -24,6 +25,7 @@ export interface DropdownTriggerProps<T>
   dropdownWrapper?: CustomWrapper;
   offset?: number;
   variant?: "positioned" | "static";
+  alwaysRenderMenu?: boolean;
 }
 
 export const DropdownTrigger = <T extends object>(
@@ -36,6 +38,14 @@ export const DropdownTrigger = <T extends object>(
 
   return (
     <>
+      {/* решение для того чтобы краулер видел ссылки в triggerElement и Dropdown */}
+      {props.alwaysRenderMenu && (
+        <Box position={{ type: "absolute", left: "-9999px", top: "-9999px" }}>
+          <>{props.triggerElement}</>
+          <Dropdown wrapper={props.dropdownWrapper} {...props} {...menuProps} />
+        </Box>
+      )}
+
       <DropdownTriggerElement
         {...menuTriggerProps}
         strategy={props.strategy}
