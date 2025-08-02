@@ -141,6 +141,45 @@ export const useOpacity = (
   };
 };
 
+export const useOverflow = (
+  props?: UseCssEffectsProps,
+  pseudoClass?: "hover",
+): UseCssOutput => {
+  if (!props) {
+    return {
+      style: {},
+      className: "",
+    };
+  }
+
+  const style: UseCssOutput["style"] = {};
+  let className = "";
+
+  if (props.m?.overflow) {
+    style[`--oflow-${pseudoClass ?? ""}ed`] = props.m.overflow;
+    className += `${pseudoClass ? pseudoClass + ":" : ""}[overflow:var(--oflow-${pseudoClass ?? ""}ed)] `;
+  }
+
+  const baseOverflow = props.m?.overflow;
+
+  if (props.md?.overflow && props.md.overflow !== baseOverflow) {
+    style[`--md-oflow-${pseudoClass ?? ""}ed`] = props.md.overflow;
+    className += `md:${pseudoClass ? pseudoClass + ":" : ""}[overflow:var(--md-oflow-${pseudoClass ?? ""}ed)] `;
+  }
+
+  const mdOverflow = props.md?.overflow ?? baseOverflow;
+
+  if (props.d?.overflow && props.d.overflow !== mdOverflow) {
+    style[`--d-oflow-${pseudoClass ?? ""}ed`] = props.d.overflow;
+    className += `lg:${pseudoClass ? pseudoClass + ":" : ""}[overflow:var(--d-oflow-${pseudoClass ?? ""}ed)] `;
+  }
+
+  return {
+    style,
+    className,
+  };
+};
+
 export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
   const boxShadow = useBoxShadow(props);
   const hoveredBoxShadow = useBoxShadow(props.hover, "hover");
@@ -150,6 +189,10 @@ export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
 
   const opacity = useOpacity(props);
   const hoveredOpacity = useOpacity(props.hover, "hover");
+
+  const overflow = useOverflow(props);
+  const hoveredOverflow = useOverflow(props.hover, "hover");
+
   return {
     style: {
       ...boxShadow.style,
@@ -158,8 +201,10 @@ export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
       ...hoveredTextShadow.style,
       ...opacity.style,
       ...hoveredOpacity.style,
+      ...overflow.style,
+      ...hoveredOverflow.style,
     },
     className:
-      `${boxShadow.className} ${textShadow.className} ${hoveredBoxShadow.className} ${hoveredTextShadow.className} ${opacity.className} ${hoveredOpacity.className}`.trim(),
+      `${boxShadow.className} ${textShadow.className} ${hoveredBoxShadow.className} ${hoveredTextShadow.className} ${opacity.className} ${hoveredOpacity.className} ${overflow.className} ${hoveredOverflow.className}`.trim(),
   };
 };

@@ -526,6 +526,14 @@ const generateEffectClasses = (): Array<string> => {
     "hover:[opacity:var(--opty-hoverd)]",
     "md:hover:[opacity:var(--md-opty-hoverd)]",
     "lg:hover:[opacity:var(--d-opty-hoverd)]",
+
+    // Overflow
+    "[overflow:var(--oflow-ed)]",
+    "md:[overflow:var(--md-oflow-ed)]",
+    "lg:[overflow:var(--d-oflow-ed)]",
+    "hover:[overflow:var(--oflow-hovered)]",
+    "md:hover:[overflow:var(--md-oflow-hovered)]",
+    "lg:hover:[overflow:var(--d-oflow-hovered)]",
   ];
 };
 

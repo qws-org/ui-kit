@@ -290,3 +290,23 @@ export const opacity: Story = {
     return <Box {...args}></Box>;
   },
 };
+
+export const overflow: Story = {
+  args: {
+    p: 20,
+    bg: "#e80505",
+    overflow: "hidden",
+    md: {
+      overflow: "auto",
+    },
+  },
+  render(args) {
+    return (
+      <Box {...args} style={{ width: 200, height: 100 }}>
+        <Box bg="#ccc" style={{ height: 200 }}>
+          Контент, который выходит за пределы
+        </Box>
+      </Box>
+    );
+  },
+};
