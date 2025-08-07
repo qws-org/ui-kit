@@ -104,7 +104,7 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       }
       if (typeof mRadius?.topRight !== "undefined") {
         style["--tr-br"] = mRadius?.topRight;
-        classNames += `rounded-tl-[var(--tr-br)] `;
+        classNames += `rounded-tr-[var(--tr-br)] `;
       }
       if (typeof mRadius?.bottomLeft !== "undefined") {
         style["--bl-br"] = mRadius?.bottomLeft;
@@ -217,7 +217,7 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       }
       if (typeof mHoverRadius?.topRight !== "undefined") {
         style["--h-tr-br"] = mHoverRadius?.topRight;
-        classNames += `hover:rounded-tl-[var(--h-tr-br)] `;
+        classNames += `hover:rounded-tr-[var(--h-tr-br)] `;
       }
       if (typeof mHoverRadius?.bottomLeft !== "undefined") {
         style["--h-bl-br"] = mHoverRadius?.bottomLeft;
@@ -252,11 +252,11 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       }
       if (typeof mdHoverRadius?.topRight !== "undefined") {
         style["--h-md-tr-br"] = mdHoverRadius?.topRight;
-        classNames += `md:hover:rounded-tl-[var(--h-md-tr-br)] `;
+        classNames += `md:hover:rounded-tr-[var(--h-md-tr-br)] `;
       }
       if (typeof mdHoverRadius?.bottomLeft !== "undefined") {
         style["--h-md-bl-br"] = mdHoverRadius?.bottomLeft;
-        classNames += `md:hover:rounded-bl-[var(--h-md-tl-br)] `;
+        classNames += `md:hover:rounded-bl-[var(--h-md-bl-br)] `;
       }
       if (typeof mdHoverRadius?.bottomRight !== "undefined") {
         style["--h-md-br-br"] = mdHoverRadius?.bottomRight;
@@ -286,7 +286,7 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
     }
     if (typeof dHoverRadius?.topRight !== "undefined") {
       style["--h-d-tr-br"] = dHoverRadius?.topRight;
-      classNames += `lg:hover:rounded-tl-[var(--h-d-tr-br)] `;
+      classNames += `lg:hover:rounded-tr-[var(--h-d-tr-br)] `;
     }
     if (typeof dHoverRadius?.bottomLeft !== "undefined") {
       style["--h-d-bl-br"] = dHoverRadius?.bottomLeft;

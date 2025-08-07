@@ -53,7 +53,7 @@ export const Default: Story = {
     value: "/main-page-bg-mobile.jpg",
     mdValue: "/main-page-bg-desktop.jpg",
     dValue: "/main-page-bg-desktop.jpg",
-    imageClassName: "object-cover object-center h-[320px]",
+    image: { className: "object-cover object-center h-[320px]" },
     className: "overflow-hidden",
     width: "100%",
     maxWidth: 1920,

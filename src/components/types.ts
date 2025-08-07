@@ -309,6 +309,7 @@ export type UiKitEffectProps = {
   boxShadow?: ColorKeys | string;
   textShadow?: ColorKeys | string;
   opacity?: number;
+  overflow?: "visible" | "hidden" | "scroll" | "auto" | "clip";
 };
 
 export type ElementRef<E extends ElementType> =
