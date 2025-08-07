@@ -8,7 +8,7 @@ export type ImageProps = {
   mdValue?: string;
   dValue?: string;
   className?: string;
-  image: ImgHTMLAttributes<HTMLImageElement>;
+  image?: ImgHTMLAttributes<HTMLImageElement>;
 } & Partial<BoxProps>;
 
 export const Image: FC<ImageProps> = (props) => {
