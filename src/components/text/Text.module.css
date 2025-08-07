@@ -260,6 +260,10 @@
   .textReactMarkdown img:first-of-type {
     margin-top: 40px;
   }
+
+  .textReactMarkdown table {
+    min-width: auto;
+  }
 }
 
 @media screen and (max-width: 420px) {
