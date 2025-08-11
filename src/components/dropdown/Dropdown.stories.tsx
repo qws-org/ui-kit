@@ -298,3 +298,34 @@ export const alwaysRenderMenu: Story = {
     </Dropdown.Trigger>
   ),
 };
+export const controlBgColor: Story = {
+  render: () => (
+    <Dropdown.Trigger
+      strategy="mixed"
+      offset={30}
+      bg={"red"}
+      md={{ bg: "yellow" }}
+      d={{ bg: "green" }}
+      onAction={(key) => alert(key)}
+      triggerElement={<div>Hover to see</div>}
+    >
+      <Dropdown.Section title="Alignment">
+        <Dropdown.Item key="season-quests">
+          <a href="https://site-jack.jack-flush.com/en/promotions/season-quests/">
+            <Typography color="text-selection">season-quests</Typography>
+          </a>
+        </Dropdown.Item>
+        <Dropdown.Item key="match-bonus">
+          <a href="https://site-jack.jack-flush.com/en/promotions/match-bonus/">
+            <Typography color="text-selection">match-bonus</Typography>
+          </a>
+        </Dropdown.Item>
+        <Dropdown.Item key="bad-beat-jackpot">
+          <a href="https://site-jack.jack-flush.com/en/promotions/bad-beat-jackpot/">
+            <Typography color="text-selection">bad-beat-jackpot</Typography>
+          </a>
+        </Dropdown.Item>
+      </Dropdown.Section>
+    </Dropdown.Trigger>
+  ),
+};

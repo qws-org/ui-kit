@@ -26,6 +26,8 @@ export interface DropdownTriggerProps<T>
   offset?: number;
   variant?: "positioned" | "static";
   alwaysRenderMenu?: boolean;
+  md?: Omit<UiKitBackgroundProps, "groupParent" | "bgGroup">;
+  d?: Omit<UiKitBackgroundProps, "groupParent" | "bgGroup">;
 }
 
 export const DropdownTrigger = <T extends object>(
