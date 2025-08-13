@@ -6,7 +6,6 @@ import React, { useRef } from "react";
 import type { MenuTriggerProps } from "react-stately";
 import { useMenuTriggerState } from "react-stately";
 
-import type { UiKitBackgroundProps } from "~/components";
 import { Box } from "~/components";
 
 import { Popover } from "../popover/Popover";
@@ -17,7 +16,6 @@ export type CustomWrapper = FC<{ children: ReactNode }>;
 
 export interface DropdownTriggerProps<T>
   extends AriaMenuProps<T>,
-    Omit<UiKitBackgroundProps, "groupParent" | "bgGroup">,
     MenuTriggerProps {
   triggerElement: ReactElement;
   strategy?: "click" | "hover" | "mixed";
@@ -26,8 +24,6 @@ export interface DropdownTriggerProps<T>
   offset?: number;
   variant?: "positioned" | "static";
   alwaysRenderMenu?: boolean;
-  md?: Omit<UiKitBackgroundProps, "groupParent" | "bgGroup">;
-  d?: Omit<UiKitBackgroundProps, "groupParent" | "bgGroup">;
 }
 
 export const DropdownTrigger = <T extends object>(

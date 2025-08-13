@@ -8,7 +8,7 @@ import { GridItem } from "./GridItem";
 export type GridCols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 export type GridDefaultProps = {
-  gap: number | string;
+  gap?: number | string;
   cols?: GridCols;
 } & Partial<Omit<BoxProps, "display">> & {
     display?: "grid";
@@ -42,9 +42,9 @@ export const Grid: FC<GridProps> & { Item: typeof GridItem } = (props) => {
         "--cols": cols,
         "--mdCols": md?.cols ?? cols,
         "--dCols": d?.cols ?? md?.cols ?? cols,
-        "--gap": styleTransformer(gap),
-        "--mdGap": styleTransformer(md?.gap ?? gap),
-        "--dGap": styleTransformer(d?.gap ?? md?.gap ?? gap),
+        "--gap": styleTransformer(gap ?? 0),
+        "--mdGap": styleTransformer(md?.gap ?? gap ?? 0),
+        "--dGap": styleTransformer(d?.gap ?? md?.gap ?? gap ?? 0),
       }}
       className={gridStyles()}
     >
