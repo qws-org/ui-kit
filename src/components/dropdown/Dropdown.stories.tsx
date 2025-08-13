@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
 import { Typography } from "~/components";
+import { DefaultWrapper } from "~/components/dropdown/DefaultWrapper";
 import { Grid } from "~/components/grid/Grid";
 import { UserCircle } from "~/icons";
 
@@ -303,11 +304,20 @@ export const controlBgColor: Story = {
     <Dropdown.Trigger
       strategy="mixed"
       offset={30}
-      bg={"red"}
-      md={{ bg: "yellow" }}
-      d={{ bg: "green" }}
       onAction={(key) => alert(key)}
       triggerElement={<div>Hover to see</div>}
+      dropdownWrapper={(wrapperProps) => (
+        <>
+          <DefaultWrapper
+            {...wrapperProps}
+            bg={"red"}
+            p={42}
+            border={{ radius: "32px" }}
+            md={{ bg: "text-accent-default" }}
+            d={{ bg: "text-accent-grad" }}
+          />
+        </>
+      )}
     >
       <Dropdown.Section title="Alignment">
         <Dropdown.Item key="season-quests">
