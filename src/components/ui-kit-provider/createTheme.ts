@@ -121,16 +121,40 @@ export const createTheme = (
   const colors: Colors = {
     // background
     "background-primary": entry?.colors?.["background-primary"] ?? "#000000",
+
     "background-secondary":
       entry?.colors?.["background-secondary"] ?? "#171717",
+
+    "background-secondary-transparent":
+      entry?.colors?.["background-secondary-transparent"] ??
+      "rgba(23, 23, 23, 0.7)",
+
     "background-transparent":
       entry?.colors?.["background-transparent"] ?? "rgba(0, 0, 0, 0.5)",
+
+    "background-accent-vip":
+      entry?.colors?.["background-accent-vip"] ??
+      "linear-gradient(270deg, #AE6E1D 0%, #FFDA8A 62.74%, #C8842E 100%)",
+
     "background-accent1":
       entry?.colors?.["background-accent1"] ??
       "linear-gradient(270deg, #F4AD23 0%, #FF3D00 50%, #6A2DC0 100%)",
+
+    "background-accent1-vertical":
+      entry?.colors?.["background-accent1-vertical"] ??
+      "linear-gradient(135deg, #FBBD13 0%, #FF3E1C 50%, #6A2DC0 100%)",
+
     "background-accent2":
       entry?.colors?.["background-accent2"] ??
       "linear-gradient(90deg, #FFC169 0%, #FFFAEA 25%, #FBA2C6 42%, #F057A2 55%, #985BE7 70%, #60ABED 85%, #50E6C1 100%)",
+
+    "background-accent2-reversed":
+      entry?.colors?.["background-accent2-reversed"] ??
+      "linear-gradient(90deg, #50E6C1 0%, #60ABED 20%, #985BE7 40%, #F057A2 60%, #FFB6A9 80%, #FFB957 100%)",
+
+    "background-accent2-vertical":
+      entry?.colors?.["background-accent2-reversed"] ??
+      "linear-gradient(144.58deg, #FFFAEA 1.33%, #F057A2 33.89%, #985BE7 66.45%, #60ABED 100%)",
 
     // border
     "border-accent": entry?.colors?.["border-accent"] ?? "#F9D48C",
@@ -231,8 +255,8 @@ export const createTheme = (
     lineHeight,
     fontWeight,
     fontFamily: {
-      main: `"${entry?.fontFamily?.main ?? "Main"}", sans-serif`,
-      additional: `"${entry?.fontFamily?.additional ?? "Additional"}", sans-serif`,
+      main_name: `"${entry?.fontFamily?.main_name ?? "Main"}", sans-serif`,
+      additional_name: `"${entry?.fontFamily?.additional_name ?? "Additional"}", sans-serif`,
     },
     spacing,
     colors,

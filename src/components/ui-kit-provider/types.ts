@@ -87,8 +87,8 @@ export type LineHeight = {
 export type LineHeightKeys = keyof LineHeight;
 
 export type FontFamily = {
-  main: string;
-  additional: string;
+  main_name: string;
+  additional_name: string;
 };
 
 export type FontWeight = {
@@ -129,9 +129,14 @@ export type Spacing = {
 export type ColorKeys =
   | "background-primary"
   | "background-secondary"
+  | "background-secondary-transparent"
   | "background-transparent"
+  | "background-accent-vip"
   | "background-accent1"
+  | "background-accent1-vertical"
   | "background-accent2"
+  | "background-accent2-vertical"
+  | "background-accent2-reversed"
   | "border-accent"
   | "border-destructive"
   | "border-primary"

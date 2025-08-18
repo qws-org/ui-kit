@@ -175,16 +175,25 @@ export const createCssVars = (
     "--fontWeight-desktop-superbold": theme.fontWeight["desktop.superbold"],
     // ------------------------------
 
-    // fontFamily mobile
-    "--fontFamily-main": theme.fontFamily.main,
-    "--fontFamily-additional": theme.fontFamily.additional,
+    // fontFamily
+    "--fontFamily-main": theme.fontFamily.main_name,
+    "--fontFamily-additional": theme.fontFamily.additional_name,
     // ------------------------------
     // Colors
     "--colors-background-primary": theme.colors["background-primary"],
     "--colors-background-secondary": theme.colors["background-secondary"],
+    "--colors-background-secondary-transparent":
+      theme.colors["background-secondary-transparent"],
     "--colors-background-transparent": theme.colors["background-transparent"],
     "--colors-background-accent1": theme.colors["background-accent1"],
+    "--colors-background-accent1-vertical":
+      theme.colors["background-accent1-vertical"],
     "--colors-background-accent2": theme.colors["background-accent2"],
+    "--colors-background-accent2-reversed":
+      theme.colors["background-accent2-reversed"],
+    "--colors-background-accent2-vertical":
+      theme.colors["background-accent2-vertical"],
+    "--colors-background-accent-vip": theme.colors["background-accent-vip"],
 
     "--colors-border-accent": theme.colors["border-accent"],
     "--colors-border-destructive": theme.colors["border-destructive"],
