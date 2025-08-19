@@ -33,7 +33,7 @@ const checkboxStyles = tv({
   base: " h-6 border-2 rounded transition-all cursor-pointer",
   variants: {
     selected: {
-      true: "bg-[var(--colors-surface-delete)] border-[var(--colors-border-destructive)] text-[var(--colors-text-primary-default)] ",
+      true: "bg-[var(--colors-surface-primary-default)] border-[var(--colors-surface-primary-default)]  text-[var(--colors-text-primary-default)] ",
       false: "border-[var(--colors-border-primary)]",
     },
   },
