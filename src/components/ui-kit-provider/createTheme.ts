@@ -207,7 +207,7 @@ export const createTheme = (
       entry?.colors?.["surface-neutral-subtle"] ?? "rgba(255, 255, 255, 0.05)",
 
     "surface-primary-default":
-      entry?.colors?.["surface-primary-default"] ?? "#FFFFFF",
+      entry?.colors?.["surface-primary-default"] ?? "#893BF7",
     "surface-primary-dark":
       entry?.colors?.["surface-primary-dark"] ?? "#401A75",
     "surface-primary-hovered":
