@@ -84,7 +84,6 @@ export {
   Typography,
   type TypographyProps,
 } from "./components/typography/Typography";
-export { createCssVars } from "./components/ui-kit-provider/createCssVars";
 export { createTheme } from "./components/ui-kit-provider/createTheme";
 export { UIKitProvider } from "./components/ui-kit-provider/provider";
 export type * from "./components/ui-kit-provider/types";

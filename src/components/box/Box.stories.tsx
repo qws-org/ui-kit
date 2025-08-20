@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
 import type { UIKitIndentations } from "~/components";
-import { Flex } from "~/components";
+import { Flex, UIKitProvider } from "~/components";
+import { createTheme } from "~/components/ui-kit-provider/createTheme";
 
 import { Box } from "./Box";
 
@@ -155,6 +156,34 @@ export const Background: Story = {
       hover: { bg: "surface-accent2-hovered" },
       bgSize: "40rem",
     },
+  },
+
+  render: (args) => {
+    const theme = createTheme();
+    return (
+      <UIKitProvider
+        value={{
+          components: {
+            Link: forwardRef((props, ref) => {
+              return (
+                <a {...props} ref={ref}>
+                  {props.children}
+                </a>
+              );
+            }),
+          },
+          theme: createTheme({
+            colors: {
+              ...theme.colors,
+              "surface-accent1-default":
+                "linear-gradient(321.9deg, #4A1290 -54.36%, #F9766E 12.84%, #4A1290 82.37%)",
+            },
+          }),
+        }}
+      >
+        <Box {...args}></Box>
+      </UIKitProvider>
+    );
   },
 };
 
