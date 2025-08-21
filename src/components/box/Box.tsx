@@ -76,7 +76,8 @@ export type BoxProps<RootElement extends ElementType = "div"> =
         | "tr"
         | "td"
         | "th"
-        | "picture";
+        | "picture"
+        | "main";
       md?: Omit<DefaultProps, "bgGroup">;
       d?: Omit<DefaultProps, "bgGroup">;
       // eslint-disable-next-line
