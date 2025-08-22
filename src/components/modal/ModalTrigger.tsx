@@ -2,7 +2,7 @@ import {
   type AriaModalOverlayProps,
   useOverlayTrigger,
 } from "@react-aria/overlays";
-import type { FC, ReactElement } from "react";
+import type { FC, ReactElement, ReactNode } from "react";
 import React from "react";
 import type { OverlayTriggerProps } from "react-stately";
 import { useOverlayTriggerState } from "react-stately";
@@ -18,6 +18,7 @@ export interface ModalTriggerProps
     AriaModalOverlayProps {
   label: string;
   children: (close: () => void) => ReactElement;
+  closeButtonSlot?: (close: () => void) => ReactNode;
 }
 
 export const ModalTrigger: FC<ModalTriggerProps> = ({

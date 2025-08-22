@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
 import { Button } from "~/components";
+import { Close } from "~/icons";
 
 import ModalTrigger from "./ModalTrigger";
 
@@ -53,7 +54,26 @@ export const Default: StoryObj<typeof ModalTrigger> = {
 
 export const FormModal: StoryObj<typeof ModalTrigger> = {
   render: () => (
-    <ModalTrigger label="Open Form Modal" isDismissable>
+    <ModalTrigger
+      label="Open Form Modal"
+      isDismissable
+      closeButtonSlot={(close) => (
+        <Button
+          onPress={close}
+          autoFocus
+          variant="default"
+          border={{ width: "2" }}
+          position={{
+            type: "absolute",
+            top: 20,
+            right: 20,
+          }}
+          md={{ position: { top: 36, right: 40 } }}
+        >
+          <Close viewBox="0 0 32 32" className="w-6 h-6 md:w-8 md:h-8" />
+        </Button>
+      )}
+    >
       {(close) => (
         <form className="flex flex-col">
           <label htmlFor="first-name" className="mb-2">
