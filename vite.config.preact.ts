@@ -2,15 +2,10 @@ import path from "node:path";
 
 import preact from "@preact/preset-vite"; // <— добавь в devDependencies
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
 
 export default defineConfig({
   plugins: [
     preact(), // заменяет react-плагин; на сборку библиотеки тоже ок
-    dts({
-      outDir: "dist",
-      exclude: ["**/*.stories.*", "vite.config*.ts", "tailwind.config.ts"],
-    }),
   ],
   resolve: {
     alias: {
@@ -34,7 +29,12 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["preact", "preact/hooks"],
+      external: [
+        "preact",
+        "preact/hooks",
+        "preact/jsx-runtime",
+        "preact/jsx-dev-runtime",
+      ],
       output: {
         exports: "named",
         assetFileNames: (assetInfo) =>
