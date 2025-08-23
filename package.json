@@ -1,6 +1,6 @@
 {
   "name": "@qws-org/ui-kit",
-  "version": "3.0.0",
+  "version": "8.0.0",
   "description": "",
   "main": "dist/my-ui-kit.cjs.js",
   "module": "dist/my-ui-kit.es.js",
