@@ -52,7 +52,7 @@ export default defineConfig({
         provider: "src/components/ui-kit-provider/index.ts",
       },
       name: "MyUIKit",
-      fileName: () => `index.es.js`,
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
       formats: ["es"],
     },
     rollupOptions: {
