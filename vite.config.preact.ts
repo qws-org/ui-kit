@@ -68,43 +68,17 @@ export default defineConfig({
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           assetInfo.name?.endsWith(".css") ? "styles.css" : assetInfo.name!,
         manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-
-          // нормализуем слэши под все ОС
-          const mod = id.replace(/\\/g, "/");
-
-          // порядок важен: от более конкретных к более общим
-          const buckets = [
-            // markdown-стек
-            ["md-stack", /(?:^|\/)(react-markdown|micromark|parse5)(?:\/|$)/],
-
-            // тонкая грануляция react-aria
-            [
-              "react-aria-overlays",
-              /@react-aria\/(overlays|focus|utils)(?:\/|$)/,
-            ],
-            ["react-aria-select", /@react-aria\/(listbox|select|menu)(?:\/|$)/],
-            ["react-aria-tabs-table", /@react-aria\/(tabs|table)(?:\/|$)/],
-            ["micromark-extension-gfm-table", /micromark-extension-gfm-table/],
-            ["micromark-core-commonmar", /micromark-core-commonmar/],
-            ["mdast-util-to-hast", /mdast-util-to-hast/],
-            ["mdast-util-to-markdown", /mdast-util-to-markdown/],
-            ["bundle-mjs", /bundle-mjs/],
-            ["roperty-information", /roperty-information/],
-            ["hast", /hast-/],
-            ["tokenizer", /(tokenizer)|(parser)(?:\/|$)/],
-            // всё остальное из @react-aria и @react-stately
-            ["react-stately", /@react-stately\//],
-            ["react-aria", /@react-aria\//],
-            ["entities-dist-esm", /entities\/dist\/esm\//],
-          ] as const;
-
-          for (const [name, rx] of buckets) {
-            if (rx.test(mod)) return name;
+          if (id.includes("node_modules")) {
+            if (
+              id.includes("react-markdown") ||
+              id.includes("micromark") ||
+              id.includes("parse5")
+            ) {
+              return "md-stack";
+            }
+            if (id.match(/@react-(aria|stately)\//)) return "react-aria";
+            return "vendor";
           }
-
-          // общий вендорный чанк
-          return "vendor";
         },
       },
     },

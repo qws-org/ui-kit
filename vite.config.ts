@@ -32,23 +32,10 @@ export default defineConfig({
     sourcemap: false, // если карты не нужны в проде
     minify: "terser",
     terserOptions: {
-      ecma: 2019,
-      module: true,
-      toplevel: true,
-      compress: {
-        passes: 3,
-        drop_console: true,
-        drop_debugger: true,
-        pure_getters: true,
-      },
-      mangle: {
-        toplevel: true,
-      },
       format: {
         comments: false,
-        ascii_only: true,
-        semicolons: false, // разрешает объединять выражения через запятую
-        max_line_len: 0, // не вставлять разрывы строк
+        ascii_only: true, // безопаснее для CDN/старых прокси
+        // beautify: false      // по умолчанию false, оставил для явности
       },
     },
     emptyOutDir: true,
@@ -91,10 +78,7 @@ export default defineConfig({
         visualizer({ filename: "stats.html", gzipSize: true }),
         ignore(["*.stories.*"]), // ← не встраивать модули, чьи пути содержат ".stories."
       ],
-      external: [
-        /^(react|react-dom)(\/.*)?$/,
-        "decode-named-character-reference",
-      ],
+      external: ["react", "react-dom", "decode-named-character-reference"],
       output: {
         compact: true,
         globals: {
@@ -105,43 +89,16 @@ export default defineConfig({
         assetFileNames: (assetInfo) =>
           assetInfo.name?.endsWith(".css") ? "styles.css" : assetInfo.name!,
         manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-
-          // нормализуем слэши под все ОС
-          const mod = id.replace(/\\/g, "/");
-
-          // порядок важен: от более конкретных к более общим
-          const buckets = [
-            // markdown-стек
-            ["md-stack", /(?:^|\/)(react-markdown|micromark|parse5)(?:\/|$)/],
-
-            // тонкая грануляция react-aria
-            [
-              "react-aria-overlays",
-              /@react-aria\/(overlays|focus|utils)(?:\/|$)/,
-            ],
-            ["react-aria-select", /@react-aria\/(listbox|select|menu)(?:\/|$)/],
-            ["react-aria-tabs-table", /@react-aria\/(tabs|table)(?:\/|$)/],
-            ["micromark-extension-gfm-table", /micromark-extension-gfm-table/],
-            ["micromark-core-commonmar", /micromark-core-commonmar/],
-            ["mdast-util-to-hast", /mdast-util-to-hast/],
-            ["mdast-util-to-markdown", /mdast-util-to-markdown/],
-            ["bundle-mjs", /bundle-mjs/],
-            ["roperty-information", /roperty-information/],
-            ["hast", /hast-/],
-            ["tokenizer", /(tokenizer)|(parser)(?:\/|$)/],
-            // всё остальное из @react-aria и @react-stately
-            ["react-stately", /@react-stately\//],
-            ["react-aria", /@react-aria\//],
-            ["entities-dist-esm", /entities\/dist\/esm\//],
-          ] as const;
-
-          for (const [name, rx] of buckets) {
-            if (rx.test(mod)) return name;
+          if (id.includes("node_modules")) {
+            if (
+              id.includes("react-markdown") ||
+              id.includes("micromark") ||
+              id.includes("parse5")
+            )
+              return "md-stack";
+            if (id.match(/@react-(aria|stately)\//)) return "react-aria";
+            return "vendor";
           }
-
-          // общий вендорный чанк
-          return "vendor";
         },
       },
     },

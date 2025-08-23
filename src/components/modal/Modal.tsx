@@ -6,6 +6,8 @@ import React, { useRef } from "react";
 import type { OverlayTriggerState } from "react-stately";
 
 import { Box, Button, Flex } from "~/components";
+import type { ModalTriggerProps } from "~/components/modal/ModalTrigger";
+import ModalTrigger from "~/components/modal/ModalTrigger";
 import { Close } from "~/icons";
 
 export type ModalProps = AriaModalOverlayProps & {
@@ -14,7 +16,7 @@ export type ModalProps = AriaModalOverlayProps & {
   closeButtonSlot?: (close: () => void) => ReactNode;
 };
 
-export const Modal: FC<ModalProps> = ({
+export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
   state,
   children,
   closeButtonSlot,
@@ -83,3 +85,5 @@ export const Modal: FC<ModalProps> = ({
     </Overlay>
   );
 };
+
+Modal.Trigger = ModalTrigger;
