@@ -9,7 +9,7 @@ import type {
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import type { RootMenuTriggerState } from "react-stately";
 
-type DropdownTriggerElementProps<Element extends ElementType> =
+export type DropdownTriggerElementProps<Element extends ElementType> =
   PropsWithChildren<
     AriaButtonOptions<Element> & {
       triggerElement: ReactElement;
