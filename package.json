@@ -1,6 +1,6 @@
 {
   "name": "@qws-org/ui-kit",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "",
   "main": "dist/my-ui-kit.cjs.js",
   "module": "dist/my-ui-kit.es.js",
@@ -16,14 +16,20 @@
       "import": "./dist/my-ui-kit.es.js",
       "require": "./dist/my-ui-kit.cjs.js"
     },
+    "./preact": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/preact/index.es.js"
+    },
     "./styles.css": "./dist/styles.css"
   },
   "type": "module",
   "sideEffects": false,
   "scripts": {
+    "build:react": "pnpm prepare:icons && vite build",
+    "build:preact": "pnpm prepare:icons && vite build -c vite.config.preact.ts",
+    "build": "pnpm build:react && pnpm build:preact",
     "storybook": "storybook dev -p 6006 --ci ",
     "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
-    "build": "pnpm prepare:icons && vite build",
     "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons ",
     "lint": "eslint --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:ci": "eslint --ignore-pattern .gitignore .",
@@ -42,8 +48,6 @@
     "@react-aria/button": "3.13.0",
     "@react-aria/checkbox": "3.15.4",
     "@react-aria/dialog": "3.5.24",
-    "@react-aria/tabs": "3.10.3",
-    "@react-stately/tabs": "3.8.2",
     "@react-aria/disclosure": "3.0.4",
     "@react-aria/focus": "3.20.2",
     "@react-aria/listbox": "3.14.3",
@@ -52,9 +56,11 @@
     "@react-aria/select": "3.15.4",
     "@react-aria/separator": "3.4.8",
     "@react-aria/table": "3.17.2",
+    "@react-aria/tabs": "3.10.3",
     "@react-aria/textfield": "3.17.2",
     "@react-aria/utils": "3.28.2",
     "@react-aria/visually-hidden": "3.8.22",
+    "@react-stately/tabs": "3.8.2",
     "classnames": "2.5.1",
     "react-markdown": "9.0.3",
     "react-stately": "3.37.0",
@@ -67,8 +73,14 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
+  "peerDependenciesMeta": {
+    "preact": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.6",
+    "@preact/preset-vite": "2.10.2",
     "@qws-org/eslint-config-react-typescript-jtym": "6.1.2",
     "@storybook/addon-essentials": "8.6.12",
     "@storybook/addon-interactions": "8.6.12",
@@ -93,6 +105,7 @@
     "autoprefixer": "10.4.21",
     "cross-env": "7.0.3",
     "postcss": "8.5.3",
+    "preact": "^10.27.1",
     "prettier": "3.5.3",
     "rollup-plugin-ignore": "^1.0.10",
     "storybook": "8.6.12",
