@@ -49,6 +49,6 @@ export default defineConfig({
       mangle: true,
       format: { comments: false },
     },
-    outDir: "dist/preact",
+    outDir: "dist-preact",
   },
 });

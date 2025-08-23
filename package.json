@@ -12,22 +12,22 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/src/index.d.ts",
       "import": "./dist/my-ui-kit.es.js",
       "require": "./dist/my-ui-kit.cjs.js"
     },
     "./preact": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/preact/index.es.js"
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist-preact/index.es.js"
     },
     "./styles.css": "./dist/styles.css"
   },
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "build:react": "pnpm prepare:icons && vite build",
-    "build:preact": "pnpm prepare:icons && vite build -c vite.config.preact.ts",
-    "build": "pnpm build:react && pnpm build:preact",
+    "build:react": "vite build",
+    "build:preact": "vite build -c vite.config.preact.ts",
+    "build": "pnpm prepare:icons && pnpm build:preact && pnpm build:react",
     "storybook": "storybook dev -p 6006 --ci ",
     "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
     "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons ",
