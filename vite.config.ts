@@ -53,17 +53,12 @@ export default defineConfig({
         ignore(["*.stories.*"]), // ← не встраивать модули, чьи пути содержат ".stories."
       ],
       external: [
-        "preact",
-        "preact/hooks",
-        "preact/jsx-runtime",
-        "preact/jsx-dev-runtime",
         "react",
         "react-dom",
         "decode-named-character-reference",
         "react-aria",
         "react-stately",
       ],
-      treeshake: { moduleSideEffects: false },
       output: {
         compact: true,
         globals: {
