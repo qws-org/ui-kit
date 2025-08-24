@@ -1,7 +1,7 @@
-import type { TabListState } from "@react-stately/tabs";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { useTabPanel } from "react-aria";
+import type { TabListState } from "react-stately";
 
 import type { FlexProps } from "~/components";
 import { Flex } from "~/components";

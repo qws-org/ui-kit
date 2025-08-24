@@ -10,6 +10,13 @@ export default defineConfig({
   plugins: [
     preact(), // заменяет react-плагин; на сборку библиотеки тоже ок
   ],
+  optimizeDeps: {
+    include: [
+      "use-sync-external-store",
+      "use-sync-external-store/shim",
+      "use-sync-external-store/shim/index.js",
+    ],
+  },
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "src"),
