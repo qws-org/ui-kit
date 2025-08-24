@@ -25,7 +25,7 @@
   "sideEffects": ["*.css"],
   "scripts": {
     "build:react": "vite build",
-    "build": "pnpm prepare:icons && pnpm build:react && UIKIT_SSR_BUILD=true pnpm build:react",
+    "build": "pnpm prepare:icons && UIKIT_SSR_BUILD=true pnpm build:react",
     "storybook": "storybook dev -p 6006 --ci",
     "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
     "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons",

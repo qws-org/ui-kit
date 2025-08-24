@@ -7,17 +7,6 @@ import path from "node:path";
 import { visualizer } from "rollup-plugin-visualizer";
 import { entries } from "./vite.entries";
 
-const ssrCssNull = (): Plugin => ({
-  name: "ssr-css-null",
-  enforce: "pre",
-  load(id: string) {
-    if (process.env.UIKIT_SSR_BUILD === "true" && id.endsWith(".css")) {
-      // при SSR-билде превращаем импорт .css в пустой модуль
-      return "export default {}";
-    }
-  },
-});
-
 export default defineConfig({
   plugins: [
     react(),
@@ -25,7 +14,6 @@ export default defineConfig({
       outDir: "dist",
       exclude: ["**/*.stories.*", "vite.config.ts", "tailwind.config.ts"],
     }),
-    ssrCssNull(),
   ],
   resolve: {
     alias: { "~": path.resolve(__dirname, "src") },
@@ -36,7 +24,7 @@ export default defineConfig({
   build: {
     target: "es2019",
     minify: "terser",
-    cssCodeSplit: true, // стили будут отдельным dist/styles.css
+    cssCodeSplit: false, // стили будут отдельным dist/styles.css
     lib: {
       entry: entries,
       name: "MyUIKit",
