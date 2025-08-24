@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 
 import { entries } from "./vite.entries";
 
+const shim = path.resolve(__dirname, "src/shims/useSyncExternalStore.ts");
 export default defineConfig({
   plugins: [
     preact(), // заменяет react-плагин; на сборку библиотеки тоже ок
@@ -18,6 +19,10 @@ export default defineConfig({
       "react-dom/client": "preact/compat",
       "react/jsx-runtime": "preact/jsx-runtime",
       "react/jsx-dev-runtime": "preact/jsx-dev-runtime",
+      "use-sync-external-store": shim,
+      "use-sync-external-store/index.js": shim,
+      "use-sync-external-store/shim": shim,
+      "use-sync-external-store/shim/index.js": shim,
     },
     mainFields: ["module", "main"],
   },

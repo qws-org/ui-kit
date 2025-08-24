@@ -249,6 +249,7 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
+
   "peerDependenciesMeta": {
     "preact": {
       "optional": true
