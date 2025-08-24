@@ -1,7 +1,7 @@
-import type { AriaMenuProps } from "@react-aria/menu";
-import { useMenu } from "@react-aria/menu";
 import type { ReactElement } from "react";
 import { useRef } from "react";
+import type { AriaMenuProps } from "react-aria";
+import { useMenu } from "react-aria";
 import { Item, Section, useTreeState } from "react-stately";
 
 import { DefaultWrapper } from "./DefaultWrapper";

@@ -1,6 +1,6 @@
-import type { Placement } from "@react-aria/overlays";
-import { useOverlayTrigger } from "@react-aria/overlays";
 import React, { type ReactElement, useRef } from "react";
+import type { Placement } from "react-aria";
+import { useOverlayTrigger } from "react-aria";
 import type { OverlayTriggerProps } from "react-stately";
 import { useOverlayTriggerState } from "react-stately";
 

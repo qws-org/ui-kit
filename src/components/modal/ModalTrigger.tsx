@@ -1,9 +1,6 @@
-import {
-  type AriaModalOverlayProps,
-  useOverlayTrigger,
-} from "@react-aria/overlays";
 import type { FC, ReactElement, ReactNode } from "react";
 import React from "react";
+import { type AriaModalOverlayProps, useOverlayTrigger } from "react-aria";
 import type { OverlayTriggerProps } from "react-stately";
 import { useOverlayTriggerState } from "react-stately";
 

@@ -1,9 +1,8 @@
-import { useTabList } from "@react-aria/tabs";
-import type { TabListStateOptions } from "@react-stately/tabs";
-import { useTabListState } from "@react-stately/tabs";
 import type { ReactNode } from "react";
 import { useRef } from "react";
-import { Item } from "react-stately";
+import type { AriaTabListOptions } from "react-aria";
+import { useTabList } from "react-aria";
+import { Item, useTabListState } from "react-stately";
 
 import type { BoxProps, FlexProps } from "~/components";
 import { Box, Flex } from "~/components";
@@ -12,7 +11,7 @@ import { Panel } from "./components/Pannel";
 import { Tab } from "./components/Tab";
 
 export type TabProps<T extends string | number> = Omit<
-  TabListStateOptions<object> & BoxProps,
+  AriaTabListOptions<object> & BoxProps,
   "as" | "items" | "selectedItem" | "onSelectionChange" | "selectedKey"
 > & {
   selectedKey?: T;
