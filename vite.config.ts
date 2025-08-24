@@ -52,6 +52,13 @@ export default defineConfig({
         /^@react-aria\//,
         /^@react-stately\//,
         /^@react-types\//,
+        // ← markdown-стек как внешние
+        /^react-markdown$/,
+        /^remark-gfm$/,
+        /^rehype-raw$/,
+        /^rehype-sanitize$/,
+        // (опционально, чтобы гарантированно не затащило внутрь):
+        /^(unified|micromark|hast|mdast|remark|rehype)(-|$)/,
       ],
       output: {
         compact: true,
