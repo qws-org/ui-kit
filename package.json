@@ -1,7 +1,7 @@
 {
   "name": "@qws-org/ui-kit",
   "version": "8.0.0",
-  "description": "",
+  "description": "UI Kit for React",
   "main": "dist/my-ui-kit.cjs.js",
   "module": "dist/my-ui-kit.es.js",
   "browser": "dist/my-ui-kit.umd.js",
@@ -16,42 +16,16 @@
       "import": "./dist/index.es.js",
       "types": "./dist/src/index.d.ts"
     },
-
-    "./styles.css": "./dist/styles.css",
-
-    "./accordion":     { "import": "./dist/accordion.es.js",     "types": "./dist/src/components/accordion/index.d.ts" },
-    "./breadcrumbs":   { "import": "./dist/breadcrumbs.es.js",   "types": "./dist/src/components/breadcrumbs/index.d.ts" },
-    "./button":        { "import": "./dist/button.es.js",        "types": "./dist/src/components/button/index.d.ts" },
-    "./card":          { "import": "./dist/card.es.js",          "types": "./dist/src/components/card/index.d.ts" },
-    "./checkbox":      { "import": "./dist/checkbox.es.js",      "types": "./dist/src/components/checkbox/index.d.ts" },
-    "./container":     { "import": "./dist/container.es.js",     "types": "./dist/src/components/container/index.d.ts" },
-    "./dropdown":      { "import": "./dist/dropdown.es.js",      "types": "./dist/src/components/dropdown/index.d.ts" },
-    "./flex":          { "import": "./dist/flex.es.js",          "types": "./dist/src/components/flex/index.d.ts" },
-    "./grid":          { "import": "./dist/grid.es.js",          "types": "./dist/src/components/grid/index.d.ts" },
-    "./heading-block": { "import": "./dist/heading-block.es.js", "types": "./dist/src/components/heading-block/index.d.ts" },
-    "./image":         { "import": "./dist/image.es.js",         "types": "./dist/src/components/image/index.d.ts" },
-    "./markdown":      { "import": "./dist/markdown.es.js",      "types": "./dist/src/components/markdown/index.d.ts" },
-    "./modal":         { "import": "./dist/modal.es.js",         "types": "./dist/src/components/modal/index.d.ts" },
-    "./pagination":    { "import": "./dist/pagination.es.js",    "types": "./dist/src/components/pagination/index.d.ts" },
-    "./popover":       { "import": "./dist/popover.es.js",       "types": "./dist/src/components/popover/index.d.ts" },
-    "./provider":      { "import": "./dist/provider.es.js",      "types": "./dist/src/components/ui-kit-provider/index.d.ts" },
-    "./select":        { "import": "./dist/select.es.js",        "types": "./dist/src/components/select/index.d.ts" },
-    "./skeleton":      { "import": "./dist/skeleton.es.js",      "types": "./dist/src/components/skeleton/index.d.ts" },
-    "./table":         { "import": "./dist/table.es.js",         "types": "./dist/src/components/table/index.d.ts" },
-    "./text":          { "import": "./dist/text.es.js",          "types": "./dist/src/components/text/index.d.ts" },
-    "./text-field":    { "import": "./dist/text-field.es.js",    "types": "./dist/src/components/text-field/index.d.ts" },
-    "./title":         { "import": "./dist/title.es.js",         "types": "./dist/src/components/title/index.d.ts" },
-    "./typography":    { "import": "./dist/typography.es.js",    "types": "./dist/src/components/typography/index.d.ts" },
-    "./box":           { "import": "./dist/box.es.js",           "types": "./dist/src/components/box/index.d.ts" }
+    "./styles.css": "./dist/styles.css"
   },
   "type": "module",
   "sideEffects": false,
   "scripts": {
     "build:react": "vite build",
     "build": "pnpm prepare:icons && pnpm build:react",
-    "storybook": "storybook dev -p 6006 --ci ",
+    "storybook": "storybook dev -p 6006 --ci",
     "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
-    "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons ",
+    "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons",
     "lint": "eslint --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:ci": "eslint --ignore-pattern .gitignore .",
     "lint:fix": "eslint --fix --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
@@ -65,12 +39,51 @@
     "url": "https://github.com/qws-org/ui-kit.git"
   },
   "dependencies": {
+    "classnames": "2.5.1",
+    "react-markdown": "9.0.3",
+    "rehype-raw": "7.0.0",
+    "rehype-sanitize": "6.0.0",
+    "remark-gfm": "4.0.1",
+    "tailwind-variants": "0.3.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@react-aria/breadcrumbs": ">=3.5.0",
+    "@react-aria/button": ">=3.13.0",
+    "@react-aria/checkbox": ">=3.15.0",
+    "@react-aria/dialog": ">=3.5.0",
+    "@react-aria/disclosure": ">=3.0.0",
+    "@react-aria/focus": ">=3.20.0",
+    "@react-aria/listbox": ">=3.14.0",
+    "@react-aria/menu": ">=3.18.0",
+    "@react-aria/overlays": ">=3.27.0",
+    "@react-aria/select": ">=3.15.0",
+    "@react-aria/separator": ">=3.4.0",
+    "@react-aria/table": ">=3.17.0",
+    "@react-aria/tabs": ">=3.10.0",
+    "@react-aria/textfield": ">=3.17.0",
+    "@react-aria/utils": ">=3.28.0",
+    "@react-aria/visually-hidden": ">=3.8.0",
+    "react-stately": ">=3.40.0",
+    "@react-types/shared": ">=3.28.0"
+  },
+  "peerDependenciesMeta": {
+    "preact": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@storybook/test": "8.6.14",
+
     "@react-aria/breadcrumbs": "3.5.23",
     "@react-aria/button": "3.13.0",
     "@react-aria/checkbox": "3.15.4",
     "@react-aria/dialog": "3.5.24",
     "@react-aria/disclosure": "3.0.4",
-    "@react-aria/focus": "3.20.2",
+    "@react-aria/focus": "3.21.0",
     "@react-aria/listbox": "3.14.3",
     "@react-aria/menu": "3.18.2",
     "@react-aria/overlays": "3.27.0",
@@ -79,67 +92,30 @@
     "@react-aria/table": "3.17.2",
     "@react-aria/tabs": "3.10.3",
     "@react-aria/textfield": "3.17.2",
-    "@react-aria/utils": "3.28.2",
+    "@react-aria/utils": "3.30.0",
     "@react-aria/visually-hidden": "3.8.22",
-    "@react-stately/tabs": "3.8.2",
-    "classnames": "2.5.1",
-    "react-markdown": "9.0.3",
-    "react-stately": "3.37.0",
-    "rehype-raw": "7.0.0",
-    "rehype-sanitize": "6.0.0",
-    "remark-gfm": "4.0.1",
-    "tailwind-variants": "0.3.0"
-  },
-  "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
-  },
-  "peerDependenciesMeta": {
-    "preact": {
-      "optional": true
-    }
-  },
-  "devDependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "rollup-plugin-visualizer": "6.0.3",
-    "@chromatic-com/storybook": "3.2.6",
-    "@preact/preset-vite": "2.10.2",
-    "@qws-org/eslint-config-react-typescript-jtym": "6.1.2",
-    "@storybook/addon-essentials": "8.6.12",
-    "@storybook/addon-interactions": "8.6.12",
-    "@storybook/addon-mdx-gfm": "8.6.12",
-    "@storybook/addon-onboarding": "8.6.12",
-    "@storybook/blocks": "8.6.12",
-    "@storybook/manager-api": "8.6.12",
-    "@storybook/react": "8.6.12",
-    "@storybook/react-vite": "8.6.12",
-    "@storybook/test": "8.6.12",
-    "@storybook/theming": "8.6.12",
-    "@storybook/types": "8.6.12",
-    "@svgr/cli": "8.1.0",
-    "@types/accept-language-parser": "1.5.7",
-    "@types/compression": "1.7.5",
-    "@types/crypto-js": "4.2.2",
-    "@types/express": "5.0.1",
-    "@types/morgan": "1.9.9",
-    "@types/react": "19.1.2",
-    "@types/react-dom": "19.1.2",
+
+    "@react-types/shared": "3.31.0",
+
+    "@types/react": "18.3.10",
+    "@types/react-dom": "18.3.7",
+
     "@vitejs/plugin-react": "3.1.0",
-    "autoprefixer": "10.4.21",
-    "cross-env": "7.0.3",
-    "postcss": "8.5.3",
-    "preact": "^10.27.1",
-    "prettier": "3.5.3",
-    "rollup-plugin-ignore": "^1.0.10",
-    "storybook": "8.6.12",
-    "tailwindcss": "3.4.15",
-    "terser": "5.39.2",
-    "tsx": "4.19.3",
-    "typescript": "5.5.4",
     "vite": "6.3.3",
     "vite-plugin-dts": "4.5.4",
-    "vite-tsconfig-paths": "5.1.4"
+    "vite-tsconfig-paths": "5.1.4",
+    "rollup-plugin-visualizer": "6.0.3",
+    "rollup-plugin-ignore": "1.0.10",
+
+    "storybook": "8.6.12",
+    "@storybook/react": "8.6.12",
+    "@storybook/react-vite": "8.6.12",
+    "@storybook/addon-essentials": "8.6.12",
+
+    "tailwindcss": "3.4.15",
+    "autoprefixer": "10.4.21",
+    "prettier": "3.5.3",
+    "typescript": "5.5.4"
   },
   "packageManager": "pnpm@9.14.2"
 }

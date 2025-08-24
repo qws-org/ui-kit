@@ -176,6 +176,7 @@ export const Box = forwardRef(
     const Root = as ?? "div";
     return (
       <Root
+        // @ts-ignore
         {...resolvedProps}
         ref={ref as never}
         className={

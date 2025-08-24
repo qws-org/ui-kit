@@ -61,8 +61,6 @@ export const DropdownTriggerElement = forwardRef(
 
     return React.cloneElement(props.triggerElement, {
       ...buttonProps,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       ref: buttonRef,
       onMouseEnter: handleMouseEnter,
       onMouseLeave: handleMouseLeave,

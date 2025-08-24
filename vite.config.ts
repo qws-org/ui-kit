@@ -18,8 +18,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // корень src по алиасу "~"
-      "~": path.resolve(__dirname, "src"),
+      "~": path.resolve(__dirname, "src"), // alias на src
     },
     mainFields: ["module", "main"],
   },
@@ -29,14 +28,13 @@ export default defineConfig({
     },
   },
   build: {
-    target: "es2019", // даёт терсеру больше шансов ужать
-    sourcemap: false, // если карты не нужны в проде
+    target: "es2019",
+    sourcemap: false,
     minify: "terser",
     terserOptions: {
       format: {
         comments: false,
-        ascii_only: true, // безопаснее для CDN/старых прокси
-        // beautify: false      // по умолчанию false, оставил для явности
+        ascii_only: true,
       },
     },
     emptyOutDir: true,
@@ -50,9 +48,15 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         visualizer({ filename: "stats.html", gzipSize: true }),
-        ignore(["*.stories.*"]), // ← не встраивать модули, чьи пути содержат ".stories."
+        ignore(["*.stories.*"]),
       ],
-      external: ["react", "react-dom", "decode-named-character-reference"],
+      external: [
+        "react",
+        "react-dom",
+        /^@react-aria\//,
+        /^@react-stately\//,
+        /^@react-types\//,
+      ],
       output: {
         compact: true,
         globals: {
@@ -68,9 +72,12 @@ export default defineConfig({
               id.includes("react-markdown") ||
               id.includes("micromark") ||
               id.includes("parse5")
-            )
+            ) {
               return "md-stack";
-            if (id.match(/@react-(aria|stately)\//)) return "react-aria";
+            }
+            if (id.match(/@react-(aria|stately|types)\//)) {
+              return "react-aria";
+            }
             return "vendor";
           }
         },
