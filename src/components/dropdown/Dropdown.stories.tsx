@@ -41,7 +41,7 @@ const meta: Meta<typeof Dropdown.Trigger> = {
     },
     placement: {
       description:
-        "Позиционирование выпадающего списка относительно элемента-триггера. Использует значения из библиотеки `react-aria",
+        "Позиционирование выпадающего списка относительно элемента-триггера. Использует значения из библиотеки `@react-aria/overlays`.",
       control: { type: "select" },
       options: [
         "top",

@@ -1,5 +1,5 @@
+import { useMenuSection } from "@react-aria/menu";
 import type { ReactElement } from "react";
-import { useMenuSection } from "react-aria";
 import type { Node, TreeState } from "react-stately";
 
 import type { BoxProps } from "~/components";

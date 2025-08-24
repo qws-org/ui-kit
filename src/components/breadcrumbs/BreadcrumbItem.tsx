@@ -1,7 +1,7 @@
+import type { AriaBreadcrumbItemProps } from "@react-aria/breadcrumbs";
+import { useBreadcrumbItem } from "@react-aria/breadcrumbs";
 import type { ReactNode } from "react";
 import React, { useRef } from "react";
-import type { AriaBreadcrumbItemProps } from "react-aria";
-import { useBreadcrumbItem } from "react-aria";
 import { tv } from "tailwind-variants";
 
 import { Flex, useUiKitComponents } from "~/components";

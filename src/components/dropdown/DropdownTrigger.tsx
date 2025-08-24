@@ -1,7 +1,8 @@
+import type { AriaMenuProps } from "@react-aria/menu";
+import { useMenuTrigger } from "@react-aria/menu";
+import type { Placement } from "@react-aria/overlays";
 import type { FC, ReactElement, ReactNode } from "react";
 import React, { useRef } from "react";
-import type { AriaMenuProps, Placement } from "react-aria";
-import { useMenuTrigger } from "react-aria";
 import type { MenuTriggerProps } from "react-stately";
 import { useMenuTriggerState } from "react-stately";
 

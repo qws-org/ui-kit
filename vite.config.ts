@@ -52,13 +52,7 @@ export default defineConfig({
         visualizer({ filename: "stats.html", gzipSize: true }),
         ignore(["*.stories.*"]), // ← не встраивать модули, чьи пути содержат ".stories."
       ],
-      external: [
-        "react",
-        "react-dom",
-        "decode-named-character-reference",
-        "react-aria",
-        "react-stately",
-      ],
+      external: ["react", "react-dom", "decode-named-character-reference"],
       output: {
         compact: true,
         globals: {

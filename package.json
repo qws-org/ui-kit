@@ -16,203 +16,60 @@
       "import": "./dist/index.es.js",
       "types": "./dist/src/index.d.ts"
     },
+
     "./styles.css": "./dist/styles.css",
-    "./accordion": {
-      "import": "./dist/accordion.es.js",
-      "types": "./dist/src/components/accordion/index.d.ts"
-    },
-    "./breadcrumbs": {
-      "import": "./dist/breadcrumbs.es.js",
-      "types": "./dist/src/components/breadcrumbs/index.d.ts"
-    },
-    "./button": {
-      "import": "./dist/button.es.js",
-      "types": "./dist/src/components/button/index.d.ts"
-    },
-    "./card": {
-      "import": "./dist/card.es.js",
-      "types": "./dist/src/components/card/index.d.ts"
-    },
-    "./checkbox": {
-      "import": "./dist/checkbox.es.js",
-      "types": "./dist/src/components/checkbox/index.d.ts"
-    },
-    "./container": {
-      "import": "./dist/container.es.js",
-      "types": "./dist/src/components/container/index.d.ts"
-    },
-    "./dropdown": {
-      "import": "./dist/dropdown.es.js",
-      "types": "./dist/src/components/dropdown/index.d.ts"
-    },
-    "./flex": {
-      "import": "./dist/flex.es.js",
-      "types": "./dist/src/components/flex/index.d.ts"
-    },
-    "./grid": {
-      "import": "./dist/grid.es.js",
-      "types": "./dist/src/components/grid/index.d.ts"
-    },
-    "./heading-block": {
-      "import": "./dist/heading-block.es.js",
-      "types": "./dist/src/components/heading-block/index.d.ts"
-    },
-    "./image": {
-      "import": "./dist/image.es.js",
-      "types": "./dist/src/components/image/index.d.ts"
-    },
-    "./markdown": {
-      "import": "./dist/markdown.es.js",
-      "types": "./dist/src/components/markdown/index.d.ts"
-    },
-    "./modal": {
-      "import": "./dist/modal.es.js",
-      "types": "./dist/src/components/modal/index.d.ts"
-    },
-    "./pagination": {
-      "import": "./dist/pagination.es.js",
-      "types": "./dist/src/components/pagination/index.d.ts"
-    },
-    "./popover": {
-      "import": "./dist/popover.es.js",
-      "types": "./dist/src/components/popover/index.d.ts"
-    },
-    "./provider": {
-      "import": "./dist/provider.es.js",
-      "types": "./dist/src/components/ui-kit-provider/index.d.ts"
-    },
-    "./select": {
-      "import": "./dist/select.es.js",
-      "types": "./dist/src/components/select/index.d.ts"
-    },
-    "./skeleton": {
-      "import": "./dist/skeleton.es.js",
-      "types": "./dist/src/components/skeleton/index.d.ts"
-    },
-    "./table": {
-      "import": "./dist/table.es.js",
-      "types": "./dist/src/components/table/index.d.ts"
-    },
-    "./text": {
-      "import": "./dist/text.es.js",
-      "types": "./dist/src/components/text/index.d.ts"
-    },
-    "./text-field": {
-      "import": "./dist/text-field.es.js",
-      "types": "./dist/src/components/text-field/index.d.ts"
-    },
-    "./title": {
-      "import": "./dist/title.es.js",
-      "types": "./dist/src/components/title/index.d.ts"
-    },
-    "./typography": {
-      "import": "./dist/typography.es.js",
-      "types": "./dist/src/components/typography/index.d.ts"
-    },
-    "./box": {
-      "import": "./dist/box.es.js",
-      "types": "./dist/src/components/box/index.d.ts"
-    },
-    "./preact": {
-      "import": "./dist-preact/index.es.js",
-      "types": "./dist/src/index.d.ts"
-    },
-    "./preact/accordion": {
-      "import": "./dist-preact/accordion.es.js",
-      "types": "./dist/src/components/accordion/index.d.ts"
-    },
-    "./preact/breadcrumbs": {
-      "import": "./dist-preact/breadcrumbs.es.js",
-      "types": "./dist/src/components/breadcrumbs/index.d.ts"
-    },
-    "./preact/button": {
-      "import": "./dist-preact/button.es.js",
-      "types": "./dist/src/components/button/index.d.ts"
-    },
-    "./preact/card": {
-      "import": "./dist-preact/card.es.js",
-      "types": "./dist/src/components/card/index.d.ts"
-    },
-    "./preact/checkbox": {
-      "import": "./dist-preact/checkbox.es.js",
-      "types": "./dist/src/components/checkbox/index.d.ts"
-    },
-    "./preact/container": {
-      "import": "./dist-preact/container.es.js",
-      "types": "./dist/src/components/container/index.d.ts"
-    },
-    "./preact/dropdown": {
-      "import": "./dist-preact/dropdown.es.js",
-      "types": "./dist/src/components/dropdown/index.d.ts"
-    },
-    "./preact/flex": {
-      "import": "./dist-preact/flex.es.js",
-      "types": "./dist/src/components/flex/index.d.ts"
-    },
-    "./preact/grid": {
-      "import": "./dist-preact/grid.es.js",
-      "types": "./dist/src/components/grid/index.d.ts"
-    },
-    "./preact/heading-block": {
-      "import": "./dist-preact/heading-block.es.js",
-      "types": "./dist/src/components/heading-block/index.d.ts"
-    },
-    "./preact/image": {
-      "import": "./dist-preact/image.es.js",
-      "types": "./dist/src/components/image/index.d.ts"
-    },
-    "./preact/markdown": {
-      "import": "./dist-preact/markdown.es.js",
-      "types": "./dist/src/components/markdown/index.d.ts"
-    },
-    "./preact/modal": {
-      "import": "./dist-preact/modal.es.js",
-      "types": "./dist/src/components/modal/index.d.ts"
-    },
-    "./preact/pagination": {
-      "import": "./dist-preact/pagination.es.js",
-      "types": "./dist/src/components/pagination/index.d.ts"
-    },
-    "./preact/popover": {
-      "import": "./dist-preact/popover.es.js",
-      "types": "./dist/src/components/popover/index.d.ts"
-    },
-    "./preact/provider": {
-      "import": "./dist-preact/provider.es.js",
-      "types": "./dist/src/components/ui-kit-provider/index.d.ts"
-    },
-    "./preact/select": {
-      "import": "./dist-preact/select.es.js",
-      "types": "./dist/src/components/select/index.d.ts"
-    },
-    "./preact/skeleton": {
-      "import": "./dist-preact/skeleton.es.js",
-      "types": "./dist/src/components/skeleton/index.d.ts"
-    },
-    "./preact/table": {
-      "import": "./dist-preact/table.es.js",
-      "types": "./dist/src/components/table/index.d.ts"
-    },
-    "./preact/text": {
-      "import": "./dist-preact/text.es.js",
-      "types": "./dist/src/components/text/index.d.ts"
-    },
-    "./preact/text-field": {
-      "import": "./dist-preact/text-field.es.js",
-      "types": "./dist/src/components/text-field/index.d.ts"
-    },
-    "./preact/title": {
-      "import": "./dist-preact/title.es.js",
-      "types": "./dist/src/components/title/index.d.ts"
-    },
-    "./preact/typography": {
-      "import": "./dist-preact/typography.es.js",
-      "types": "./dist/src/components/typography/index.d.ts"
-    },
-    "./preact/box": {
-      "import": "./dist-preact/box.es.js",
-      "types": "./dist/src/components/box/index.d.ts"
-    }
+
+    "./accordion":     { "import": "./dist/accordion.es.js",     "types": "./dist/src/components/accordion/index.d.ts" },
+    "./breadcrumbs":   { "import": "./dist/breadcrumbs.es.js",   "types": "./dist/src/components/breadcrumbs/index.d.ts" },
+    "./button":        { "import": "./dist/button.es.js",        "types": "./dist/src/components/button/index.d.ts" },
+    "./card":          { "import": "./dist/card.es.js",          "types": "./dist/src/components/card/index.d.ts" },
+    "./checkbox":      { "import": "./dist/checkbox.es.js",      "types": "./dist/src/components/checkbox/index.d.ts" },
+    "./container":     { "import": "./dist/container.es.js",     "types": "./dist/src/components/container/index.d.ts" },
+    "./dropdown":      { "import": "./dist/dropdown.es.js",      "types": "./dist/src/components/dropdown/index.d.ts" },
+    "./flex":          { "import": "./dist/flex.es.js",          "types": "./dist/src/components/flex/index.d.ts" },
+    "./grid":          { "import": "./dist/grid.es.js",          "types": "./dist/src/components/grid/index.d.ts" },
+    "./heading-block": { "import": "./dist/heading-block.es.js", "types": "./dist/src/components/heading-block/index.d.ts" },
+    "./image":         { "import": "./dist/image.es.js",         "types": "./dist/src/components/image/index.d.ts" },
+    "./markdown":      { "import": "./dist/markdown.es.js",      "types": "./dist/src/components/markdown/index.d.ts" },
+    "./modal":         { "import": "./dist/modal.es.js",         "types": "./dist/src/components/modal/index.d.ts" },
+    "./pagination":    { "import": "./dist/pagination.es.js",    "types": "./dist/src/components/pagination/index.d.ts" },
+    "./popover":       { "import": "./dist/popover.es.js",       "types": "./dist/src/components/popover/index.d.ts" },
+    "./provider":      { "import": "./dist/provider.es.js",      "types": "./dist/src/components/ui-kit-provider/index.d.ts" },
+    "./select":        { "import": "./dist/select.es.js",        "types": "./dist/src/components/select/index.d.ts" },
+    "./skeleton":      { "import": "./dist/skeleton.es.js",      "types": "./dist/src/components/skeleton/index.d.ts" },
+    "./table":         { "import": "./dist/table.es.js",         "types": "./dist/src/components/table/index.d.ts" },
+    "./text":          { "import": "./dist/text.es.js",          "types": "./dist/src/components/text/index.d.ts" },
+    "./text-field":    { "import": "./dist/text-field.es.js",    "types": "./dist/src/components/text-field/index.d.ts" },
+    "./title":         { "import": "./dist/title.es.js",         "types": "./dist/src/components/title/index.d.ts" },
+    "./typography":    { "import": "./dist/typography.es.js",    "types": "./dist/src/components/typography/index.d.ts" },
+    "./box":           { "import": "./dist/box.es.js",           "types": "./dist/src/components/box/index.d.ts" },
+
+    "./preact": { "import": "./dist-preact/index.es.js", "types": "./dist/src/index.d.ts" },
+    "./preact/accordion":     { "import": "./dist-preact/accordion.es.js",     "types": "./dist/src/components/accordion/index.d.ts" },
+    "./preact/breadcrumbs":   { "import": "./dist-preact/breadcrumbs.es.js",   "types": "./dist/src/components/breadcrumbs/index.d.ts" },
+    "./preact/button":        { "import": "./dist-preact/button.es.js",        "types": "./dist/src/components/button/index.d.ts" },
+    "./preact/card":          { "import": "./dist-preact/card.es.js",          "types": "./dist/src/components/card/index.d.ts" },
+    "./preact/checkbox":      { "import": "./dist-preact/checkbox.es.js",      "types": "./dist/src/components/checkbox/index.d.ts" },
+    "./preact/container":     { "import": "./dist-preact/container.es.js",     "types": "./dist/src/components/container/index.d.ts" },
+    "./preact/dropdown":      { "import": "./dist-preact/dropdown.es.js",      "types": "./dist/src/components/dropdown/index.d.ts" },
+    "./preact/flex":          { "import": "./dist-preact/flex.es.js",          "types": "./dist/src/components/flex/index.d.ts" },
+    "./preact/grid":          { "import": "./dist-preact/grid.es.js",          "types": "./dist/src/components/grid/index.d.ts" },
+    "./preact/heading-block": { "import": "./dist-preact/heading-block.es.js", "types": "./dist/src/components/heading-block/index.d.ts" },
+    "./preact/image":         { "import": "./dist-preact/image.es.js",         "types": "./dist/src/components/image/index.d.ts" },
+    "./preact/markdown":      { "import": "./dist-preact/markdown.es.js",      "types": "./dist/src/components/markdown/index.d.ts" },
+    "./preact/modal":         { "import": "./dist-preact/modal.es.js",         "types": "./dist/src/components/modal/index.d.ts" },
+    "./preact/pagination":    { "import": "./dist-preact/pagination.es.js",    "types": "./dist/src/components/pagination/index.d.ts" },
+    "./preact/popover":       { "import": "./dist-preact/popover.es.js",       "types": "./dist/src/components/popover/index.d.ts" },
+    "./preact/provider":      { "import": "./dist-preact/provider.es.js",      "types": "./dist/src/components/ui-kit-provider/index.d.ts" },
+    "./preact/select":        { "import": "./dist-preact/select.es.js",        "types": "./dist/src/components/select/index.d.ts" },
+    "./preact/skeleton":      { "import": "./dist-preact/skeleton.es.js",      "types": "./dist/src/components/skeleton/index.d.ts" },
+    "./preact/table":         { "import": "./dist-preact/table.es.js",         "types": "./dist/src/components/table/index.d.ts" },
+    "./preact/text":          { "import": "./dist-preact/text.es.js",          "types": "./dist/src/components/text/index.d.ts" },
+    "./preact/text-field":    { "import": "./dist-preact/text-field.es.js",    "types": "./dist/src/components/text-field/index.d.ts" },
+    "./preact/title":         { "import": "./dist-preact/title.es.js",         "types": "./dist/src/components/title/index.d.ts" },
+    "./preact/typography":    { "import": "./dist-preact/typography.es.js",    "types": "./dist/src/components/typography/index.d.ts" },
+    "./preact/box":           { "import": "./dist-preact/box.es.js",           "types": "./dist/src/components/box/index.d.ts" }
+
   },
   "type": "module",
   "sideEffects": false,
@@ -236,16 +93,32 @@
     "url": "https://github.com/qws-org/ui-kit.git"
   },
   "dependencies": {
+    "@react-aria/breadcrumbs": "3.5.23",
+    "@react-aria/button": "3.13.0",
+    "@react-aria/checkbox": "3.15.4",
+    "@react-aria/dialog": "3.5.24",
+    "@react-aria/disclosure": "3.0.4",
+    "@react-aria/focus": "3.20.2",
+    "@react-aria/listbox": "3.14.3",
+    "@react-aria/menu": "3.18.2",
+    "@react-aria/overlays": "3.27.0",
+    "@react-aria/select": "3.15.4",
+    "@react-aria/separator": "3.4.8",
+    "@react-aria/table": "3.17.2",
+    "@react-aria/tabs": "3.10.3",
+    "@react-aria/textfield": "3.17.2",
+    "@react-aria/utils": "3.28.2",
+    "@react-aria/visually-hidden": "3.8.22",
+    "@react-stately/tabs": "3.8.2",
     "classnames": "2.5.1",
     "react-markdown": "9.0.3",
+    "react-stately": "3.37.0",
     "rehype-raw": "7.0.0",
     "rehype-sanitize": "6.0.0",
     "remark-gfm": "4.0.1",
     "tailwind-variants": "0.3.0"
   },
   "peerDependencies": {
-    "react-aria": "3.42.0",
-    "react-stately": "3.37.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
@@ -255,8 +128,7 @@
     }
   },
   "devDependencies": {
-    "react-aria": "3.42.0",
-    "react-stately": "3.37.0",
+    "rollup-plugin-visualizer": "6.0.3",
     "@chromatic-com/storybook": "3.2.6",
     "@preact/preset-vite": "2.10.2",
     "@qws-org/eslint-config-react-typescript-jtym": "6.1.2",
@@ -286,7 +158,6 @@
     "preact": "^10.27.1",
     "prettier": "3.5.3",
     "rollup-plugin-ignore": "^1.0.10",
-    "rollup-plugin-visualizer": "6.0.3",
     "storybook": "8.6.12",
     "tailwindcss": "3.4.15",
     "terser": "5.39.2",

@@ -1,7 +1,9 @@
+import { useFocusRing } from "@react-aria/focus";
+import type { AriaTableCellProps } from "@react-aria/table";
+import { useTableCell } from "@react-aria/table";
+import { mergeProps } from "@react-aria/utils";
 import type { ReactNode } from "react";
 import { useRef } from "react";
-import type { AriaTableCellProps } from "react-aria";
-import { mergeProps, useFocusRing, useTableCell } from "react-aria";
 import type { TableState } from "react-stately";
 
 import type { BoxProps, UIKitArrayIndentation } from "~/components";

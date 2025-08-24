@@ -1,6 +1,6 @@
+import { useMenuItem } from "@react-aria/menu";
 import type { ReactNode } from "react";
 import React, { useRef } from "react";
-import { useMenuItem } from "react-aria";
 import type { Node, TreeState } from "react-stately";
 
 import { ElementType } from "./ElementType";

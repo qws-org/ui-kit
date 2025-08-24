@@ -1,3 +1,5 @@
+import type { AriaButtonOptions } from "@react-aria/button";
+import { useButton } from "@react-aria/button";
 import type {
   ElementType,
   ForwardedRef,
@@ -5,8 +7,6 @@ import type {
   ReactElement,
 } from "react";
 import React, { forwardRef, useEffect, useRef, useState } from "react";
-import type { AriaButtonOptions } from "react-aria";
-import { useButton } from "react-aria";
 import type { RootMenuTriggerState } from "react-stately";
 
 export type DropdownTriggerElementProps<Element extends ElementType> =

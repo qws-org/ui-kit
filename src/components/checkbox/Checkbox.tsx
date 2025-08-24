@@ -1,6 +1,6 @@
+import type { AriaCheckboxProps } from "@react-aria/checkbox";
+import { useCheckbox } from "@react-aria/checkbox";
 import { forwardRef, type PropsWithChildren, useRef } from "react";
-import type { AriaCheckboxProps } from "react-aria";
-import { useCheckbox } from "react-aria";
 import { useToggleState } from "react-stately";
 import { tv } from "tailwind-variants";
 

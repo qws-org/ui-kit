@@ -1,7 +1,7 @@
+import type { AriaBreadcrumbsProps } from "@react-aria/breadcrumbs";
+import { useBreadcrumbs } from "@react-aria/breadcrumbs";
 import type { ReactElement, ReactNode } from "react";
 import React from "react";
-import type { AriaBreadcrumbsProps } from "react-aria";
-import { useBreadcrumbs } from "react-aria";
 import { tv } from "tailwind-variants";
 
 import type { BoxProps } from "~/components";
