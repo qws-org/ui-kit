@@ -36,7 +36,13 @@ export default defineConfig({
         "preact/hooks",
         "preact/jsx-runtime",
         "preact/jsx-dev-runtime",
+        "react",
+        "react-dom",
+        "decode-named-character-reference",
+        "react-aria",
+        "react-stately",
       ],
+      treeshake: { moduleSideEffects: false },
       output: {
         exports: "named",
         assetFileNames: (assetInfo) =>
