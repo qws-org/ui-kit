@@ -1,5 +1,6 @@
 export const entries = {
   index: "src/index.ts",
+  "index.ssr": "src/index.ssr.ts",
   accordion: "src/components/accordion/index.ts",
   box: "src/components/box/index.ts",
   breadcrumbs: "src/components/breadcrumbs/index.ts",

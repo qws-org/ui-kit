@@ -1,12 +1,22 @@
-import { defineConfig } from "vite";
+import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
-import ignore from "rollup-plugin-ignore";
 import path from "node:path";
 import { visualizer } from "rollup-plugin-visualizer";
 import { entries } from "./vite.entries";
+
+const ssrCssNull = (): Plugin => ({
+  name: "ssr-css-null",
+  enforce: "pre",
+  load(id: string) {
+    if (process.env.UIKIT_SSR_BUILD === "true" && id.endsWith(".css")) {
+      // при SSR-билде превращаем импорт .css в пустой модуль
+      return "export default {}";
+    }
+  },
+});
 
 export default defineConfig({
   plugins: [
@@ -15,41 +25,26 @@ export default defineConfig({
       outDir: "dist",
       exclude: ["**/*.stories.*", "vite.config.ts", "tailwind.config.ts"],
     }),
+    ssrCssNull(),
   ],
   resolve: {
-    alias: {
-      "~": path.resolve(__dirname, "src"), // alias на src
-    },
+    alias: { "~": path.resolve(__dirname, "src") },
     mainFields: ["module", "main"],
+    dedupe: ["react", "react-dom"],
   },
-  css: {
-    postcss: {
-      plugins: [tailwindcss(), autoprefixer()],
-    },
-  },
+  css: { postcss: { plugins: [tailwindcss(), autoprefixer()] } },
   build: {
     target: "es2019",
-    sourcemap: false,
     minify: "terser",
-    terserOptions: {
-      format: {
-        comments: false,
-        ascii_only: true,
-      },
-    },
-    emptyOutDir: true,
-    cssCodeSplit: false,
+    cssCodeSplit: true, // стили будут отдельным dist/styles.css
     lib: {
       entry: entries,
       name: "MyUIKit",
-      fileName: (format, entryName) => `${entryName}.${format}.js`,
+      fileName: (_, name) => `${name}.js`,
       formats: ["es"],
     },
     rollupOptions: {
-      plugins: [
-        visualizer({ filename: "stats.html", gzipSize: true }),
-        ignore(["*.stories.*"]),
-      ],
+      plugins: [visualizer({ filename: "stats.html", gzipSize: true })],
       external: [
         "react",
         "react-dom",
@@ -60,28 +55,11 @@ export default defineConfig({
       ],
       output: {
         compact: true,
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
         exports: "named",
-        assetFileNames: (assetInfo) =>
-          assetInfo.name?.endsWith(".css") ? "styles.css" : assetInfo.name!,
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (
-              id.includes("react-markdown") ||
-              id.includes("micromark") ||
-              id.includes("parse5")
-            ) {
-              return "md-stack";
-            }
-            if (id.match(/@react-(aria|stately|types)\//)) {
-              return "react-aria";
-            }
-            return "vendor";
-          }
-        },
+        // ключевой момент: без vendor-чанков
+        manualChunks: undefined,
+        assetFileNames: (a) =>
+          a.name?.endsWith(".css") ? "styles.css" : a.name!,
       },
     },
   },

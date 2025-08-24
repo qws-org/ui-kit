@@ -13,7 +13,10 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
+      "import": {
+          "node": "./dist/index.ssr.js",
+          "default": "./dist/index.js"
+      },
       "types": "./dist/src/index.d.ts"
     },
     "./styles.css": "./dist/styles.css"
@@ -22,7 +25,7 @@
   "sideEffects": ["*.css"],
   "scripts": {
     "build:react": "vite build",
-    "build": "pnpm prepare:icons && pnpm build:react",
+    "build": "pnpm prepare:icons && pnpm build:react && UIKIT_SSR_BUILD=true pnpm build:react",
     "storybook": "storybook dev -p 6006 --ci",
     "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
     "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons",
