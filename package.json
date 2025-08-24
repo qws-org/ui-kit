@@ -42,41 +42,13 @@
     "./text-field":    { "import": "./dist/text-field.es.js",    "types": "./dist/src/components/text-field/index.d.ts" },
     "./title":         { "import": "./dist/title.es.js",         "types": "./dist/src/components/title/index.d.ts" },
     "./typography":    { "import": "./dist/typography.es.js",    "types": "./dist/src/components/typography/index.d.ts" },
-    "./box":           { "import": "./dist/box.es.js",           "types": "./dist/src/components/box/index.d.ts" },
-
-    "./preact": { "import": "./dist-preact/index.es.js", "types": "./dist/src/index.d.ts" },
-    "./preact/accordion":     { "import": "./dist-preact/accordion.es.js",     "types": "./dist/src/components/accordion/index.d.ts" },
-    "./preact/breadcrumbs":   { "import": "./dist-preact/breadcrumbs.es.js",   "types": "./dist/src/components/breadcrumbs/index.d.ts" },
-    "./preact/button":        { "import": "./dist-preact/button.es.js",        "types": "./dist/src/components/button/index.d.ts" },
-    "./preact/card":          { "import": "./dist-preact/card.es.js",          "types": "./dist/src/components/card/index.d.ts" },
-    "./preact/checkbox":      { "import": "./dist-preact/checkbox.es.js",      "types": "./dist/src/components/checkbox/index.d.ts" },
-    "./preact/container":     { "import": "./dist-preact/container.es.js",     "types": "./dist/src/components/container/index.d.ts" },
-    "./preact/dropdown":      { "import": "./dist-preact/dropdown.es.js",      "types": "./dist/src/components/dropdown/index.d.ts" },
-    "./preact/flex":          { "import": "./dist-preact/flex.es.js",          "types": "./dist/src/components/flex/index.d.ts" },
-    "./preact/grid":          { "import": "./dist-preact/grid.es.js",          "types": "./dist/src/components/grid/index.d.ts" },
-    "./preact/heading-block": { "import": "./dist-preact/heading-block.es.js", "types": "./dist/src/components/heading-block/index.d.ts" },
-    "./preact/image":         { "import": "./dist-preact/image.es.js",         "types": "./dist/src/components/image/index.d.ts" },
-    "./preact/markdown":      { "import": "./dist-preact/markdown.es.js",      "types": "./dist/src/components/markdown/index.d.ts" },
-    "./preact/modal":         { "import": "./dist-preact/modal.es.js",         "types": "./dist/src/components/modal/index.d.ts" },
-    "./preact/pagination":    { "import": "./dist-preact/pagination.es.js",    "types": "./dist/src/components/pagination/index.d.ts" },
-    "./preact/popover":       { "import": "./dist-preact/popover.es.js",       "types": "./dist/src/components/popover/index.d.ts" },
-    "./preact/provider":      { "import": "./dist-preact/provider.es.js",      "types": "./dist/src/components/ui-kit-provider/index.d.ts" },
-    "./preact/select":        { "import": "./dist-preact/select.es.js",        "types": "./dist/src/components/select/index.d.ts" },
-    "./preact/skeleton":      { "import": "./dist-preact/skeleton.es.js",      "types": "./dist/src/components/skeleton/index.d.ts" },
-    "./preact/table":         { "import": "./dist-preact/table.es.js",         "types": "./dist/src/components/table/index.d.ts" },
-    "./preact/text":          { "import": "./dist-preact/text.es.js",          "types": "./dist/src/components/text/index.d.ts" },
-    "./preact/text-field":    { "import": "./dist-preact/text-field.es.js",    "types": "./dist/src/components/text-field/index.d.ts" },
-    "./preact/title":         { "import": "./dist-preact/title.es.js",         "types": "./dist/src/components/title/index.d.ts" },
-    "./preact/typography":    { "import": "./dist-preact/typography.es.js",    "types": "./dist/src/components/typography/index.d.ts" },
-    "./preact/box":           { "import": "./dist-preact/box.es.js",           "types": "./dist/src/components/box/index.d.ts" }
-
+    "./box":           { "import": "./dist/box.es.js",           "types": "./dist/src/components/box/index.d.ts" }
   },
   "type": "module",
   "sideEffects": false,
   "scripts": {
     "build:react": "vite build",
-    "build:preact": "vite build -c vite.config.preact.ts",
-    "build": "pnpm prepare:icons && pnpm build:preact && pnpm build:react",
+    "build": "pnpm prepare:icons && pnpm build:react",
     "storybook": "storybook dev -p 6006 --ci ",
     "build-storybook": "pnpm prepare:icons && storybook build --disable-telemetry",
     "prepare:icons": "npx @svgr/cli --typescript --out-dir src/icons -- public/icons ",
@@ -119,8 +91,8 @@
     "tailwind-variants": "0.3.0"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "peerDependenciesMeta": {
     "preact": {
@@ -128,6 +100,8 @@
     }
   },
   "devDependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "rollup-plugin-visualizer": "6.0.3",
     "@chromatic-com/storybook": "3.2.6",
     "@preact/preset-vite": "2.10.2",
