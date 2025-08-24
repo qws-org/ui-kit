@@ -56,6 +56,7 @@ export const DropdownTrigger = <T extends object>(
             {...props}
             state={state}
             triggerRef={ref}
+            isNonModal={true}
             placement={props.placement ?? "bottom start"}
             offset={props.offset}
             variant={props.variant}

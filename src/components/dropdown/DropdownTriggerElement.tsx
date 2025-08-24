@@ -49,7 +49,7 @@ export const DropdownTriggerElement = forwardRef(
         if (props.strategy !== "click") {
           props.state.close();
         }
-      }, 200);
+      }, 250);
     };
 
     const handleClick = (): void => {
