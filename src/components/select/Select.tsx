@@ -1,4 +1,4 @@
-import { HiddenSelect, useSelect } from "@react-aria/select";
+import { HiddenSelect, useSelect } from "react-aria";
 import type { ReactNode } from "react";
 import { useRef } from "react";
 import { Item, useSelectState } from "react-stately";

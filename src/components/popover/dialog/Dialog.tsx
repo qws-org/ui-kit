@@ -1,5 +1,5 @@
-import type { AriaDialogProps } from "@react-aria/dialog";
-import { useDialog } from "@react-aria/dialog";
+import type { AriaDialogProps } from "react-aria";
+import { useDialog } from "react-aria";
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 

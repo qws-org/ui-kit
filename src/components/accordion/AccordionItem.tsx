@@ -1,5 +1,5 @@
-import { useFocusRing } from "@react-aria/focus";
-import { mergeProps, useId } from "@react-aria/utils";
+import { useFocusRing } from "react-aria";
+import { mergeProps, useId } from "react-aria";
 import type { FC, PropsWithChildren, ReactNode } from "react";
 import React from "react";
 import { useDisclosureState } from "react-stately";

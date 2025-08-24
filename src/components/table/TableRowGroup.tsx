@@ -1,4 +1,4 @@
-import { useTableRowGroup } from "@react-aria/table";
+import { useTableRowGroup } from "react-aria";
 import type { ElementType, FC, ReactNode } from "react";
 
 type TableRowGroupProps = {

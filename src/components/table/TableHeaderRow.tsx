@@ -1,5 +1,5 @@
-import type { GridRowProps } from "@react-aria/table";
-import { useTableHeaderRow } from "@react-aria/table";
+import type { GridRowProps } from "react-aria";
+import { useTableHeaderRow } from "react-aria";
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 import type { TableState } from "react-stately";

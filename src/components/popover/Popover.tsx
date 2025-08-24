@@ -1,5 +1,5 @@
-import type { AriaPopoverProps } from "@react-aria/overlays";
-import { DismissButton, Overlay, usePopover } from "@react-aria/overlays";
+import type { AriaPopoverProps } from "react-aria";
+import { DismissButton, Overlay, usePopover } from "react-aria";
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 import type { OverlayTriggerState } from "react-stately";

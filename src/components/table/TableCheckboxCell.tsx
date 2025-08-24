@@ -1,5 +1,5 @@
-import type { AriaTableCellProps } from "@react-aria/table";
-import { useTableCell, useTableSelectionCheckbox } from "@react-aria/table";
+import type { AriaTableCellProps } from "react-aria";
+import { useTableCell, useTableSelectionCheckbox } from "react-aria";
 import type { FC } from "react";
 import { useRef } from "react";
 import type { TableState } from "react-stately";

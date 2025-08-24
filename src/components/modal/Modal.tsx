@@ -1,6 +1,6 @@
-import { FocusScope } from "@react-aria/focus";
-import type { AriaModalOverlayProps } from "@react-aria/overlays";
-import { Overlay, useModalOverlay } from "@react-aria/overlays";
+import { FocusScope } from "react-aria";
+import type { AriaModalOverlayProps } from "react-aria";
+import { Overlay, useModalOverlay } from "react-aria";
 import type { FC, ReactNode } from "react";
 import React, { useRef } from "react";
 import type { OverlayTriggerState } from "react-stately";

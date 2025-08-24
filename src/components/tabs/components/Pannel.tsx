@@ -1,4 +1,4 @@
-import { useTabPanel } from "@react-aria/tabs";
+import { useTabPanel } from "react-aria";
 import type { TabListState } from "react-stately";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";

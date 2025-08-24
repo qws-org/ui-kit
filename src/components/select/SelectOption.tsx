@@ -1,4 +1,4 @@
-import { useOption } from "@react-aria/listbox";
+import { useOption } from "react-aria";
 import type { ReactNode } from "react";
 import { useRef } from "react";
 import type { ListState, Node } from "react-stately";

@@ -1,5 +1,5 @@
-import type { AriaTableProps } from "@react-aria/table";
-import { useTable } from "@react-aria/table";
+import type { AriaTableProps } from "react-aria";
+import { useTable } from "react-aria";
 import type { ReactNode } from "react";
 import { useRef } from "react";
 import type { TableStateProps } from "react-stately";

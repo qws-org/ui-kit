@@ -1,5 +1,5 @@
-import type { AriaButtonOptions } from "@react-aria/button";
-import { useButton } from "@react-aria/button";
+import type { AriaButtonOptions } from "react-aria";
+import { useButton } from "react-aria";
 import type {
   ElementType,
   ForwardedRef,

@@ -1,7 +1,7 @@
-import { useFocusRing } from "@react-aria/focus";
-import type { AriaTableColumnHeaderProps } from "@react-aria/table";
-import { useTableColumnHeader } from "@react-aria/table";
-import { mergeProps } from "@react-aria/utils";
+import { useFocusRing } from "react-aria";
+import type { AriaTableColumnHeaderProps } from "react-aria";
+import { useTableColumnHeader } from "react-aria";
+import { mergeProps } from "react-aria";
 import type { FC } from "react";
 import { useRef } from "react";
 import type { TableState } from "react-stately";

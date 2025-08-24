@@ -1,5 +1,5 @@
-import type { AriaMenuProps } from "@react-aria/menu";
-import { useMenu } from "@react-aria/menu";
+import type { AriaMenuProps } from "react-aria";
+import { useMenu } from "react-aria";
 import type { ReactElement } from "react";
 import { useRef } from "react";
 import { Item, Section, useTreeState } from "react-stately";

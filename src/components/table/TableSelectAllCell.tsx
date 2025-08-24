@@ -1,9 +1,6 @@
-import type { AriaTableColumnHeaderProps } from "@react-aria/table";
-import {
-  useTableColumnHeader,
-  useTableSelectAllCheckbox,
-} from "@react-aria/table";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
+import type { AriaTableColumnHeaderProps } from "react-aria";
+import { useTableColumnHeader, useTableSelectAllCheckbox } from "react-aria";
+import { VisuallyHidden } from "react-aria";
 import type { FC } from "react";
 import { useRef } from "react";
 import type { TableState } from "react-stately";

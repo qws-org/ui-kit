@@ -1,4 +1,4 @@
-import { useTab } from "@react-aria/tabs";
+import { useTab } from "react-aria";
 import type { TabListState } from "react-stately";
 import type { ReactNode } from "react";
 import { useRef } from "react";
