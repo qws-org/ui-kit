@@ -77,8 +77,6 @@ export const Select = function <T extends Elem>(
     <>
       <HiddenSelect
         isDisabled={props.disabled}
-        // eslint-disable-next-line
-        // @ts-expect-error
         state={state}
         triggerRef={ref}
         label={props.emptyText}
