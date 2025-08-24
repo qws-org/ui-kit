@@ -53,6 +53,7 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
+        "react/jsx-runtime",
         /^@react-aria\//,
         /^@react-stately\//,
         /^@react-types\//,
