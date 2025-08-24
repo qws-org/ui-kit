@@ -14,12 +14,18 @@ importers:
       react:
         specifier: '>=18'
         version: 19.1.0
+      react-aria:
+        specifier: ^3.42.0
+        version: 3.42.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-dom:
         specifier: '>=18'
         version: 19.1.0(react@19.1.0)
       react-markdown:
         specifier: 9.0.3
         version: 9.0.3(@types/react@19.1.2)(react@19.1.0)
+      react-stately:
+        specifier: 3.37.0
+        version: 3.37.0(react@19.1.0)
       rehype-raw:
         specifier: 7.0.0
         version: 7.0.0
@@ -117,12 +123,6 @@ importers:
       prettier:
         specifier: 3.5.3
         version: 3.5.3
-      react-aria:
-        specifier: 3.42.0
-        version: 3.42.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-stately:
-        specifier: 3.37.0
-        version: 3.37.0(react@19.1.0)
       rollup-plugin-ignore:
         specifier: ^1.0.10
         version: 1.0.10
