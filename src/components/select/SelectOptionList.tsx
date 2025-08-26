@@ -1,7 +1,7 @@
-import type { AriaListBoxOptions } from "react-aria";
-import { useListBox } from "react-aria";
 import type { ForwardedRef, ReactNode } from "react";
 import { forwardRef, useRef } from "react";
+import type { AriaListBoxOptions } from "react-aria";
+import { useListBox } from "react-aria";
 import type { ListState } from "react-stately";
 
 import { SelectOption } from "~/components/select/SelectOption";

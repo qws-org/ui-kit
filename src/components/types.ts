@@ -315,4 +315,6 @@ export type UiKitEffectProps = {
 export type ElementRef<E extends ElementType> =
   ComponentPropsWithRef<E> extends { ref?: Ref<infer R> } ? R : never;
 
-// сгенерируй для свойства `textDecoration` класс формируется `${value}`
+export type UiKitDataAttributesProps = {
+  [key: `data-${string}`]: string;
+};

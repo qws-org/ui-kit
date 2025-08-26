@@ -1,7 +1,7 @@
-import type { AriaTextFieldOptions } from "react-aria";
-import { useTextField } from "react-aria";
 import type { ReactNode } from "react";
 import React, { forwardRef, useRef, useState } from "react";
+import type { AriaTextFieldOptions } from "react-aria";
+import { useTextField } from "react-aria";
 
 import { Box, type BoxProps } from "~/components";
 

@@ -11,11 +11,13 @@ import { forwardRef } from "react";
 import { useBorder } from "~/components/use-border";
 import { useCssEffects } from "~/components/use-css-effects";
 import { useOutline } from "~/components/use-outline";
+import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 
 import type {
   ElementRef,
   UiKitBackgroundProps,
   UiKitBorderProps,
+  UiKitDataAttributesProps,
   UIKitDimensionProps,
   UiKitDisplayProps,
   UiKitEffectProps,
@@ -38,6 +40,7 @@ export type DefaultProps = Partial<
     UiKitDisplayProps &
     UiKitOutlineProps &
     UiKitEffectProps &
+    UiKitDataAttributesProps &
     UiKitTypographyProps & { border?: UiKitBorderProps } & Omit<
       UiKitBackgroundProps,
       "bgGroup"
@@ -167,15 +170,11 @@ export const Box = forwardRef(
       hover: { m: hover ?? {}, md: md?.hover ?? {}, d: d?.hover ?? {} },
     });
 
-    const resolvedProps: Record<string, unknown> = {};
-    Object.entries(rest).forEach(([key, value]) => {
-      if (key.includes("aria-")) {
-        resolvedProps[key] = value;
-      }
-    });
+    const resolvedProps = useResolvedAttributes(rest);
     const Root = as ?? "div";
     return (
       <Root
+        // eslint-disable-next-line
         // @ts-ignore
         {...resolvedProps}
         ref={ref as never}

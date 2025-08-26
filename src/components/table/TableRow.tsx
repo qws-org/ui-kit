@@ -1,9 +1,7 @@
-import { useFocusRing } from "react-aria";
-import type { GridRowProps } from "react-aria";
-import { useTableRow } from "react-aria";
-import { mergeProps } from "react-aria";
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
+import type { GridRowProps } from "react-aria";
+import { mergeProps, useFocusRing, useTableRow } from "react-aria";
 import type { TableState } from "react-stately";
 
 import { Box } from "~/components";

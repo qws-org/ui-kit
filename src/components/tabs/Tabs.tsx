@@ -1,8 +1,8 @@
-import { AriaTabListOptions, useTabList } from "react-aria";
-import { useTabListState } from "react-stately";
 import type { ReactNode } from "react";
 import { useRef } from "react";
-import { Item } from "react-stately";
+import type { AriaTabListOptions } from "react-aria";
+import { useTabList } from "react-aria";
+import { Item, useTabListState } from "react-stately";
 
 import type { BoxProps, FlexProps } from "~/components";
 import { Box, Flex } from "~/components";

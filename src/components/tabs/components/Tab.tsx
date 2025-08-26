@@ -1,8 +1,7 @@
-import { useTab } from "react-aria";
-import type { TabListState } from "react-stately";
 import type { ReactNode } from "react";
 import { useRef } from "react";
-import type { Node } from "react-stately";
+import { useTab } from "react-aria";
+import type { Node, TabListState } from "react-stately";
 
 export type TabProps<T> = {
   item: Node<T>;
