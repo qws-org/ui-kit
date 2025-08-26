@@ -175,3 +175,10 @@ export const Border: Story = {
     },
   },
 };
+
+export const DataAttributes: Story = {
+  args: {
+    "data-id": "data-attribute",
+    children: "Data Attributes",
+  },
+};

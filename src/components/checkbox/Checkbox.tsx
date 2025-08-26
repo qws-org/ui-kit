@@ -1,9 +1,11 @@
+import { forwardRef, type PropsWithChildren, useRef } from "react";
 import type { AriaCheckboxProps } from "react-aria";
 import { useCheckbox } from "react-aria";
-import { forwardRef, type PropsWithChildren, useRef } from "react";
 import { useToggleState } from "react-stately";
 import { tv } from "tailwind-variants";
 
+import type { UiKitDataAttributesProps } from "~/components";
+import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 import { CheckboxIcon } from "~/icons";
 
 import { Flex } from "../flex/Flex";
@@ -14,7 +16,7 @@ export type CheckboxProps = PropsWithChildren<
     onChange?: (value: boolean) => void;
     className?: string;
     errorMessage?: string;
-  }
+  } & UiKitDataAttributesProps
 >;
 
 const labelStyles = tv({
@@ -53,10 +55,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const { inputProps } = useCheckbox(rest, state, inputRef);
+    const resolvedProps = useResolvedAttributes(rest);
 
     return (
       <>
         <label
+          {...resolvedProps}
           className={labelStyles({
             selected: value,
             className,

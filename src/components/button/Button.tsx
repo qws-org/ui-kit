@@ -1,7 +1,7 @@
-import type { AriaButtonOptions } from "react-aria";
-import { useButton } from "react-aria";
 import type { ElementType, PropsWithChildren, ReactNode } from "react";
 import { forwardRef, useRef } from "react";
+import type { AriaButtonOptions } from "react-aria";
+import { useButton } from "react-aria";
 import { tv } from "tailwind-variants";
 
 import type {
@@ -9,6 +9,7 @@ import type {
   UIKitArrayIndentation,
   UiKitBackgroundProps,
   UiKitBorderProps,
+  UiKitDataAttributesProps,
   UIKitDimensionProps,
   UiKitEffectProps,
   UIKitIndentationsProps,
@@ -24,6 +25,7 @@ import {
   useUiKitComponents,
 } from "~/components";
 import { useBorder } from "~/components/use-border";
+import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 import { useTypography } from "~/components/use-typography";
 
 const buttonStyles = tv({
@@ -130,6 +132,7 @@ export type ButtonProps<Element extends ElementType> = PropsWithChildren<
           UiKitTypographyProps &
             UiKitPositionProps &
             UIKitIndentationsProps &
+            UiKitDataAttributesProps &
             UIKitDimensionProps &
             DisplayButtonProps &
             Omit<UiKitBackgroundProps, "bgGroup" | "groupParent"> & {
@@ -246,6 +249,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       d: d?.border,
       hover: { m: hover?.border, md: md?.hover?.border, d: d?.hover?.border },
     });
+    const resolvedProps = useResolvedAttributes(props);
 
     if (!href) {
       return (
@@ -253,6 +257,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           <button
             {...props}
             {...buttonProps}
+            {...resolvedProps}
             ref={mergedRef}
             disabled={isDisabled}
             className={buttonStyles({
@@ -281,6 +286,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       return (
         <a
           {...props}
+          {...resolvedProps}
           className={buttonStyles({
             variant,
             isActive,
@@ -307,6 +313,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
     return (
       <Link
         {...props}
+        {...resolvedProps}
         href={href}
         className={buttonStyles({
           variant,

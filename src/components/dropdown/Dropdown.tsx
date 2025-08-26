@@ -1,8 +1,10 @@
-import type { AriaMenuProps } from "react-aria";
-import { useMenu } from "react-aria";
 import type { ReactElement } from "react";
 import { useRef } from "react";
+import type { AriaMenuProps } from "react-aria";
+import { useMenu } from "react-aria";
 import { Item, Section, useTreeState } from "react-stately";
+
+import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 
 import { DefaultWrapper } from "./DefaultWrapper";
 import { DropdownItem } from "./DropdownItem";
@@ -23,8 +25,9 @@ export const Dropdown = <T extends object>(
   const { menuProps } = useMenu(props, state, ref);
   const Wrapper = props.wrapper ?? DefaultWrapper;
 
+  const resolvedProps = useResolvedAttributes(props);
   return (
-    <ul {...menuProps} ref={ref}>
+    <ul {...menuProps} {...resolvedProps} ref={ref}>
       <Wrapper>
         {[...state.collection].map((item) => {
           if (item.type === "section") {

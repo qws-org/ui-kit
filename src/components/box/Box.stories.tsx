@@ -339,3 +339,18 @@ export const overflow: Story = {
     );
   },
 };
+
+export const dataAttributes: Story = {
+  args: {
+    "data-id": "uniqueId",
+    "data-kek": "1",
+    "data-kek2": "2",
+  },
+  render(args) {
+    return (
+      <Box {...args} style={{ width: 200, height: 100 }}>
+        Box с дата атрибутами
+      </Box>
+    );
+  },
+};

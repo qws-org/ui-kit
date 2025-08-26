@@ -1,9 +1,7 @@
-import { useFocusRing } from "react-aria";
-import type { AriaTableColumnHeaderProps } from "react-aria";
-import { useTableColumnHeader } from "react-aria";
-import { mergeProps } from "react-aria";
 import type { FC } from "react";
 import { useRef } from "react";
+import type { AriaTableColumnHeaderProps } from "react-aria";
+import { mergeProps, useFocusRing, useTableColumnHeader } from "react-aria";
 import type { TableState } from "react-stately";
 
 import { Box, type BoxProps, Flex } from "~/components";
