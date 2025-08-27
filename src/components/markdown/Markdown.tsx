@@ -2,7 +2,6 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
-import remarkGfm from "remark-gfm";
 import { tv } from "tailwind-variants";
 
 import type { BoxProps } from "~/components";
@@ -64,7 +63,6 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
           className: className ?? "",
           alignment,
         })}
-        remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw, [rehypeSanitize, customSchema]]}
       >
         {children}
