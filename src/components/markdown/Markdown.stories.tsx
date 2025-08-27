@@ -53,26 +53,6 @@ type Story = StoryObj<typeof Markdown>;
 
 export const Default: Story = {};
 
-export const AdvancedMarkdown: Story = {
-  args: {
-    children: `
-# 📌 Пример сложного Markdown  
-| Имя      | Возраст | Город     |  
-|----------|--------|-----------|  
-| Иван     | 25     | Москва    |  
-| Ольга    | 30     | Санкт-Петербург |  
-
-\`\`\`tsx
-const hello = "Hello, world!";
-console.log(hello);
-\`\`\`
-
-![Логотип](/public/promo-card.png)
-> _Цитата_: "Markdown — это просто и удобно!"
-    `,
-  },
-};
-
 export const WithHTML: Story = {
   args: {
     children:
