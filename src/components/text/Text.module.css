@@ -304,3 +304,17 @@
     display: none !important;
   }
 }
+
+:global(html) {
+  scroll-behavior: smooth;
+}
+
+:global([id]) {
+  scroll-margin-top: 160px;
+}
+
+@media screen and (max-width: 1024px) {
+  :global([id]) {
+    scroll-margin-top: 100px;
+  }
+}
