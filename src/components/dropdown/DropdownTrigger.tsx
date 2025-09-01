@@ -23,6 +23,7 @@ export interface DropdownTriggerProps<T>
   offset?: number;
   variant?: "positioned" | "static";
   alwaysRenderMenu?: boolean;
+  isNonModal?: boolean;
 }
 
 export const DropdownTrigger = <T extends object>(
@@ -55,7 +56,7 @@ export const DropdownTrigger = <T extends object>(
             {...props}
             state={state}
             triggerRef={ref}
-            isNonModal={true}
+            isNonModal={props.isNonModal ?? true}
             placement={props.placement ?? "bottom start"}
             offset={props.offset}
             variant={props.variant}
