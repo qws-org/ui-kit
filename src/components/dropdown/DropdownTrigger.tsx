@@ -26,9 +26,10 @@ export interface DropdownTriggerProps<T>
   isNonModal?: boolean;
 }
 
-export const DropdownTrigger = <T extends object>(
-  props: DropdownTriggerProps<T>,
-): ReactElement => {
+export const DropdownTrigger = <T extends object>({
+  isNonModal = true,
+  ...props
+}: DropdownTriggerProps<T>): ReactElement => {
   const state = useMenuTriggerState(props);
 
   const ref = useRef(null);
@@ -56,7 +57,7 @@ export const DropdownTrigger = <T extends object>(
             {...props}
             state={state}
             triggerRef={ref}
-            isNonModal={props.isNonModal ?? true}
+            isNonModal={isNonModal}
             placement={props.placement ?? "bottom start"}
             offset={props.offset}
             variant={props.variant}
