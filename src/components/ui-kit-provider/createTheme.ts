@@ -27,8 +27,8 @@ export const createTheme = (
     "title.mobile.small": entry?.fontSize?.["title.mobile.small"] ?? 20,
     "title.mobile.xsmall": entry?.fontSize?.["title.mobile.xsmall"] ?? 14,
 
-    "body.desktop.large": entry?.fontSize?.["body.desktop.large"] ?? 22,
-    "body.desktop.medium": entry?.fontSize?.["body.desktop.medium"] ?? 18,
+    "body.desktop.large": entry?.fontSize?.["body.desktop.large"] ?? 18,
+    "body.desktop.medium": entry?.fontSize?.["body.desktop.medium"] ?? 16,
     "body.desktop.small": entry?.fontSize?.["body.desktop.small"] ?? 14,
 
     "body.mobile.large": entry?.fontSize?.["body.mobile.large"] ?? 16,
