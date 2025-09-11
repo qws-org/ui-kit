@@ -340,6 +340,26 @@ export const overflow: Story = {
   },
 };
 
+export const backdropBlur: Story = {
+  render() {
+    return (
+      <Box p={20} width={300} height={200} bg="https://picsum.photos/600/400">
+        <Box
+          p={30}
+          bg="rgba(255,255,255,0.5)"
+          backdropBlur={1}
+          hover={{ backdropBlur: 20 }}
+          md={{ backdropBlur: 10 }}
+          color="red"
+          border={{ radius: "8px" }}
+        >
+          Контент с backdropBlur
+        </Box>
+      </Box>
+    );
+  },
+};
+
 export const dataAttributes: Story = {
   args: {
     "data-id": "uniqueId",

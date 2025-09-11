@@ -180,6 +180,46 @@ export const useOverflow = (
   };
 };
 
+export const useBackdropBlur = (
+  props?: UseCssEffectsProps,
+  pseudoClass?: "hover",
+): UseCssOutput => {
+  if (!props) {
+    return {
+      style: {},
+      className: "",
+    };
+  }
+
+  const style: UseCssOutput["style"] = {};
+  let className = "";
+
+  const formatValue = (val: string | number): string =>
+    typeof val === "number" ? `${val}px` : val;
+
+  if (props.m?.backdropBlur !== undefined) {
+    style[`--bb-${pseudoClass ?? ""}l`] = formatValue(props.m.backdropBlur);
+    className += `${pseudoClass ? pseudoClass + ":" : ""}[backdrop-filter:blur(var(--bb-${pseudoClass ?? ""}l))] `;
+  }
+
+  if (
+    props.md?.backdropBlur !== undefined &&
+    props.md.backdropBlur !== props.m?.backdropBlur
+  ) {
+    style[`--md-bb-${pseudoClass ?? ""}l`] = formatValue(props.md.backdropBlur);
+    className += `md:${pseudoClass ? pseudoClass + ":" : ""}[backdrop-filter:blur(var(--md-bb-${pseudoClass ?? ""}l))] `;
+  }
+
+  const mdBlur = props.md?.backdropBlur ?? props.m?.backdropBlur;
+
+  if (props.d?.backdropBlur !== undefined && props.d.backdropBlur !== mdBlur) {
+    style[`--d-bb-${pseudoClass ?? ""}l`] = formatValue(props.d.backdropBlur);
+    className += `lg:${pseudoClass ? pseudoClass + ":" : ""}[backdrop-filter:blur(var(--d-bb-${pseudoClass ?? ""}l))] `;
+  }
+
+  return { style, className };
+};
+
 export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
   const boxShadow = useBoxShadow(props);
   const hoveredBoxShadow = useBoxShadow(props.hover, "hover");
@@ -193,6 +233,9 @@ export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
   const overflow = useOverflow(props);
   const hoveredOverflow = useOverflow(props.hover, "hover");
 
+  const backdropBlur = useBackdropBlur(props);
+  const hoveredBackdropBlur = useBackdropBlur(props.hover, "hover");
+
   return {
     style: {
       ...boxShadow.style,
@@ -203,8 +246,10 @@ export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
       ...hoveredOpacity.style,
       ...overflow.style,
       ...hoveredOverflow.style,
+      ...backdropBlur.style,
+      ...hoveredBackdropBlur.style,
     },
     className:
-      `${boxShadow.className} ${textShadow.className} ${hoveredBoxShadow.className} ${hoveredTextShadow.className} ${opacity.className} ${hoveredOpacity.className} ${overflow.className} ${hoveredOverflow.className}`.trim(),
+      `${boxShadow.className} ${textShadow.className} ${hoveredBoxShadow.className} ${hoveredTextShadow.className} ${opacity.className} ${hoveredOpacity.className} ${overflow.className} ${hoveredOverflow.className} ${backdropBlur.className} ${hoveredBackdropBlur.className}`.trim(),
   };
 };
