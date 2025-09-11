@@ -534,6 +534,14 @@ const generateEffectClasses = (): Array<string> => {
     "hover:[overflow:var(--oflow-hovered)]",
     "md:hover:[overflow:var(--md-oflow-hovered)]",
     "lg:hover:[overflow:var(--d-oflow-hovered)]",
+
+    // Backdrop blur
+    "[backdrop-filter:blur(var(--bb-l))]",
+    "md:[backdrop-filter:blur(var(--md-bb-l))]",
+    "lg:[backdrop-filter:blur(var(--d-bb-l))]",
+    "hover:[backdrop-filter:blur(var(--bb-hoverl))]",
+    "md:hover:[backdrop-filter:blur(var(--md-bb-hoverl))]",
+    "lg:hover:[backdrop-filter:blur(var(--d-bb-hoverl))]",
   ];
 };
 
