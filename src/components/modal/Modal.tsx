@@ -13,12 +13,16 @@ export type ModalProps = AriaModalOverlayProps & {
   state: OverlayTriggerState;
   children: ReactNode;
   closeButtonSlot?: (close: () => void) => ReactNode;
+  overlayBackground?: string;
+  overlayBlur?: string | number;
 };
 
 export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
   state,
   children,
   closeButtonSlot,
+  overlayBackground = "background-transparent",
+  overlayBlur = 4,
   ...props
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -32,7 +36,8 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
           style={{ ...underlayProps.style }}
           align="center"
           justify="center"
-          bg="background-secondary"
+          bg={overlayBackground}
+          backdropBlur={overlayBlur}
           position={{
             type: "fixed",
             top: 0,
