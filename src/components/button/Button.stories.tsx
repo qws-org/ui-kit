@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
+import { Typography } from "~/components";
+
 import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -59,8 +61,9 @@ export const Default: Story = {
   args: {
     variant: "default",
     children: "Default Button",
+    display: "hidden",
     p: { px: 40 },
-    md: { p: { px: 96 } },
+    md: { p: { px: 96 }, display: "inline-block" },
   },
 };
 
@@ -180,5 +183,27 @@ export const DataAttributes: Story = {
   args: {
     "data-id": "data-attribute",
     children: "Data Attributes",
+  },
+};
+
+export const InlineBlock: Story = {
+  render: () => {
+    return (
+      <Typography as={"p"} m={{ mb: 32 }} display="inline-block">
+        Text Text Text
+        <Button
+          display="inline"
+          href={"https://google.com"}
+          target="_blank"
+          m={{ ml: 8 }}
+          variant={"tertiary"}
+          textDecoration={"underline"}
+          hover={{ textDecoration: "no-underline" }}
+          color={"text-destructive"}
+        >
+          qwerty
+        </Button>
+      </Typography>
+    );
   },
 };

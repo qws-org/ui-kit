@@ -12,6 +12,7 @@ import type {
   UiKitCursorProps,
   UiKitDataAttributesProps,
   UIKitDimensionProps,
+  UiKitDisplayProps,
   UiKitEffectProps,
   UIKitIndentationsProps,
   UiKitOutlineProps,
@@ -103,9 +104,7 @@ const DEFAULT_SPACINGS: {
     xsmall: [2, 2, 2, 2],
   },
 };
-type DisplayButtonProps = {
-  display: "block" | "hidden";
-};
+
 type ButtonSize = "large" | "medium" | "small" | "xsmall";
 
 export type ButtonVariants =
@@ -132,11 +131,11 @@ export type ButtonProps<Element extends ElementType> = PropsWithChildren<
           isActive?: boolean;
         } & Partial<
           UiKitTypographyProps &
+            UiKitDisplayProps &
             UiKitPositionProps &
             UIKitIndentationsProps &
             UiKitDataAttributesProps &
             UIKitDimensionProps &
-            DisplayButtonProps &
             UiKitCursorProps &
             Omit<UiKitBackgroundProps, "bgGroup" | "groupParent"> & {
               hover: Omit<UiKitBackgroundProps, "groupParent"> &
