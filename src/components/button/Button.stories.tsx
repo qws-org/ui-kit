@@ -61,7 +61,7 @@ export const Default: Story = {
   args: {
     variant: "default",
     children: "Default Button",
-    display: "hidden",
+    isDisabled: true,
     p: { px: 40 },
     md: { p: { px: 96 }, display: "inline-block" },
   },
@@ -120,6 +120,7 @@ export const SizeSmall: Story = {
   args: {
     size: "small",
     variant: "default",
+
     children: "Default Button",
   },
 };
@@ -182,6 +183,7 @@ export const Border: Story = {
 export const DataAttributes: Story = {
   args: {
     "data-id": "data-attribute",
+
     children: "Data Attributes",
   },
 };
