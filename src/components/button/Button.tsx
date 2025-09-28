@@ -87,6 +87,10 @@ const buttonStyles = tv({
       class:
         "border-[var(--colors-border-selected)] border text-[var(--colors-text-selection)]",
     },
+    {
+      variant: "default",
+      isDisabled: true,
+    },
   ],
   defaultVariants: {
     variant: "default",
@@ -164,7 +168,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       md,
       hover,
       isActive = false,
-      isDisabled,
+      isDisabled = false,
       onPress,
 
       ...props
@@ -266,8 +270,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ref={mergedRef}
             disabled={isDisabled}
             className={buttonStyles({
-              variant,
+              variant: isDisabled ? "disabled" : variant,
               isActive,
+
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
               className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
@@ -294,7 +299,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           {...props}
           {...resolvedProps}
           className={buttonStyles({
-            variant,
+            variant: isDisabled ? "disabled" : variant,
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
@@ -323,7 +328,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
         {...resolvedProps}
         href={href}
         className={buttonStyles({
-          variant,
+          variant: isDisabled ? "disabled" : variant,
           isActive,
           sizeButtonFontSize: props.fontSize ? undefined : size,
           sizeButtonLineHeight: props.lineHeight ? undefined : size,
