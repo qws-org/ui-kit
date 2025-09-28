@@ -305,6 +305,45 @@ export type UiKitOutlineProps = {
   outlineStyle?: "none" | "solid" | "dashed" | "dotted" | "double";
 };
 
+export type UiKitCursorProps = {
+  cursor?:
+    | "default"
+    | "pointer"
+    | "wait"
+    | "text"
+    | "move"
+    | "help"
+    | "none"
+    | "all-scroll"
+    | "grabbing"
+    | "grab"
+    | "col-resize"
+    | "row-resize"
+    | "n-resize"
+    | "e-resize"
+    | "s-resize"
+    | "w-resize"
+    | "ne-resize"
+    | "zoom-out"
+    | "zoom-in"
+    | "nwse-resize"
+    | "nesw-resize"
+    | "ns-resize"
+    | "ew-resize"
+    | "sw-resize"
+    | "se-resize"
+    | "nw-resize"
+    | "no-drop"
+    | "copy"
+    | "alias"
+    | "vertical-text"
+    | "crosshair"
+    | "cell"
+    | "progress"
+    | "context-menu"
+    | "not-allowed";
+};
+
 export type UiKitEffectProps = {
   boxShadow?: ColorKeys | string;
   textShadow?: ColorKeys | string;

@@ -40,7 +40,7 @@ export const useOutline = (props: UseOutlineProps): UseOutlineOutput => {
     shouldAddOutlineClass = true;
   }
 
-  const mdOutlineColor = props?.m?.outlineColor ?? props.m?.outlineColor;
+  const mdOutlineColor = props?.md?.outlineColor ?? props.m?.outlineColor;
 
   if (props.d?.outlineColor && mdOutlineColor !== props.d?.outlineColor) {
     style["--d-o-color"] =

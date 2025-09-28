@@ -81,7 +81,48 @@ const generatePosition = (): Array<string> => {
     "d:z-[var(--dPositionZ)]",
   ];
 };
-
+const generateCursorClasses = (): Array<string> => {
+  const initialCursors = [
+    "cursor-default",
+    "cursor-pointer",
+    "cursor-wait",
+    "cursor-text",
+    "cursor-move",
+    "cursor-help",
+    "cursor-none",
+    "cursor-all-scroll",
+    "cursor-grabbing",
+    "cursor-grab",
+    "cursor-col-resize",
+    "cursor-row-resize",
+    "cursor-n-resize",
+    "cursor-e-resize",
+    "cursor-s-resize",
+    "cursor-w-resize",
+    "cursor-ne-resize",
+    "cursor-zoom-out",
+    "cursor-zoom-in",
+    "cursor-nwse-resize",
+    "cursor-nesw-resize",
+    "cursor-ns-resize",
+    "cursor-ew-resize",
+    "cursor-sw-resize",
+    "cursor-se-resize",
+    "cursor-nw-resize",
+    "cursor-no-drop",
+    "cursor-copy",
+    "cursor-alias",
+    "cursor-vertical-text",
+    "cursor-crosshair",
+    "cursor-cell",
+    "cursor-progress",
+    "cursor-context-menu",
+    "cursor-not-allowed",
+  ];
+  const mdCursors = initialCursors.map((cursor) => `md:${cursor}`);
+  const dCursors = initialCursors.map((cursor) => `lg:${cursor}`);
+  return initialCursors.concat(mdCursors).concat(dCursors);
+};
 const generateFlex = (): Array<string> => {
   return [
     "gap-[var(--gap)]",
@@ -423,6 +464,7 @@ const generateTypography = (): Array<string> => {
     "no-underline",
     "md:no-underline",
     "lg:no-underline",
+
     "line-through",
     "overline",
     "md:underline",
@@ -431,13 +473,16 @@ const generateTypography = (): Array<string> => {
     "lg:underline",
     "lg:line-through",
     "lg:overline",
+    "hover:no-underline",
     "hover:underline",
     "hover:line-through",
     "hover:overline",
     "md:hover:underline",
+    "md:hover:no-underline",
     "md:hover:line-through",
     "md:hover:overline",
     "lg:hover:underline",
+    "lg:hover:no-underline",
     "lg:hover:line-through",
     "lg:hover:overline",
     "text-ellipsis",
@@ -557,6 +602,7 @@ export default {
     ...generateBackground(),
     ...generateTypography(),
     ...generateEffectClasses(),
+    ...generateCursorClasses(),
   ],
   theme: {
     extend: {
