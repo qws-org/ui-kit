@@ -9,6 +9,7 @@ import type {
   UIKitArrayIndentation,
   UiKitBackgroundProps,
   UiKitBorderProps,
+  UiKitCursorProps,
   UiKitDataAttributesProps,
   UIKitDimensionProps,
   UiKitEffectProps,
@@ -25,6 +26,7 @@ import {
   useUiKitComponents,
 } from "~/components";
 import { useBorder } from "~/components/use-border";
+import { useCursor } from "~/components/use-cursor";
 import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 import { useTypography } from "~/components/use-typography";
 
@@ -135,6 +137,7 @@ export type ButtonProps<Element extends ElementType> = PropsWithChildren<
             UiKitDataAttributesProps &
             UIKitDimensionProps &
             DisplayButtonProps &
+            UiKitCursorProps &
             Omit<UiKitBackgroundProps, "bgGroup" | "groupParent"> & {
               hover: Omit<UiKitBackgroundProps, "groupParent"> &
                 UiKitOutlineProps &
@@ -249,6 +252,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       d: d?.border,
       hover: { m: hover?.border, md: md?.hover?.border, d: d?.hover?.border },
     });
+
+    // cursor
+    const cursor = useCursor({ m: props, md, d });
     const resolvedProps = useResolvedAttributes(props);
 
     if (!href) {
@@ -265,7 +271,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               isActive,
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
-              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames}${className ?? ""}`,
+              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
             })}
             onClick={(e) => onPress?.(e as never)}
             style={{
@@ -274,6 +280,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               ...background.style,
               ...typography.styles,
               ...border.style,
+              ...cursor.style,
             }}
           >
             {children}
@@ -292,7 +299,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
-            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames}${className ?? ""}`,
+            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
           })}
           style={{
             ...spacing.styles,
@@ -300,6 +307,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ...background.style,
             ...typography.styles,
             ...border.style,
+            ...cursor.style,
           }}
           href={href}
           target={"_blank"}
@@ -320,7 +328,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           isActive,
           sizeButtonFontSize: props.fontSize ? undefined : size,
           sizeButtonLineHeight: props.lineHeight ? undefined : size,
-          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames}${className ?? ""}`,
+          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
         })}
         style={{
           ...spacing.styles,
@@ -328,6 +336,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           ...background.style,
           ...typography.styles,
           ...border.style,
+          ...cursor.style,
         }}
         onClick={(e) => onPress?.(e as never)}
       >

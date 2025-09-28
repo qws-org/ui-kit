@@ -10,6 +10,7 @@ import { forwardRef } from "react";
 
 import { useBorder } from "~/components/use-border";
 import { useCssEffects } from "~/components/use-css-effects";
+import { useCursor } from "~/components/use-cursor";
 import { useOutline } from "~/components/use-outline";
 import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 
@@ -17,6 +18,7 @@ import type {
   ElementRef,
   UiKitBackgroundProps,
   UiKitBorderProps,
+  UiKitCursorProps,
   UiKitDataAttributesProps,
   UIKitDimensionProps,
   UiKitDisplayProps,
@@ -40,6 +42,7 @@ export type DefaultProps = Partial<
     UiKitDisplayProps &
     UiKitOutlineProps &
     UiKitEffectProps &
+    UiKitCursorProps &
     UiKitDataAttributesProps &
     UiKitTypographyProps & { border?: UiKitBorderProps } & Omit<
       UiKitBackgroundProps,
@@ -99,6 +102,7 @@ export const Box = forwardRef(
       children,
       as,
       position,
+
       hover,
       groupParent = false,
       onClick,
@@ -170,7 +174,8 @@ export const Box = forwardRef(
       d,
       hover: { m: hover ?? {}, md: md?.hover ?? {}, d: d?.hover ?? {} },
     });
-
+    // cursor
+    const cursor = useCursor({ m: rest, md, d });
     const resolvedProps = useResolvedAttributes(rest);
     const Root = as ?? "div";
     return (
@@ -182,7 +187,7 @@ export const Box = forwardRef(
         className={
           `${display.classNames} ${effects.className} ${outline.className} ${border.className} ` +
           `${spacing.className} ${positionStyles.className} ${background.className} ` +
-          `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${className ?? ""}`
+          `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${className ?? ""}`
         }
         onClick={(e) => {
           onClick?.(e);
@@ -196,6 +201,7 @@ export const Box = forwardRef(
           ...background.style,
           ...typography.styles,
           ...effects.style,
+          ...cursor.style,
           ...(rest.style as object),
         }}
       >
