@@ -73,6 +73,7 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
                     right: 16,
                   }}
                   md={{ position: { top: 36, right: 40 } }}
+                  data-testid="modal-close-button"
                 >
                   <Close
                     viewBox="0 0 32 32"
