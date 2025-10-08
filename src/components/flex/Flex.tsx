@@ -39,11 +39,12 @@ export const Flex = forwardRef(
       gap,
       align,
       justify,
+      flexGrow,
       style,
     } = props;
 
     const flex = useFlex({
-      m: { flexWrap, gap, align, flexDirection, justify },
+      m: { flexWrap, gap, align, flexDirection, justify, flexGrow },
       md: { ...md },
       d: { ...d },
     });
