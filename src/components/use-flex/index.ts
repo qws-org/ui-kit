@@ -221,6 +221,7 @@ export const useFlex = (params: {
   const styles: Record<string, string | number> = {};
   let className = "";
 
+  // === GAP ===
   if (typeof params.m.gap !== "undefined") {
     styles["--gap"] = styleTransformer(params.m.gap);
     className += "gap-[var(--gap)] ";
@@ -237,6 +238,7 @@ export const useFlex = (params: {
     className += "lg:gap-[var(--d-gap)] ";
   }
 
+  // === JUSTIFY ===
   if (params.m.justify) {
     className += justifyStyle(params.m.justify) + " ";
   }
@@ -250,6 +252,7 @@ export const useFlex = (params: {
     className += justifyStyle(params.d.justify, "lg") + " ";
   }
 
+  // === FLEX WRAP ===
   if (params.m.flexWrap) {
     className += flexWrapStyle(params.m.flexWrap) + " ";
   }
@@ -264,6 +267,7 @@ export const useFlex = (params: {
     className += flexWrapStyle(params.d.flexWrap, "lg") + " ";
   }
 
+  // === ALIGN ===
   if (params.m.align) {
     className += alignStyle(params.m.align) + " ";
   }
@@ -278,6 +282,7 @@ export const useFlex = (params: {
     className += alignStyle(params.d.align, "lg") + " ";
   }
 
+  // === DIRECTION ===
   if (params.m.flexDirection) {
     className += directionStyle(params.m.flexDirection) + " ";
   }
@@ -293,6 +298,29 @@ export const useFlex = (params: {
 
   if (params.d.flexDirection && params.d.flexDirection !== mdDirection) {
     className += directionStyle(params.d.flexDirection, "lg") + " ";
+  }
+
+  // === FLEX GROW ===
+  if (typeof params.m.flexGrow !== "undefined") {
+    styles["--grow"] = params.m.flexGrow;
+    className += "grow-[var(--grow)] ";
+  }
+
+  const mdGrow = params.md.flexGrow ?? params.m.flexGrow;
+  if (
+    typeof params.md.flexGrow !== "undefined" &&
+    params.md.flexGrow !== params.m.flexGrow
+  ) {
+    styles["--md-grow"] = params.md.flexGrow;
+    className += "md:grow-[var(--md-grow)] ";
+  }
+
+  if (
+    typeof params.d.flexGrow !== "undefined" &&
+    params.d.flexGrow !== mdGrow
+  ) {
+    styles["--d-grow"] = params.d.flexGrow;
+    className += "lg:grow-[var(--d-grow)] ";
   }
 
   return {

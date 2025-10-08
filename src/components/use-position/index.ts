@@ -18,7 +18,8 @@ export const usePosition = ({
 
   if (m) {
     if (m.position.type) {
-      className += `${m.position.type} `;
+      styles["--positionType"] = m.position.type;
+      className += `[position:var(--positionType)] `;
     }
 
     if (typeof m.position.top !== "undefined") {
@@ -68,7 +69,8 @@ export const usePosition = ({
   if (md) {
     if (md.position.type) {
       if (m?.position.type !== md.position.type) {
-        className += `md:${md.position.type} `;
+        styles["--mdPositionType"] = md.position.type;
+        className += `md:[position:var(--mdPositionType)] `;
       }
       mdCalculatedValues.position.type = md.position.type;
     }
@@ -128,7 +130,8 @@ export const usePosition = ({
 
   if (d) {
     if (d.position.type) {
-      className += `lg:${d.position.type} `;
+      styles["--dPositionType"] = d.position.type;
+      className += `lg:[position:var(--dPositionType)] `;
     }
 
     if (
