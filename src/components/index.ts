@@ -17,6 +17,7 @@ export * from "./popover/Popover";
 export * from "./popover/PopoverTrigger";
 export * from "./select/Select";
 export * from "./skeleton/Skeleton";
+export * from "./spinner";
 export * from "./stripe-wrapper/StripeWrapper";
 export * from "./table/Table";
 export * from "./text/Text";
