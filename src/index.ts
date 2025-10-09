@@ -66,6 +66,7 @@ export {
   type SelectOptionListProps,
 } from "./components/select/SelectOptionList";
 export { Skeleton, type SkeletonProps } from "./components/skeleton/Skeleton";
+export { Spinner, type SpinnerProps } from "./components/spinner/Spinner";
 export {
   StripeWrapper,
   type StripeWrapperProps,
