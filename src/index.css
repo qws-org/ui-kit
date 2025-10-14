@@ -10,16 +10,19 @@
         word-break: var(--global-word-break);
         line-break: var(--global-line-break);
     }
+
     [data-ui-kit="ui-kit"] *,
     [data-ui-kit="ui-kit"] *::before,
     [data-ui-kit="ui-kit"] *::after {
         box-sizing: border-box;
     }
+
     [data-ui-kit="ui-kit"] html,
     [data-ui-kit="ui-kit"] body {
         height: 100%;
     }
-    }
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
