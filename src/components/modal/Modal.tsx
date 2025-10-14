@@ -1,12 +1,13 @@
 import type { FC, ReactNode } from "react";
 import React, { useRef } from "react";
 import type { AriaModalOverlayProps } from "react-aria";
-import { FocusScope, Overlay, useModalOverlay } from "react-aria";
+import { FocusScope, useModalOverlay } from "react-aria";
 import type { OverlayTriggerState } from "react-stately";
 
 import { Box, Button, Flex } from "~/components";
 import type { ModalTriggerProps } from "~/components/modal/ModalTrigger";
 import ModalTrigger from "~/components/modal/ModalTrigger";
+import { UIKitOverlay } from "~/components/ui-kit-overlay";
 import { Close } from "~/icons";
 
 export type ModalProps = AriaModalOverlayProps & {
@@ -29,7 +30,7 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
   const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
 
   return (
-    <Overlay>
+    <UIKitOverlay>
       <FocusScope contain autoFocus>
         <Flex
           {...underlayProps}
@@ -86,7 +87,7 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
           </Box>
         </Flex>
       </FocusScope>
-    </Overlay>
+    </UIKitOverlay>
   );
 };
 
