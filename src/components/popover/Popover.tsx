@@ -50,23 +50,26 @@ export const Popover: FC<PopoverProps> = ({
     );
   } else {
     return (
-      <Overlay>
-        <div {...underlayProps} />
-        <Box
-          {...popoverProps}
-          {...props}
-          ref={popoverRef}
-          style={{
-            ...popoverProps.style,
-          }}
-          bg={props.bg ?? "background-transparent"}
-          border={{ radius: "8px" }}
-        >
-          <DismissButton onDismiss={() => state.close()} />
-          {children}
-          <DismissButton onDismiss={() => state.close()} />
-        </Box>
-      </Overlay>
+      <div data-ui-kit={"ui-kit"}>
+        <Overlay>
+          <div {...underlayProps} />
+          <Box
+            data-ui-kit={"ui-kit"}
+            {...popoverProps}
+            {...props}
+            ref={popoverRef}
+            style={{
+              ...popoverProps.style,
+            }}
+            bg={props.bg ?? "background-transparent"}
+            border={{ radius: "8px" }}
+          >
+            <DismissButton onDismiss={() => state.close()} />
+            {children}
+            <DismissButton onDismiss={() => state.close()} />
+          </Box>
+        </Overlay>
+      </div>
     );
   }
 };

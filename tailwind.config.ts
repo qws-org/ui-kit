@@ -604,6 +604,7 @@ export default {
     ...generateEffectClasses(),
     ...generateCursorClasses(),
   ],
+  important: '[data-ui-kit="ui-kit"]',
   theme: {
     extend: {
       global: {
