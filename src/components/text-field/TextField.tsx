@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import React, { forwardRef, useRef, useState } from "react";
 import type { AriaTextFieldOptions } from "react-aria";
 import { useTextField } from "react-aria";
+import InputMask from "react-input-mask";
 
 import { Box, type BoxProps } from "~/components";
 
@@ -10,6 +11,11 @@ export interface TextFieldProps extends AriaTextFieldOptions<"input"> {
   icon?: ReactNode;
   errorMessage?: string;
   className?: string;
+  /**
+   * https://www.npmjs.com/package/react-input-mask
+   */
+  mask?: string;
+  maskChar?: string;
 }
 type Props = TextFieldProps & Partial<BoxProps>;
 
@@ -21,6 +27,8 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     name,
     type,
     className,
+    mask,
+    maskChar,
     ...indentationProps
   } = props;
   const [isFocused, setIsFocused] = useState(false);
@@ -32,6 +40,8 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     // @ts-expect-error
     ref ?? inputRef,
   );
+
+  const InputComponent = mask ? InputMask : "input";
 
   return (
     <Box
@@ -50,8 +60,13 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
       >
         {label}
       </label>
-      <input
+
+      <InputComponent
         {...inputProps}
+        // eslint-disable-next-line
+        // @ts-ignore
+        mask={mask}
+        maskChar={maskChar}
         ref={ref}
         name={name}
         type={type}
