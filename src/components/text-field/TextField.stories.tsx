@@ -92,3 +92,14 @@ export const Disabled: Story = {
     return <TextField {...args} />;
   },
 };
+
+export const Mask: Story = {
+  args: {
+    label: "Test mask",
+    mask: "+\\91 9999999999",
+    maskChar: "_",
+  },
+  render: (args) => {
+    return <TextField {...args} />;
+  },
+};
