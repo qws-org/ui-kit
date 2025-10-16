@@ -68,6 +68,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
         mask={mask}
         maskChar={maskChar}
         ref={ref}
+        inputRef={ref}
         name={name}
         type={type}
         className={`w-full [font-size:var(--fontSize-desktop-large-body)] [line-height:var(--lineHeight-desktop-large-body)] text-[var(--colors-text-secondary-hovered)] rounded px-[30px] pt-[26px] pb-[6px] border border-[var(--colors-background-secondary)] bg-[var(--colors-surface-neutral-dark-default)] focus:bg-[var(--colors-background-primary)] focus:border focus:border-[var(--colors-border-primary)] disabled:bg-[var(--colors-text-disabled)] disabled:text-opacity-40
