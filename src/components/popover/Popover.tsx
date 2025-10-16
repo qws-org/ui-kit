@@ -1,12 +1,11 @@
 import type { FC, ReactNode } from "react";
 import { useRef } from "react";
 import type { AriaPopoverProps } from "react-aria";
-import { DismissButton, usePopover } from "react-aria";
+import { DismissButton, Overlay, usePopover } from "react-aria";
 import type { OverlayTriggerState } from "react-stately";
 
 import type { UiKitBackgroundProps } from "~/components";
 import { Box } from "~/components";
-import { UIKitOverlay } from "~/components/ui-kit-overlay";
 
 export interface PopoverProps
   extends Omit<AriaPopoverProps, "popoverRef">,
@@ -51,7 +50,7 @@ export const Popover: FC<PopoverProps> = ({
     );
   } else {
     return (
-      <UIKitOverlay>
+      <Overlay>
         <div {...underlayProps} />
         <Box
           {...popoverProps}
@@ -67,7 +66,7 @@ export const Popover: FC<PopoverProps> = ({
           {children}
           <DismissButton onDismiss={() => state.close()} />
         </Box>
-      </UIKitOverlay>
+      </Overlay>
     );
   }
 };
