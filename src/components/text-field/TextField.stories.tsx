@@ -98,6 +98,7 @@ export const Mask: Story = {
     label: "Test mask",
     mask: "+\\91 9999999999",
     maskChar: "_",
+    m: { mb: 10 },
   },
   render: (args) => {
     return <TextField {...args} />;

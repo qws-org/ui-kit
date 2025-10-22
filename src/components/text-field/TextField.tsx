@@ -45,12 +45,12 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   return (
     <Box
-      {...props}
       style={{
         ...indentationProps.style,
       }}
       className={`relative ${className}`}
       m={{ mb: 32 }}
+      {...props}
     >
       <label
         className={`pointer-events-none absolute left-[30px] top-1/2 -translate-y-1/2 text-[var(--colors-text-secondary-default)] [font-size:var(--fontSize-mobile-large-body)] [line-height:var(--lineHeight-mobile-large-body)] transition-all ${
