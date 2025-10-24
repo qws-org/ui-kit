@@ -80,6 +80,12 @@ export const Accent: Story = {
     children: "White Button",
   },
 };
+export const Primary: Story = {
+  args: {
+    variant: "primary",
+    children: "Primary Button",
+  },
+};
 export const Secondary: Story = {
   args: {
     variant: "secondary",
