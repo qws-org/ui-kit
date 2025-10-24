@@ -74,6 +74,7 @@ const buttonStyles = tv({
         "bg-[var(--colors-background-transparent)] text-[var(--colors-text-disabled)] cursor-not-allowed",
 
       tertiary: "",
+      primary: "bg-[var(--colors-surface-primary-dark)]",
     },
     isActive: {
       true: "",
@@ -116,7 +117,8 @@ export type ButtonVariants =
   | "transparent"
   | "accent"
   | "secondary"
-  | "tertiary";
+  | "tertiary"
+  | "primary";
 
 export type ButtonProps<Element extends ElementType> = PropsWithChildren<
   Omit<
