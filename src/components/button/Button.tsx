@@ -74,7 +74,8 @@ const buttonStyles = tv({
         "bg-[var(--colors-background-transparent)] text-[var(--colors-text-disabled)] cursor-not-allowed",
 
       tertiary: "",
-      primary: "bg-[var(--colors-surface-primary-dark)]",
+      primary:
+        "bg-[var(--colors-surface-primary-default)] hover:bg-[var(--colors-surface-primary-hovered)] active:bg-[var(--colors-surface-primary-subtle)]",
     },
     isActive: {
       true: "",
