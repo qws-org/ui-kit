@@ -587,6 +587,17 @@ const generateEffectClasses = (): Array<string> => {
     "hover:[backdrop-filter:blur(var(--bb-hoverl))]",
     "md:hover:[backdrop-filter:blur(var(--md-bb-hoverl))]",
     "lg:hover:[backdrop-filter:blur(var(--d-bb-hoverl))]",
+
+    // Animation
+    "[animation:var(--anim)]",
+    "md:[animation:var(--md-anim)]",
+    "lg:[animation:var(--d-anim)]",
+    "hover:[animation:var(--h-anim)]",
+    "md:hover:[animation:var(--h-md-anim)]",
+    "lg:hover:[animation:var(--h-d-anim)]",
+    "active:[animation:var(--a-anim)]",
+    "md:active:[animation:var(--a-md-anim)]",
+    "lg:active:[animation:var(--a-d-anim)]",
   ];
 };
 

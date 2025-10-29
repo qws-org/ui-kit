@@ -379,7 +379,19 @@ export const AppearAnimation: Story = {
   args: {
     p: 20,
     bg: "surface-accent1-default",
-    appearAnimation: true,
+    animation: {
+      name: "none",
+    },
+    d: {
+      animation: {
+        name: "frameAppear",
+      },
+      hover: {
+        animation: {
+          name: "spin",
+        },
+      },
+    },
   },
   render(args) {
     return (

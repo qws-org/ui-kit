@@ -350,7 +350,15 @@ export type UiKitEffectProps = {
   opacity?: number;
   overflow?: "visible" | "hidden" | "scroll" | "auto" | "clip";
   backdropBlur?: string | number;
-  appearAnimation?: boolean;
+};
+
+export type UiKitAnimationProps = {
+  animation?: {
+    name: "spin" | "frameAppear" | "none";
+    duration?: number;
+    transition?: "linear" | "ease-in" | "ease-out" | "ease-in-out" | "ease";
+    direction?: "forwards" | "backwards" | "both";
+  };
 };
 
 export type ElementRef<E extends ElementType> =
