@@ -350,6 +350,7 @@ export type UiKitEffectProps = {
   opacity?: number;
   overflow?: "visible" | "hidden" | "scroll" | "auto" | "clip";
   backdropBlur?: string | number;
+  appearAnimation?: boolean;
 };
 
 export type ElementRef<E extends ElementType> =

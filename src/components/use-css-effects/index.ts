@@ -220,6 +220,48 @@ export const useBackdropBlur = (
   return { style, className };
 };
 
+const useAppearAnimation = (props?: UseCssEffectsProps): UseCssOutput => {
+  if (!props) {
+    return {
+      style: {},
+      className: "",
+    };
+  }
+
+  const animParams = "modalAppear 0.3s ease-out forwards";
+  const style: UseCssOutput["style"] = {};
+  let className = "";
+
+  if (props.m?.appearAnimation) {
+    style[`--appear-anim`] = animParams;
+    className += `[animation:var(--appear-anim)]`;
+  }
+
+  if (
+    props.md?.appearAnimation &&
+    props.md?.appearAnimation !== props.m?.appearAnimation
+  ) {
+    style[`--md-appear-anim`] = animParams;
+    className += `md:[animation:var(--md-appear-anim)]`;
+  }
+
+  const mdAppearAnimation =
+    props.md?.appearAnimation ?? props.m?.appearAnimation;
+
+  if (
+    props.d?.appearAnimation &&
+    props.d?.appearAnimation !== mdAppearAnimation
+  ) {
+    style[`--d-appear-anim`] = animParams;
+    className += `lg:[animation:var(--d-appear-anim)]`;
+  }
+
+  return {
+    style,
+    className,
+  };
+};
+
 export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
   const boxShadow = useBoxShadow(props);
   const hoveredBoxShadow = useBoxShadow(props.hover, "hover");
@@ -236,6 +278,8 @@ export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
   const backdropBlur = useBackdropBlur(props);
   const hoveredBackdropBlur = useBackdropBlur(props.hover, "hover");
 
+  const appear = useAppearAnimation(props);
+
   return {
     style: {
       ...boxShadow.style,
@@ -248,8 +292,9 @@ export const useCssEffects = (props: UseCssEffectsProps): UseCssOutput => {
       ...hoveredOverflow.style,
       ...backdropBlur.style,
       ...hoveredBackdropBlur.style,
+      ...appear.style,
     },
     className:
-      `${boxShadow.className} ${textShadow.className} ${hoveredBoxShadow.className} ${hoveredTextShadow.className} ${opacity.className} ${hoveredOpacity.className} ${overflow.className} ${hoveredOverflow.className} ${backdropBlur.className} ${hoveredBackdropBlur.className}`.trim(),
+      `${boxShadow.className} ${textShadow.className} ${hoveredBoxShadow.className} ${hoveredTextShadow.className} ${opacity.className} ${hoveredOpacity.className} ${overflow.className} ${hoveredOverflow.className} ${backdropBlur.className} ${hoveredBackdropBlur.className} ${appear.className}`.trim(),
   };
 };
