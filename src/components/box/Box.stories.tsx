@@ -374,3 +374,30 @@ export const dataAttributes: Story = {
     );
   },
 };
+
+export const AppearAnimation: Story = {
+  args: {
+    p: 20,
+    bg: "surface-accent1-default",
+    animation: {
+      name: "none",
+    },
+    d: {
+      animation: {
+        name: "frameAppear",
+      },
+      hover: {
+        animation: {
+          name: "spin",
+        },
+      },
+    },
+  },
+  render(args) {
+    return (
+      <Box {...args} className="w-[300px]">
+        Контент с анимацией появления
+      </Box>
+    );
+  },
+};

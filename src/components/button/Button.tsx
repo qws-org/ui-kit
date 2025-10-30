@@ -6,6 +6,7 @@ import { tv } from "tailwind-variants";
 
 import type {
   FontWeightKeys,
+  UiKitAnimationProps,
   UIKitArrayIndentation,
   UiKitBackgroundProps,
   UiKitBorderProps,
@@ -26,6 +27,7 @@ import {
   useSpacing,
   useUiKitComponents,
 } from "~/components";
+import { useAnimation } from "~/components/use-animation";
 import { useBorder } from "~/components/use-border";
 import { useCursor } from "~/components/use-cursor";
 import { useResolvedAttributes } from "~/components/use-resolved-attributes";
@@ -144,11 +146,14 @@ export type ButtonProps<Element extends ElementType> = PropsWithChildren<
             UiKitDataAttributesProps &
             UIKitDimensionProps &
             UiKitCursorProps &
+            UiKitAnimationProps &
             Omit<UiKitBackgroundProps, "bgGroup" | "groupParent"> & {
               hover: Omit<UiKitBackgroundProps, "groupParent"> &
                 UiKitOutlineProps &
                 UiKitEffectProps &
+                UiKitAnimationProps &
                 UiKitTypographyProps & { border?: UiKitBorderProps };
+              active: UiKitAnimationProps;
             } & { border?: UiKitBorderProps }
         >
       >,
@@ -170,6 +175,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       d,
       md,
       hover,
+      active,
       isActive = false,
       isDisabled = false,
       onPress,
@@ -259,6 +265,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       hover: { m: hover?.border, md: md?.hover?.border, d: d?.hover?.border },
     });
 
+    // animation
+    const animation = useAnimation({
+      m: props,
+      md,
+      d,
+      hover: { m: hover ?? {}, md: md?.hover ?? {}, d: d?.hover ?? {} },
+      active: { m: active ?? {}, md: md?.active ?? {}, d: d?.active ?? {} },
+    });
+
     // cursor
     const cursor = useCursor({ m: props, md, d });
     const resolvedProps = useResolvedAttributes(props);
@@ -278,7 +293,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
 
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
-              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
+              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
             })}
             onClick={(e) => onPress?.(e as never)}
             style={{
@@ -288,6 +303,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               ...typography.styles,
               ...border.style,
               ...cursor.style,
+              ...animation.style,
             }}
           >
             {children}
@@ -306,7 +322,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
-            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
+            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
           })}
           style={{
             ...spacing.styles,
@@ -315,6 +331,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ...typography.styles,
             ...border.style,
             ...cursor.style,
+            ...animation.style,
           }}
           href={href}
           target={"_blank"}
@@ -335,7 +352,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           isActive,
           sizeButtonFontSize: props.fontSize ? undefined : size,
           sizeButtonLineHeight: props.lineHeight ? undefined : size,
-          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${className ?? ""}`,
+          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
         })}
         style={{
           ...spacing.styles,
@@ -344,6 +361,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           ...typography.styles,
           ...border.style,
           ...cursor.style,
+          ...animation.style,
         }}
         onClick={(e) => onPress?.(e as never)}
       >

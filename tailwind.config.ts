@@ -546,6 +546,20 @@ const generateGap = (): Array<string> => {
   return ["gap-[var(--gap)]", "md:gap-[var(--mdGap)]", "lg:gap-[var(--dGap)]"];
 };
 
+const generateAnimationClasses = (): Array<string> => {
+  return [
+    "[animation:var(--anim)]",
+    "md:[animation:var(--md-anim)]",
+    "lg:[animation:var(--d-anim)]",
+    "hover:[animation:var(--h-anim)]",
+    "md:hover:[animation:var(--h-md-anim)]",
+    "lg:hover:[animation:var(--h-d-anim)]",
+    "active:[animation:var(--a-anim)]",
+    "md:active:[animation:var(--a-md-anim)]",
+    "lg:active:[animation:var(--a-d-anim)]",
+  ];
+};
+
 const generateEffectClasses = (): Array<string> => {
   return [
     // Box shadow
@@ -603,6 +617,7 @@ export default {
     ...generateTypography(),
     ...generateEffectClasses(),
     ...generateCursorClasses(),
+    ...generateAnimationClasses(),
   ],
   theme: {
     extend: {

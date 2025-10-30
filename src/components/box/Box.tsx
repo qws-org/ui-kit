@@ -8,6 +8,7 @@ import type {
 } from "react";
 import { forwardRef } from "react";
 
+import { useAnimation } from "~/components/use-animation";
 import { useBorder } from "~/components/use-border";
 import { useCssEffects } from "~/components/use-css-effects";
 import { useCursor } from "~/components/use-cursor";
@@ -16,6 +17,7 @@ import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 
 import type {
   ElementRef,
+  UiKitAnimationProps,
   UiKitBackgroundProps,
   UiKitBorderProps,
   UiKitCursorProps,
@@ -42,6 +44,7 @@ export type DefaultProps = Partial<
     UiKitDisplayProps &
     UiKitOutlineProps &
     UiKitEffectProps &
+    UiKitAnimationProps &
     UiKitCursorProps &
     UiKitDataAttributesProps &
     UiKitTypographyProps & { border?: UiKitBorderProps } & Omit<
@@ -51,7 +54,9 @@ export type DefaultProps = Partial<
       hover: Omit<UiKitBackgroundProps, "groupParent"> &
         UiKitOutlineProps &
         UiKitEffectProps &
+        UiKitAnimationProps &
         UiKitTypographyProps & { border?: UiKitBorderProps };
+      active: UiKitAnimationProps;
     }
 >;
 
@@ -102,8 +107,8 @@ export const Box = forwardRef(
       children,
       as,
       position,
-
       hover,
+      active,
       groupParent = false,
       onClick,
       ...rest
@@ -174,6 +179,14 @@ export const Box = forwardRef(
       d,
       hover: { m: hover ?? {}, md: md?.hover ?? {}, d: d?.hover ?? {} },
     });
+    // animation
+    const animation = useAnimation({
+      m: rest,
+      md,
+      d,
+      hover: { m: hover ?? {}, md: md?.hover ?? {}, d: d?.hover ?? {} },
+      active: { m: active ?? {}, md: md?.active ?? {}, d: d?.active ?? {} },
+    });
     // cursor
     const cursor = useCursor({ m: rest, md, d });
     const resolvedProps = useResolvedAttributes(rest);
@@ -187,7 +200,7 @@ export const Box = forwardRef(
         className={
           `${display.classNames} ${effects.className} ${outline.className} ${border.className} ` +
           `${spacing.className} ${positionStyles.className} ${background.className} ` +
-          `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${className ?? ""}`
+          `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${animation.className} ${className ?? ""}`
         }
         onClick={(e) => {
           onClick?.(e);
@@ -202,6 +215,7 @@ export const Box = forwardRef(
           ...typography.styles,
           ...effects.style,
           ...cursor.style,
+          ...animation.style,
           ...(rest.style as object),
         }}
       >

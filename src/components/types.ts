@@ -352,6 +352,15 @@ export type UiKitEffectProps = {
   backdropBlur?: string | number;
 };
 
+export type UiKitAnimationProps = {
+  animation?: {
+    name: "spin" | "frameAppear" | "none";
+    duration?: number;
+    transition?: "linear" | "ease-in" | "ease-out" | "ease-in-out" | "ease";
+    direction?: "forwards" | "backwards" | "both";
+  };
+};
+
 export type ElementRef<E extends ElementType> =
   ComponentPropsWithRef<E> extends { ref?: Ref<infer R> } ? R : never;
 
