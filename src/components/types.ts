@@ -214,6 +214,7 @@ export type UiKitFlexParams = {
   gap?: UiKitGap;
   flexDirection?: UiKitFlexDirection;
   flexWrap?: UiKitFlexWrap;
+  flexGrow?: number;
 };
 
 export type UiKitBackgroundProps = {
@@ -350,6 +351,17 @@ export type UiKitEffectProps = {
   opacity?: number;
   overflow?: "visible" | "hidden" | "scroll" | "auto" | "clip";
   backdropBlur?: string | number;
+  cursor?:
+    | "auto"
+    | "default"
+    | "pointer"
+    | "not-allowed"
+    | "text"
+    | "move"
+    | "wait"
+    | "crosshair"
+    | "grab"
+    | "grabbing";
 };
 
 export type UiKitAnimationProps = {
