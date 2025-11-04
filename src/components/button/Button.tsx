@@ -281,6 +281,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
     if (!href) {
       return (
         <>
+          {animation.keyFrames && <style>{animation.keyFrames}</style>}
           <button
             {...props}
             {...buttonProps}
