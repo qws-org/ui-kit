@@ -567,6 +567,15 @@ const generateAnimationClasses = (): Array<string> => {
     "active:[animation:var(--a-anim)]",
     "md:active:[animation:var(--a-md-anim)]",
     "lg:active:[animation:var(--a-d-anim)]",
+    "animate-ping",
+    "animate-pulse",
+    "animate-bounce",
+    "active:animate-ping",
+    "active:animate-pulse",
+    "active:animate-bounce",
+    "hover:animate-ping",
+    "hover:animate-pulse",
+    "hover:animate-bounce",
   ];
 };
 

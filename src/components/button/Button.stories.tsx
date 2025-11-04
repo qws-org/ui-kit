@@ -246,6 +246,19 @@ export const InlineBlock: Story = {
   },
 };
 
+export const CustomAnimation: Story = {
+  args: {
+    animation: {
+      name: "keyframes",
+      duration: 2,
+      transition: "ease-in-out",
+      direction: "forwards",
+      keyframes: { "0%": { opacity: 0 }, "100%": { opacity: 1 } },
+    },
+    children: "Custom Animation",
+  },
+};
+
 export const DefaultAndDisabled: Story = {
   args: {
     size: "large",
