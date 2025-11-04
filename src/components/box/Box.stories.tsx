@@ -455,3 +455,41 @@ export const BoxBorderWidth: Story = {
     );
   },
 };
+
+export const CustomAnimation: Story = {
+  args: {
+    animation: {
+      name: "keyframes",
+      duration: 2,
+      transition: "ease-in-out",
+      direction: "forwards",
+      keyframes: { "0%": { opacity: 0 }, "100%": { opacity: 1 } },
+    },
+    children: "Custom Animation",
+    bg: "red",
+  },
+  render(args) {
+    return <Box {...args}></Box>;
+  },
+};
+
+export const FromBottomAnimation: Story = {
+  args: {
+    animation: {
+      name: "keyframes",
+      duration: 2,
+      transition: "ease-in-out",
+      direction: "forwards",
+      keyframes: {
+        "0%": { opacity: 0, transform: "translateY(200%)" },
+        "50%": { opacity: 1, transform: "translateY(-100%)" },
+        "100%": { opacity: 1, transform: "translateY(0)" },
+      },
+    },
+    children: "Custom Animation",
+    bg: "red",
+  },
+  render(args) {
+    return <Box {...args}></Box>;
+  },
+};

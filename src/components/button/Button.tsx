@@ -312,6 +312,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
     if (!href) {
       return (
         <>
+          {animation.keyFrames && <style>{animation.keyFrames}</style>}
           <button
             {...props}
             {...buttonProps}
@@ -345,16 +346,52 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
 
     if (href.includes("http")) {
       return (
-        <a
+        <>
+          {animation.keyFrames && <style>{animation.keyFrames}</style>}
+          <a
+            {...props}
+            {...resolvedProps}
+            className={buttonStyles({
+              variant,
+              isDisabled,
+              isActive,
+              sizeButtonFontSize: props.fontSize ? undefined : size,
+              sizeButtonLineHeight: props.lineHeight ? undefined : size,
+              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
+            })}
+            style={{
+              ...spacing.styles,
+              ...dimension.styles,
+              ...background.style,
+              ...typography.styles,
+              ...border.style,
+              ...cursor.style,
+              ...animation.style,
+            }}
+            href={href}
+            target={"_blank"}
+            onClick={(e) => onPress?.(e as never)}
+          >
+            {children}
+          </a>
+        </>
+      );
+    }
+
+    return (
+      <>
+        {animation.keyFrames && <style>{animation.keyFrames}</style>}
+        <Link
           {...props}
           {...resolvedProps}
+          href={href}
           className={buttonStyles({
             variant,
             isDisabled,
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
-            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
+            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
           })}
           style={{
             ...spacing.styles,
@@ -365,41 +402,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ...cursor.style,
             ...animation.style,
           }}
-          href={href}
-          target={"_blank"}
           onClick={(e) => onPress?.(e as never)}
         >
           {children}
-        </a>
-      );
-    }
-
-    return (
-      <Link
-        {...props}
-        {...resolvedProps}
-        href={href}
-        className={buttonStyles({
-          variant,
-          isDisabled,
-          isActive,
-          sizeButtonFontSize: props.fontSize ? undefined : size,
-          sizeButtonLineHeight: props.lineHeight ? undefined : size,
-          className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
-        })}
-        style={{
-          ...spacing.styles,
-          ...dimension.styles,
-          ...background.style,
-          ...typography.styles,
-          ...border.style,
-          ...cursor.style,
-          ...animation.style,
-        }}
-        onClick={(e) => onPress?.(e as never)}
-      >
-        {children}
-      </Link>
+        </Link>
+      </>
     );
   },
 );

@@ -1,7 +1,10 @@
+import { useId } from "react";
+
 import type { UiKitAnimationProps } from "~/components";
 import type { UseCssOutput } from "~/components/use-css-effects";
 
 export type UseAnimationOutput = {
+  keyFrames?: string;
   className?: string;
   style?: Record<string, string | number>;
 };
@@ -17,23 +20,66 @@ export type UseAnimationProps = UseAnimationBaseProps & {
   active?: UseAnimationBaseProps;
 };
 
-const generateAnimParams = (props?: UiKitAnimationProps): string => {
+const generateKeyframes = (
+  props?: UiKitAnimationProps,
+  extraName = "",
+): string => {
+  if (!props?.animation?.keyframes) {
+    return "";
+  }
+
+  return `@keyframes ${props.animation.name + extraName} { ${Object.entries(
+    props.animation.keyframes,
+  )
+    .map(([key, css]) => {
+      return `${key} {${Object.entries(css ?? {})
+        .map(([cssKey, cssValue]) => {
+          return `${cssKey}: ${cssValue};`;
+        })
+        .join(" ")}}`;
+    })
+    .join(" ")} }; `;
+};
+
+const sanitizeId = (id: string): string => {
+  return id.replace(/:/g, "");
+};
+
+const generateAnimParams = (
+  props?: UiKitAnimationProps,
+  extraName = "",
+): string => {
   if (!props?.animation) {
     return "";
   }
-  return `${props.animation.name} ${props.animation.duration ?? 0.3}s ${props.animation.transition ?? "linear"} ${props.animation.direction ?? "forwards"}`;
+  return `${props.animation.name + extraName} ${props.animation.duration ?? 0.3}s ${props.animation.transition ?? "linear"} ${props.animation.direction ?? "forwards"}`;
 };
 export const useAnimation = (props: UseAnimationProps): UseAnimationOutput => {
+  const id = useId();
   const style: UseCssOutput["style"] = {};
   let className = "";
-  const mAnimParams = generateAnimParams(props.m);
+  const mAnimParams = generateAnimParams(
+    props.m,
+    props.m?.animation?.keyframes ? sanitizeId(`-m-${id}`) : "",
+  );
+  const mKeyframes = generateKeyframes(
+    props.m,
+    props.m?.animation?.keyframes ? sanitizeId(`-m-${id}`) : "",
+  );
 
   if (mAnimParams) {
     style[`--anim`] = mAnimParams;
     className += `[animation:var(--anim)]`;
   }
 
-  const mdAnimParams = generateAnimParams(props.md);
+  const mdAnimParams = generateAnimParams(
+    props.md,
+    props.md?.animation?.keyframes ? sanitizeId(`-md-${id}`) : "",
+  );
+  const mdKeyframes = generateKeyframes(
+    props.md,
+    props.md?.animation?.keyframes ? sanitizeId(`-md-${id}`) : "",
+  );
 
   if (mdAnimParams && mdAnimParams !== mAnimParams) {
     style[`--md-anim`] = mdAnimParams;
@@ -42,12 +88,21 @@ export const useAnimation = (props: UseAnimationProps): UseAnimationOutput => {
 
   const mdAppearAnimation = mdAnimParams ?? mAnimParams;
 
-  const dAnimParams = generateAnimParams(props.d);
+  const dAnimParams = generateAnimParams(
+    props.d,
+    props.d?.animation?.keyframes ? sanitizeId(`-d-${id}`) : "",
+  );
+  const dKeyframes = generateKeyframes(
+    props.d,
+    props.d?.animation?.keyframes ? sanitizeId(`-d-${id}`) : "",
+  );
 
   if (dAnimParams && dAnimParams !== mdAppearAnimation) {
     style[`--d-anim`] = dAnimParams;
     className += ` lg:[animation:var(--d-anim)]`;
   }
+
+  const keyFrames = `${mKeyframes}${mdKeyframes}${dKeyframes}`;
 
   // hover
 
@@ -102,5 +157,6 @@ export const useAnimation = (props: UseAnimationProps): UseAnimationOutput => {
   return {
     style,
     className,
+    keyFrames,
   };
 };

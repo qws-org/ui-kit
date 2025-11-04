@@ -1,5 +1,6 @@
 import type {
   ComponentPropsWithRef,
+  CSSProperties,
   ElementType,
   LinkHTMLAttributes,
   PropsWithChildren,
@@ -364,12 +365,22 @@ export type UiKitEffectProps = {
   backdropBlur?: string | number;
 };
 
+export type UiKitAnimationKeyframesKeys = "from" | "to" | `${string}%`;
+
 export type UiKitAnimationProps = {
   animation?: {
-    name: "spin" | "frameAppear" | "none";
+    name:
+      | "spin"
+      | "frameAppear"
+      | "none"
+      | "ping"
+      | "pulse"
+      | "bounce"
+      | "keyframes";
     duration?: number;
     transition?: "linear" | "ease-in" | "ease-out" | "ease-in-out" | "ease";
     direction?: "forwards" | "backwards" | "both";
+    keyframes?: Partial<Record<UiKitAnimationKeyframesKeys, CSSProperties>>;
   };
 };
 

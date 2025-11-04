@@ -193,35 +193,38 @@ export const Box = forwardRef(
     const resolvedProps = useResolvedAttributes(rest);
     const Root = as ?? "div";
     return (
-      <Root
-        // eslint-disable-next-line
-        // @ts-ignore
-        {...resolvedProps}
-        ref={ref as never}
-        className={
-          `${display.classNames} ${effects.className} ${outline.className} ${border.className} ` +
-          `${spacing.className} ${positionStyles.className} ${background.className} ` +
-          `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${animation.className} ${className ?? ""}`
-        }
-        onClick={(e) => {
-          onClick?.(e);
-        }}
-        style={{
-          ...outline.style,
-          ...border.style,
-          ...spacing.styles,
-          ...dimension.styles,
-          ...positionStyles.styles,
-          ...background.style,
-          ...typography.styles,
-          ...effects.style,
-          ...cursor.style,
-          ...animation.style,
-          ...(rest.style as object),
-        }}
-      >
-        {children}
-      </Root>
+      <>
+        {animation.keyFrames && <style>{animation.keyFrames}</style>}
+        <Root
+          // eslint-disable-next-line
+          // @ts-ignore
+          {...resolvedProps}
+          ref={ref as never}
+          className={
+            `${display.classNames} ${effects.className} ${outline.className} ${border.className} ` +
+            `${spacing.className} ${positionStyles.className} ${background.className} ` +
+            `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${animation.className} ${className ?? ""}`
+          }
+          onClick={(e) => {
+            onClick?.(e);
+          }}
+          style={{
+            ...outline.style,
+            ...border.style,
+            ...spacing.styles,
+            ...dimension.styles,
+            ...positionStyles.styles,
+            ...background.style,
+            ...typography.styles,
+            ...effects.style,
+            ...cursor.style,
+            ...animation.style,
+            ...(rest.style as object),
+          }}
+        >
+          {children}
+        </Root>
+      </>
     );
   },
 );
