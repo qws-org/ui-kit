@@ -16,7 +16,7 @@ const cardStyles = tv({
   variants: {
     variant: {
       primary:
-        "rounded-lg md:bg-[var(--colors-text-disabled)] border-0 md:border md:border-[var(--colors-border-subtle)]",
+        "md:bg-[var(--colors-text-disabled)] border-0 md:border md:border-[var(--colors-border-subtle)]",
       secondary:
         "bg-[var(--colors-surface-primary-dark)] shadow-[0px_0px_44px_0px_var(--colors-surface-neutral-dark-default)] backdrop-blur-[32px] border border-[var(--colors-border-selected)] ",
       tertiary:
@@ -33,11 +33,11 @@ export const Card: FC<Props> = (props) => {
 
   return (
     <Flex
-      {...props}
       as="div"
       flexDirection="column"
       border={{ radius: props.border?.radius ?? "card" }}
       className={cardStyles({ variant, className })}
+      {...props}
     >
       {children}
     </Flex>
