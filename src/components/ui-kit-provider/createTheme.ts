@@ -1,4 +1,5 @@
 import type {
+  BorderRadius,
   Colors,
   FontSize,
   FontWeight,
@@ -163,6 +164,9 @@ export const createTheme = (
     "border-selected": entry?.colors?.["border-selected"] ?? "#C49BFC",
     "border-subtle":
       entry?.colors?.["border-subtle"] ?? "rgba(255, 255, 255, 0.2)",
+    "border-button": entry?.colors?.["border-button"] ?? "#FFFFFF",
+    "border-secondary":
+      entry?.colors?.["border-secondary"] ?? "rgba(255, 255, 255, 0.5)",
 
     // text
     "text-accent-default": entry?.colors?.["text-accent-default"] ?? "#F6BA46",
@@ -249,6 +253,18 @@ export const createTheme = (
       "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90deg, #DCC3FE 0%, #FFCEA5 33%, #E3FAD6 66%, #CEFDFE 100%)",
   };
 
+  const borderRadius: BorderRadius = {
+    banner: entry?.borderRadius?.banner ?? "12px",
+    button: entry?.borderRadius?.button ?? "4px",
+    "big-card": entry?.borderRadius?.["big-card"] ?? "16px",
+    card: entry?.borderRadius?.card ?? "8px",
+    chip: entry?.borderRadius?.chip ?? "4px",
+    checkbox: entry?.borderRadius?.checkbox ?? "2px",
+    form: entry?.borderRadius?.form ?? "4px",
+    menus: entry?.borderRadius?.menus ?? "8px",
+    popups: entry?.borderRadius?.popups ?? "2px",
+  };
+
   return {
     global: entry?.global ?? { lineBreak: "normal", wordBreak: "auto-phrase" },
     fontSize,
@@ -260,5 +276,6 @@ export const createTheme = (
     },
     spacing,
     colors,
+    borderRadius,
   };
 };

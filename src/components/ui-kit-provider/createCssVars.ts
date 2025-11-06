@@ -196,8 +196,10 @@ export const createCssVars = (
     "--colors-background-accent-vip": theme.colors["background-accent-vip"],
 
     "--colors-border-accent": theme.colors["border-accent"],
+    "--colors-border-button": theme.colors["border-button"],
     "--colors-border-destructive": theme.colors["border-destructive"],
     "--colors-border-primary": theme.colors["border-primary"],
+    "--colors-border-secondary": theme.colors["border-secondary"],
     "--colors-border-selected": theme.colors["border-selected"],
     "--colors-border-subtle": theme.colors["border-subtle"],
 
@@ -252,5 +254,16 @@ export const createCssVars = (
     "--colors-surface-accent2-default": theme.colors["surface-accent2-default"],
     "--colors-surface-accent1-hovered": theme.colors["surface-accent1-hovered"],
     "--colors-surface-accent2-hovered": theme.colors["surface-accent2-hovered"],
+
+    // border radius
+    "--border-radius-button": theme.borderRadius.button,
+    "--border-radius-form": theme.borderRadius.form,
+    "--border-radius-card": theme.borderRadius.card,
+    "--border-radius-chip": theme.borderRadius.chip,
+    "--border-radius-big-card": theme.borderRadius["big-card"],
+    "--border-radius-checkbox": theme.borderRadius.checkbox,
+    "--border-radius-menus": theme.borderRadius.menus,
+    "--border-radius-popups": theme.borderRadius.popups,
+    "--border-radius-banner": theme.borderRadius.banner,
   };
 };

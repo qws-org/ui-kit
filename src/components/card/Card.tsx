@@ -36,6 +36,7 @@ export const Card: FC<Props> = (props) => {
       {...props}
       as="div"
       flexDirection="column"
+      border={{ radius: props.border?.radius ?? "card" }}
       className={cardStyles({ variant, className })}
     >
       {children}

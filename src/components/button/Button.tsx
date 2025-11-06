@@ -34,7 +34,7 @@ import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 import { useTypography } from "~/components/use-typography";
 
 const buttonStyles = tv({
-  base: "rounded-[4px] outline-none box-border border-0 flex justify-center items-center cursor-pointer transition-all duration-200 text-[var(--colors-text-primary-default)] font-noto-sans-sc",
+  base: "outline-none box-border border-0 flex justify-center items-center cursor-pointer transition-all duration-200 text-[var(--colors-text-primary-default)] font-noto-sans-sc",
   variants: {
     sizeButtonFontSize: {
       large:
@@ -259,7 +259,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
 
     // border
     const border = useBorder({
-      m: props.border,
+      m: { radius: props.border?.radius ?? "button", ...props.border },
       md: md?.border,
       d: d?.border,
       hover: { m: hover?.border, md: md?.hover?.border, d: d?.hover?.border },

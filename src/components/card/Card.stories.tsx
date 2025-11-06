@@ -47,12 +47,14 @@ export const WithNestedContent: Story = {
     ),
   },
 };
+
 export const SecondaryVariant: Story = {
   args: {
     variant: "secondary",
     children: "Это карточка с вариантом secondary,",
   },
 };
+
 export const TertiaryVariant: Story = {
   args: {
     variant: "tertiary",
