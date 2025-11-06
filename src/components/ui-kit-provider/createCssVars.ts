@@ -182,6 +182,7 @@ export const createCssVars = (
     // Colors
     "--colors-background-primary": theme.colors["background-primary"],
     "--colors-background-secondary": theme.colors["background-secondary"],
+    "--colors-background-tetriary": theme.colors["background-tetriary"],
     "--colors-background-secondary-transparent":
       theme.colors["background-secondary-transparent"],
     "--colors-background-transparent": theme.colors["background-transparent"],

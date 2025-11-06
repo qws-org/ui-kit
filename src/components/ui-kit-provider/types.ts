@@ -129,6 +129,7 @@ export type Spacing = {
 export type ColorKeys =
   | "background-primary"
   | "background-secondary"
+  | "background-tetriary"
   | "background-secondary-transparent"
   | "background-transparent"
   | "background-accent-vip"
