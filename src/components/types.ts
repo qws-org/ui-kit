@@ -7,6 +7,7 @@ import type {
 } from "react";
 
 import type {
+  BorderRadiusKeys,
   ColorKeys,
   FontSizeKeys,
   FontWeightKeys,
@@ -280,7 +281,7 @@ export type BorderColorSides = {
 export type UiKitBorderColor = BorderColorItem | BorderColorSides;
 export type BorderWidthItem = string;
 
-export type BorderRadiusItem = string;
+export type BorderRadiusItem = string | BorderRadiusKeys;
 
 export type BorderRadiusSides = {
   topLeft?: BorderRadiusItem;

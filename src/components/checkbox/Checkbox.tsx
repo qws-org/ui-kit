@@ -32,7 +32,7 @@ const labelStyles = tv({
   },
 });
 const checkboxStyles = tv({
-  base: " h-6 border-2 rounded transition-all cursor-pointer",
+  base: " transition-all ",
   variants: {
     selected: {
       true: "bg-[var(--colors-surface-primary-default)] border-[var(--colors-surface-primary-default)]  text-[var(--colors-text-primary-default)] ",
@@ -79,6 +79,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             className={checkboxStyles({
               selected: state.isSelected,
             })}
+            border={{ radius: "checkbox", width: "2px" }}
+            cursor="pointer"
             minWidth={24}
             width={24}
             height={24}

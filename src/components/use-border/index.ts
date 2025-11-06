@@ -2,6 +2,7 @@ import type {
   BorderColorItem,
   BorderColorSides,
   BorderRadiusItem,
+  BorderRadiusKeys,
   BorderRadiusSides,
   ColorKeys,
   UiKitBorderColor,
@@ -71,6 +72,7 @@ const transformBorderRadius = (item: UiKitBorderRadius): BorderRadiusSides => {
 export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   const style: UseBorderOutput["style"] = {};
   let classNames = "";
+  const { borderRadius } = useUiKitTheme();
 
   // radius
   const mRadius = props.m?.radius
@@ -85,7 +87,7 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
 
   const universalMRadiusValue =
     typeof props.m?.radius !== "undefined" && isSingleRadius(props.m?.radius)
-      ? props.m?.radius
+      ? (borderRadius[props.m?.radius as BorderRadiusKeys] ?? props.m?.radius)
       : undefined;
 
   if (
@@ -99,19 +101,27 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       classNames += `rounded-[var(--br)] `;
     } else {
       if (typeof mRadius?.topLeft !== "undefined") {
-        style["--tl-br"] = mRadius?.topLeft;
+        style["--tl-br"] =
+          borderRadius[mRadius?.topLeft as BorderRadiusKeys] ??
+          mRadius?.topLeft;
         classNames += `rounded-tl-[var(--tl-br)] `;
       }
       if (typeof mRadius?.topRight !== "undefined") {
-        style["--tr-br"] = mRadius?.topRight;
+        style["--tr-br"] =
+          borderRadius[mRadius?.topRight as BorderRadiusKeys] ??
+          mRadius?.topRight;
         classNames += `rounded-tr-[var(--tr-br)] `;
       }
       if (typeof mRadius?.bottomLeft !== "undefined") {
-        style["--bl-br"] = mRadius?.bottomLeft;
+        style["--bl-br"] =
+          borderRadius[mRadius?.bottomLeft as BorderRadiusKeys] ??
+          mRadius?.bottomLeft;
         classNames += `rounded-bl-[var(--bl-br)] `;
       }
       if (typeof mRadius?.bottomRight !== "undefined") {
-        style["--br-br"] = mRadius?.bottomRight;
+        style["--br-br"] =
+          borderRadius[mRadius?.bottomRight as BorderRadiusKeys] ??
+          mRadius?.bottomRight;
         classNames += `rounded-br-[var(--br-br)] `;
       }
     }
@@ -119,7 +129,7 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
 
   const universalMdRadiusValue =
     typeof props?.md?.radius !== "undefined" && isSingleRadius(props.md.radius)
-      ? props.md.radius
+      ? (borderRadius[props.md?.radius as BorderRadiusKeys] ?? props.md.radius)
       : undefined;
 
   if (
@@ -133,19 +143,27 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       classNames += `md:rounded-[var(--md-br)] `;
     } else {
       if (typeof mdRadius?.topLeft !== "undefined") {
-        style["--md-tl-br"] = mdRadius?.topLeft;
+        style["--md-tl-br"] =
+          borderRadius[mdRadius?.topLeft as BorderRadiusKeys] ??
+          mdRadius?.topLeft;
         classNames += `md:rounded-tl-[var(--md-tl-br)] `;
       }
       if (typeof mdRadius?.topRight !== "undefined") {
-        style["--md-tr-br"] = mdRadius?.topRight;
+        style["--md-tr-br"] =
+          borderRadius[mdRadius?.topRight as BorderRadiusKeys] ??
+          mdRadius?.topRight;
         classNames += `md:rounded-tr-[var(--md-tr-br)] `;
       }
       if (typeof mdRadius?.bottomLeft !== "undefined") {
-        style["--md-bl-br"] = mdRadius?.bottomLeft;
+        style["--md-bl-br"] =
+          borderRadius[mdRadius?.bottomLeft as BorderRadiusKeys] ??
+          mdRadius?.bottomLeft;
         classNames += `md:rounded-bl-[var(--md-bl-br)] `;
       }
       if (typeof mdRadius?.bottomRight !== "undefined") {
-        style["--md-br-br"] = mdRadius?.bottomRight;
+        style["--md-br-br"] =
+          borderRadius[mdRadius?.bottomRight as BorderRadiusKeys] ??
+          mdRadius?.bottomRight;
         classNames += `md:rounded-br-[var(--md-br-br)] `;
       }
     }
@@ -153,7 +171,7 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
 
   const universalDRadiusValue =
     typeof props?.d?.radius !== "undefined" && isSingleRadius(props.d.radius)
-      ? props.d.radius
+      ? (borderRadius[props.d?.radius as BorderRadiusKeys] ?? props.d.radius)
       : undefined;
 
   if (
@@ -167,19 +185,26 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       classNames += `lg:rounded-[var(--d-br)] `;
     } else {
       if (typeof dRadius?.topLeft !== "undefined") {
-        style["--d-tl-br"] = dRadius?.topLeft;
+        style["--d-tl-br"] =
+          borderRadius[dRadius.topLeft as BorderRadiusKeys] ?? dRadius?.topLeft;
         classNames += `lg:rounded-tl-[var(--d-tl-br)] `;
       }
       if (typeof dRadius?.topRight !== "undefined") {
-        style["--d-tr-br"] = dRadius?.topRight;
+        style["--d-tr-br"] =
+          borderRadius[dRadius.topRight as BorderRadiusKeys] ??
+          dRadius?.topRight;
         classNames += `lg:rounded-tr-[var(--d-tr-br)] `;
       }
       if (typeof dRadius?.bottomLeft !== "undefined") {
-        style["--d-bl-br"] = dRadius?.bottomLeft;
+        style["--d-bl-br"] =
+          borderRadius[dRadius.bottomLeft as BorderRadiusKeys] ??
+          dRadius?.bottomLeft;
         classNames += `lg:rounded-bl-[var(--d-bl-br)] `;
       }
       if (typeof dRadius?.bottomRight !== "undefined") {
-        style["--d-br-br"] = dRadius?.bottomRight;
+        style["--d-br-br"] =
+          borderRadius[dRadius.bottomRight as BorderRadiusKeys] ??
+          dRadius?.bottomRight;
         classNames += `lg:rounded-br-[var(--d-br-br)] `;
       }
     }
@@ -198,7 +223,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
 
   const universalMRadiusHoverValue =
     props.hover.m?.radius && isSingleRadius(props.hover.m.radius)
-      ? props.hover.m.radius
+      ? (borderRadius[props.hover?.m?.radius as BorderRadiusKeys] ??
+        props.hover.m.radius)
       : undefined;
 
   if (
@@ -212,19 +238,27 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       classNames += `hover:rounded-[var(--h-br)] `;
     } else {
       if (typeof mHoverRadius?.topLeft !== "undefined") {
-        style["--h-tl-br"] = mHoverRadius?.topLeft;
+        style["--h-tl-br"] =
+          borderRadius[mHoverRadius?.topLeft as BorderRadiusKeys] ??
+          mHoverRadius?.topLeft;
         classNames += `hover:rounded-tl-[var(--h-tl-br)] `;
       }
       if (typeof mHoverRadius?.topRight !== "undefined") {
-        style["--h-tr-br"] = mHoverRadius?.topRight;
+        style["--h-tr-br"] =
+          borderRadius[mHoverRadius?.topRight as BorderRadiusKeys] ??
+          mHoverRadius?.topRight;
         classNames += `hover:rounded-tr-[var(--h-tr-br)] `;
       }
       if (typeof mHoverRadius?.bottomLeft !== "undefined") {
-        style["--h-bl-br"] = mHoverRadius?.bottomLeft;
+        style["--h-bl-br"] =
+          borderRadius[mHoverRadius?.bottomLeft as BorderRadiusKeys] ??
+          mHoverRadius?.bottomLeft;
         classNames += `hover:rounded-bl-[var(--h-bl-br)] `;
       }
       if (typeof mHoverRadius?.bottomRight !== "undefined") {
-        style["--h-br-br"] = mHoverRadius?.bottomRight;
+        style["--h-br-br"] =
+          borderRadius[mHoverRadius?.bottomRight as BorderRadiusKeys] ??
+          mHoverRadius?.bottomRight;
         classNames += `hover:rounded-br-[var(--h-br-br)] `;
       }
     }
@@ -233,7 +267,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   const universalMdRadiusHoverValue =
     typeof props?.hover?.md?.radius !== "undefined" &&
     isSingleRadius(props.hover?.md.radius)
-      ? props.hover.md.radius
+      ? (borderRadius[props.hover.md.radius as BorderRadiusKeys] ??
+        props.hover.md.radius)
       : undefined;
 
   if (
@@ -247,19 +282,27 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
       classNames += `md:hover:rounded-[var(--h-md-br)] `;
     } else {
       if (typeof mdHoverRadius?.topLeft !== "undefined") {
-        style["--h-md-tl-br"] = mdHoverRadius?.topLeft;
+        style["--h-md-tl-br"] =
+          borderRadius[mdHoverRadius?.topLeft as BorderRadiusKeys] ??
+          mdHoverRadius?.topLeft;
         classNames += `md:hover:rounded-tl-[var(--h-md-tl-br)] `;
       }
       if (typeof mdHoverRadius?.topRight !== "undefined") {
-        style["--h-md-tr-br"] = mdHoverRadius?.topRight;
+        style["--h-md-tr-br"] =
+          borderRadius[mdHoverRadius?.topRight as BorderRadiusKeys] ??
+          mdHoverRadius?.topRight;
         classNames += `md:hover:rounded-tr-[var(--h-md-tr-br)] `;
       }
       if (typeof mdHoverRadius?.bottomLeft !== "undefined") {
-        style["--h-md-bl-br"] = mdHoverRadius?.bottomLeft;
+        style["--h-md-bl-br"] =
+          borderRadius[mdHoverRadius?.bottomLeft as BorderRadiusKeys] ??
+          mdHoverRadius?.bottomLeft;
         classNames += `md:hover:rounded-bl-[var(--h-md-bl-br)] `;
       }
       if (typeof mdHoverRadius?.bottomRight !== "undefined") {
-        style["--h-md-br-br"] = mdHoverRadius?.bottomRight;
+        style["--h-md-br-br"] =
+          borderRadius[mdHoverRadius?.bottomRight as BorderRadiusKeys] ??
+          mdHoverRadius?.bottomRight;
         classNames += `md:hover:rounded-br-[var(--h-md-br-br)] `;
       }
     }
@@ -267,7 +310,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
 
   const universalDRadiusHoverValue =
     props.hover?.d?.radius && isSingleRadius(props.hover.d.radius)
-      ? props.hover.d.radius
+      ? (borderRadius[props.hover.d.radius as BorderRadiusKeys] ??
+        props.hover.d.radius)
       : undefined;
 
   const mdHoverRadiusValue =
@@ -281,19 +325,27 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
     classNames += `lg:hover:rounded-[var(--h-d-br)] `;
   } else if (typeof universalDRadiusHoverValue === "undefined") {
     if (typeof dHoverRadius?.topLeft !== "undefined") {
-      style["--h-d-tl-br"] = dHoverRadius?.topLeft;
+      style["--h-d-tl-br"] =
+        borderRadius[dHoverRadius?.topLeft as BorderRadiusKeys] ??
+        dHoverRadius?.topLeft;
       classNames += `lg:hover:rounded-tl-[var(--h-d-tl-br)] `;
     }
     if (typeof dHoverRadius?.topRight !== "undefined") {
-      style["--h-d-tr-br"] = dHoverRadius?.topRight;
+      style["--h-d-tr-br"] =
+        borderRadius[dHoverRadius?.topRight as BorderRadiusKeys] ??
+        dHoverRadius?.topRight;
       classNames += `lg:hover:rounded-tr-[var(--h-d-tr-br)] `;
     }
     if (typeof dHoverRadius?.bottomLeft !== "undefined") {
-      style["--h-d-bl-br"] = dHoverRadius?.bottomLeft;
+      style["--h-d-bl-br"] =
+        borderRadius[dHoverRadius?.bottomLeft as BorderRadiusKeys] ??
+        dHoverRadius?.bottomLeft;
       classNames += `lg:hover:rounded-bl-[var(--h-d-bl-br)] `;
     }
     if (typeof dHoverRadius?.bottomRight !== "undefined") {
-      style["--h-d-br-br"] = dHoverRadius?.bottomRight;
+      style["--h-d-br-br"] =
+        borderRadius[dHoverRadius?.bottomRight as BorderRadiusKeys] ??
+        dHoverRadius?.bottomRight;
       classNames += `lg:hover:rounded-br-[var(--h-d-br-br)] `;
     }
   }

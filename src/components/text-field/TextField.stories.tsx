@@ -38,7 +38,13 @@ export const Default: Story = {
   },
   render: (args) => <TextField {...args} />,
 };
-
+export const WithBgColor: Story = {
+  args: {
+    label: "Username",
+    bg: "white",
+  },
+  render: (args) => <TextField {...args} />,
+};
 export const WithValidation: Story = {
   render: () => {
     const onSubmit = (): void => {

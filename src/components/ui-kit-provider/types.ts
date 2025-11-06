@@ -138,8 +138,10 @@ export type ColorKeys =
   | "background-accent2-vertical"
   | "background-accent2-reversed"
   | "border-accent"
+  | "border-button"
   | "border-destructive"
   | "border-primary"
+  | "border-secondary"
   | "border-selected"
   | "border-subtle"
   | "text-accent-default"
@@ -179,7 +181,19 @@ export type ColorKeys =
   | "surface-accent2-default"
   | "surface-accent2-hovered";
 
+export type BorderRadiusKeys =
+  | "button"
+  | "form"
+  | "card"
+  | "chip"
+  | "big-card"
+  | "checkbox"
+  | "menus"
+  | "popups"
+  | "banner";
+
 export interface Colors extends Record<ColorKeys, string> {}
+export interface BorderRadius extends Record<BorderRadiusKeys, string> {}
 
 export type UIKitProviderTheme = {
   global: {
@@ -192,6 +206,7 @@ export type UIKitProviderTheme = {
   fontWeight: FontWeight;
   spacing: Spacing;
   colors: Colors;
+  borderRadius: BorderRadius;
 };
 export type UIKitProviderProps = PropsWithChildren<{
   components: {

@@ -185,6 +185,37 @@ export const Border: Story = {
     },
   },
 };
+export const BorderWithTokenValues: Story = {
+  args: {
+    size: "large",
+    variant: "default",
+    children: "Default Button",
+
+    border: {
+      width: "1px",
+      color: "border-primary",
+
+      radius: "button",
+    },
+    md: {
+      border: {
+        style: "none",
+        radius: {
+          topLeft: "card",
+
+          bottomLeft: "big-card",
+          bottomRight: "checkbox",
+          topRight: "chip",
+        },
+      },
+    },
+    d: {
+      border: {
+        radius: "popups",
+      },
+    },
+  },
+};
 
 export const DataAttributes: Story = {
   args: {

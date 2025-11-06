@@ -375,6 +375,41 @@ export const dataAttributes: Story = {
   },
 };
 
+export const borderRadius: Story = {
+  render() {
+    return (
+      <Flex gap={20}>
+        <Box
+          width={500}
+          height={300}
+          border={{ radius: { topLeft: "big-card" } }}
+          bg="background-accent2-vertical"
+          md={{ border: { radius: "big-card" } }}
+          d={{ border: { radius: "menus" } }}
+          hover={{ border: { radius: "popups" } }}
+        ></Box>
+        <Box
+          width={500}
+          height={300}
+          border={{ radius: { topRight: "checkbox" } }}
+          bg="background-accent1-vertical"
+          md={{ border: { radius: "40px" } }}
+        ></Box>
+        <Box
+          width={500}
+          height={300}
+          border={{ radius: { topLeft: "big-card" } }}
+          bg="background-accent2-reversed"
+          md={{
+            border: { radius: "banner" },
+            hover: { border: { radius: "form" } },
+          }}
+        ></Box>
+      </Flex>
+    );
+  },
+};
+
 export const AppearAnimation: Story = {
   args: {
     p: 20,
