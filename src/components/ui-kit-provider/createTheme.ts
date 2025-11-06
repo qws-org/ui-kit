@@ -126,6 +126,8 @@ export const createTheme = (
     "background-secondary":
       entry?.colors?.["background-secondary"] ?? "#171717",
 
+    "background-tetriary": entry?.colors?.["background-tetriary"] ?? "#000000",
+
     "background-secondary-transparent":
       entry?.colors?.["background-secondary-transparent"] ??
       "rgba(23, 23, 23, 0.7)",
