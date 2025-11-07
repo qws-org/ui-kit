@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     size: {
       control: "radio",
-      options: ["large", "medium", "small"],
+      options: ["large", "medium", "small", "xsmall"],
       description: "Size of the Title",
     },
     weight: {
@@ -106,7 +106,7 @@ const meta = {
   },
   args: {
     as: "p",
-    size: "small",
+    size: "xsmall",
     fontSize: "button.desktop.xsmall",
     lineHeight: "body.desktop.small",
     textDecoration: "underline",

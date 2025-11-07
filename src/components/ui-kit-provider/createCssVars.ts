@@ -52,6 +52,8 @@ export const createCssVars = (
       theme.fontSize["body.desktop.medium"] + "px",
     "--fontSize-desktop-small-body":
       theme.fontSize["body.desktop.small"] + "px",
+    "--fontSize-desktop-xsmall-body":
+      theme.fontSize["body.desktop.xsmall"] + "px",
     // ------------------------------
 
     // fontSize mobile title
@@ -59,6 +61,8 @@ export const createCssVars = (
     "--fontSize-mobile-medium-body":
       theme.fontSize["body.mobile.medium"] + "px",
     "--fontSize-mobile-small-body": theme.fontSize["body.mobile.small"] + "px",
+    "--fontSize-mobile-xsmall-body":
+      theme.fontSize["body.mobile.xsmall"] + "px",
     // ------------------------------
 
     // fontSize desktop button

@@ -29,10 +29,12 @@ export type FontSize = {
   "body.desktop.large": number | string;
   "body.desktop.medium": number | string;
   "body.desktop.small": number | string;
+  "body.desktop.xsmall": number | string;
 
   "body.mobile.large": number | string;
   "body.mobile.medium": number | string;
   "body.mobile.small": number | string;
+  "body.mobile.xsmall": number | string;
 
   "button.desktop.large": number | string;
   "button.desktop.medium": number | string;
