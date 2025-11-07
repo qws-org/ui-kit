@@ -8,7 +8,7 @@ type TypographySize = "large" | "medium" | "small" | "xsmall";
 export type TypographyProps = PropsWithChildren<
   UiKitFC<
     {
-      as?: "p" | "span" | "article" | "li";
+      as?: "p" | "span" | "article" | "li" | "label";
       /**
        * @deprecated Используйте свойство `fontWeight` вместо `weight`.
        */

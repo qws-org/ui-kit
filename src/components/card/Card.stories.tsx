@@ -61,3 +61,13 @@ export const TertiaryVariant: Story = {
     children: "Это карточка с вариантом tertiary,",
   },
 };
+export const DefaultVariantWithCustomBg: Story = {
+  args: {
+    variant: "default",
+    bg: "background-accent1",
+    md: { bg: "background-tetriary" },
+    d: { bg: "background-accent1-vertical" },
+    children:
+      "Это карточка с вариантом default, и добавлен bg для кастомизации цвета подложки",
+  },
+};
