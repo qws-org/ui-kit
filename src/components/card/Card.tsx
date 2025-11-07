@@ -5,7 +5,7 @@ import type { BoxProps } from "~/components";
 import { Flex } from "~/components/flex/Flex";
 
 export type CardProps = PropsWithChildren<{
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "tertiary" | "default";
 }> &
   Partial<Omit<BoxProps, "display">> & {
     display?: "flex" | "inline-flex" | "hidden";
@@ -21,6 +21,7 @@ const cardStyles = tv({
         "bg-[var(--colors-surface-primary-dark)] shadow-[0px_0px_44px_0px_var(--colors-surface-neutral-dark-default)] backdrop-blur-[32px] border border-[var(--colors-border-selected)] ",
       tertiary:
         "bg-gradient-to-b from-[var(--colors-surface-primary-dark)] to-[var(--colors-surface-primary-dark)] items-center",
+      default: "",
     },
   },
   defaultVariants: {

@@ -308,6 +308,7 @@ export type UiKitOutlineProps = {
 
 export type UiKitCursorProps = {
   cursor?:
+    | "auto"
     | "default"
     | "pointer"
     | "wait"

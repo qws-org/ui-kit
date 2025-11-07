@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
-import { Button } from "~/components";
+import { Box, Button } from "~/components";
 import { Eye } from "~/icons";
 
 import { TextField } from "./TextField";
@@ -45,6 +45,19 @@ export const WithBgColor: Story = {
   },
   render: (args) => <TextField {...args} />,
 };
+export const WithCustomization: Story = {
+  args: {
+    label: "Username",
+
+    border: { width: "1px", radius: "4px" },
+    bg: "surface-neutral-dark-default",
+  },
+  render: (args) => (
+    <Box p={20} bg={"#55239A"}>
+      <TextField {...args} />
+    </Box>
+  ),
+};
 export const WithValidation: Story = {
   render: () => {
     const onSubmit = (): void => {
@@ -53,7 +66,7 @@ export const WithValidation: Story = {
 
     return (
       <form onSubmit={onSubmit}>
-        <TextField name="email" label="Email" />
+        <TextField name="email" label="Email" type="email" />
         <Button
           type="submit"
           className="mt-4 p-2 bg-blue-500 text-white rounded"
@@ -96,6 +109,15 @@ export const Disabled: Story = {
   },
   render: (args) => {
     return <TextField {...args} />;
+  },
+};
+export const Error: Story = {
+  args: {
+    label: "Error",
+    value: "Some text",
+  },
+  render: (args) => {
+    return <TextField {...args} errorMessage={"error message"} />;
   },
 };
 
