@@ -31,10 +31,12 @@ export const createTheme = (
     "body.desktop.large": entry?.fontSize?.["body.desktop.large"] ?? 18,
     "body.desktop.medium": entry?.fontSize?.["body.desktop.medium"] ?? 16,
     "body.desktop.small": entry?.fontSize?.["body.desktop.small"] ?? 14,
+    "body.desktop.xsmall": entry?.fontSize?.["body.desktop.xsmall"] ?? 12,
 
     "body.mobile.large": entry?.fontSize?.["body.mobile.large"] ?? 16,
     "body.mobile.medium": entry?.fontSize?.["body.mobile.medium"] ?? 14,
     "body.mobile.small": entry?.fontSize?.["body.mobile.small"] ?? 12,
+    "body.mobile.xsmall": entry?.fontSize?.["body.mobile.xsmall"] ?? 10,
 
     "button.desktop.large": entry?.fontSize?.["button.desktop.large"] ?? 22,
     "button.desktop.medium": entry?.fontSize?.["button.desktop.medium"] ?? 20,

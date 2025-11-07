@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 import type { BoxProps, FontWeightKeys } from "~/components";
 import { Box } from "~/components";
 
-type TypographySize = "large" | "medium" | "small";
+type TypographySize = "large" | "medium" | "small" | "xsmall";
 export type TypographyProps = PropsWithChildren<
   UiKitFC<
     {
@@ -30,6 +30,8 @@ const typographyStyle = tv({
         "[font-size:var(--fontSize-mobile-medium-body)] md:[font-size:var(--fontSize-desktop-medium-body)]",
       small:
         "[font-size:var(--fontSize-mobile-small-body)] md:[font-size:var(--fontSize-desktop-small-body)]",
+      xsmall:
+        "[font-size:var(--fontSize-mobile-xsmall-body)] md:[font-size:var(--fontSize-desktop-xsmall-body)]",
     },
     sizeLineHeight: {
       large:
@@ -38,6 +40,8 @@ const typographyStyle = tv({
         "[line-height:var(--lineHeight-mobile-medium-body)] md:[line-height:var(--lineHeight-desktop-medium-body)]",
       small:
         "[line-height:var(--lineHeight-mobile-small-body)] md:[line-height:var(--lineHeight-desktop-small-body)]",
+      xsmall:
+        "[line-height:var(--lineHeight-mobile-xsmall-body)] md:[line-height:var(--lineHeight-desktop-xsmall-body)]",
     },
   },
 });
