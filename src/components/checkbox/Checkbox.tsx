@@ -5,6 +5,7 @@ import { useToggleState } from "react-stately";
 import { tv } from "tailwind-variants";
 
 import type { UiKitDataAttributesProps } from "~/components";
+import { Typography } from "~/components";
 import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 import { CheckboxIcon } from "~/icons";
 
@@ -58,7 +59,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const resolvedProps = useResolvedAttributes(rest);
 
     return (
-      <>
+      <Flex flexDirection="column">
         <label
           {...resolvedProps}
           className={labelStyles({
@@ -70,7 +71,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             {...inputProps}
             ref={inputRef}
             type="checkbox"
-            className="opacity-0 absolute w-6 h-6"
+            className="opacity-0 absolute "
           />
           <Flex
             as="div"
@@ -79,7 +80,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             className={checkboxStyles({
               selected: state.isSelected,
             })}
-            border={{ radius: "checkbox", width: "2px" }}
+            border={{
+              radius: "checkbox",
+              width: "2px",
+              color: "border-button",
+            }}
             cursor="pointer"
             minWidth={24}
             width={24}
@@ -92,15 +97,18 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         </label>
 
         {errorMessage && (
-          <span
-            className={
-              "text-[var(--colors-text-destructive)] [font-size:var(--fontSize-mobile-small-body)] [line-height:var(--lineHeight-mobile-small-body)] [font-weight:var(--fontWeight-mobile-normal)] md:[font-weight:var(--fontWeight-desktop-normal)]"
-            }
+          <Typography
+            lineHeight="body.mobile.small"
+            fontSize="body.mobile.small"
+            fontWeight="mobile.normal"
+            md={{ fontWeight: "desktop.normal" }}
+            as="span"
+            color="text-destructive"
           >
             {errorMessage}
-          </span>
+          </Typography>
         )}
-      </>
+      </Flex>
     );
   },
 );
