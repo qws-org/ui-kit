@@ -115,3 +115,20 @@ export const OffsetAndCrossOffset: Story = {
     </PopoverTrigger>
   ),
 };
+
+export const CustomTrigger: Story = {
+  render: () => (
+    <PopoverTrigger
+      placement="top end"
+      label="asd"
+      customTrigger={<button>Custom trigger</button>}
+      popoverProps={{
+        bg: "red",
+      }}
+    >
+      <Dialog dialogStyle={{ padding: "8px 12px" }}>
+        Custom trigger content
+      </Dialog>
+    </PopoverTrigger>
+  ),
+};
