@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
 
 import { Dialog } from "./dialog/Dialog";
+import { Popover } from "./Popover";
 import { PopoverTrigger } from "./PopoverTrigger";
 
 const meta: Meta<typeof PopoverTrigger> = {
@@ -122,13 +122,31 @@ export const CustomTrigger: Story = {
       placement="top end"
       label="asd"
       customTrigger={<button>Custom trigger</button>}
-      popoverProps={{
-        bg: "red",
-      }}
     >
       <Dialog dialogStyle={{ padding: "8px 12px" }}>
         Custom trigger content
       </Dialog>
     </PopoverTrigger>
+  ),
+};
+
+export const MediaPlacement: Story = {
+  render: () => (
+    <div className="w-full h-screen flex items-center justify-center">
+      <PopoverTrigger
+        label="Click"
+        placement="top"
+        customPopover={(ref, state) => (
+          <Popover
+            bg="red"
+            md={{ placement: "right" }}
+            triggerRef={ref}
+            state={state}
+          />
+        )}
+      >
+        <Dialog>Media placement</Dialog>
+      </PopoverTrigger>
+    </div>
   ),
 };
