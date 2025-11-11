@@ -10,6 +10,7 @@ import type {
   UiKitBorderRadius,
 } from "~/components";
 import { useUiKitTheme } from "~/components";
+import { useBorderWidth } from "~/components/use-border/useBorderWidth";
 
 type UseBorderBaseProps = {
   m?: UiKitBorderProps;
@@ -597,25 +598,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   }
 
   // width
-  if (typeof props.m?.width !== "undefined") {
-    style["--border-width"] = props.m.width;
-    classNames += `[border-width:var(--border-width)] `;
-  }
-
-  if (
-    typeof props.md?.width !== "undefined" &&
-    props.md?.width !== props.m?.width
-  ) {
-    style["--md-border-width"] = props.md.width;
-    classNames += `md:[border-width:var(--md-border-width)] `;
-  }
-
-  const mdWidth = props.md?.width ?? props.m?.width;
-
-  if (typeof props.d?.width !== "undefined" && props.d.width !== mdWidth) {
-    style["--d-border-width"] = props.d.width;
-    classNames += `lg:[border-width:var(--d-border-width)] `;
-  }
+  const widthStyles = useBorderWidth(props);
+  classNames += `${widthStyles.className} `;
 
   // style
   if (props.m?.style) {
@@ -636,6 +620,6 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
 
   return {
     className: classNames.trim(),
-    style,
+    style: { ...style, ...widthStyles.style },
   };
 };

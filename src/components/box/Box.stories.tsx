@@ -436,3 +436,22 @@ export const AppearAnimation: Story = {
     );
   },
 };
+export const BoxBorderWidth: Story = {
+  args: {
+    border: {
+      width: {
+        top: "1px",
+        left: "3px",
+        right: "4px",
+        bottom: "0px",
+      },
+    },
+  },
+  render(args) {
+    return (
+      <Box {...args} className="w-[300px]">
+        Контент с разным borderWidth
+      </Box>
+    );
+  },
+};

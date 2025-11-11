@@ -279,6 +279,7 @@ export type BorderColorSides = {
 };
 
 export type UiKitBorderColor = BorderColorItem | BorderColorSides;
+export type UiKitBorderWidth = BorderWidthItem | BorderWidthSides;
 export type BorderWidthItem = string;
 
 export type BorderRadiusItem = string | BorderRadiusKeys;
@@ -289,13 +290,19 @@ export type BorderRadiusSides = {
   bottomLeft?: BorderRadiusItem;
   bottomRight?: BorderRadiusItem;
 };
+export type BorderWidthSides = {
+  top?: BorderWidthItem;
+  bottom?: BorderWidthItem;
+  left?: BorderWidthItem;
+  right?: BorderWidthItem;
+};
 
 export type UiKitBorderRadius = BorderRadiusItem | BorderRadiusSides;
 
 export type UiKitBorderProps = {
   radius?: UiKitBorderRadius;
   color?: UiKitBorderColor;
-  width?: BorderWidthItem;
+  width?: UiKitBorderWidth;
   style?: "solid" | "dashed" | "dotted" | "double" | "hidden" | "none";
 };
 
