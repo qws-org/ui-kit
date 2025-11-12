@@ -61,13 +61,16 @@ export const TertiaryVariant: Story = {
     children: "Это карточка с вариантом tertiary,",
   },
 };
-export const DefaultVariantWithCustomBg: Story = {
+export const CustomVariantWithCustomBg: Story = {
   args: {
     variant: "default",
-    bg: "background-accent1",
+    bg: "background-accent2",
     md: { bg: "background-tetriary" },
     d: { bg: "background-accent1-vertical" },
+    border: { radius: "40px" },
+    className: "rounded md:rounded-[33px] h-[300px]",
     children:
-      "Это карточка с вариантом default, и добавлен bg для кастомизации цвета подложки",
+      "Это карточка с вариантом default, и добавлен bg для кастомизации цвета подложки и border-radius," +
+      " в приоритете пропсы, те параметры что необходимо дописать можно дополнить через className ",
   },
 };
