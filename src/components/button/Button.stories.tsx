@@ -61,7 +61,6 @@ export const Default: Story = {
   args: {
     variant: "default",
     children: "Default Button",
-    isDisabled: true,
     p: { px: 40 },
     md: { p: { px: 96 }, display: "inline-block" },
   },
@@ -244,5 +243,54 @@ export const InlineBlock: Story = {
         </Button>
       </Typography>
     );
+  },
+};
+
+export const DefaultAndDisabled: Story = {
+  args: {
+    size: "large",
+    variant: "default",
+    children: "Default Disabled Button",
+    isDisabled: true,
+  },
+};
+export const SecondaryAndDisabled: Story = {
+  args: {
+    size: "large",
+    variant: "secondary",
+    children: "secondary Disabled Button",
+    isDisabled: true,
+  },
+};
+export const PrimaryAndDisabled: Story = {
+  args: {
+    size: "large",
+    variant: "primary",
+    children: "primary Disabled Button",
+    isDisabled: true,
+  },
+};
+export const TertiaryAndDisabled: Story = {
+  args: {
+    size: "large",
+    variant: "tertiary",
+    children: "tertiary Disabled Button",
+    isDisabled: true,
+  },
+};
+export const AccentAndDisabled: Story = {
+  args: {
+    size: "large",
+    variant: "accent",
+    children: "accent Disabled Button",
+    isDisabled: true,
+  },
+};
+export const TransparentAndDisabled: Story = {
+  args: {
+    size: "large",
+    variant: "transparent",
+    children: "transparent Disabled Button",
+    isDisabled: true,
   },
 };

@@ -83,6 +83,10 @@ const buttonStyles = tv({
       true: "",
       false: "",
     },
+    isDisabled: {
+      true: "",
+      false: "",
+    },
   },
   compoundVariants: [
     {
@@ -94,6 +98,33 @@ const buttonStyles = tv({
     {
       variant: "default",
       isDisabled: true,
+      class: "cursor-not-allowed pointer-events-none opacity-30",
+    },
+    {
+      variant: "transparent",
+      isDisabled: true,
+      class: "cursor-not-allowed pointer-events-none opacity-30",
+    },
+    {
+      variant: "accent",
+      isDisabled: true,
+      class: "cursor-not-allowed pointer-events-none opacity-30",
+    },
+    {
+      variant: "secondary",
+      isDisabled: true,
+      class: "cursor-not-allowed pointer-events-none opacity-30",
+    },
+
+    {
+      variant: "tertiary",
+      isDisabled: true,
+      class: "cursor-not-allowed pointer-events-none opacity-30",
+    },
+    {
+      variant: "primary",
+      isDisabled: true,
+      class: "cursor-not-allowed pointer-events-none opacity-30",
     },
   ],
   defaultVariants: {
@@ -288,9 +319,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ref={mergedRef}
             disabled={isDisabled}
             className={buttonStyles({
-              variant: isDisabled ? "disabled" : variant,
+              variant,
+              isDisabled,
               isActive,
-
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
               className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
@@ -318,7 +349,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
           {...props}
           {...resolvedProps}
           className={buttonStyles({
-            variant: isDisabled ? "disabled" : variant,
+            variant,
+            isDisabled,
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
@@ -348,7 +380,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
         {...resolvedProps}
         href={href}
         className={buttonStyles({
-          variant: isDisabled ? "disabled" : variant,
+          variant,
+          isDisabled,
           isActive,
           sizeButtonFontSize: props.fontSize ? undefined : size,
           sizeButtonLineHeight: props.lineHeight ? undefined : size,

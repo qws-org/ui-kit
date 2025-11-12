@@ -1,7 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import { Button } from "~/components";
+import {
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Flex,
+  Modal,
+  TextField,
+  Typography,
+} from "~/components";
 import { Close } from "~/icons";
 
 import ModalTrigger from "./ModalTrigger";
@@ -62,6 +71,7 @@ export const FormModal: StoryObj<typeof ModalTrigger> = {
           onPress={close}
           autoFocus
           variant="default"
+          bg={"background-accent1"}
           border={{ width: "2" }}
           position={{
             type: "absolute",
@@ -120,5 +130,180 @@ export const NonDismissibleModal: StoryObj<typeof ModalTrigger> = {
         </div>
       )}
     </ModalTrigger>
+  ),
+};
+export const ValueChain: StoryObj<typeof ModalTrigger> = {
+  render: () => (
+    <Modal
+      state={{
+        isOpen: true,
+        open() {},
+        close() {},
+        setOpen() {},
+        toggle() {},
+      }}
+      p={{ pt: 12, pb: 16, pr: 16, pl: 16 }}
+      md={{ p: { pt: 36 } }}
+    >
+      <Flex align="center" flexDirection="column" p={{ px: 8 }}>
+        <Card
+          border={{ radius: "0px" }}
+          p={{ px: 16 }}
+          variant="default"
+          bg={"orange"}
+          minWidth={312}
+          maxWidth={768}
+          width="100vw"
+          height="100vh"
+          md={{ maxHeight: 644, maxWidth: 360 }}
+          data-testid="registration-form"
+          display={"block"}
+        >
+          <form onSubmit={() => {}} autoComplete="off">
+            <Flex
+              justify="space-between"
+              align="center"
+              p={{ py: 12 }}
+              maxHeight={56}
+            >
+              <Box as="p"></Box>
+              <Typography
+                as="p"
+                m={{ mb: 0 }}
+                fontSize="title.mobile.xsmall"
+                lineHeight="title.mobile.xsmall"
+                fontWeight="mobile.bold"
+                horizontalAlign="center"
+                data-testid="registration-form-title"
+              >
+                {"Sign Up"}
+              </Typography>
+
+              <Flex
+                justify="center"
+                align="center"
+                height={32}
+                width={32}
+                cursor={"pointer"}
+                p={8}
+                border={{
+                  radius: "8px",
+                  width: "1px",
+                  color: "border-subtle",
+                }}
+              >
+                X
+              </Flex>
+            </Flex>
+
+            <TextField
+              bg={"surface-neutral-dark-default"}
+              label={"Email"}
+              data-testid="registration-form-email-input"
+              m={{ mb: 8 }}
+            />
+
+            <TextField
+              bg={"surface-neutral-dark-default"}
+              label={"Email"}
+              data-testid="registration-form-email-input"
+              m={{ mb: 8 }}
+            />
+            <TextField
+              bg={"surface-neutral-dark-default"}
+              label={"Email"}
+              data-testid="registration-form-email-input"
+              m={{ mb: 8 }}
+            />
+
+            <Flex m={{ mb: 16 }} md={{ m: { mb: 24 } }}>
+              <Checkbox
+                aria-label="label"
+                data-testid="registration-form-remember-password-checkbox"
+              >
+                <Flex
+                  flexWrap="wrap"
+                  whiteSpace="nowrap"
+                  gap={2}
+                  align="center"
+                >
+                  <Typography
+                    color="text-primary-muted"
+                    fontSize="body.mobile.xsmall"
+                    lineHeight="body.mobile.xsmall"
+                  >
+                    "I am 18 years old and I accept the"
+                  </Typography>
+
+                  <Button
+                    href={""}
+                    p={{ px: 0, py: 0 }}
+                    color="text-selection"
+                    size="small"
+                    variant="tertiary"
+                    fontSize="body.mobile.xsmall"
+                    lineHeight="body.mobile.xsmall"
+                  >
+                    Terms and Conditions
+                  </Button>
+                  <Typography
+                    color="text-primary-muted"
+                    fontSize="body.mobile.xsmall"
+                    lineHeight="body.mobile.xsmall"
+                  >
+                    and
+                  </Typography>
+                  <Button
+                    href={""}
+                    p={{ px: 0, py: 0 }}
+                    color="text-selection"
+                    size="small"
+                    variant="tertiary"
+                    fontSize="body.mobile.xsmall"
+                    lineHeight="body.mobile.xsmall"
+                  >
+                    Privacy Policy
+                  </Button>
+                </Flex>
+              </Checkbox>
+            </Flex>
+
+            <Button
+              type="submit"
+              size="small"
+              weight="bold"
+              md={{
+                fontSize: "button.desktop.medium",
+              }}
+              p={{ py: 12 }}
+              width="100%"
+              maxHeight="none"
+              minHeight="none"
+              height="fit-content"
+              data-testid="registration-form-submit-button"
+            >
+              SIGN UP
+            </Button>
+          </form>
+          <Flex gap={8} m={{ mt: 16 }} justify={"center"}>
+            <Typography
+              fontSize="body.mobile.xsmall"
+              lineHeight="body.mobile.xsmall"
+            >
+              {"Have an account?"}
+            </Typography>
+
+            <Typography
+              fontSize="body.mobile.xsmall"
+              lineHeight="body.mobile.xsmall"
+              color={"text-selection"}
+              className="cursor-pointer"
+            >
+              {"Log In"}
+            </Typography>
+          </Flex>
+        </Card>
+      </Flex>
+    </Modal>
   ),
 };
