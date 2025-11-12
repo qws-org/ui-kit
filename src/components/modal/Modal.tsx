@@ -4,6 +4,7 @@ import type { AriaModalOverlayProps } from "react-aria";
 import { FocusScope, Overlay, useModalOverlay } from "react-aria";
 import type { OverlayTriggerState } from "react-stately";
 
+import type { BoxProps, UIKitArrayIndentation } from "~/components";
 import { Box, Button, Flex } from "~/components";
 import type { ModalTriggerProps } from "~/components/modal/ModalTrigger";
 import ModalTrigger from "~/components/modal/ModalTrigger";
@@ -15,14 +16,17 @@ export type ModalProps = AriaModalOverlayProps & {
   closeButtonSlot?: (close: () => void) => ReactNode;
   overlayBackground?: string;
   overlayBlur?: string | number;
-};
+} & Partial<BoxProps>;
 
+const DEFAULT_SPACING_PADDING: UIKitArrayIndentation = [52, 16, 16, 16];
+const MD_DEFAULT_SPACING_PADDING: UIKitArrayIndentation = [36, 16, 16, 16];
 export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
   state,
   children,
   closeButtonSlot,
   overlayBackground = "background-transparent",
   overlayBlur = 4,
+  md,
   ...props
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -54,9 +58,10 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
             position={{ type: "relative" }}
             width="100%"
             height="100vh"
-            p={{ pt: 52, pb: 16, pr: 16, pl: 16 }}
-            md={{ p: { pt: 36 } }}
+            p={props.p ?? DEFAULT_SPACING_PADDING}
+            md={{ p: md?.p ?? MD_DEFAULT_SPACING_PADDING, ...md }}
             className="overflow-auto"
+            {...props}
           >
             {props.isDismissable &&
               (closeButtonSlot ? (
