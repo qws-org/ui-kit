@@ -1,15 +1,13 @@
 import type { FC, PropsWithChildren } from "react";
 import { tv } from "tailwind-variants";
 
-import type { BoxProps } from "~/components";
+import type { FlexProps } from "~/components";
 import { Flex } from "~/components/flex/Flex";
 
 export type CardProps = PropsWithChildren<{
   variant?: "primary" | "secondary" | "tertiary" | "default";
 }> &
-  Partial<Omit<BoxProps, "display">> & {
-    display?: "flex" | "inline-flex" | "hidden";
-  };
+  Partial<FlexProps>;
 type Props = PropsWithChildren<UiKitFC<CardProps>>;
 const cardStyles = tv({
   base: "",
@@ -30,15 +28,22 @@ const cardStyles = tv({
 });
 
 export const Card: FC<Props> = (props) => {
-  const { className = "", children, variant } = props;
+  const {
+    className = "",
+    children,
+    variant,
+    as = "div",
+    flexDirection = "column",
+    border = { radius: "card" },
+  } = props;
 
   return (
     <Flex
-      as="div"
-      flexDirection="column"
-      border={{ radius: props.border?.radius ?? "card" }}
-      className={cardStyles({ variant, className })}
       {...props}
+      as={as}
+      flexDirection={flexDirection}
+      className={cardStyles({ variant, className })}
+      border={border}
     >
       {children}
     </Flex>
