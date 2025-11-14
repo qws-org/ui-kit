@@ -182,6 +182,7 @@ export const createCssVars = (
     // fontFamily
     "--fontFamily-main": theme.fontFamily.main_name,
     "--fontFamily-additional": theme.fontFamily.additional_name,
+    "--fontFamily-accent": theme.fontFamily.accent_name,
     // ------------------------------
     // Colors
     "--colors-background-primary": theme.colors["background-primary"],
