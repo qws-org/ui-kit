@@ -91,6 +91,7 @@ export type LineHeightKeys = keyof LineHeight;
 export type FontFamily = {
   main_name: string;
   additional_name: string;
+  accent_name: string;
 };
 
 export type FontWeight = {

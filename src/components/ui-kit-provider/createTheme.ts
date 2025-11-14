@@ -277,6 +277,7 @@ export const createTheme = (
     fontFamily: {
       main_name: `"${entry?.fontFamily?.main_name ?? "Main"}", sans-serif`,
       additional_name: `"${entry?.fontFamily?.additional_name ?? "Additional"}", sans-serif`,
+      accent_name: `"${entry?.fontFamily?.accent_name ?? "Accent"}", sans-serif`,
     },
     spacing,
     colors,
