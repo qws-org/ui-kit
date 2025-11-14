@@ -91,7 +91,10 @@ export type LineHeightKeys = keyof LineHeight;
 export type FontFamily = {
   main_name: string;
   additional_name: string;
+  accent_name: string;
 };
+
+export type FontFamilyKeys = "main" | "additional" | "accent";
 
 export type FontWeight = {
   "desktop.superbold": number;

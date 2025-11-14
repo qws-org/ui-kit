@@ -1,6 +1,7 @@
 import type {
   BorderRadius,
   Colors,
+  FontFamily,
   FontSize,
   FontWeight,
   LineHeight,
@@ -269,15 +270,18 @@ export const createTheme = (
     popups: entry?.borderRadius?.popups ?? "2px",
   };
 
+  const fontFamily: FontFamily = {
+    main_name: `"${entry?.fontFamily?.main_name ?? "Main"}", sans-serif`,
+    additional_name: `"${entry?.fontFamily?.additional_name ?? "Additional"}", sans-serif`,
+    accent_name: `"${entry?.fontFamily?.accent_name ?? "Accent"}", sans-serif`,
+  };
+
   return {
     global: entry?.global ?? { lineBreak: "normal", wordBreak: "auto-phrase" },
     fontSize,
     lineHeight,
     fontWeight,
-    fontFamily: {
-      main_name: `"${entry?.fontFamily?.main_name ?? "Main"}", sans-serif`,
-      additional_name: `"${entry?.fontFamily?.additional_name ?? "Additional"}", sans-serif`,
-    },
+    fontFamily,
     spacing,
     colors,
     borderRadius,
