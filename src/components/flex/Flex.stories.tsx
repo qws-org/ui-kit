@@ -131,3 +131,33 @@ export const WithCustomClass: Story = {
     ),
   },
 };
+
+export const Order: Story = {
+  render(args) {
+    return (
+      <Flex {...args} p={12} gap={10} bg="rgba(0,255,255,0.2)">
+        <Flex p={10} bg="rgba(255,255,255,0.2)" order={1} md={{ order: 2 }}>
+          1
+        </Flex>
+        <Flex
+          p={10}
+          bg="rgba(255,255,255,0.2)"
+          order={2}
+          md={{ order: 1 }}
+          d={{ order: 0 }}
+        >
+          2
+        </Flex>
+        <Flex
+          p={10}
+          bg="rgba(255,255,255,0.2)"
+          order={3}
+          md={{ order: 0 }}
+          d={{ order: 1 }}
+        >
+          3
+        </Flex>
+      </Flex>
+    );
+  },
+};

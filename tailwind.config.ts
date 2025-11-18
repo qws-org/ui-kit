@@ -191,6 +191,9 @@ const generateFlex = (): Array<string> => {
     "items-baseline",
     "md:items-baseline",
     "lg:items-baseline",
+    "order-[var(--o)]",
+    "md:order-[var(--md-o)]",
+    "lg:order-[var(--lg-o)]",
   ];
 };
 

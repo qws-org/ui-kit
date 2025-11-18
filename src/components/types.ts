@@ -216,6 +216,7 @@ export type UiKitFlexParams = {
   gap?: UiKitGap;
   flexDirection?: UiKitFlexDirection;
   flexWrap?: UiKitFlexWrap;
+  order?: number;
 };
 
 export type UiKitBackgroundProps = {

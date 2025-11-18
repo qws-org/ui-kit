@@ -40,10 +40,11 @@ export const Flex = forwardRef(
       align,
       justify,
       style,
+      order,
     } = props;
 
     const flex = useFlex({
-      m: { flexWrap, gap, align, flexDirection, justify },
+      m: { flexWrap, gap, align, flexDirection, justify, order },
       md: { ...md },
       d: { ...d },
     });
