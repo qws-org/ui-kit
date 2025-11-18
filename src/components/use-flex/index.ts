@@ -295,6 +295,23 @@ export const useFlex = (params: {
     className += directionStyle(params.d.flexDirection, "lg") + " ";
   }
 
+  if (params.m.order !== undefined) {
+    styles["--o"] = params.m.order;
+    className += `order-[var(--o)] `;
+  }
+
+  if (params.md.order !== undefined && params.md.order !== params.m.order) {
+    styles["--md-o"] = params.md.order;
+    className += `md:order-[var(--md-o)] `;
+  }
+
+  const mdOrder = params.md.order ?? params.m.order;
+
+  if (params.d.order !== undefined && params.d.order !== mdOrder) {
+    styles["--lg-o"] = params.d.order;
+    className += `lg:order-[var(--lg-o)] `;
+  }
+
   return {
     styles,
     className,
