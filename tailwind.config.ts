@@ -539,6 +539,13 @@ const generateTypography = (): Array<string> => {
     "lg:hover:break-all",
     "lg:hover:keep-all",
     "lg:hover:break-word",
+
+    "[font-family:var(--ff)]",
+    "md:[font-family:var(--md-ff)]",
+    "lg:[font-family:var(--d-ff)]",
+    "hover:[font-family:var(--hover-ff)]",
+    "md:hover:[font-family:var(--hover-md-ff)]",
+    "lg:hover:[font-family:var(--hover-d-ff)]",
   ];
 };
 

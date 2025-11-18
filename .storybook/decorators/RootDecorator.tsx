@@ -5,7 +5,7 @@ import { createCssVars } from "~/components/ui-kit-provider/createCssVars";
 import { UIKitProvider } from "~/components";
 import { createTheme } from "~/components/ui-kit-provider/createTheme";
 
-export const UiKitDecorator: DecoratorFunction<ReactRenderer> = (Story) => {
+export const UiKitDecorator: DecoratorFunction<ReactRenderer> = Story => {
   return (
     <div style={createCssVars(createTheme())}>
       <UIKitProvider
@@ -17,9 +17,15 @@ export const UiKitDecorator: DecoratorFunction<ReactRenderer> = (Story) => {
                   {props.children}
                 </a>
               );
-            }),
+            })
           },
-          theme: createTheme(),
+          theme: createTheme({
+            fontFamily: {
+              accent_name: "system-ui",
+              main_name: "Inter",
+              additional_name: "ui-sans-serif"
+            }
+          })
         }}
       >
         <Story />

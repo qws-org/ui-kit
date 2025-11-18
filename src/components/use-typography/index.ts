@@ -25,7 +25,8 @@ type Output = {
 export const useTypography = (props: Entry): Output => {
   let classNames = "";
   const styles: Output["styles"] = {};
-  const { colors, fontSize, fontWeight, lineHeight } = useUiKitTheme();
+  const { colors, fontSize, fontWeight, lineHeight, fontFamily } =
+    useUiKitTheme();
   // color
   if (props.m?.color) {
     styles["--color"] = colors[props.m.color as ColorKeys] ?? props.m.color;
@@ -554,6 +555,57 @@ export const useTypography = (props: Entry): Output => {
     props.hover.d.whiteSpace !== hoverMdWhiteSpace
   ) {
     classNames += `lg:hover:whitespace-${props.hover.d.whiteSpace} `;
+  }
+  // ----------------------------------------------------------------------------
+
+  // font family
+  if (props.m?.fontFamily) {
+    const fontFamilyValue = fontFamily[`${props.m.fontFamily}_name`];
+    styles["--ff"] = fontFamilyValue;
+    classNames += `[font-family:var(--ff)] `;
+  }
+
+  if (props.md?.fontFamily && props.md?.fontFamily !== props.m?.fontFamily) {
+    const fontFamilyValue = fontFamily[`${props.md.fontFamily}_name`];
+    styles["--md-ff"] = fontFamilyValue;
+    classNames += `md:[font-family:var(--md-ff)] `;
+  }
+
+  const mdFontFamily = props.md?.fontFamily ?? props.m?.fontFamily;
+
+  if (props.d?.fontFamily && props.d?.fontFamily !== mdFontFamily) {
+    const fontFamilyValue = fontFamily[`${props.d.fontFamily}_name`];
+    styles["--d-ff"] = fontFamilyValue;
+    classNames += `lg:[font-family:var(--d-ff)] `;
+  }
+  // ----------------------------------------------------------------------------
+
+  // hover font family
+  if (props.hover.m?.fontFamily) {
+    const fontFamilyValue = fontFamily[`${props.hover.m.fontFamily}_name`];
+    styles["--hover-ff"] = fontFamilyValue;
+    classNames += `hover:[font-family:var(--hover-ff)] `;
+  }
+
+  if (
+    props.hover.md?.fontFamily &&
+    props.hover.md?.fontFamily !== props.hover.m?.fontFamily
+  ) {
+    const fontFamilyValue = fontFamily[`${props.hover.md.fontFamily}_name`];
+    styles["--hover-md-ff"] = fontFamilyValue;
+    classNames += `md:hover:[font-family:var(--hover-md-ff)] `;
+  }
+
+  const hoverMdFontFamily =
+    props.hover.md?.fontFamily ?? props.hover.m?.fontFamily;
+
+  if (
+    props.hover.d?.fontFamily &&
+    props.hover.d?.fontFamily !== hoverMdFontFamily
+  ) {
+    const fontFamilyValue = fontFamily[`${props.hover.d.fontFamily}_name`];
+    styles["--hover-d-ff"] = fontFamilyValue;
+    classNames += `lg:hover:[font-family:var(--hover-d-ff)] `;
   }
   // ----------------------------------------------------------------------------
 

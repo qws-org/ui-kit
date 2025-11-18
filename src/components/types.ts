@@ -9,6 +9,7 @@ import type {
 import type {
   BorderRadiusKeys,
   ColorKeys,
+  FontFamilyKeys,
   FontSizeKeys,
   FontWeightKeys,
   LineHeightKeys,
@@ -267,6 +268,7 @@ export type UiKitTypographyProps = {
   whiteSpace?: "nowrap" | "pre" | "pre-line" | "pre-wrap";
   color?: ColorKeys | string;
   italic?: boolean;
+  fontFamily?: FontFamilyKeys;
 };
 
 export type BorderColorItem = ColorKeys | string;

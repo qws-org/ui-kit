@@ -138,3 +138,33 @@ export const Default: Story = {
     return <Typography {...args}>This is a default description.</Typography>;
   },
 };
+
+export const AccentFont: Story = {
+  render(args) {
+    return (
+      <Typography {...args} fontFamily="accent">
+        Accent font
+      </Typography>
+    );
+  },
+};
+
+export const MainFont: Story = {
+  render(args) {
+    return (
+      <Typography {...args} fontFamily="main">
+        Main font
+      </Typography>
+    );
+  },
+};
+
+export const AdditionalFont: Story = {
+  render(args) {
+    return (
+      <Typography {...args} fontFamily="additional">
+        Additional font
+      </Typography>
+    );
+  },
+};
