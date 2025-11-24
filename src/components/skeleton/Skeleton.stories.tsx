@@ -66,3 +66,44 @@ export const CardSkeleton = {
     </Card>
   ),
 };
+
+export const CustomBg = {
+  render: () => (
+    <Card className="p-4 space-y-4 max-w-sm">
+      <Skeleton
+        width="100%"
+        height="180px"
+        radius={8}
+        bg="rgba(241, 8, 8, 0.4)"
+      />
+
+      <Skeleton
+        width="60%"
+        height="20px"
+        radius={4}
+        bg="rgba(27, 241, 8, 0.4)"
+      />
+
+      <Skeleton
+        width="80%"
+        height="16px"
+        radius={4}
+        bg="rgba(136, 64, 64, 0.4)"
+      />
+
+      <Skeleton
+        width="70%"
+        height="16px"
+        radius={4}
+        bg="surface-primary-subtle"
+      />
+
+      <Skeleton
+        width="50%"
+        height="36px"
+        radius={4}
+        bg="rgba(156, 143, 143, 0.4)"
+      />
+    </Card>
+  ),
+};
