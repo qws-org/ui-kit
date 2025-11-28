@@ -5,7 +5,7 @@ body {
     min-height: 100vh;
 }
 @layer base {
-    * {
+    [data-ui-kit="ui-kit"] * {
         color: var(--colors-text-primary-default);
         margin: 0;
         padding: 0;
@@ -13,6 +13,24 @@ body {
         line-break: var(--global-line-break);
     }
 }
+
+[data-ui-kit="ui-kit"] *,
+[data-ui-kit="ui-kit"] *::before,
+[data-ui-kit="ui-kit"] *::after {
+    box-sizing: border-box;
+}
+
+[data-ui-kit="ui-kit"] html,
+[data-ui-kit="ui-kit"] body {
+    height: 100%;
+}
+
+[data-ui-kit="ui-kit"] ul,
+[data-ui-kit="ui-kit"] ol {
+    list-style: none;
+    padding-left: 0;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
