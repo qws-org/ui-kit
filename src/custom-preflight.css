@@ -1,0 +1,354 @@
+[data-ui-kit="ui-kit"] * {
+    color: var(--colors-text-primary-default);
+    margin: 0;
+    padding: 0;
+    word-break: var(--global-word-break);
+    line-break: var(--global-line-break);
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family:
+            ui-sans-serif, system-ui, sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+}
+
+[data-ui-kit="ui-kit"] html,
+[data-ui-kit="ui-kit"] body {
+    height: 100%;
+}
+
+[data-ui-kit="ui-kit"] *,
+[data-ui-kit="ui-kit"] ::before,
+[data-ui-kit="ui-kit"] ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+[data-ui-kit="ui-kit"] ::before,
+[data-ui-kit="ui-kit"] ::after {
+    --tw-content: "";
+}
+
+[data-ui-kit="ui-kit"] html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family:
+            ui-sans-serif, system-ui, sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+}
+
+[data-ui-kit="ui-kit"] body {
+    margin: 0;
+    line-height: inherit;
+}
+
+[data-ui-kit="ui-kit"] hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+}
+
+[data-ui-kit="ui-kit"] abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+}
+
+[data-ui-kit="ui-kit"] h1,
+[data-ui-kit="ui-kit"] h2,
+[data-ui-kit="ui-kit"] h3,
+[data-ui-kit="ui-kit"] h4,
+[data-ui-kit="ui-kit"] h5,
+[data-ui-kit="ui-kit"] h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+[data-ui-kit="ui-kit"] a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+[data-ui-kit="ui-kit"] b,
+[data-ui-kit="ui-kit"] strong {
+    font-weight: bolder;
+}
+
+[data-ui-kit="ui-kit"] code,
+[data-ui-kit="ui-kit"] kbd,
+[data-ui-kit="ui-kit"] samp,
+[data-ui-kit="ui-kit"] pre {
+    font-family:
+            ui-monospace, SFMono-Regular, Menlo, Monaco,
+            Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1em;
+}
+
+[data-ui-kit="ui-kit"] small {
+    font-size: 80%;
+}
+
+[data-ui-kit="ui-kit"] sub,
+[data-ui-kit="ui-kit"] sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+[data-ui-kit="ui-kit"] sub {
+    bottom: -0.25em;
+}
+
+[data-ui-kit="ui-kit"] sup {
+    top: -0.5em;
+}
+
+[data-ui-kit="ui-kit"] table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+}
+
+[data-ui-kit="ui-kit"] button,
+[data-ui-kit="ui-kit"] input,
+[data-ui-kit="ui-kit"] optgroup,
+[data-ui-kit="ui-kit"] select,
+[data-ui-kit="ui-kit"] textarea {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+[data-ui-kit="ui-kit"] button,
+[data-ui-kit="ui-kit"] select {
+    text-transform: none;
+}
+
+[data-ui-kit="ui-kit"] button,
+[data-ui-kit="ui-kit"] [type='button'],
+[data-ui-kit="ui-kit"] [type='reset'],
+[data-ui-kit="ui-kit"] [type='submit'] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+}
+
+[data-ui-kit="ui-kit"] :-moz-focusring {
+    outline: auto;
+}
+
+[data-ui-kit="ui-kit"] :-moz-ui-invalid {
+    box-shadow: none;
+}
+
+[data-ui-kit="ui-kit"] progress {
+    vertical-align: baseline;
+}
+
+[data-ui-kit="ui-kit"] ::-webkit-inner-spin-button,
+[data-ui-kit="ui-kit"] ::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[data-ui-kit="ui-kit"] [type='search'] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+[data-ui-kit="ui-kit"] ::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+[data-ui-kit="ui-kit"] ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+[data-ui-kit="ui-kit"] summary {
+    display: list-item;
+}
+
+[data-ui-kit="ui-kit"] blockquote,
+[data-ui-kit="ui-kit"] dl,
+[data-ui-kit="ui-kit"] dd,
+[data-ui-kit="ui-kit"] h1,
+[data-ui-kit="ui-kit"] h2,
+[data-ui-kit="ui-kit"] h3,
+[data-ui-kit="ui-kit"] h4,
+[data-ui-kit="ui-kit"] h5,
+[data-ui-kit="ui-kit"] h6,
+[data-ui-kit="ui-kit"] hr,
+[data-ui-kit="ui-kit"] figure,
+[data-ui-kit="ui-kit"] p,
+[data-ui-kit="ui-kit"] pre {
+    margin: 0;
+}
+
+[data-ui-kit="ui-kit"] fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+[data-ui-kit="ui-kit"] legend {
+    padding: 0;
+}
+
+[data-ui-kit="ui-kit"] ol,
+[data-ui-kit="ui-kit"] ul,
+[data-ui-kit="ui-kit"] menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+[data-ui-kit="ui-kit"] textarea {
+    resize: vertical;
+}
+
+[data-ui-kit="ui-kit"] input::placeholder,
+[data-ui-kit="ui-kit"] textarea::placeholder {
+    opacity: 1;
+    color: #9ca3af;
+}
+
+[data-ui-kit="ui-kit"] button,
+[data-ui-kit="ui-kit"] [role="button"] {
+    cursor: pointer;
+}
+
+[data-ui-kit="ui-kit"] :disabled {
+    cursor: default;
+}
+
+[data-ui-kit="ui-kit"] img,
+[data-ui-kit="ui-kit"] svg,
+[data-ui-kit="ui-kit"] video,
+[data-ui-kit="ui-kit"] canvas,
+[data-ui-kit="ui-kit"] audio,
+[data-ui-kit="ui-kit"] iframe,
+[data-ui-kit="ui-kit"] embed,
+[data-ui-kit="ui-kit"] object {
+    display: block;
+    vertical-align: middle;
+}
+
+[data-ui-kit="ui-kit"] img,
+[data-ui-kit="ui-kit"] video {
+    max-width: 100%;
+    height: auto;
+}
+
+[data-ui-kit="ui-kit"] *,
+[data-ui-kit="ui-kit"] ::before,
+[data-ui-kit="ui-kit"] ::after {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:       ;
+    --tw-pan-y:       ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position:  ;
+    --tw-gradient-to-position:   ;
+    --tw-ordinal:        ;
+    --tw-slashed-zero:   ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing:;
+    --tw-numeric-fraction:;
+    --tw-ring-inset:     ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow:        0 0 #0000;
+    --tw-shadow:             0 0 #0000;
+    --tw-shadow-colored:     0 0 #0000;
+    --tw-blur:          ;
+    --tw-brightness:    ;
+    --tw-contrast:      ;
+    --tw-grayscale:     ;
+    --tw-hue-rotate:    ;
+    --tw-invert:        ;
+    --tw-saturate:      ;
+    --tw-sepia:         ;
+    --tw-drop-shadow:   ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast:   ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert:     ;
+    --tw-backdrop-opacity:    ;
+    --tw-backdrop-saturate:   ;
+    --tw-backdrop-sepia:      ;
+}
+
+[data-ui-kit="ui-kit"] ::backdrop {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:       ;
+    --tw-pan-y:       ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position:  ;
+    --tw-gradient-to-position:   ;
+    --tw-ordinal:        ;
+    --tw-slashed-zero:   ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing:;
+    --tw-numeric-fraction:;
+    --tw-ring-inset:     ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow:        0 0 #0000;
+    --tw-shadow:             0 0 #0000;
+    --tw-shadow-colored:     0 0 #0000;
+    --tw-blur:          ;
+    --tw-brightness:    ;
+    --tw-contrast:      ;
+    --tw-grayscale:     ;
+    --tw-hue-rotate:    ;
+    --tw-invert:        ;
+    --tw-saturate:      ;
+    --tw-sepia:         ;
+    --tw-drop-shadow:   ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast:   ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert:     ;
+    --tw-backdrop-opacity:    ;
+    --tw-backdrop-saturate:   ;
+    --tw-backdrop-sepia:      ;
+}

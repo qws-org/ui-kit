@@ -624,7 +624,7 @@ const generateEffectClasses = (): Array<string> => {
 };
 
 export default {
-  important: "[data-ui-kit]",
+  important: '[data-ui-kit="ui-kit"]',
   content: ["./src/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   safelist: [
     ...generateIndentations(),
