@@ -16,11 +16,13 @@ export interface ModalTriggerProps
   label: string;
   children: (close: () => void) => ReactElement;
   closeButtonSlot?: (close: () => void) => ReactNode;
+  customTrigger?: ReactElement;
 }
 
 export const ModalTrigger: FC<ModalTriggerProps> = ({
   label,
   children,
+  customTrigger,
   ...props
 }) => {
   const state = useOverlayTriggerState(props);
@@ -31,16 +33,24 @@ export const ModalTrigger: FC<ModalTriggerProps> = ({
 
   return (
     <>
-      <Button
-        {...props}
-        {...triggerProps}
-        onPress={(e) => {
-          props?.onPress?.(e);
-          triggerProps?.onPress?.(e);
-        }}
-      >
-        {label}
-      </Button>
+      {customTrigger ? (
+        React.cloneElement(customTrigger, {
+          ...props,
+          ...triggerProps,
+          onClick: triggerProps.onPress,
+        })
+      ) : (
+        <Button
+          {...props}
+          {...triggerProps}
+          onPress={(e) => {
+            props?.onPress?.(e);
+            triggerProps?.onPress?.(e);
+          }}
+        >
+          {label}
+        </Button>
+      )}
       {state.isOpen && (
         <Modal {...props} state={state}>
           {React.cloneElement(
