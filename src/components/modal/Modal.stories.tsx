@@ -307,3 +307,21 @@ export const ValueChain: StoryObj<typeof ModalTrigger> = {
     </Modal>
   ),
 };
+
+export const CustomTrigger: StoryObj = {
+  render: () => (
+    <ModalTrigger
+      label=""
+      customTrigger={<Button variant="primary">Custom trigger</Button>}
+    >
+      {(close) => (
+        <Flex bg="white" width={200} flexDirection="column" p={10} gap={20}>
+          Custom trigger modal
+          <Button variant="accent" bg="yellow" onPress={close}>
+            Close
+          </Button>
+        </Flex>
+      )}
+    </ModalTrigger>
+  ),
+};
