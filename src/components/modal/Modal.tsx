@@ -4,7 +4,7 @@ import type { AriaModalOverlayProps } from "react-aria";
 import { FocusScope, useModalOverlay } from "react-aria";
 import type { OverlayTriggerState } from "react-stately";
 
-import type { BoxProps, UIKitArrayIndentation } from "~/components";
+import type { BoxProps, FlexProps, UIKitArrayIndentation } from "~/components";
 import { Box, Button, Flex } from "~/components";
 import type { ModalTriggerProps } from "~/components/modal/ModalTrigger";
 import ModalTrigger from "~/components/modal/ModalTrigger";
@@ -17,6 +17,7 @@ export type ModalProps = AriaModalOverlayProps & {
   closeButtonSlot?: (close: () => void) => ReactNode;
   overlayBackground?: string;
   overlayBlur?: string | number;
+  contentWrapperProps?: FlexProps;
 } & Partial<BoxProps>;
 
 const DEFAULT_SPACING_PADDING: UIKitArrayIndentation = [52, 16, 16, 16];
@@ -28,6 +29,7 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
   overlayBackground = "background-transparent",
   overlayBlur = 4,
   md,
+  contentWrapperProps,
   ...props
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -86,7 +88,12 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
                   />
                 </Button>
               ))}
-            <Flex justify="center" align="center" height="100%">
+            <Flex
+              justify="center"
+              align="center"
+              height="100%"
+              {...contentWrapperProps}
+            >
               {children}
             </Flex>
           </Box>
