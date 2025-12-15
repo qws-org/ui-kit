@@ -4,7 +4,7 @@ import { type AriaModalOverlayProps, useOverlayTrigger } from "react-aria";
 import type { OverlayTriggerProps } from "react-stately";
 import { useOverlayTriggerState } from "react-stately";
 
-import type { ButtonProps } from "~/components";
+import type { ButtonProps, FlexProps } from "~/components";
 import { Button } from "~/components";
 
 import { Modal } from "./Modal";
@@ -17,12 +17,14 @@ export interface ModalTriggerProps
   children: (close: () => void) => ReactElement;
   closeButtonSlot?: (close: () => void) => ReactNode;
   customTrigger?: ReactElement;
+  modalContentWrapperProps?: FlexProps;
 }
 
 export const ModalTrigger: FC<ModalTriggerProps> = ({
   label,
   children,
   customTrigger,
+  modalContentWrapperProps,
   ...props
 }) => {
   const state = useOverlayTriggerState(props);
@@ -52,7 +54,11 @@ export const ModalTrigger: FC<ModalTriggerProps> = ({
         </Button>
       )}
       {state.isOpen && (
-        <Modal {...props} state={state}>
+        <Modal
+          {...props}
+          state={state}
+          contentWrapperProps={modalContentWrapperProps}
+        >
           {React.cloneElement(
             children(() => state.close()),
             overlayProps,

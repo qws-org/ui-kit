@@ -325,3 +325,25 @@ export const CustomTrigger: StoryObj = {
     </ModalTrigger>
   ),
 };
+
+export const ModalContentWrapperProps: StoryObj = {
+  render: () => (
+    <ModalTrigger
+      label=""
+      customTrigger={<Button variant="primary">Open modal</Button>}
+      modalContentWrapperProps={{
+        bg: "red",
+        minHeight: "max-content",
+      }}
+    >
+      {(close) => (
+        <Flex bg="white" width={200} flexDirection="column" p={10} gap={20}>
+          Modal content
+          <Button variant="accent" bg="yellow" onPress={close}>
+            Close
+          </Button>
+        </Flex>
+      )}
+    </ModalTrigger>
+  ),
+};
