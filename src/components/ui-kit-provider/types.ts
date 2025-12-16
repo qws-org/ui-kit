@@ -185,7 +185,16 @@ export type ColorKeys =
   | "surface-accent1-default"
   | "surface-accent1-hovered"
   | "surface-accent2-default"
-  | "surface-accent2-hovered";
+  | "surface-accent2-hovered"
+  | "surface-accent-button-default"
+  | "surface-tag-timer"
+  | "surface-tag-poker"
+  | "surface-tag-cash"
+  | "surface-tag-casino"
+  | "surface-tag-mtt"
+  | "surface-tag-vip"
+  | "surface-tag-quests"
+  | "surface-tag-social";
 
 export type BorderRadiusKeys =
   | "button"
