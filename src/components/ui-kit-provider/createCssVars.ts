@@ -260,6 +260,17 @@ export const createCssVars = (
     "--colors-surface-accent2-default": theme.colors["surface-accent2-default"],
     "--colors-surface-accent1-hovered": theme.colors["surface-accent1-hovered"],
     "--colors-surface-accent2-hovered": theme.colors["surface-accent2-hovered"],
+    "--colors-surface-accent-button-default":
+      theme.colors["surface-accent-button-default"],
+
+    "--colors-surface-tag-timer": theme.colors["surface-tag-timer"],
+    "--colors-surface-tag-poker": theme.colors["surface-tag-poker"],
+    "--colors-surface-tag-cash": theme.colors["surface-tag-cash"],
+    "--colors-surface-tag-casino": theme.colors["surface-tag-casino"],
+    "--colors-surface-tag-mtt": theme.colors["surface-tag-mtt"],
+    "--colors-surface-tag-vip": theme.colors["surface-tag-vip"],
+    "--colors-surface-tag-quests": theme.colors["surface-tag-quests"],
+    "--colors-surface-tag-social": theme.colors["surface-tag-social"],
 
     // border radius
     "--border-radius-button": theme.borderRadius.button,

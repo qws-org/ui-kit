@@ -256,6 +256,17 @@ export const createTheme = (
     "surface-accent2-hovered":
       entry?.colors?.["surface-accent2-hovered"] ??
       "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(90deg, #DCC3FE 0%, #FFCEA5 33%, #E3FAD6 66%, #CEFDFE 100%)",
+    "surface-accent-button-default":
+      entry?.colors?.["surface-accent-button-default"] ??
+      "linear-gradient(270deg, #7DE239 0%, #00C950 100%)",
+    "surface-tag-cash": entry?.colors?.["surface-tag-cash"] ?? "#00A6F4",
+    "surface-tag-casino": entry?.colors?.["surface-tag-casino"] ?? "#F6BA46",
+    "surface-tag-mtt": entry?.colors?.["surface-tag-mtt"] ?? "#F55C3D",
+    "surface-tag-poker": entry?.colors?.["surface-tag-poker"] ?? "#00A63E",
+    "surface-tag-quests": entry?.colors?.["surface-tag-quests"] ?? "#4F39F6",
+    "surface-tag-social": entry?.colors?.["surface-tag-social"] ?? "#CF3FFF",
+    "surface-tag-timer": entry?.colors?.["surface-tag-timer"] ?? "#F93448",
+    "surface-tag-vip": entry?.colors?.["surface-tag-vip"] ?? "#FFE849",
   };
 
   const borderRadius: BorderRadius = {
