@@ -347,3 +347,30 @@ export const ModalContentWrapperProps: StoryObj = {
     </ModalTrigger>
   ),
 };
+
+export const ModalWithCustomRoot: StoryObj = {
+  render: () => (
+    <ModalTrigger
+      label=""
+      customTrigger={
+        <Button variant="primary">
+          Should open modal inside "storybook-root"
+        </Button>
+      }
+      modalContentWrapperProps={{
+        bg: "red",
+        minHeight: "max-content",
+      }}
+      portalContainer={document.getElementById("storybook-root") ?? undefined}
+    >
+      {(close) => (
+        <Flex bg="white" width={200} flexDirection="column" p={10} gap={20}>
+          Modal content
+          <Button variant="accent" bg="yellow" onPress={close}>
+            Close
+          </Button>
+        </Flex>
+      )}
+    </ModalTrigger>
+  ),
+};
