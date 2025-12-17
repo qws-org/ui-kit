@@ -262,6 +262,8 @@ export const createCssVars = (
     "--colors-surface-accent2-hovered": theme.colors["surface-accent2-hovered"],
     "--colors-surface-accent-button-default":
       theme.colors["surface-accent-button-default"],
+    "--colors-surface-accent-button-hovered":
+      theme.colors["surface-accent-button-hovered"],
 
     "--colors-surface-tag-timer": theme.colors["surface-tag-timer"],
     "--colors-surface-tag-poker": theme.colors["surface-tag-poker"],
