@@ -187,6 +187,7 @@ export type ColorKeys =
   | "surface-accent2-default"
   | "surface-accent2-hovered"
   | "surface-accent-button-default"
+  | "surface-accent-button-hovered"
   | "surface-tag-timer"
   | "surface-tag-poker"
   | "surface-tag-cash"
