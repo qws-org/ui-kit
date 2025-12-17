@@ -56,7 +56,15 @@ export const Default: Story = {};
 export const WithHTML: Story = {
   args: {
     children:
-      "<h1 style='font-size: 40px'>Заголовок H1</h1><p style='color: red'>Красный текст внутри HTML</p>",
+      "<h1  style='font-size: 40px'>Заголовок H1</h1><p style='color: red'>Красный текст внутри HTML</p>",
+  },
+};
+
+export const CustomizeClobberPrefix: Story = {
+  args: {
+    clobberPrefix: "test_prefix",
+    children:
+      "<h1 id='test_id' style='font-size: 40px'>Заголовок H1</h1><p style='color: red'>Красный текст внутри HTML</p>",
   },
 };
 

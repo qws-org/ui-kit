@@ -27,6 +27,7 @@ export type MarkdownProps = {
   children: string;
   className?: string;
   alignment?: "left" | "center" | "right" | "justify";
+  clobberPrefix?: string;
 } & Partial<Omit<BoxProps, "as" | "onClick" | "children">>;
 
 const markdownStyles = tv({
@@ -48,6 +49,7 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
     children,
     className,
     alignment = "left",
+    clobberPrefix = "user-content-",
     ...indentationProps
   } = props;
 
@@ -63,7 +65,16 @@ export const Markdown: React.FC<MarkdownProps> = (props) => {
           className: className ?? "",
           alignment,
         })}
-        rehypePlugins={[rehypeRaw, [rehypeSanitize, customSchema]]}
+        rehypePlugins={[
+          rehypeRaw,
+          [
+            rehypeSanitize,
+            {
+              ...customSchema,
+              clobberPrefix,
+            },
+          ],
+        ]}
       >
         {children}
       </ReactMarkdown>
