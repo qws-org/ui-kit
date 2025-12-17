@@ -259,6 +259,10 @@ export const createTheme = (
     "surface-accent-button-default":
       entry?.colors?.["surface-accent-button-default"] ??
       "linear-gradient(270deg, #7DE239 0%, #00C950 100%)",
+    "surface-accent-button-hovered":
+      entry?.colors?.["surface-accent-button-hovered"] ??
+      "linear-gradient(270deg, #00C950 0%, #7DE239 100%)",
+
     "surface-tag-cash": entry?.colors?.["surface-tag-cash"] ?? "#00A6F4",
     "surface-tag-casino": entry?.colors?.["surface-tag-casino"] ?? "#F6BA46",
     "surface-tag-mtt": entry?.colors?.["surface-tag-mtt"] ?? "#F55C3D",
