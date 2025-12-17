@@ -6,11 +6,16 @@ import { Box } from "~/components";
 
 type UIKitOverlayProps = {
   children: ReactNode;
+  portalContainer?: Element;
 } & BoxProps;
 
-export const UIKitOverlay: FC<UIKitOverlayProps> = ({ children, ...props }) => {
+export const UIKitOverlay: FC<UIKitOverlayProps> = ({
+  children,
+  portalContainer,
+  ...props
+}) => {
   return (
-    <Overlay>
+    <Overlay portalContainer={portalContainer}>
       <Box {...props} data-ui-kit="ui-kit">
         {children}
       </Box>

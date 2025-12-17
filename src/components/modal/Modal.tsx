@@ -18,6 +18,7 @@ export type ModalProps = AriaModalOverlayProps & {
   overlayBackground?: string;
   overlayBlur?: string | number;
   contentWrapperProps?: FlexProps;
+  portalContainer?: Element;
 } & Partial<BoxProps>;
 
 const DEFAULT_SPACING_PADDING: UIKitArrayIndentation = [52, 16, 16, 16];
@@ -30,13 +31,14 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
   overlayBlur = 4,
   md,
   contentWrapperProps,
+  portalContainer,
   ...props
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const { modalProps, underlayProps } = useModalOverlay(props, state, ref);
 
   return (
-    <UIKitOverlay>
+    <UIKitOverlay portalContainer={portalContainer}>
       <FocusScope contain autoFocus>
         <Flex
           {...underlayProps}

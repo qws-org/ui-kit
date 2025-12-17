@@ -18,6 +18,7 @@ export interface ModalTriggerProps
   closeButtonSlot?: (close: () => void) => ReactNode;
   customTrigger?: ReactElement;
   modalContentWrapperProps?: FlexProps;
+  portalContainer?: Element;
 }
 
 export const ModalTrigger: FC<ModalTriggerProps> = ({
