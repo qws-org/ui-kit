@@ -16,9 +16,7 @@ export const UIKitOverlay: FC<UIKitOverlayProps> = ({
 }) => {
   return (
     <Overlay portalContainer={portalContainer}>
-      <Box {...props} data-ui-kit="ui-kit">
-        {children}
-      </Box>
+      <Box {...props}>{children}</Box>
     </Overlay>
   );
 };
