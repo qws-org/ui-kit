@@ -143,6 +143,7 @@ export type ColorKeys =
   | "background-accent2"
   | "background-accent2-vertical"
   | "background-accent2-reversed"
+  | "background-popups1"
   | "border-accent"
   | "border-button"
   | "border-destructive"
