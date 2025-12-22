@@ -200,6 +200,7 @@ export const createCssVars = (
     "--colors-background-accent2-vertical":
       theme.colors["background-accent2-vertical"],
     "--colors-background-accent-vip": theme.colors["background-accent-vip"],
+    "--colors-background-popups1": theme.colors["background-popups1"],
 
     "--colors-border-accent": theme.colors["border-accent"],
     "--colors-border-button": theme.colors["border-button"],
