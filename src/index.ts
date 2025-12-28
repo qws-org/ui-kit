@@ -79,6 +79,10 @@ export {
   TextField,
   type TextFieldProps,
 } from "./components/text-field/TextField";
+export {
+  TextFieldV2,
+  type TextFieldV2Props,
+} from "./components/text-field-v2/TextFieldV2";
 export { Title, type TitleProps } from "./components/title/Title";
 export type * from "./components/types";
 export {

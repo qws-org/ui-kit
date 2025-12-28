@@ -1,13 +1,15 @@
 import type { ColorKeys, UiKitOutlineProps } from "~/components";
 import { useUiKitTheme } from "~/components";
 
-type UseOutlineBaseProps = {
+export type UseOutlineBaseProps = {
   m?: UiKitOutlineProps;
   md?: UiKitOutlineProps;
   d?: UiKitOutlineProps;
 };
 
-type UseOutlineProps = UseOutlineBaseProps & { hover: UseOutlineBaseProps };
+export type UseOutlineProps = UseOutlineBaseProps & {
+  hover?: UseOutlineBaseProps;
+};
 
 type UseOutlineOutput = {
   style?: Record<string, string>;
