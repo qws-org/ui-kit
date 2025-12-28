@@ -19,7 +19,9 @@ export interface TextFieldProps extends AriaTextFieldOptions<"input"> {
   maskChar?: string;
 }
 type Props = TextFieldProps & Partial<BoxProps>;
-
+/**
+ * @deprecated Используйте компонент TextFieldV2.
+ */
 export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
     label,
@@ -129,7 +131,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
         inputRef={ref}
         name={name}
         type={type}
-        className={`   focus:bg-[var(--colors-background-primary)] focus:border focus:border-[var(--colors-border-primary)]  w-full  px-[30px] pt-[26px] pb-[6px]
+        className={`focus:bg-[var(--colors-background-primary)] focus:border focus:border-[var(--colors-border-primary)]  w-full  px-[30px] pt-[26px] pb-[6px]
           ${errorMessage && "bg-[var(--colors-background-primary)] !border-[var(--colors-border-destructive)]"} ${border.className} ${background.className}`}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

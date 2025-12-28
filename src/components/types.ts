@@ -365,6 +365,20 @@ export type UiKitEffectProps = {
   backdropBlur?: string | number;
 };
 
+export type AxisValue<T> = T | { x?: T; y?: T };
+
+export type Scale = number;
+export type Rotate = number | string;
+export type Translate = number | string;
+export type Skew = number | string;
+
+export interface UiKitTransformsProps {
+  scale?: AxisValue<Scale>;
+  rotate?: AxisValue<Rotate>;
+  translate?: AxisValue<Translate>;
+  skew?: AxisValue<Skew>;
+}
+
 export type UiKitAnimationKeyframesKeys = "from" | "to" | `${string}%`;
 
 export type UiKitAnimationProps = {

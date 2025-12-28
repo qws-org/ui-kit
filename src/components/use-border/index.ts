@@ -12,14 +12,14 @@ import type {
 import { useUiKitTheme } from "~/components";
 import { useBorderWidth } from "~/components/use-border/useBorderWidth";
 
-type UseBorderBaseProps = {
+export type UseBorderBaseProps = {
   m?: UiKitBorderProps;
   md?: UiKitBorderProps;
   d?: UiKitBorderProps;
 };
 
 export type UseBorderProps = UseBorderBaseProps & {
-  hover: UseBorderBaseProps;
+  hover?: UseBorderBaseProps;
 };
 
 export type UseBorderOutput = {
@@ -211,21 +211,21 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
     }
   }
   const mHoverRadius = props?.hover?.m?.radius
-    ? transformBorderRadius(props.hover.m.radius)
+    ? transformBorderRadius(props?.hover?.m.radius)
     : undefined;
 
   const mdHoverRadius = props?.hover?.md?.radius
-    ? transformBorderRadius(props.hover.md.radius)
+    ? transformBorderRadius(props?.hover?.md.radius)
     : mHoverRadius;
 
   const dHoverRadius = props?.hover?.d?.radius
-    ? transformBorderRadius(props.hover.d?.radius)
+    ? transformBorderRadius(props?.hover?.d?.radius)
     : undefined;
 
   const universalMRadiusHoverValue =
-    props.hover.m?.radius && isSingleRadius(props.hover.m.radius)
+    props?.hover?.m?.radius && isSingleRadius(props?.hover?.m.radius)
       ? (borderRadius[props.hover?.m?.radius as BorderRadiusKeys] ??
-        props.hover.m.radius)
+        props?.hover?.m.radius)
       : undefined;
 
   if (
@@ -268,8 +268,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   const universalMdRadiusHoverValue =
     typeof props?.hover?.md?.radius !== "undefined" &&
     isSingleRadius(props.hover?.md.radius)
-      ? (borderRadius[props.hover.md.radius as BorderRadiusKeys] ??
-        props.hover.md.radius)
+      ? (borderRadius[props?.hover?.md.radius as BorderRadiusKeys] ??
+        props?.hover?.md.radius)
       : undefined;
 
   if (
@@ -310,9 +310,9 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   }
 
   const universalDRadiusHoverValue =
-    props.hover?.d?.radius && isSingleRadius(props.hover.d.radius)
-      ? (borderRadius[props.hover.d.radius as BorderRadiusKeys] ??
-        props.hover.d.radius)
+    props.hover?.d?.radius && isSingleRadius(props?.hover?.d.radius)
+      ? (borderRadius[props?.hover?.d.radius as BorderRadiusKeys] ??
+        props?.hover?.d.radius)
       : undefined;
 
   const mdHoverRadiusValue =
@@ -359,14 +359,14 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   const md = props.md?.color ? transformBorderColor(props.md?.color) : m;
   const d = props.d?.color ? transformBorderColor(props.d?.color) : undefined;
 
-  const mHover = props.hover.m?.color
-    ? transformBorderColor(props.hover.m?.color)
+  const mHover = props?.hover?.m?.color
+    ? transformBorderColor(props?.hover?.m?.color)
     : undefined;
-  const mdHover = props.hover.md?.color
-    ? transformBorderColor(props.hover.md?.color)
+  const mdHover = props?.hover?.md?.color
+    ? transformBorderColor(props?.hover?.md?.color)
     : mHover;
-  const dHover = props.hover.d?.color
-    ? transformBorderColor(props.hover.d?.color)
+  const dHover = props?.hover?.d?.color
+    ? transformBorderColor(props?.hover?.d?.color)
     : undefined;
 
   if (typeof m !== "undefined") {
@@ -490,8 +490,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   }
 
   const universalMHoverColorValue =
-    props.hover.m?.color && isSingleColor(props.hover.m.color)
-      ? props.hover.m.color
+    props?.hover?.m?.color && isSingleColor(props?.hover?.m.color)
+      ? props?.hover?.m.color
       : undefined;
 
   if (mHover?.top ?? mHover?.left ?? mHover?.right ?? mHover?.bottom) {
@@ -525,8 +525,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   }
 
   const universalMdHoverColorValue =
-    props.hover.md?.color && isSingleColor(props.hover.md.color)
-      ? props.hover.md.color
+    props?.hover?.md?.color && isSingleColor(props?.hover?.md.color)
+      ? props?.hover?.md.color
       : undefined;
 
   if (mdHover?.top ?? mdHover?.left ?? mdHover?.right ?? mdHover?.bottom) {
@@ -563,8 +563,8 @@ export const useBorder = (props: UseBorderProps): UseBorderOutput => {
   }
 
   const universalDHoverValue =
-    props.hover.d?.color && isSingleColor(props.hover.d.color)
-      ? props.hover.d.color
+    props?.hover?.d?.color && isSingleColor(props?.hover?.d.color)
+      ? props?.hover?.d.color
       : undefined;
 
   const mdHoverColorUniversal =

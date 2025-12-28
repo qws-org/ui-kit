@@ -4,7 +4,7 @@ type UIKitUseDimentionsOutput = {
   styles: Record<string, string | undefined>;
   className: string;
 };
-type UIKitDimentionsParams = {
+export type UIKitDimentionsParams = {
   m?: Partial<UIKitDimensionProps>;
   md?: Partial<UIKitDimensionProps>;
   d?: Partial<UIKitDimensionProps>;
