@@ -57,9 +57,13 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
   } = props;
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
-
+  const fieldLabel = typeof label === "string" ? label : "input-label";
   const { inputProps } = useTextField(
-    { ...props, label: null, inputElementType: "input" },
+    {
+      ...props,
+      label: fieldLabel,
+      inputElementType: "input",
+    },
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     ref ?? inputRef,

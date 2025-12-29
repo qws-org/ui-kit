@@ -76,6 +76,10 @@ export const getErrorMessageProps = ({
 
     secondary: {
       as: "p",
+      fontSize: "body.mobile.small",
+      lineHeight: "body.mobile.small",
+      fontWeight: "mobile.normal",
+      md: { fontWeight: "desktop.normal" },
       m: { mt: 4 },
       color: "text-destructive",
     },
