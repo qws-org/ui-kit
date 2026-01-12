@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "~/components";
+
 import { Dialog } from "./dialog/Dialog";
 import { Popover } from "./Popover";
 import { PopoverTrigger } from "./PopoverTrigger";
@@ -148,5 +150,23 @@ export const MediaPlacement: Story = {
         <Dialog>Media placement</Dialog>
       </PopoverTrigger>
     </div>
+  ),
+};
+
+export const ModalWithCustomRoot: StoryObj = {
+  render: () => (
+    <PopoverTrigger
+      label=""
+      customTrigger={
+        <Button variant="primary">
+          Should open modal inside "storybook-root"
+        </Button>
+      }
+      portalContainer={document.getElementById("storybook-root") ?? undefined}
+    >
+      <Dialog dialogStyle={{ backgroundColor: "red" }}>
+        Custom root placement
+      </Dialog>
+    </PopoverTrigger>
   ),
 };
