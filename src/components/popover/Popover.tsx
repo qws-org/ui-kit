@@ -20,6 +20,7 @@ export type PopoverDefaultProps = Omit<
     crossOffset?: number;
     variant?: "positioned" | "static";
     placement?: Placement;
+    portalContainer?: Element;
   };
 
 export type PopoverProps = PopoverDefaultProps & {
@@ -34,6 +35,7 @@ export const Popover: FC<PopoverProps> = ({
   placement = "bottom",
   d,
   md,
+  portalContainer,
   ...props
 }) => {
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -78,7 +80,7 @@ export const Popover: FC<PopoverProps> = ({
     );
   } else {
     return (
-      <UIKitOverlay>
+      <UIKitOverlay portalContainer={portalContainer}>
         <div {...underlayProps} />
         <Box
           {...popoverProps}

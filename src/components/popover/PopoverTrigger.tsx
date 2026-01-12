@@ -19,6 +19,7 @@ export interface PopoverTriggerProps extends OverlayTriggerProps {
   offset?: number;
   crossOffset?: number;
   placement?: Placement;
+  portalContainer?: Element;
 }
 
 export const PopoverTrigger: React.FC<PopoverTriggerProps> = ({
