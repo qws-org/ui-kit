@@ -45,7 +45,7 @@ export const getLabelProps = ({
         top: hasValue ? "7px" : "15px",
       },
       opacity: hasValue ? 50 : undefined,
-      color: "text-secondary-default",
+      color: isFocused ? "text-selection" : "text-secondary-default",
       fontSize: hasValue ? "body.mobile.xsmall" : "body.mobile.medium",
       md: {
         fontSize: hasValue ? "body.desktop.xsmall" : "body.desktop.medium",
