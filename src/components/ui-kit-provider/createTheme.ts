@@ -1,6 +1,7 @@
 import type {
   BorderRadius,
   Colors,
+  DeepPartial,
   FontFamily,
   FontSize,
   FontWeight,
@@ -10,7 +11,7 @@ import type {
 } from "~/components";
 
 export const createTheme = (
-  entry?: Partial<UIKitProviderTheme>,
+  entry?: DeepPartial<UIKitProviderTheme>,
 ): UIKitProviderTheme => {
   const fontSize: FontSize = {
     "headline.desktop.large": entry?.fontSize?.["headline.desktop.large"] ?? 48,
@@ -292,7 +293,11 @@ export const createTheme = (
   };
 
   return {
-    global: entry?.global ?? { lineBreak: "normal", wordBreak: "auto-phrase" },
+    global: {
+      lineBreak: entry?.global?.lineBreak ?? "normal",
+      wordBreak: entry?.global?.wordBreak ?? "auto-phrase",
+      ...(entry?.global ?? {}),
+    },
     fontSize,
     lineHeight,
     fontWeight,
