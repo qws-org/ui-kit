@@ -186,6 +186,7 @@ export type ColorKeys =
   | "surface-accent1-default"
   | "surface-accent1-hovered"
   | "surface-accent2-default"
+  | "surface-accent3-default"
   | "surface-accent2-hovered"
   | "surface-accent-button-default"
   | "surface-accent-button-hovered"

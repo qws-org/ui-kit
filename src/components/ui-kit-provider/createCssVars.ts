@@ -261,6 +261,7 @@ export const createCssVars = (
     "--colors-surface-accent2-default": theme.colors["surface-accent2-default"],
     "--colors-surface-accent1-hovered": theme.colors["surface-accent1-hovered"],
     "--colors-surface-accent2-hovered": theme.colors["surface-accent2-hovered"],
+    "--colors-surface-accent3-default": theme.colors["surface-accent3-default"],
     "--colors-surface-accent-button-default":
       theme.colors["surface-accent-button-default"],
     "--colors-surface-accent-button-hovered":
