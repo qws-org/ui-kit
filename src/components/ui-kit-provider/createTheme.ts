@@ -163,6 +163,7 @@ export const createTheme = (
       entry?.colors?.["background-accent2-reversed"] ??
       "linear-gradient(144.58deg, #FFFAEA 1.33%, #F057A2 33.89%, #985BE7 66.45%, #60ABED 100%)",
     "background-popups1": entry?.colors?.["background-popups1"] ?? "#271D34",
+    "background-popups2": entry?.colors?.["background-popups2"] ?? "#322544",
 
     // border
     "border-accent": entry?.colors?.["border-accent"] ?? "#F9D48C",
