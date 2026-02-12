@@ -24,6 +24,7 @@ import {
   useBackground,
   useDimensions,
   useDisplay,
+  usePosition,
   useSpacing,
   useUiKitComponents,
 } from "~/components";
@@ -210,7 +211,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       isActive = false,
       isDisabled = false,
       onPress,
-
+      position,
       ...props
     },
     ref,
@@ -305,6 +306,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
       active: { m: active ?? {}, md: md?.active ?? {}, d: d?.active ?? {} },
     });
 
+    const positionStyles = usePosition({
+      m: position ? { position } : undefined,
+      md: md?.position ? { position: md.position } : undefined,
+      d: d?.position ? { position: d.position } : undefined,
+    });
+
     // cursor
     const cursor = useCursor({ m: props, md, d });
     const resolvedProps = useResolvedAttributes(props);
@@ -325,7 +332,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               isActive,
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
-              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
+              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${positionStyles.className} ${className ?? ""}`,
             })}
             onClick={(e) => onPress?.(e as never)}
             style={{
@@ -336,6 +343,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               ...border.style,
               ...cursor.style,
               ...animation.style,
+              ...positionStyles.styles,
             }}
           >
             {children}
