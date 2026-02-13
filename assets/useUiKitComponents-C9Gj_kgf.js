@@ -1,0 +1,1 @@
+import{r as t}from"./index-D4H_InIO.js";import{u as r}from"./useUiKitTheme-DbHycIcO.js";const i=()=>{const o=t.useContext(r);if(o===null)throw new Error("data of UIKitProvider cannot be null, please add 'UIKitProvider' to the root of your application");return o.components};export{i as u};
