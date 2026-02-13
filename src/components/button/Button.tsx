@@ -365,7 +365,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               isActive,
               sizeButtonFontSize: props.fontSize ? undefined : size,
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
-              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
+              className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${positionStyles.className} ${className ?? ""}`,
             })}
             style={{
               ...spacing.styles,
@@ -375,6 +375,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               ...border.style,
               ...cursor.style,
               ...animation.style,
+              ...positionStyles.styles,
             }}
             href={href}
             target={"_blank"}
@@ -399,7 +400,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             isActive,
             sizeButtonFontSize: props.fontSize ? undefined : size,
             sizeButtonLineHeight: props.lineHeight ? undefined : size,
-            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${animation.className} ${className ?? ""}`,
+            className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${border.className} ${background.className} ${typography.classNames} ${cursor.className} ${animation.className} ${positionStyles.className} ${className ?? ""}`,
           })}
           style={{
             ...spacing.styles,
@@ -409,6 +410,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ...border.style,
             ...cursor.style,
             ...animation.style,
+            ...positionStyles.styles,
           }}
           onClick={(e) => onPress?.(e as never)}
         >

@@ -307,3 +307,10 @@ export const TransparentAndDisabled: Story = {
     isDisabled: true,
   },
 };
+
+export const AbsolutePosition: Story = {
+  args: {
+    children: "Absolute Position Button",
+    position: { type: "absolute", top: 16, right: 16 },
+  },
+};
