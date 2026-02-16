@@ -7,8 +7,6 @@ body {
 @layer base {
     * {
         color: var(--colors-text-primary-default);
-        margin: 0;
-        padding: 0;
         word-break: var(--global-word-break);
         line-break: var(--global-line-break);
     }

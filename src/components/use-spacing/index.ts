@@ -23,6 +23,7 @@ export const useSpacing = (
 ): UIKitUseSpacingOutput => {
   const md = params.md;
   const d = params?.d;
+
   const mobileSpacing = getIndentationsStyles(
     { ...params.m },
     {
@@ -46,13 +47,13 @@ export const useSpacing = (
       styles["--m-pt"] = mobileSpacing.padding[0];
       className += `pt-[var(--m-pt)] `;
     }
-    if (mobileSpacing.padding[2] !== "0px") {
-      styles["--m-pb"] = mobileSpacing.padding[2];
-      className += `pb-[var(--m-pb)] `;
-    }
     if (mobileSpacing.padding[1] !== "0px") {
       styles["--m-pr"] = mobileSpacing.padding[1];
       className += `pr-[var(--m-pr)] `;
+    }
+    if (mobileSpacing.padding[2] !== "0px") {
+      styles["--m-pb"] = mobileSpacing.padding[2];
+      className += `pb-[var(--m-pb)] `;
     }
     if (mobileSpacing.padding[3] !== "0px") {
       styles["--m-pl"] = mobileSpacing.padding[3];
@@ -67,13 +68,13 @@ export const useSpacing = (
       styles["--md-pt"] = mdSpacing.padding[0];
       className += `md:pt-[var(--md-pt)] `;
     }
-    if (mdSpacing.padding[2] !== mobileSpacing.padding[2]) {
-      styles["--md-pb"] = mdSpacing.padding[2];
-      className += `md:pb-[var(--md-pb)] `;
-    }
     if (mdSpacing.padding[1] !== mobileSpacing.padding[1]) {
       styles["--md-pr"] = mdSpacing.padding[1];
       className += `md:pr-[var(--md-pr)] `;
+    }
+    if (mdSpacing.padding[2] !== mobileSpacing.padding[2]) {
+      styles["--md-pb"] = mdSpacing.padding[2];
+      className += `md:pb-[var(--md-pb)] `;
     }
     if (mdSpacing.padding[3] !== mobileSpacing.padding[3]) {
       styles["--md-pl"] = mdSpacing.padding[3];
@@ -83,20 +84,20 @@ export const useSpacing = (
 
   if (JSON.stringify(dSpacing.padding) !== JSON.stringify(mdSpacing.padding)) {
     if (dSpacing.padding[0] !== mdSpacing.padding[0]) {
-      styles["--lg-pt"] = dSpacing.padding[0];
-      className += `lg:pt-[var(--lg-pt)] `;
-    }
-    if (dSpacing.padding[2] !== mdSpacing.padding[2]) {
-      styles["--lg-pb"] = dSpacing.padding[2];
-      className += `lg:pb-[var(--lg-pb)] `;
+      styles["--d-pt"] = dSpacing.padding[0];
+      className += `lg:pt-[var(--d-pt)] `;
     }
     if (dSpacing.padding[1] !== mdSpacing.padding[1]) {
-      styles["--lg-pr"] = dSpacing.padding[1];
-      className += `lg:pr-[var(--lg-pr)] `;
+      styles["--d-pr"] = dSpacing.padding[1];
+      className += `lg:pr-[var(--d-pr)] `;
+    }
+    if (dSpacing.padding[2] !== mdSpacing.padding[2]) {
+      styles["--d-pb"] = dSpacing.padding[2];
+      className += `lg:pb-[var(--d-pb)] `;
     }
     if (dSpacing.padding[3] !== mdSpacing.padding[3]) {
-      styles["--lg-pl"] = dSpacing.padding[3];
-      className += `lg:pl-[var(--lg-pl)] `;
+      styles["--d-pl"] = dSpacing.padding[3];
+      className += `lg:pl-[var(--d-pl)] `;
     }
   }
 
@@ -105,19 +106,20 @@ export const useSpacing = (
       styles["--m-mt"] = mobileSpacing.margin[0];
       className += `mt-[var(--m-mt)] `;
     }
-    if (mobileSpacing.margin[2] !== "0px") {
-      styles["--m-mb"] = mobileSpacing.margin[2];
-      className += `mb-[var(--m-mb)] `;
-    }
     if (mobileSpacing.margin[1] !== "0px") {
       styles["--m-mr"] = mobileSpacing.margin[1];
       className += `mr-[var(--m-mr)] `;
+    }
+    if (mobileSpacing.margin[2] !== "0px") {
+      styles["--m-mb"] = mobileSpacing.margin[2];
+      className += `mb-[var(--m-mb)] `;
     }
     if (mobileSpacing.margin[3] !== "0px") {
       styles["--m-ml"] = mobileSpacing.margin[3];
       className += `ml-[var(--m-ml)] `;
     }
   }
+
   if (
     JSON.stringify(mdSpacing.margin) !== JSON.stringify(mobileSpacing.margin)
   ) {
@@ -125,13 +127,13 @@ export const useSpacing = (
       styles["--md-mt"] = mdSpacing.margin[0];
       className += `md:mt-[var(--md-mt)] `;
     }
-    if (mdSpacing.margin[2] !== mobileSpacing.margin[2]) {
-      styles["--md-mb"] = mdSpacing.margin[2];
-      className += `md:mb-[var(--md-mb)] `;
-    }
     if (mdSpacing.margin[1] !== mobileSpacing.margin[1]) {
       styles["--md-mr"] = mdSpacing.margin[1];
       className += `md:mr-[var(--md-mr)] `;
+    }
+    if (mdSpacing.margin[2] !== mobileSpacing.margin[2]) {
+      styles["--md-mb"] = mdSpacing.margin[2];
+      className += `md:mb-[var(--md-mb)] `;
     }
     if (mdSpacing.margin[3] !== mobileSpacing.margin[3]) {
       styles["--md-ml"] = mdSpacing.margin[3];
@@ -141,20 +143,20 @@ export const useSpacing = (
 
   if (JSON.stringify(dSpacing.margin) !== JSON.stringify(mdSpacing.margin)) {
     if (dSpacing.margin[0] !== mdSpacing.margin[0]) {
-      styles["--lg-mt"] = dSpacing.margin[0];
-      className += `lg:mt-[var(--lg-mt)] `;
-    }
-    if (dSpacing.margin[2] !== mdSpacing.margin[2]) {
-      styles["--lg-mb"] = dSpacing.margin[2];
-      className += `lg:mb-[var(--lg-mb)] `;
+      styles["--d-mt"] = dSpacing.margin[0];
+      className += `lg:mt-[var(--d-mt)] `;
     }
     if (dSpacing.margin[1] !== mdSpacing.margin[1]) {
-      styles["--lg-mr"] = dSpacing.margin[1];
-      className += `lg:mr-[var(--lg-mr)] `;
+      styles["--d-mr"] = dSpacing.margin[1];
+      className += `lg:mr-[var(--d-mr)] `;
+    }
+    if (dSpacing.margin[2] !== mdSpacing.margin[2]) {
+      styles["--d-mb"] = dSpacing.margin[2];
+      className += `lg:mb-[var(--d-mb)] `;
     }
     if (dSpacing.margin[3] !== mdSpacing.margin[3]) {
-      styles["--lg-ml"] = dSpacing.margin[3];
-      className += `lg:ml-[var(--lg-ml)] `;
+      styles["--d-ml"] = dSpacing.margin[3];
+      className += `lg:ml-[var(--d-ml)] `;
     }
   }
 
