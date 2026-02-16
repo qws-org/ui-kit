@@ -45,22 +45,18 @@ export const useSpacing = (
     if (mobileSpacing.padding[0] !== "0px") {
       styles["--m-pt"] = mobileSpacing.padding[0];
       className += `pt-[var(--m-pt)] `;
-      styles.paddingTop = mobileSpacing.padding[0];
     }
     if (mobileSpacing.padding[2] !== "0px") {
       styles["--m-pb"] = mobileSpacing.padding[2];
       className += `pb-[var(--m-pb)] `;
-      styles.paddingBottom = mobileSpacing.padding[2];
     }
     if (mobileSpacing.padding[1] !== "0px") {
       styles["--m-pr"] = mobileSpacing.padding[1];
       className += `pr-[var(--m-pr)] `;
-      styles.paddingRight = mobileSpacing.padding[1];
     }
     if (mobileSpacing.padding[3] !== "0px") {
       styles["--m-pl"] = mobileSpacing.padding[3];
       className += `pl-[var(--m-pl)] `;
-      styles.paddingLeft = mobileSpacing.padding[3];
     }
   }
 
