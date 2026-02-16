@@ -58,11 +58,10 @@ export const Modal: FC<ModalProps> & { Trigger: FC<ModalTriggerProps> } = ({
         >
           <Box
             {...modalProps}
-            style={{ ...underlayProps.style }}
+            style={{ ...underlayProps.style, height: "100dvh" }}
             ref={ref}
             position={{ type: "relative" }}
             width="100%"
-            height="100vh"
             p={props.p ?? DEFAULT_SPACING_PADDING}
             md={{ p: md?.p ?? MD_DEFAULT_SPACING_PADDING, ...md }}
             className="overflow-auto"
