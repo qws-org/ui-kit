@@ -262,6 +262,9 @@ export const createTheme = (
     "surface-accent-button-default":
       entry?.colors?.["surface-accent-button-default"] ??
       "linear-gradient(270deg, #7DE239 0%, #00C950 100%)",
+    "surface-accent3-default":
+      entry?.colors?.["surface-accent3-default"] ??
+      "linear-gradient(89.65deg, #F4AD23 0.3%, #F93448 75.03%)",
     "surface-accent-button-hovered":
       entry?.colors?.["surface-accent-button-hovered"] ??
       "linear-gradient(270deg, #00C950 0%, #7DE239 100%)",
