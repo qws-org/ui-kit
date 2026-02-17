@@ -609,6 +609,45 @@ export const useTypography = (props: Entry): Output => {
   }
   // ----------------------------------------------------------------------------
 
+  // word break
+  if (props.m?.wordBreak) {
+    classNames += `break-${props.m.wordBreak} `;
+  }
+
+  if (props.md?.wordBreak && props.md.wordBreak !== props.m?.wordBreak) {
+    classNames += `md:break-${props.md.wordBreak} `;
+  }
+
+  const mdWordBreak = props.md?.wordBreak ?? props.m?.wordBreak;
+
+  if (props.d?.wordBreak && props.d.wordBreak !== mdWordBreak) {
+    classNames += `lg:break-${props.d.wordBreak} `;
+  }
+  // ----------------------------------------------------------------------------
+
+  // hover word break
+  if (props.hover.m?.wordBreak) {
+    classNames += `hover:break-${props.hover.m.wordBreak} `;
+  }
+
+  if (
+    props.hover.md?.wordBreak &&
+    props.hover.md.wordBreak !== props.hover.m?.wordBreak
+  ) {
+    classNames += `md:hover:break-${props.hover.md.wordBreak} `;
+  }
+
+  const hoverMdWordBreak =
+    props.hover.md?.wordBreak ?? props.hover.m?.wordBreak;
+
+  if (
+    props.hover.d?.wordBreak &&
+    props.hover.d.wordBreak !== hoverMdWordBreak
+  ) {
+    classNames += `lg:hover:break-${props.hover.d.wordBreak} `;
+  }
+  // ----------------------------------------------------------------------------
+
   return {
     classNames,
     styles,

@@ -218,6 +218,8 @@ export type UiKitFlexParams = {
   flexDirection?: UiKitFlexDirection;
   flexWrap?: UiKitFlexWrap;
   order?: number;
+  shrink?: 0 | 1;
+  grow?: 0 | 1;
 };
 
 export type UiKitBackgroundProps = {
@@ -267,7 +269,8 @@ export type UiKitTypographyProps = {
   textTransform?: "uppercase" | "lowercase" | "capitalize" | "normal-case";
   textDecoration?: "underline" | "line-through" | "overline" | "no-underline";
   textOverflow?: "ellipsis" | "clip";
-  whiteSpace?: "nowrap" | "pre" | "pre-line" | "pre-wrap";
+  whiteSpace?: "nowrap" | "pre" | "pre-line" | "pre-wrap" | "break-spaces";
+  wordBreak?: "all" | "word" | "keep" | "normal";
   color?: ColorKeys | string;
   italic?: boolean;
   fontFamily?: FontFamilyKeys;

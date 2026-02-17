@@ -41,10 +41,12 @@ export const Flex = forwardRef(
       justify,
       style,
       order,
+      shrink,
+      grow,
     } = props;
 
     const flex = useFlex({
-      m: { flexWrap, gap, align, flexDirection, justify, order },
+      m: { flexWrap, gap, align, flexDirection, justify, order, shrink, grow },
       md: { ...md },
       d: { ...d },
     });
