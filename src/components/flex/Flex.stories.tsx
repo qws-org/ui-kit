@@ -161,3 +161,39 @@ export const Order: Story = {
     );
   },
 };
+
+export const Shrink: Story = {
+  render(args) {
+    return (
+      <Flex {...args} p={12} gap={10} bg="rgba(0,255,255,0.2)">
+        <Flex
+          p={10}
+          bg="rgba(255,255,255,0.2)"
+          shrink={1}
+          md={{ shrink: 0 }}
+          d={{ shrink: 1 }}
+        >
+          1
+        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const Grow: Story = {
+  render(args) {
+    return (
+      <Flex {...args} p={12} gap={10} bg="rgba(0,255,255,0.2)">
+        <Flex
+          p={10}
+          bg="rgba(255,255,255,0.2)"
+          grow={1}
+          md={{ grow: 0 }}
+          d={{ grow: 1 }}
+        >
+          1
+        </Flex>
+      </Flex>
+    );
+  },
+};

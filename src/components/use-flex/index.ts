@@ -312,6 +312,40 @@ export const useFlex = (params: {
     className += `lg:order-[var(--lg-o)] `;
   }
 
+  if (params.m.shrink !== undefined) {
+    styles["--shrink"] = params.m.shrink;
+    className += `shrink-[var(--shrink)] `;
+  }
+
+  if (params.md.shrink !== undefined && params.md.shrink !== params.m.shrink) {
+    styles["--md-shrink"] = params.md.shrink;
+    className += `md:shrink-[var(--md-shrink)] `;
+  }
+
+  const mdShrink = params.md.shrink ?? params.m.shrink;
+
+  if (params.d.shrink !== undefined && params.d.shrink !== mdShrink) {
+    styles["--lg-shrink"] = params.d.shrink;
+    className += `lg:shrink-[var(--lg-shrink)] `;
+  }
+
+  if (params.m.grow !== undefined) {
+    styles["--grow"] = params.m.grow;
+    className += `grow-[var(--grow)] `;
+  }
+
+  if (params.md.grow !== undefined && params.md.grow !== params.m.grow) {
+    styles["--md-grow"] = params.md.grow;
+    className += `md:grow-[var(--md-grow)] `;
+  }
+
+  const mdGrow = params.md.grow ?? params.m.grow;
+
+  if (params.d.grow !== undefined && params.d.grow !== mdGrow) {
+    styles["--lg-grow"] = params.d.grow;
+    className += `lg:grow-[var(--lg-grow)] `;
+  }
+
   return {
     styles,
     className,
