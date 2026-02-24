@@ -384,7 +384,7 @@ export const ModalFix: StoryObj = {
     >
       {(close) => (
         <Flex
-          height="var(--app-height)"
+          height="98vh"
           flexDirection="column"
           border={{ radius: "0" }}
           width="100%"
@@ -395,6 +395,7 @@ export const ModalFix: StoryObj = {
             border: { radius: "16px" },
           }}
           data-testid="promo-modal"
+          bg="white"
         >
           <Flex
             align="center"
@@ -513,6 +514,62 @@ export const ModalFix: StoryObj = {
                 "Term 8",
                 "Term 9",
                 "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
+                "Term 10",
               ].map((el, i) => (
                 <Flex key={i} align="start" gap={12}>
                   <Flex
@@ -526,7 +583,6 @@ export const ModalFix: StoryObj = {
                     data-testid={`modal-term-${i}`}
                   >
                     <Typography
-                      color="text-primary-default"
                       fontWeight="mobile.bold"
                       fontFamily="accent"
                       fontSize="body.mobile.xsmall"
@@ -536,7 +592,6 @@ export const ModalFix: StoryObj = {
                     </Typography>
                   </Flex>
                   <Typography
-                    color="text-primary-muted"
                     fontFamily="accent"
                     md={{
                       fontSize: "body.desktop.medium",
