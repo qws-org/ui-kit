@@ -1,4 +1,9 @@
-import type { ElementType, PropsWithChildren, ReactNode } from "react";
+import type {
+  ElementType,
+  MouseEvent,
+  PropsWithChildren,
+  ReactNode,
+} from "react";
 import { forwardRef, useRef } from "react";
 import type { AriaButtonOptions } from "react-aria";
 import { useButton } from "react-aria";
@@ -189,8 +194,11 @@ export type ButtonProps<Element extends ElementType> = PropsWithChildren<
             } & { border?: UiKitBorderProps }
         >
       >,
-    "onClick"
-  > & { size?: ButtonSize }
+    "onClick" | "onPress"
+  > & {
+    size?: ButtonSize;
+    onPress?: (e: MouseEvent<HTMLElement>) => void;
+  }
 >;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
@@ -334,7 +342,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
               sizeButtonLineHeight: props.lineHeight ? undefined : size,
               className: `${display.classNames} ${spacing.className ?? ""} ${dimension.className} ${background.className} ${border.className} ${typography.classNames} ${cursor.className} ${animation.className} ${positionStyles.className} ${className ?? ""}`,
             })}
-            onClick={(e) => onPress?.(e as never)}
+            onClick={(e) => onPress?.(e)}
             style={{
               ...spacing.styles,
               ...dimension.styles,
@@ -379,7 +387,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             }}
             href={href}
             target={"_blank"}
-            onClick={(e) => onPress?.(e as never)}
+            onClick={(e) => onPress?.(e)}
           >
             {children}
           </a>
@@ -412,7 +420,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps<ElementType>>(
             ...animation.style,
             ...positionStyles.styles,
           }}
-          onClick={(e) => onPress?.(e as never)}
+          onClick={(e) => onPress?.(e)}
         >
           {children}
         </Link>

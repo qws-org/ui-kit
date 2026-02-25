@@ -46,7 +46,11 @@ export const PopoverTrigger: React.FC<PopoverTriggerProps> = ({
           onClick: triggerProps.onPress,
         })
       ) : (
-        <Button ref={ref} {...triggerProps}>
+        <Button
+          ref={ref}
+          {...triggerProps}
+          onPress={(e) => triggerProps.onPress?.(e as never)}
+        >
           {label}
         </Button>
       )}

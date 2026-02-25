@@ -48,7 +48,7 @@ export const ModalTrigger: FC<ModalTriggerProps> = ({
           {...triggerProps}
           onPress={(e) => {
             props?.onPress?.(e);
-            triggerProps?.onPress?.(e);
+            triggerProps?.onPress?.(e as never);
           }}
         >
           {label}
