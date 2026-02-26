@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { forwardRef, useState } from "react";
 
 import type { UIKitIndentations } from "~/components";
-import { Flex, UIKitProvider } from "~/components";
+import { Flex, Typography, UIKitProvider } from "~/components";
 import { createTheme } from "~/components/ui-kit-provider/createTheme";
 
 import { Box } from "./Box";
@@ -491,5 +491,114 @@ export const FromBottomAnimation: Story = {
   },
   render(args) {
     return <Box {...args}></Box>;
+  },
+};
+
+export const ListWithDisc: Story = {
+  render() {
+    return (
+      <Flex
+        as="ul"
+        flexDirection="column"
+        listStyle={{ type: "disc" }}
+        align={"center"}
+      >
+        {["list disc", "list disc", "list disc"].map((item, index) => (
+          <Typography
+            key={index}
+            as="li"
+            display={"list-item"}
+            horizontalAlign="center"
+            fontSize={"body.mobile.large"}
+            lineHeight={"body.mobile.large"}
+            md={{
+              fontSize: "button.desktop.large",
+              lineHeight: "body.desktop.large",
+              horizontalAlign: "left",
+            }}
+          >
+            {item}
+          </Typography>
+        ))}
+      </Flex>
+    );
+  },
+};
+export const ListWithDecimal: Story = {
+  render() {
+    return (
+      <Flex
+        as="ul"
+        flexDirection="column"
+        listStyle={{ type: "decimal" }}
+        align={"center"}
+      >
+        {["list decimal", "list decimal", "list decimal"].map((item, index) => (
+          <Typography key={index} as="li" display={"list-item"}>
+            {item}
+          </Typography>
+        ))}
+      </Flex>
+    );
+  },
+};
+export const ListWithPositionExample: Story = {
+  render() {
+    return (
+      <div>
+        <Flex
+          as="ul"
+          flexDirection="column"
+          listStyle={{ type: "disc", position: "inside" }}
+          align={"center"}
+        >
+          {["list inside", "list inside", "list inside"].map((item, index) => (
+            <Typography bg={"orange"} key={index} as="li" display={"list-item"}>
+              {item}
+            </Typography>
+          ))}
+        </Flex>
+        <div className={"h-4"}></div>
+        <Flex
+          as="ul"
+          flexDirection="column"
+          listStyle={{ type: "disc", position: "outside" }}
+          align={"center"}
+        >
+          {["list outside", "list outside", "list outside"].map(
+            (item, index) => (
+              <Typography
+                bg={"orange"}
+                key={index}
+                as="li"
+                display={"list-item"}
+              >
+                {item}
+              </Typography>
+            ),
+          )}
+        </Flex>
+      </div>
+    );
+  },
+};
+export const CustomList: Story = {
+  render() {
+    return (
+      <Flex
+        as="ul"
+        flexDirection="column"
+        listStyle={{ type: "disc", position: "inside" }}
+        md={{ listStyle: { type: "none" } }}
+        d={{ listStyle: { type: "decimal", position: "outside" } }}
+        align={"center"}
+      >
+        {["CustomList", "CustomList", "CustomList"].map((item, index) => (
+          <Typography key={index} as="li" display={"list-item"}>
+            {item}
+          </Typography>
+        ))}
+      </Flex>
+    );
   },
 };

@@ -123,6 +123,18 @@ const generateCursorClasses = (): Array<string> => {
   const dCursors = initialCursors.map((cursor) => `lg:${cursor}`);
   return initialCursors.concat(mdCursors).concat(dCursors);
 };
+const generateListStyleClasses = (): Array<string> => {
+  const initialListStyle = [
+    "list-none",
+    "list-disc",
+    "list-decimal",
+    "list-inside",
+    "list-outside",
+  ];
+  const mdListStyles = initialListStyle.map((item) => `md:${item}`);
+  const dListStyles = initialListStyle.map((item) => `lg:${item}`);
+  return initialListStyle.concat(mdListStyles).concat(dListStyles);
+};
 const generateFlex = (): Array<string> => {
   return [
     "gap-[var(--gap)]",
@@ -636,6 +648,7 @@ export default {
     ...generateTypography(),
     ...generateEffectClasses(),
     ...generateCursorClasses(),
+    ...generateListStyleClasses(),
     ...generateAnimationClasses(),
   ],
   theme: {
