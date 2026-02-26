@@ -257,7 +257,8 @@ export type UiKitDisplayProps = {
     | "table"
     | "table-cell"
     | "grid"
-    | "table-row";
+    | "table-row"
+    | "list-item";
 };
 
 export type UiKitTypographyProps = {
@@ -318,6 +319,12 @@ export type UiKitOutlineProps = {
   outlineWidth?: string;
   outlineOffset?: string;
   outlineStyle?: "none" | "solid" | "dashed" | "dotted" | "double";
+};
+export type UiKitListStyleProps = {
+  listStyle?: {
+    position?: "inside" | "outside";
+    type?: "none" | "disc" | "decimal";
+  };
 };
 
 export type UiKitCursorProps = {

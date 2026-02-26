@@ -12,6 +12,7 @@ import { useAnimation } from "~/components/use-animation";
 import { useBorder } from "~/components/use-border";
 import { useCssEffects } from "~/components/use-css-effects";
 import { useCursor } from "~/components/use-cursor";
+import { useListStyle } from "~/components/use-list-style";
 import { useOutline } from "~/components/use-outline";
 import { useResolvedAttributes } from "~/components/use-resolved-attributes";
 
@@ -26,6 +27,7 @@ import type {
   UiKitDisplayProps,
   UiKitEffectProps,
   UIKitIndentationsProps,
+  UiKitListStyleProps,
   UiKitOutlineProps,
   UiKitPositionProps,
   UiKitTypographyProps,
@@ -46,6 +48,7 @@ export type DefaultProps = Partial<
     UiKitEffectProps &
     UiKitAnimationProps &
     UiKitCursorProps &
+    UiKitListStyleProps &
     UiKitDataAttributesProps &
     UiKitTypographyProps & { border?: UiKitBorderProps } & Omit<
       UiKitBackgroundProps,
@@ -190,6 +193,10 @@ export const Box = forwardRef(
     });
     // cursor
     const cursor = useCursor({ m: rest, md, d });
+
+    // list style
+    const listStyle = useListStyle({ m: rest, md, d });
+
     const resolvedProps = useResolvedAttributes(rest);
     const Root = as ?? "div";
     return (
@@ -203,7 +210,7 @@ export const Box = forwardRef(
           className={
             `${display.classNames} ${effects.className} ${outline.className} ${border.className} ` +
             `${spacing.className} ${positionStyles.className} ${background.className} ` +
-            `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${animation.className} ${className ?? ""}`
+            `${dimension.className} ${typography.classNames} ${groupParent ? "group" : ""} ${cursor.className} ${listStyle.className} ${animation.className} ${className ?? ""}`
           }
           onClick={(e) => {
             onClick?.(e);
@@ -218,6 +225,7 @@ export const Box = forwardRef(
             ...typography.styles,
             ...effects.style,
             ...cursor.style,
+            ...listStyle.style,
             ...animation.style,
             ...(rest.style as object),
           }}
