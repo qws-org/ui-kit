@@ -602,3 +602,17 @@ export const CustomList: Story = {
     );
   },
 };
+
+export const DeviceDependingPositioning: Story = {
+  render() {
+    return (
+      <Box
+        d={{ position: { type: "fixed", top: "100px" } }}
+        md={{ position: { type: "relative", top: "auto" } }}
+        position={{ type: "absolute", top: 10, left: 10 }}
+      >
+        Position Test
+      </Box>
+    );
+  },
+};
