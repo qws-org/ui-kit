@@ -11,30 +11,28 @@ import type { UseOutlineBaseProps } from "~/components/use-outline";
 export const getLabelProps = ({
   variant,
   isFocused,
-  value,
+  isLabelFloated,
 }: {
   variant: TextFieldV2Variant;
   isFocused: boolean;
-  value: string | number | ReadonlyArray<string> | undefined;
+  isLabelFloated: boolean;
 }): TypographyProps => {
-  const hasValue = isFocused || !!value;
-
   const variants = {
     primary: {
       as: "label",
       position: {
         type: "absolute",
         left: "32px",
-        top: hasValue ? "6px" : "16px",
+        top: isLabelFloated ? "6px" : "16px",
       },
-      opacity: hasValue ? 50 : undefined,
+      opacity: isLabelFloated ? 50 : undefined,
       color: "text-secondary-default",
-      fontSize: hasValue ? "body.mobile.xsmall" : "body.mobile.large",
+      fontSize: isLabelFloated ? "body.mobile.xsmall" : "body.mobile.large",
       md: {
-        fontSize: hasValue ? "body.desktop.xsmall" : "body.desktop.large",
-        lineHeight: hasValue ? "body.desktop.xsmall" : "body.desktop.large",
+        fontSize: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.large",
+        lineHeight: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.large",
       },
-      lineHeight: hasValue ? "body.mobile.small" : "body.mobile.large",
+      lineHeight: isLabelFloated ? "body.mobile.small" : "body.mobile.large",
     },
 
     secondary: {
@@ -42,16 +40,16 @@ export const getLabelProps = ({
       position: {
         type: "absolute",
         left: "12px",
-        top: hasValue ? "7px" : "15px",
+        top: isLabelFloated ? "7px" : "15px",
       },
-      opacity: hasValue ? 50 : undefined,
+      opacity: isLabelFloated ? 50 : undefined,
       color: isFocused ? "text-selection" : "text-secondary-default",
-      fontSize: hasValue ? "body.mobile.xsmall" : "body.mobile.medium",
+      fontSize: isLabelFloated ? "body.mobile.xsmall" : "body.mobile.medium",
       md: {
-        fontSize: hasValue ? "body.desktop.xsmall" : "body.desktop.medium",
-        lineHeight: hasValue ? "body.desktop.xsmall" : "body.desktop.medium",
+        fontSize: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.medium",
+        lineHeight: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.medium",
       },
-      lineHeight: hasValue ? "body.mobile.small" : "body.mobile.medium",
+      lineHeight: isLabelFloated ? "body.mobile.small" : "body.mobile.medium",
     },
   } as const;
 

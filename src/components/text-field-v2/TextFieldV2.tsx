@@ -32,12 +32,14 @@ export interface TextFieldV2Props
     | ((args: {
         isFocused: boolean;
         value?: string | ReadonlyArray<string> | number;
+        alwaysShowMask?: boolean;
       }) => ReactNode);
   icon?: (args: { isDisabled?: boolean }) => ReactNode;
   errorMessage?: string | ReactNode;
   className?: string;
   customInput?: ReactElement;
   variant?: TextFieldV2Variant;
+  alwaysShowMask?: boolean;
 }
 type Props = TextFieldV2Props & Partial<BoxProps>;
 
@@ -53,6 +55,7 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
     onChange: _onChange,
     spellCheck: _spellCheck,
     variant = "primary",
+    alwaysShowMask = false,
     ...rest
   } = props;
   const [isFocused, setIsFocused] = useState(false);
@@ -68,6 +71,9 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
     // @ts-expect-error
     ref ?? inputRef,
   );
+
+  const isLabelFloated =
+    isFocused || !!inputProps.value || alwaysShowMask;
 
   const spacing = useSpacing({
     m: {
@@ -145,7 +151,7 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const Label =
     label && typeof label !== "string" ? (
-      label({ isFocused, value: inputProps.value })
+      label({ isFocused, value: inputProps.value, alwaysShowMask })
     ) : (
       <></>
     );
@@ -162,7 +168,7 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
           {...getLabelProps({
             variant,
             isFocused,
-            value: inputProps.value,
+            isLabelFloated,
           })}
         >
           {label}
@@ -176,6 +182,7 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
           ...rest,
           ...inputProps,
           ref,
+          alwaysShowMask: alwaysShowMask,
           onClick: inputProps.onClick,
           className: `${border.className} ${background.className} ${spacing.className} ${dimension.className} ${typography.classNames} ${outline.className} ${className}`,
           style: {

@@ -33,7 +33,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     className,
     mask,
     maskChar,
-    alwaysShowMask,
+    alwaysShowMask = false,
     ...indentationProps
   } = props;
   const [isFocused, setIsFocused] = useState(false);
@@ -45,6 +45,9 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     // @ts-expect-error
     ref ?? inputRef,
   );
+
+  const isLabelFloated =
+    isFocused || !!inputProps.value || alwaysShowMask;
 
   const InputComponent = mask ? InputMask : "input";
 
@@ -98,24 +101,24 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     >
       <Typography
         as="label"
-        className={`pointer-events-none transition-all -translate-y-1/2 ${(isFocused || !!inputProps.value) && "opacity-50 translate-y-0"} `}
+        className={`pointer-events-none transition-all -translate-y-1/2 ${isLabelFloated && "opacity-50 translate-y-0"} `}
         position={{
           type: "absolute",
           left: "30px",
-          top: isFocused || !!inputProps.value ? "10px" : "50%",
+          top: isLabelFloated ? "10px" : "50%",
         }}
         color={
-          isFocused || !!inputProps.value
+          isLabelFloated
             ? "text-secondary-hovered"
             : "text-secondary-default"
         }
         fontSize={
-          isFocused || !!inputProps.value
+          isLabelFloated
             ? "body.mobile.small"
             : "body.mobile.large"
         }
         lineHeight={
-          isFocused || !!inputProps.value
+          isLabelFloated
             ? "body.mobile.small"
             : "body.mobile.large"
         }
