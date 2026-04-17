@@ -72,8 +72,7 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
     ref ?? inputRef,
   );
 
-  const isLabelFloated =
-    isFocused || !!inputProps.value || alwaysShowMask;
+  const isLabelFloated = isFocused || !!inputProps.value || alwaysShowMask;
 
   const spacing = useSpacing({
     m: {
@@ -182,7 +181,7 @@ export const TextFieldV2 = forwardRef<HTMLInputElement, Props>((props, ref) => {
           ...rest,
           ...inputProps,
           ref,
-          alwaysShowMask: alwaysShowMask,
+          alwaysShowMask,
           onClick: inputProps.onClick,
           className: `${border.className} ${background.className} ${spacing.className} ${dimension.className} ${typography.classNames} ${outline.className} ${className}`,
           style: {

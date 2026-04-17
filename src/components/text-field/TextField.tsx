@@ -46,8 +46,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     ref ?? inputRef,
   );
 
-  const isLabelFloated =
-    isFocused || !!inputProps.value || alwaysShowMask;
+  const isLabelFloated = isFocused || !!inputProps.value || alwaysShowMask;
 
   const InputComponent = mask ? InputMask : "input";
 
@@ -108,20 +107,10 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
           top: isLabelFloated ? "10px" : "50%",
         }}
         color={
-          isLabelFloated
-            ? "text-secondary-hovered"
-            : "text-secondary-default"
+          isLabelFloated ? "text-secondary-hovered" : "text-secondary-default"
         }
-        fontSize={
-          isLabelFloated
-            ? "body.mobile.small"
-            : "body.mobile.large"
-        }
-        lineHeight={
-          isLabelFloated
-            ? "body.mobile.small"
-            : "body.mobile.large"
-        }
+        fontSize={isLabelFloated ? "body.mobile.small" : "body.mobile.large"}
+        lineHeight={isLabelFloated ? "body.mobile.small" : "body.mobile.large"}
       >
         {label}
       </Typography>
