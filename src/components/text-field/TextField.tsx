@@ -17,6 +17,7 @@ export interface TextFieldProps extends AriaTextFieldOptions<"input"> {
    */
   mask?: string;
   maskChar?: string;
+  alwaysShowMask?: boolean;
 }
 type Props = TextFieldProps & Partial<BoxProps>;
 /**
@@ -32,6 +33,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     className,
     mask,
     maskChar,
+    alwaysShowMask,
     ...indentationProps
   } = props;
   const [isFocused, setIsFocused] = useState(false);
@@ -127,6 +129,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
         // @ts-ignore
         mask={mask}
         maskChar={maskChar}
+        alwaysShowMask={alwaysShowMask}
         ref={ref}
         inputRef={ref}
         name={name}
