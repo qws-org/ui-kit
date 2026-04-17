@@ -123,12 +123,20 @@ export const Error: Story = {
 
 export const Mask: Story = {
   args: {
-    label: "Test mask",
     mask: "+\\91 9999999999",
     maskChar: "_",
     m: { mb: 10 },
   },
   render: (args) => {
-    return <TextField {...args} />;
+    return (
+      <>
+        <TextField {...args} label={"Test mask"} />
+        <TextField
+          {...args}
+          alwaysShowMask
+          label={"Test mask with alwaysShowMask"}
+        />
+      </>
+    );
   },
 };

@@ -30,7 +30,9 @@ export const getLabelProps = ({
       fontSize: isLabelFloated ? "body.mobile.xsmall" : "body.mobile.large",
       md: {
         fontSize: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.large",
-        lineHeight: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.large",
+        lineHeight: isLabelFloated
+          ? "body.desktop.xsmall"
+          : "body.desktop.large",
       },
       lineHeight: isLabelFloated ? "body.mobile.small" : "body.mobile.large",
     },
@@ -46,8 +48,12 @@ export const getLabelProps = ({
       color: isFocused ? "text-selection" : "text-secondary-default",
       fontSize: isLabelFloated ? "body.mobile.xsmall" : "body.mobile.medium",
       md: {
-        fontSize: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.medium",
-        lineHeight: isLabelFloated ? "body.desktop.xsmall" : "body.desktop.medium",
+        fontSize: isLabelFloated
+          ? "body.desktop.xsmall"
+          : "body.desktop.medium",
+        lineHeight: isLabelFloated
+          ? "body.desktop.xsmall"
+          : "body.desktop.medium",
       },
       lineHeight: isLabelFloated ? "body.mobile.small" : "body.mobile.medium",
     },
