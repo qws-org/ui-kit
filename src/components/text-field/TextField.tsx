@@ -17,6 +17,7 @@ export interface TextFieldProps extends AriaTextFieldOptions<"input"> {
    */
   mask?: string;
   maskChar?: string;
+  alwaysShowMask?: boolean;
 }
 type Props = TextFieldProps & Partial<BoxProps>;
 /**
@@ -32,6 +33,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     className,
     mask,
     maskChar,
+    alwaysShowMask = false,
     ...indentationProps
   } = props;
   const [isFocused, setIsFocused] = useState(false);
@@ -43,6 +45,8 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     // @ts-expect-error
     ref ?? inputRef,
   );
+
+  const isLabelFloated = isFocused || !!inputProps.value || alwaysShowMask;
 
   const InputComponent = mask ? InputMask : "input";
 
@@ -96,27 +100,17 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
     >
       <Typography
         as="label"
-        className={`pointer-events-none transition-all -translate-y-1/2 ${(isFocused || !!inputProps.value) && "opacity-50 translate-y-0"} `}
+        className={`pointer-events-none transition-all -translate-y-1/2 ${isLabelFloated && "opacity-50 translate-y-0"} `}
         position={{
           type: "absolute",
           left: "30px",
-          top: isFocused || !!inputProps.value ? "10px" : "50%",
+          top: isLabelFloated ? "10px" : "50%",
         }}
         color={
-          isFocused || !!inputProps.value
-            ? "text-secondary-hovered"
-            : "text-secondary-default"
+          isLabelFloated ? "text-secondary-hovered" : "text-secondary-default"
         }
-        fontSize={
-          isFocused || !!inputProps.value
-            ? "body.mobile.small"
-            : "body.mobile.large"
-        }
-        lineHeight={
-          isFocused || !!inputProps.value
-            ? "body.mobile.small"
-            : "body.mobile.large"
-        }
+        fontSize={isLabelFloated ? "body.mobile.small" : "body.mobile.large"}
+        lineHeight={isLabelFloated ? "body.mobile.small" : "body.mobile.large"}
       >
         {label}
       </Typography>
@@ -127,6 +121,7 @@ export const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
         // @ts-ignore
         mask={mask}
         maskChar={maskChar}
+        alwaysShowMask={alwaysShowMask}
         ref={ref}
         inputRef={ref}
         name={name}

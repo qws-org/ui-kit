@@ -332,6 +332,13 @@ export const Mask: Story = {
 
         <TextFieldV2
           {...args}
+          alwaysShowMask
+          label={"Phone with alwaysShowMask"}
+          customInput={<InputMask mask="+5 (999) 999-99-99" maskChar="_" />}
+        />
+
+        <TextFieldV2
+          {...args}
           label={"Card"}
           customInput={<InputMask mask="9999 9999 9999 9999" maskChar="•" />}
         />
